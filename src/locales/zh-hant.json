@@ -1,0 +1,470 @@
+{
+    "authentication": {
+    "login": {
+      "title": "Sign in",
+      "description": "Login form",
+      "form": {
+        "email": "E-mail or nickname",
+        "password": "Password",
+        "submit": "Sign in"
+      },
+      "forgotten_password": "Forgotten password ?"
+    },
+    "register": {
+      "title": "Registration",
+      "description": "Register form",
+      "form": {
+        "email": "E-mail",
+        "username": "Username",
+        "password": "Password",
+        "submit": "Register",
+        "rules_accepted": "Accept rules",
+        "read_rules": "Read rules"
+      }
+    },
+    "reset": {
+      "title": "Password reset",
+      "description": "You have lost your password",
+      "form": {
+        "email": "E-mail",
+        "email_help": "You will receive an e-mail to reset your password",
+        "submit": "Reset password"
+      },
+      "confirm": {
+        "password": "New password",
+        "submit": "Save new password"
+      }
+    }
+  },
+  "article": {
+    "title": "Title",
+    "publishedAt": "Published at",
+    "publishedBy": "Published by",
+    "publishedOn": "on",
+    "list": {
+      "title": "Articles list",
+      "caption": "Articles list"
+    },
+    "last": {
+      "title": "Latest news",
+      "caption": "Latest news",
+      "link": "See all articles"
+    },
+    "comment": {
+      "add": "Add a comment",
+      "edit": "Edit a comment"
+    }
+  },
+  "account":{
+    "tabs": {
+      "account": "帳戶",
+      "avatar": "頭像",
+      "team": "團隊'",
+      "badges": "徽章",
+      "videos": "Videos"
+    },
+    "avatar": {
+       "title": "我的頭像",
+       "description": "管理頭像"
+    },
+    "badges": {
+       "title": "我的徽章",
+       "description": "管理徽章"
+    },
+    "index": {
+       "title": "我的賬戶",
+       "description": "管理帳戶"
+    },
+    "team": {
+       "title": "我的團隊",
+       "description": "管理團隊"
+    },
+    "videos": {
+       "title": "My videos",
+       "description": "Manage videos"
+    }
+  },
+  "aside": {
+    "on": "上",
+    "shop": "商店",
+    "paypal": {
+      "title": "PayPal - 更安全、更簡單的在線支付方式！",
+      "alt": "用PayPal捐款"
+    },
+    "switch": {
+      "group": "Switch to another group",
+      "chart": "Switch to another record",
+      "forum": "Switch to another forum",
+      "previousGroup": "Go to previous group",
+      "nextGroup": "Got to next group",
+      "previousChart": "Go to previous record",
+      "nextChart": "Go to next record"
+    }
+  },
+  "avatar": {
+    "choose": "選擇一張圖片",
+    "submit": "上傳頭像"
+  },
+  "badges": {
+    "master": "大師徽章"
+  },
+  "dialog": {
+    "close": "關閉"
+  },
+  "env": {
+    "warning": "警告，您處於測試環境中！"
+  },
+  "footer": {
+    "partners": "夥伴"
+  },
+  "forum": {
+    "topic": {
+      "new": "新話題"
+    },
+    "label": {
+      "theSite": "The site",
+      "suggestions": "Suggestions & Criticisms",
+      "team": "Team",
+      "introductions": "Introductions",
+      "vgrTeam": "VGR Team",
+      "admin": "Admin",
+      "bugs": "Bugs",
+      "newGames": "New Games",
+      "maintenance": "Maintenance",
+      "modifications&corrections": "Modifications & Corrections",
+      "others": "Others",
+      "cheaters": "Cheaters ?",
+      "discsussions": "Discussions",
+      "games": "Games",
+      "general": "General",
+      "xbox-one": "Xbox One",
+      "xbox-360": "Xbox 360",
+      "playstation-4": "Playstation 4",
+      "playstation-3": "Playstation 3",
+      "psp-psvita": "PSP / PS Vita",
+      "switch": "Switch",
+      "wii-wiiu": "Wii / Wii U",
+      "nintendo-3DS": "Nintendo 3DS",
+      "nintendo-DS": "Nintendo DS",
+      "pc": "PC",
+      "mobile-OS": "Mobile OS",
+      "oldies": "Oldies",
+      "sports": "Sports",
+      "manga": "Manga",
+      "cinema-tv": "Cinema / Series / Television",
+      "music": "Music",
+      "computing": "Computing",
+      "literature": "Literature",
+      "your-creations": "Your creations",
+      "archives": "Archives"
+    }
+  },
+  "game": {
+    "download": {
+      "URL": "Download",
+      "message": "This game is currently available on official sites"
+    },
+    "last": {
+      "description": "最新添加的遊戲列表"
+    },
+    "next" : {
+      "title": "即將到來的遊戲",
+      "description": "將添加到網站的遊戲的列表",
+      "status": {
+        "created": "已創建",
+        "addPicture": "添加圖片",
+        "addScore": "添加積分",
+        "completed": "已完成"
+      }
+    }
+  },
+  "gender": {
+    "unknown": "未知",
+    "male": "男性",
+    "female": "女性"
+  },
+  "global": {
+    "yes": "是",
+    "no": "否",
+    "stats": "我們的 {0} 名成員發布了 {1} 項記錄，其中包括在 {3} 場比賽中證明的 {2} 項。打敗他們！",
+    "member": "成員",
+    "team": "團隊",
+    "nickname": "暱稱",
+    "rank": "等級",
+    "points": "積分",
+    "pointsLowercase": "積分",
+    "gamePoints": "遊戲積分",
+    "recordPoints": "記錄積分",
+    "platformPoints": "平台積分",
+    "badgePoints": "徽章積分",
+    "game": "遊戲",
+    "games": "遊戲",
+    "gamesLowercase": "遊戲",
+    "platforms": "Platforms",
+    "player": "Player",
+    "players": "玩家",
+    "playersLowercase": "玩家",
+    "scores": "分數",
+    "scoresLowercase": "分數",
+    "proofs": "證明",
+    "proofsLowercase": "證明",
+    "scoreProven": "已證明的分數",
+    "scoreProvenMobile": "已證明的分數",
+    "cups": "杯賽",
+    "cupsLowercase": "杯賽",
+    "medals": "獎牌",
+    "medalsLowercase": "獎牌",
+    "platinum": "白金",
+    "gold": "金",
+    "silver": "銀",
+    "bronze": "銅",
+    "leaderboard": "排行榜",
+    "teamRanking": "成員排行榜",
+    "group": "團體",
+    "chart": "圖表",
+    "createdAt": "Created at",
+    "updatedAt": "Updated at",
+    "comments": "Comments"
+  },
+  "home": {
+    "description": "所有平台上都有數以千計的記錄：遊戲機和筆記本電腦、個人電腦、老舊的裝置……",
+    "howto": "如何推薦新遊戲？",
+    "allGames": "查看所有遊戲",
+    "leaderboard": "排行榜",
+    "leaderboardPoints": "查看前 100 名遊戲積分排行榜",
+    "leaderboardCups": "查看前 100 名杯賽排行榜"
+  },
+   "language": {
+    "french": "Français",
+    "english": "English"
+  },
+  "leaderboard": {
+    "gamePoints": {
+      "caption": "遊戲積分排行榜",
+      "captionTeam": "團隊遊戲積分排行榜",
+      "title": "Top {0} 個遊戲積分",
+      "description": "遊戲積分排名第一的是誰？"
+    },
+    "cup": {
+      "caption": "杯賽排行榜",
+      "captionTeam": "團隊杯賽排行榜",
+      "title": "Top {0} 個杯賽",
+      "description": "杯賽排名第一的是誰？"
+    },
+    "recordPoints": {
+      "caption": "記錄積分排行榜",
+      "captionTeam": "團隊記錄積分排行榜",
+      "title": "Top {0} 個記錄積分",
+      "description": "誰是記錄積分排名第一？"
+    },
+    "medal": {
+      "caption": "獎牌排行榜",
+      "captionTeam": "團隊獎牌排行榜",
+      "title": "Top {0} 名獎牌",
+      "description": "誰在獎牌榜上排名第一？"
+    },
+    "badges": {
+      "caption": "徽章排行榜",
+      "captionTeam": "團隊徽章排行榜",
+      "title": "Top {0} 名徽章",
+      "description": "誰是徽章排行榜第一？"
+    },
+    "proofs": {
+      "caption": "證明排行榜",
+      "title": "Top {0} 個證明",
+      "description": "誰在證明排行榜第一？"
+    },
+    "platform": {
+      "description": "{0} 排行榜"
+    }
+  },
+  "loading": {
+    "text": "加載中......"
+  },
+  "menu": {
+    "search": "搜索",
+    "menu": "菜单",
+    "home": "首頁",
+    "forum": "論壇",
+    "video": "影片",
+    "games": "遊戲",
+    "players": "玩家",
+    "game": {
+      "alpha": "按字母順序排列的列表",
+      "platform": "平台列表",
+      "serie": "系列排行榜",
+      "next": "即將到來的比賽",
+      "last": "最新遊戲"
+    },
+    "rankings": "排行榜",
+    "ranking": {
+      "pointChart": "前 100 個記錄積分",
+      "pointGame": "前 100 個遊戲積分",
+      "medals": "前 100 名獎牌",
+      "cups": "前 100 個杯賽",
+      "proof": "前 100 個證明",
+      "badge": "前 100 名徽章"
+    },
+    "site": "網站",
+    "rules": "規則",
+    "faq": "常問問題",
+    "credits": "感謝名單",
+    "donations": "捐款",
+    "recruitments": "Recruitments"
+  },
+  "message": {
+    "createdAt":"Sent it",
+    "message":"Message",
+    "from" : "From",
+    "to" : "To",
+    "object": "Object"
+  },
+  "messages": {
+    "confirm": "成功:",
+    "error": "錯誤:",
+    "info": "資料:"
+  },
+  "pagination": {
+    "of" : "of",
+    "page" : "Page",
+    "previous": "Previous",
+    "next": "Next"
+  },
+  "player": {
+    "description": "{0}的個人頁面",
+    "birthDay": "生日",
+    "displayPersonalInfos": "在我的公開個人頁面上顯示我的年齡和性別",
+    "website": "網站",
+    "youtube": "Youtube",
+    "twitch": "Twitch",
+    "presentation": "匯報",
+    "collection": "收藏",
+    "gender": "性別",
+    "country": "國家",
+    "countryChoice": "選擇你所在的國家"
+  },
+  "proof": {
+    "request": {
+      "reachLimit": "你已達到每天的最大證明請求限制，抱歉"
+    },
+    "form": {
+      "success": "證明上傳成功"
+    }
+  },
+  "score": {
+    "dateInvestigation": "由以下工作人員進行調查中：",
+    "lastUpdate": "最後更新",
+    "lastSubmit": {
+      "default": "Lastest submitted scores",
+      "seeMore": "See more submitted scores",
+      "proof": {
+        "picture": "Lastest submitted scores with picture proof",
+        "video": "Lastest submitted scores with video proof"
+      }
+    }
+  },
+  "search": {
+    "label": "在遊戲、玩家、主題、影片中搜索......",
+    "placeholder": "遊戲、玩家、話題、影片......",
+    "submit": "搜索",
+    "advanced": "高級分數搜索",
+    "score": "或者使用<a href='{0}'>高級分數搜索</a>搜索分數。",
+    "game": "Search a game",
+    "player": "Search a player",
+    "platform": "Search a platform",
+    "playerChart": {
+      "caption": "Latest submissions",
+      "score": "Score",
+      "onChart": "on",
+      "rank": "Rank",
+      "new": "New score",
+      "lastUpdate": "Date",
+      "status": "Status",
+      "by": "By",
+      "on": "on"
+    },
+    "filter": {
+      "status": "Status",
+      "allStatus": "All status",
+      "platinum": "Platinum",
+      "rank": "Rank",
+      "operator": "Operator",
+      "value": "Value",
+      "lt": "Less than",
+      "gt": "Greater than",
+      "lte": "Less than or equal",
+      "gte": "Greater than or equal"
+    }
+  },
+  "skiplinks": {
+    "content": "前往內容",
+    "menu": "前往菜單",
+    "search": "前往搜索"
+  },
+  "stats": {
+    "averageRank": "Average rank",
+    "averageGameRank": "Average game rank",
+    "nbGame": "Number of games",
+    "nbChart": "Number of submitted scores",
+    "nbChartProven": "Number of proven scores",
+    "nbChartWithPlatform": "Number of scores with platform"
+  },
+  "tag": {
+    "tag": "Edit",
+    "remove": "移除",
+    "submit": "提交",
+    "cancel": "取消",
+    "success": "更新成功"
+  },
+  "team": {
+    "name": "Nom",
+    "tag": "Tag",
+    "presentation": "Presentation",
+    "insert": {
+      "success": "Team added"
+    },
+    "update": {
+      "success": "Team updated"
+    },
+    "tabs": {
+      "stats": "Stats",
+      "presentation": "Presentation",
+      "players": "Players",
+      "badges": "Badges",
+      "games": "Games",
+      "leaderboards": "Leaderboards"
+    },
+    "description": "{0}的個人頁面"
+  },
+  "topbar": {
+    "register": "註冊",
+    "signin": "登入",
+    "messages": "新消息 | 新消息 | 新消息",
+    "lostPositions": "新的空餘職位 | 新的空餘職位 | 新的空餘職位",
+    "proofs": "證明",
+    "account": "帳戶",
+    "profile": "個人頁面",
+    "logout": "登出"
+  },
+  "user": {
+    "username": "用戶名",
+    "language": "語言"
+  },
+  "video": {
+    "label": "Label",
+    "tag": "Tag",
+    "tag_help": "Example: word record,combo,bug",
+    "url_help": "Example: https://youtu.be/iNSuKo8C5uk",
+    "filter": "Filter by label / game",
+    "count": "{0} video | {0} video | {0} videos",
+    "insert": {
+      "info": "You will be able to modify title and tag later with your video manager.",
+      "success": "Video added",
+      "title": "Add a video"
+    },
+    "update": {
+      "success": "Video updated",
+      "title": "Update a video"
+    }
+  }
+}

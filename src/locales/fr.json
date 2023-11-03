@@ -1,0 +1,830 @@
+{
+  "authentication": {
+    "login": {
+      "title": "Connexion",
+      "description": "Formulaire de connexion",
+      "form": {
+        "email": "E-mail ou pseudonyme",
+        "password": "Mot de passe",
+        "submit": "Se connecter"
+      },
+      "forgotten_password": "Mot de passe oublié ?"
+    },
+    "register": {
+      "title": "Inscription",
+      "description": "Formulaire d'inscription",
+      "form": {
+        "email": "E-mail",
+        "username": "Pseudo",
+        "password": "Mot de passe",
+        "submit": "S'inscrire",
+        "rules_accepted": "Accepter le règlement",
+        "read_rules": "Lire le règlement"
+      }
+    },
+    "reset": {
+      "title": "Réinitialisation de mot de passe",
+      "description": "Vous avez perdu votre mot de passe ?",
+      "form": {
+        "email": "E-mail",
+        "email_help": "Un e-mail va vous être envoyé pour réinitialiser votre mot de passe",
+        "submit": "Réinitialiser le mot de passe"
+      },
+      "confirm": {
+        "password": "Nouveau mot de passe",
+        "submit": "Sauvegarder le nouveau mot de passe"
+      }
+    }
+  },
+  "article": {
+    "title": "Titre",
+    "publishedAt": "Publié le",
+    "publishedBy": "Publié par",
+    "publishedOn": "le",
+    "list": {
+      "title": "Liste des articles",
+      "caption": "Liste des articles"
+    },
+    "last": {
+      "title": "Dernières nouveautés",
+      "caption": "Dernières nouveautés",
+      "link": "Voir tous les articles"
+    },
+    "comment": {
+      "add": "Ajouter un commentaire",
+      "edit": "Editer un commentaire"
+    }
+  },
+  "account":{
+    "tabs": {
+      "account": "Compte",
+      "avatar": "Avatar",
+      "team": "Équipe",
+      "badges": "Badges",
+      "videos": "Vidéos"
+    },
+    "avatar": {
+       "title": "Mon avatar",
+       "description": "Gérer mon avatar"
+    },
+    "badges": {
+       "title": "Mes badges",
+       "description": "Gérer mes badges"
+    },
+    "index": {
+       "title": "Mon compte",
+       "description": "Gérer mon compte"
+    },
+    "team": {
+       "title": "Mon équipe",
+       "description": "Gérer mon équipe"
+    },
+    "videos": {
+       "title": "Mes vidéos",
+       "description": "Gérer mes vidéos"
+    }
+  },
+  "aside": {
+    "on": "sur",
+    "shop": "Boutique",
+    "paypal": {
+      "title": "PayPal - Le plus sûr et plus facile moyen de payer en ligne !",
+      "alt": "Faire un don sur Paypal"
+    },
+    "switch": {
+      "group": "Afficher un autre groupe",
+      "chart": "Afficher un autre record",
+      "forum": "Afficher un autre forum",
+      "previousGroup": "Afficher le groupe précédent",
+      "nextGroup": "Afficher le groupe suivant",
+      "previousChart": "Afficher le record précédent",
+      "nextChart": "Afficher le record suivant"
+    }
+  },
+  "avatar": {
+    "choose": "Choisissez une image",
+    "submit": "Téléverser l’avatar"
+  },
+  "badge": {
+    "gives": "Ce badge rapporte à",
+    "type": {
+      "master": "Master Badges",
+      "special": "Badges spéciaux",
+      "forum": "Badges forum",
+      "connexion": "Badges connexions",
+      "chart": "Badges records",
+      "proof": "Badges preuves",
+      "donation": "Badges dons",
+      "platform": "Badges plateformes",
+      "serie": "Badges series"
+    },
+    "history": {
+      "title": "Historique du badge",
+      "earnedBy": "Obtenu par ",
+      "since": "le",
+      "between": "entre",
+      "and": "et le"
+    },
+    "order": {
+      "button": "Ordonner les badges",
+      "confirm": "Les badges ont bien été ordonnés"
+    }
+  },
+  "chart": {
+    "index": {
+      "description": "Submit your highscores on "
+    },
+    "submit": {
+      "description": "Submit your highscores on "
+    },
+    "updateScore": "Modifier mon score"
+  },
+  "contact": {
+    "title": "Contact",
+    "description": "Contacter le webmaster du site",
+    "form": {
+      "email": "E-mail",
+      "subject": "Sujet",
+      "body": "Message",
+      "submit": "Envoyer"
+    }
+  },
+  "dialog": {
+    "close": "Fermer"
+  },
+  "env": {
+    "warning": "Attention, vous êtes sur un environnement de test !"
+  },
+  "footer": {
+    "partners": "Partenaires"
+  },
+  "forum": {
+    "tag": {
+      "libForum": "Forum",
+      "nbTopic": "Sujets",
+      "nbMessage": "Messages",
+      "messages": "messages",
+      "lastMessage": "Dernier message",
+      "markAllAsRead": "Marquer tous les sujets comme lus",
+      "libTopic": "Sujet",
+      "author": "Auteur",
+      "announcement": "Annonce",
+      "postit": "Post-it",
+      "message": "Message",
+      "newMessage": "Au moins un nouveau message",
+      "on": "le",
+      "by": "par"
+    },
+    "alert": {
+      "messageIsRequired": "Le message est obligatoire"
+    },
+    "home": {
+      "title": "Forum",
+      "description": "Community area, chat with the players and the site administrators"
+    },
+    "forum": {
+      "description": "Vous êtes sur le forum de discussion :  ",
+      "list" : {
+        "caption": "Sujets du forum"
+      }
+    },
+    "subForum": {
+      "warning": "Seuls les forums contenant des messages postés dans les 90 derniers jours sont visibles ici.<br />Pour accéder au forum d’un jeu qui ne serait pas visible sur cette page, veuillez passer par la fiche du jeu."
+    },
+    "notify": {
+      "title": "Mes sujets notifiés",
+      "description": "Liste des sujets notifiés",
+      "on": "Notifier",
+      "off": "Ne plus notifier"
+    },
+    "newTopic": {
+      "title": "Nouveau sujet",
+      "description": "Poser un nouveau sujet sur le forum : "
+    },
+    "reply": {
+      "title": "Répondre",
+      "description": "répondre au sujet : "
+    },
+    "topic": {
+      "description": "Vous êtes sur le topic de discussion : ",
+      "list" : {
+        "caption": "Forum messages"
+      },
+      "review": "Revue du sujet",
+      "postReply": "Poster une réponse"
+    },
+    "label": {
+      "theSite": "Le site",
+      "suggestions": "Suggestions et Critiques",
+      "team": "Equipe",
+      "introductions": "Présentations",
+      "vgrTeam": "VGR Team",
+      "admin": "Admin",
+      "bugs": "Bugs",
+      "newGames": "Nouveaux Jeux",
+      "maintenance": "Maintenance",
+      "modifications&corrections": "Modifications & Corrections",
+      "others": "Autres",
+      "cheaters": "Tricherie ?",
+      "discsussions": "Discussions",
+      "games": "Jeux",
+      "general": "Général",
+      "xbox-one": "Xbox One",
+      "xbox-360": "Xbox 360",
+      "playstation-4": "Playstation 4",
+      "playstation-3": "Playstation 3",
+      "psp-psvita": "PSP / PS Vita",
+      "switch": "Switch",
+      "wii-wiiu": "Wii / Wii U",
+      "nintendo-3DS": "Nintendo 3DS",
+      "nintendo-DS": "Nintendo DS",
+      "pc": "PC",
+      "mobile-OS": "Mobile OS",
+      "oldies": "Oldies",
+      "sports": "Sports",
+      "manga": "Manga",
+      "cinema-tv": "Cinéma / Séries / Télévision",
+      "music": "Musique",
+      "computing": "Informatique",
+      "literature": "Littérature",
+      "your-creations": "Vos créations",
+      "archives": "Archives"
+    }
+  },
+  "game": {
+    "score": {
+      "total": "record sur le jeu | record sur le jeu | records sur le jeu"
+    },
+    "all": "Tous les jeux",
+    "filter": "Selectionner un jeu",
+    "index": {
+      "description": "Postez vos meilleurs scores sur "
+    },
+    "rules": {
+      "title": "Règlement",
+      "description": "Règlement sur ",
+      "general": "Règlement général",
+      "specific": "Règlement spécifique",
+      "none": "Il n’y a pas de règle spécifique pour ce jeu",
+      "seeGeneral": "Voir le règlement général"
+    },
+    "video": {
+      "list": {
+        "title": "Liste des vidéos",
+        "description": "Voir les liste des vidéos de "
+      }
+    },
+    "day": "Jeu du jour",
+    "download": {
+      "URL": "Téléchargement",
+      "message": "Ce jeu est actuellement disponible sur les sites officiels"
+    },
+    "last": {
+      "title": "Derniers jeux",
+      "description": "Liste des derniers jeux ajoutés"
+    },
+    "byLetter": {
+      "title": "Liste des jeux dans l’ordre alphabétique",
+      "description": "Liste des jeux dans l’ordre alphabétique"
+    },
+    "next" : {
+      "title": "Prochains jeux",
+      "description": "Liste des prochains jeux qui seront ajoutés sur le sit",
+      "status": {
+        "created": "Créés",
+        "addPicture": "Ajout d'images (badge / jeu)",
+        "addScore": "Ajout de scores",
+        "completed": "Complets"
+      }
+    }
+  },
+  "group": {
+    "index": {
+      "description": "Postez vos meilleurs scores sur "
+    },
+    "submit": {
+      "description": "Postez vos meilleurs scores sur "
+    },
+    "updateScores": "Modifier mes scores",
+    "noScore": "Pas de score envoyé dans ce groupe."
+  },
+  "gender": {
+    "unknown": "Autre",
+    "male": "Homme",
+    "female": "Femme"
+  },
+  "global": {
+    "topScore": "Top score",
+    "myScore": "mon score",
+    "myRank": "Mon rang",
+    "noScore": "Pas de score",
+    "noMedal": "Pas de médaille",
+    "date": "Date",
+    "status": "Statut",
+    "rankings": "Classements",
+    "publishedOn": "Publié le",
+    "by": "par",
+    "positions": "Positions",
+    "total": "Total",
+    "yes": "Oui",
+    "no": "Non",
+    "filterBy": "Filtré par",
+    "stats": "Nos {0} membres ont posté {1} records dont {2} prouvés sur {3} jeux. Battez-les !",
+    "member": "Membre",
+    "team": "Équipe",
+    "teams": "Équipes",
+    "teams_": "équipe | équipe | équipes",
+    "nickname": "Pseudonyme",
+    "rank": "Rang",
+    "points": "Points",
+    "pointsLowercase": "points",
+    "gamePoints": "Points Jeu",
+    "recordPoints": "Points Record",
+    "platformPoints": "Points Plateforme",
+    "badgePoints": "Points Badge",
+    "masterBadge": "Master Badge",
+    "serieBadge": "Serie Badge",
+    "game": "Jeu",
+    "games": "Jeux",
+    "games_": "jeu | jeu | jeux",
+    "gamesLowercase": "jeux",
+    "group": "Groupe",
+    "groups": "Groupes",
+    "groups_": "groupe | groupe | groupes",
+    "platforms": "Plateformes",
+    "platform": "Plateforme",
+    "player": "Joueur",
+    "players": "Joueurs",
+    "players_": "joueur | joueur | joueurs",
+    "playersLowercase": "joueurs",
+    "topic": "Topic",
+    "topics": "Topics",
+    "topics_": "topic | topic | topics",
+    "score": "Score",
+    "scores": "Scores",
+    "scoresLowercase": "scores",
+    "proof": "Preuve",
+    "proofs": "Preuves",
+    "proofsLowercase": "preuves",
+    "scoreProven": "Scores prouvés",
+    "scoreProvenMobile": "de scores prouvés",
+    "cups": "Coupes",
+    "cupsLowercase": "coupes",
+    "medals": "Médailles",
+    "medalsLowercase": "médailles",
+    "medalsNumber": "Nombre de médailles",
+    "platinum": "Platine",
+    "gold": "Or",
+    "silver": "Argent",
+    "bronze": "Bronze",
+    "leaderboard": "Classement",
+    "teamRanking": "Classement par membre",
+    "chart": "Record",
+    "charts": "Records",
+    "createdAt": "Créé le",
+    "updatedAt": "Edité le",
+    "comments": "Commentaires",
+    "video": "Vidéo",
+    "videos": "Videés",
+    "videos_": "vidéo | vidéo | vidéos"
+  },
+  "home": {
+    "description": "Des milliers de records sur toutes les plateformes : consoles de salon et portables, PC, oldies…",
+    "howto": "Comment proposer un nouveau jeu ?",
+    "allGames": "Voir tous les jeux",
+    "leaderboard": "Classements",
+    "leaderboardPoints": "Voir le Top 100 Points Jeu",
+    "leaderboardCups": "Voir le Top 100 Coupes"
+  },
+  "language": {
+    "french": "Français",
+    "english": "English"
+  },
+  "leaderboard": {
+    "gamePoints": {
+      "caption": "Classement Points Jeu",
+      "captionTeam": "Classement Points Jeu par équipe",
+      "title": "Top {0} Points Jeu",
+      "description": "Qui est premier dans le classement par Points Jeu ?"
+    },
+    "cup": {
+      "caption": "Classement Coupes",
+      "captionTeam": "Classement Coupes par équipe",
+      "title": "Top {0} Coupes",
+      "description": "Qui est premier dans le classement par Coupes ?"
+    },
+    "recordPoints": {
+      "caption": "Classement Points Record",
+      "captionTeam": "Classement Points Record par équipe",
+      "title": "Top {0} Points Record",
+      "description": "Qui est premier dans le classement par Points Record ?"
+    },
+    "medal": {
+      "caption": "Classement Médailles",
+      "captionTeam": "Classement Médailles par équipe",
+      "title": "Top {0} Médailles",
+      "description": "Qui est premier dans le classement par Médailles ?"
+    },
+    "badges": {
+      "caption": "Classement Badges",
+      "captionTeam": "Classement Badges par équipe",
+      "title": "Top {0} Badges",
+      "description": "Qui est premier dans le classement par Badges ?"
+    },
+    "proofs": {
+      "caption": "Classement Preuves",
+      "title": "Top {0} Preuves",
+      "description": "Qui est premier dans le classement par Preuves ?"
+    },
+    "on": "sur"
+  },
+  "loading": {
+    "text": "Chargement…"
+  },
+  "lostPosition": {
+    "index": {
+      "title": "Mes pertes de médailles",
+      "description": "Mes pertes de médailless",
+      "caption": "Mes pertes de médailles"
+    },
+    "change": "Changement"
+  },
+  "menu": {
+    "search": "Recherche",
+    "menu": "Menu",
+    "home": "Accueil",
+    "forum": "Forum",
+    "video": "Vidéos",
+    "games": "Jeux",
+    "players": "Joueurs",
+    "game": {
+      "alpha": "Liste alphabétique",
+      "platform": "Liste par plateforme",
+      "serie": "Liste des séries",
+      "next": "Prochains jeux",
+      "last": "Derniers jeux"
+    },
+    "rankings": "Classements",
+    "ranking": {
+      "pointChart": "Top 100 Points Record",
+      "pointGame": "Top 100 Points Jeu",
+      "medals": "Top 100 Médailles",
+      "cups": "Top 100 Coupes",
+      "proof": "Top 100 Preuves",
+      "badge": "Top 100 Badges"
+    },
+    "site": "Site",
+    "rules": "Règlement",
+    "faq": "FAQ",
+    "credits": "Crédits",
+    "donations": "Dons",
+    "recruitments": "Recrutement"
+  },
+  "privateMessage": {
+    "title": "Messages privés",
+    "description": "Gérer vos messages, inbox, outbox, écrire et envoyer un message",
+    "filter": "Filtrer les messages par:",
+    "allUsers": "Tous les utilisateurs",
+    "delete": "Supprimer la sélection",
+    "selectAll": "Tout sélectionner",
+    "unselectAll": "Tout désélectionner",
+    "inbox": {
+      "title": "Boîte de réception",
+      "caption": "Messages reçus"
+    },
+    "outbox": {
+      "title": "Boîte d'envoi",
+      "caption": "Messages envoyés"
+    },
+    "post": {
+      "title": "Ecrire un message",
+      "new": "Nouveau message",
+      "writeTo" : "Écrire à",
+      "reply": "Répondre",
+      "submit": "Envoyer"
+    },
+    "message": {
+      "caption": "Messages",
+      "createdAt":"Envoyé le",
+      "recipient": "Destinataire",
+      "message":"Message",
+      "from" : "De",
+      "to" : "A",
+      "object": "Sujet",
+      "type": "type"
+    },
+    "type": {
+      "all": "Tous les messages",
+      "DEFAULT": "Message privé",
+      "VGR_PROOF": "Gestion de preuve",
+      "VGR_PROOF_REQUEST": "Demande de preuve",
+      "FORUM_NOTIF": "Notification du forum"
+    }
+  },
+  "messages": {
+    "confirm": "Confirmation :",
+    "error": "Erreur :",
+    "info": "Information :"
+  },
+  "notFound": {
+    "title": "Page inexistante",
+    "descripion": "La page demandée n’existe pas"
+  },
+  "page": {
+    "credits": {
+      "title": "Crédits",
+      "description": "Mentions légales, Éditeur du site, Hébergeur, Limitation de responsabilité, Données personnelles, Propriété intellectuelle"
+    },
+    "donations": {
+      "title": "Dons",
+      "description": "Vous pouvez soutenir Video Games Records en faisant un don à l’association.",
+      "donors": "Tous les donateurs"
+    },
+    "faq": {
+      "title": "FAQ",
+      "description": "La foire aux questions"
+    },
+    "howItWorks": {
+      "title": "Comment ça marche ?",
+      "description": "Comment ça marche ?"
+    },
+    "partnerShip": {
+      "title": "Partenariat",
+      "description": "Partenariat"
+    },
+    "recruitment": {
+      "title": "Recrutement",
+      "description": "Recrutement"
+    },
+    "rules": {
+      "title": "Règlement",
+      "description": "Conditions générales d’utilisation, pratiques interdites ..."
+    },
+    "theVgrTeam": {
+      "title": "La team VGR",
+      "description": "Toutes les personne qui travaillent ou ont travaillé sur VGR."
+    }
+  },
+  "pagination": {
+    "of" : "sur",
+    "page" : "Page",
+    "previous": "Précedent",
+    "next": "Suivant"
+  },
+  "player": {
+    "list": {
+      "title": "Liste des joueurs",
+      "caption": "Liste des joueurs",
+      "desciption": "Liste des joueurs"
+    },
+    "profile": {
+      "description": "Profil de {0}",
+      "tabs": {
+        "stats": "Stats",
+        "games": "Jeux",
+        "badges": "Badges",
+        "proofs": "Preuves",
+        "charts": "Scores",
+        "presentation": "Présentation",
+        "collection": "Collection",
+        "messages": "Messages"
+      }
+    },
+    "status": {
+      "member": "Member"
+    },
+    "proof": {
+      "goBack": "← Retourner aux statistiques des preuves",
+      "proofsOn": "Preuves sur ",
+      "open": "Ouvrir tous les groupes",
+      "close": "Fermer tous les groupes"
+    },
+    "age": "Age",
+    "pseudo": "Pseudo",
+    "createdAt": "Register on",
+    "team": "Equipe",
+    "birthDay": "Date de naissance",
+    "displayPersonalInfos": "Afficher mon âge et mon genre sur mon profil public",
+    "website": "Website",
+    "youtube": "Youtube",
+    "twitch": "Twitch",
+    "presentation": "Présentation",
+    "collection": "Collection",
+    "gender": "Genre",
+    "country": "Country",
+    "countryChoice": "Choose a country",
+    "lastLogin": "Dernière connection",
+    "nbConnexion": "Nb connection"
+  },
+  "platform": {
+    "maj": "Indiquer votre console pour ce jeu",
+    "all": "Toutes les plateformes",
+    "choose": "Choisir une plateforme",
+    "multi": "Multiplatforme",
+    "list": {
+      "description": "Jeux sur {0}"
+    },
+    "leaderboard": {
+      "description": "{0} leaderborad"
+    }
+  },
+  "proof": {
+    "myProofs": {
+      "title": "Mes preuves",
+      "description": "Gestion de mes preuves"
+    },
+    "add": "Prouver le score {0}",
+    "success": "Preuve envoyée",
+    "withPicture": "Prouver mon score par photo",
+    "withVideo": "Prouver mon score par vidéo",
+    "ask": "You can ask for a proof.",
+    "stats": "Statistiques des preuves",
+    "show": "Agrandir la preuve",
+    "byGame": "Preuves par jeu",
+    "rules": {
+      "link": "Rappel du <a href=\"{0}\">règlement</a> :",
+      "reminder": "À partir de 30 (trente) scores désactivés, un membre n’a plus la possibilité d’ajouter de nouveaux scores."
+    },
+    "request": {
+      "reachLimit": "Vous avez atteint la limite maximale demandes de preuves par jour, désolé",
+      "justify": "Justifier votre demande de preuve"
+    },
+    "form": {
+      "success": "La preuve a bien été chargée"
+    },
+    "delete": {
+      "confirm": "Êtes-vous sûr de vouloir supprimer cette preuve ?"
+    }
+  },
+  "score": {
+    "updated": "{0} score mis à jour | {0} score mis à jour | {0} scores mis à jour",
+    "toUpdate": "Aucun score à mettre à jour | {0} score à mettre à jour | {0} scores à mettre à jour",
+    "status": {
+      "proof--proved": "score prouvé | score prouvé | scores prouvés",
+      "proof--none": "score non prouvé | score non prouvé | scores non prouvés",
+      "proof--unproved": "score désactivé | score désactivé | scores désactivés",
+      "proof--request-pending": "score sous investigation et en attente de validation par un contrôleur | score sous investigation et en attente de validation par un contrôleur | scores sous investigation et en attente de validation par un contrôleur",
+      "proof--request-validated":"score sous investigation et en attente de preuve | score sous investigation et en attente de preuve | scores sous investigation et en attente de preuve",
+      "proof--request-sent": "preuve envoyée après une demande de preuve et en attente de validation par un contrôleur | preuve envoyée après une demande de preuve et en attente de validation par un contrôleur | preuves envoyées après une demande de preuve et en attente de validation par un contrôleur",
+      "proof--sent": "preuve envoyée en attente de validation par un contrôleur | preuve envoyée en attente de validation par un contrôleur | preuves envoyées en attente de validation par un contrôleur"
+    },
+    "total": "score envoyé | score envoyé au total, dont : | scores envoyés au total, dont :",
+    "player": "Score de {0}",
+    "notProoved": "{0} n’a pas fourni de preuve de son score.",
+    "off": "Scores désactivés",
+    "index" : {
+      "description": "Score de {0} sur {1}"
+    },
+    "last": {
+      "title": "Derniers scores postés",
+      "description": "Derniers scores postés"
+    },
+    "dateInvestigation": "Sous investigation depuis",
+    "lastUpdate": "Mise à jour",
+    "lastSubmit": {
+      "default": "Derniers scores soumis",
+      "seeMore": "Voir les scores récemment envoyés",
+      "proof": {
+        "picture": "Derniers scores soumis avec preuve photo",
+        "video": "Derniers scores soumis avec preuve vidéo"
+      }
+    }
+  },
+  "search": {
+    "tilte": "Recherche",
+    "description": "Rechercher un jeu, un sujet… sur le site",
+    "label": "Rechercher parmi les jeux, joueurs, sujets, vidéos…",
+    "placeholder": "Jeux, joueurs, sujets, vidéos…",
+    "submit": "Rechercher",
+    "advanced": "Recherche avancée de scores",
+    "score": "Ou chercher un score avec la <a href='{0}'>recherche avancée de scores</a>.",
+    "game": "Rechercher un jeu",
+    "player": "Rechercher un joueur",
+    "platform": "Rechercher une plateforme",
+    "chart": "Rechercher un record",
+    "playerChart": {
+      "caption": "Dernières soumissions",
+      "score": "Score",
+      "onChart": "sur",
+      "rank": "Rang",
+      "new": "Nouveau score",
+      "lastUpdate": "Date",
+      "status": "Statut",
+      "by": "Par",
+      "on": "le"
+    },
+    "filter": {
+      "status": "Statut",
+      "allStatus": "Tous les statuts",
+      "platinum": "Platine",
+      "rank": "Rang",
+      "operator": "Opérateur",
+      "value": "Valeur",
+      "lt": "Plus petit que",
+      "gt": "Plus grand que",
+      "lte": "Plus petit ou égal à",
+      "gte": "Plus grand ou égal à"
+    }
+  },
+  "serie": {
+    "choose": "Choisir une série"
+  },
+  "skiplinks": {
+    "content": "Accéder au contenu",
+    "menu": "Accéder au menu",
+    "search": "Accéder à la recherche"
+  },
+  "stats": {
+    "averageRank": "Rang moyen",
+    "averageGameRank": "Rang de jeu moyen",
+    "nbGame": "Nombre de jeux",
+    "nbChart": "Nombre de scores soumis",
+    "nbChartProven": "Nombre de scores prouvés",
+    "nbChartWithPlatform": "Nombre de scores liés à une plateforme"
+  },
+  "tag": {
+    "edit": "Editer",
+    "remove": "Supprimer",
+    "submit": "Enregistrer",
+    "cancel": "Annuler",
+    "success": "Mise à jour effectuée",
+    "delete": "Supprimer",
+    "selectAll": "Tous sélectionner",
+    "unselectAll": "Tous déslectionner"
+  },
+  "team": {
+    "request": {
+      "recruit": "Recruter un joueur",
+      "success": "La demande a été envoyée",
+      "none": "Vous n’avez aucune demande en cours.",
+      "status": {
+        "ACTIVE": "Active",
+        "ACCEPTED": "Acceptée",
+        "REFUSED": "Refusée",
+        "CANCELED": "Annulée"
+      }
+    },
+    "name": "Nom",
+    "tag": "Tag",
+    "presentation": "Présentation",
+    "leader": "Leader",
+    "quit": "Quitter l'équipe",
+    "create": "Créeer une équipe",
+    "requests": "Mes demandes",
+    "insert": {
+      "success": "Equipe ajoutée"
+    },
+    "update": {
+      "success": "Equipe modifiée"
+    },
+    "tabs": {
+      "stats": "Stats",
+      "presentation": "Présentation",
+      "players": "Joueurs",
+      "badges": "Badges",
+      "games": "Jeux",
+      "leaderboards": "Classements"
+    },
+    "description": "Profil de {0}"
+  },
+  "topbar": {
+    "register": "Inscription",
+    "signin": "Connexion",
+    "messages": "nouveau message | nouveau message | nouveaux messages",
+    "lostPositions": "nouvelle médaille perdue | nouvelle médaille perdue | nouvelles médailles perdues",
+    "proofs": "Preuves",
+    "account": "Compte",
+    "profile": "Profil",
+    "logout": "Déconnexion"
+  },
+  "user": {
+    "username": "Pseudo",
+    "language": "Langue",
+    "connected": "{0} utilisateur(s) connecté(s) aujourd'hui."
+  },
+  "video": {
+    "list": {
+      "title": "Vidéos",
+      "description": "Liste des vidéos"
+    },
+    "submit": {
+      "title": "Ajouter une vidéo (non liée à un record)",
+      "description": "Postez une vidéo sur "
+    },
+    "label": "Label",
+    "tag": "Tag",
+    "tag_help": "Exemple: word record,combo,bug",
+    "url_help": "Exemple: https://youtu.be/iNSuKo8C5uk",
+    "filter": "Filtrer par label / jeu",
+    "count": "{0} vidéo | {0} vidéo | {0} vidéos",
+    "insert": {
+      "info": "Il vous sera possible de modifier le titre et les étiquettes utérieurement, via votre gestionnaire de vidéo",
+      "success": "Video ajoutée",
+      "title": "Ajouter une vidéo"
+    },
+    "update": {
+      "success": "Video modifiée",
+      "title": "Editer une vidéo"
+    }
+  }
+}

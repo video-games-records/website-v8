@@ -1,0 +1,466 @@
+{
+    "authentication": {
+    "login": {
+      "title": "Sign in",
+      "description": "Login form",
+      "form": {
+        "email": "E-mail or nickname",
+        "password": "Password",
+        "submit": "Sign in"
+      },
+      "forgotten_password": "Forgotten password ?"
+    },
+    "register": {
+      "title": "Registration",
+      "description": "Register form",
+      "form": {
+        "email": "E-mail",
+        "username": "Username",
+        "password": "Password",
+        "submit": "Register",
+        "rules_accepted": "Accept rules",
+        "read_rules": "Read rules"
+      }
+    },
+    "reset": {
+      "title": "Password reset",
+      "description": "You have lost your password",
+      "form": {
+        "email": "E-mail",
+        "email_help": "You will receive an e-mail to reset your password",
+        "submit": "Reset password"
+      },
+      "confirm": {
+        "password": "New password",
+        "submit": "Save new password"
+      }
+    }
+  },
+  "article": {
+    "title": "Title",
+    "publishedAt": "Published at",
+    "publishedBy": "Published by",
+    "publishedOn": "on",
+    "list": {
+      "title": "Articles list",
+      "caption": "Articles list"
+    },
+    "last": {
+      "title": "Latest news",
+      "caption": "Latest news",
+      "link": "See all articles"
+    },
+    "comment": {
+      "add": "Add a comment",
+      "edit": "Edit a comment"
+    }
+  },
+  "account":{
+    "tabs": {
+      "account": "帐户",
+      "avatar": "头像",
+      "team": "团队'",
+      "badges": "徽章",
+      "videos": "Videos"
+    },
+    "avatar": {
+       "title": "我的头像",
+       "description": "管理头像"
+    },
+    "badges": {
+       "title": "我的徽章",
+       "description": "管理徽章"
+    },
+    "index": {
+       "title": "我的账户",
+       "description": "管理帐户"
+    },
+    "team": {
+       "title": "我的团队",
+       "description": "管理团队"
+    },
+    "videos": {
+       "title": "My videos",
+       "description": "Manage videos"
+    }
+  },
+  "aside": {
+    "on": "上",
+    "shop": "商店",
+    "paypal": {
+      "title": "PayPal - 更安全、更简单的在线支付方式！",
+      "alt": "用PayPal捐款"
+    },
+    "switch": {
+      "group": "Switch to another group",
+      "chart": "Switch to another record",
+      "forum": "Switch to another forum",
+      "previousGroup": "Go to previous group",
+      "nextGroup": "Got to next group",
+      "previousChart": "Go to previous record",
+      "nextChart": "Go to next record"
+    }
+  },
+  "avatar": {
+    "choose": "选择一张图片",
+    "submit": "上传头像"
+  },
+  "badges": {
+    "master": "大师徽章"
+  },
+  "dialog": {
+    "close": "关闭"
+  },
+  "env": {
+    "warning": "警告，您处于测试环境中！"
+  },
+  "footer": {
+    "partners": "伙伴"
+  },
+  "forum": {
+    "topic": {
+      "new": "新话题"
+    },
+    "label": {
+      "theSite": "The site",
+      "suggestions": "Suggestions & Criticisms",
+      "team": "Team",
+      "introductions": "Introductions",
+      "vgrTeam": "VGR Team",
+      "admin": "Admin",
+      "bugs": "Bugs",
+      "newGames": "New Games",
+      "maintenance": "Maintenance",
+      "modifications&corrections": "Modifications & Corrections",
+      "others": "Others",
+      "cheaters": "Cheaters ?",
+      "discsussions": "Discussions",
+      "games": "Games",
+      "general": "General",
+      "xbox-one": "Xbox One",
+      "xbox-360": "Xbox 360",
+      "playstation-4": "Playstation 4",
+      "playstation-3": "Playstation 3",
+      "psp-psvita": "PSP / PS Vita",
+      "switch": "Switch",
+      "wii-wiiu": "Wii / Wii U",
+      "nintendo-3DS": "Nintendo 3DS",
+      "nintendo-DS": "Nintendo DS",
+      "pc": "PC",
+      "mobile-OS": "Mobile OS",
+      "oldies": "Oldies",
+      "sports": "Sports",
+      "manga": "Manga",
+      "cinema-tv": "Cinema / Series / Television",
+      "music": "Music",
+      "computing": "Computing",
+      "literature": "Literature",
+      "your-creations": "Your creations",
+      "archives": "Archives"
+    }
+  },
+  "game": {
+    "download": {
+      "URL": "Download",
+      "message": "This game is currently available on official sites"
+    },
+    "last": {
+      "description": "最新添加的游戏列表"
+    },
+    "next" : {
+      "title": "即将到来的游戏",
+      "description": "将添加到网站的游戏的列表",
+      "status": {
+        "created": "已创建",
+        "addPicture": "添加图片",
+        "addScore": "添加积分",
+        "completed": "已完成"
+      }
+    }
+  },
+  "gender": {
+    "unknown": "未知",
+    "male": "男性",
+    "female": "女性"
+  },
+  "global": {
+    "yes": "是",
+    "no": "否",
+    "stats": "我们的 {0} 名成员发布了 {1} 项记录，其中包括在 {3} 场比赛中证明的 {2} 项。打败他们！",
+    "member": "成员",
+    "team": "团队",
+    "nickname": "昵称",
+    "rank": "等级",
+    "points": "积分",
+    "pointsLowercase": "积分",
+    "gamePoints": "游戏积分",
+    "recordPoints": "记录积分",
+    "platformPoints": "平台积分",
+    "badgePoints": "徽章积分",
+    "game": "游戏",
+    "games": "游戏",
+    "gamesLowercase": "游戏",
+    "platforms": "Platforms",
+    "player": "Player",
+    "players": "玩家",
+    "playersLowercase": "玩家",
+    "scores": "分数",
+    "scoresLowercase": "分数",
+    "proofs": "证明",
+    "proofsLowercase": "证明",
+    "scoreProven": "已证明的分数",
+    "scoreProvenMobile": "已证明的分数",
+    "cups": "杯赛",
+    "cupsLowercase": "杯赛",
+    "medals": "奖牌",
+    "medalsLowercase": "奖牌",
+    "platinum": "白金",
+    "gold": "金",
+    "silver": "银",
+    "bronze": "铜",
+    "leaderboard": "排行榜",
+    "teamRanking": "成员排行榜",
+    "group": "团体",
+    "chart": "图表",
+    "createdAt": "Created at",
+    "updatedAt": "Updated at",
+    "comments": "Comments"
+  },
+  "home": {
+    "description": "所有平台上都有数以千计的记录：游戏机和笔记本电脑、个人电脑、老旧的装置……",
+    "howto": "如何推荐新游戏？",
+    "allGames": "查看所有游戏",
+    "leaderboard": "排行榜",
+    "leaderboardPoints": "查看前 100 名游戏积分排行榜",
+    "leaderboardCups": "查看前 100 名杯赛排行榜"
+  },
+  "leaderboard": {
+    "gamePoints": {
+      "caption": "游戏积分排行榜",
+      "captionTeam": "团队游戏积分排行榜",
+      "title": "Top {0} 个游戏积分",
+      "description": "游戏积分排名第一的是谁？"
+    },
+    "cup": {
+      "caption": "杯赛排行榜",
+      "captionTeam": "团队杯赛排行榜",
+      "title": "Top {0} 个杯赛",
+      "description": "杯赛排名第一的是谁？"
+    },
+    "recordPoints": {
+      "caption": "记录积分排行榜",
+      "captionTeam": "团队记录积分排行榜",
+      "title": "Top {0} 个记录积分",
+      "description": "谁是记录积分排名第一？"
+    },
+    "medal": {
+      "caption": "奖牌排行榜",
+      "captionTeam": "团队奖牌排行榜",
+      "title": "Top {0} 名奖牌",
+      "description": "谁在奖牌榜上排名第一？"
+    },
+    "badges": {
+      "caption": "徽章排行榜",
+      "captionTeam": "团队徽章排行榜",
+      "title": "Top {0} 名徽章",
+      "description": "谁是徽章排行榜第一？"
+    },
+    "proofs": {
+      "caption": "证明排行榜",
+      "title": "Top {0} 个证明",
+      "description": "谁在证明排行榜第一？"
+    },
+    "platform": {
+      "description": "{0} 排行榜"
+    }
+  },
+  "loading": {
+    "text": "加载中......"
+  },
+  "menu": {
+    "search": "搜索",
+    "menu": "菜单",
+    "home": "首页",
+    "forum": "论坛",
+    "video": "视频",
+    "games": "游戏",
+    "players": "玩家",
+    "game": {
+      "alpha": "按字母顺序排列的列表",
+      "platform": "平台列表",
+      "serie": "系列排行榜",
+      "next": "即将到来的比赛",
+      "last": "最新游戏"
+    },
+    "rankings": "排行榜",
+    "ranking": {
+      "pointChart": "前 100 个记录积分",
+      "pointGame": "前 100 个游戏积分",
+      "medals": "前 100 名奖牌",
+      "cups": "前 100 个杯赛",
+      "proof": "前 100 个证明",
+      "badge": "前 100 名徽章"
+    },
+    "site": "网站",
+    "rules": "规则",
+    "faq": "常问问题",
+    "credits": "感谢名单",
+    "donations": "捐款",
+    "recruitments": "Recruitments"
+  },
+  "message": {
+    "createdAt":"Sent it",
+    "message":"Message",
+    "from" : "From",
+    "to" : "To",
+    "object": "Object"
+  },
+  "messages": {
+    "confirm": "成功:",
+    "error": "错误:",
+    "info": "资料:"
+  },
+  "pagination": {
+    "of" : "of",
+    "page" : "Page",
+    "previous": "Previous",
+    "next": "Next"
+  },
+  "player": {
+    "description": "{0}的个人页面",
+    "birthDay": "生日",
+    "displayPersonalInfos": "在我的公开个人页面上显示我的年龄和性别",
+    "website": "网站",
+    "youtube": "Youtube",
+    "twitch": "Twitch",
+    "presentation": "汇报",
+    "collection": "收藏",
+    "gender": "性别",
+    "country": "国家",
+    "countryChoice": "选择你所在的国家"
+  },
+  "proof": {
+    "request": {
+      "reachLimit": "你已达到每天的最大证明请求限制，抱歉"
+    },
+    "form": {
+      "success": "证明上传成功"
+    }
+  },
+  "score": {
+    "dateInvestigation": "由以下工作人员进行调查中：",
+    "lastUpdate": "最后更新",
+    "lastSubmit": {
+      "default": "Lastest submitted scores",
+      "seeMore": "See more submitted scores",
+      "proof": {
+        "picture": "Lastest submitted scores with picture proof",
+        "video": "Lastest submitted scores with video proof"
+      }
+    }
+  },
+  "search": {
+    "label": "在游戏、玩家、主题、视频中搜索......",
+    "placeholder": "游戏、玩家、话题、视频......",
+    "submit": "搜索",
+    "advanced": "高级分数搜索",
+    "score": "或者使用<a href='{0}'>高级分数搜索</a>搜索分数。",
+    "game": "Search a game",
+    "player": "Search a player",
+    "platform": "Search a platform",
+    "playerChart": {
+      "caption": "Latest submissions",
+      "score": "Score",
+      "onChart": "on",
+      "rank": "Rank",
+      "new": "New score",
+      "lastUpdate": "Date",
+      "status": "Status",
+      "by": "By",
+      "on": "on"
+    },
+    "filter": {
+      "status": "Status",
+      "allStatus": "All status",
+      "platinum": "Platinum",
+      "rank": "Rank",
+      "operator": "Operator",
+      "value": "Value",
+      "lt": "Less than",
+      "gt": "Greater than",
+      "lte": "Less than or equal",
+      "gte": "Greater than or equal"
+    }
+  },
+  "skiplinks": {
+    "content": "前往内容",
+    "menu": "前往菜单",
+    "search": "前往搜索"
+  },
+  "stats": {
+    "averageRank": "Average rank",
+    "averageGameRank": "Average game rank",
+    "nbGame": "Number of games",
+    "nbChart": "Number of submitted scores",
+    "nbChartProven": "Number of proven scores",
+    "nbChartWithPlatform": "Number of scores with platform"
+  },
+  "tag": {
+    "tag": "Edit",
+    "remove": "移除",
+    "submit": "提交",
+    "cancel": "取消",
+    "success": "更新成功"
+  },
+  "team": {
+    "name": "Nom",
+    "tag": "Tag",
+    "presentation": "Presentation",
+    "insert": {
+      "success": "Team added"
+    },
+    "update": {
+      "success": "Team updated"
+    },
+    "tabs": {
+      "stats": "Stats",
+      "presentation": "Presentation",
+      "players": "Players",
+      "badges": "Badges",
+      "games": "Games",
+      "leaderboards": "Leaderboards"
+    },
+    "description": "{0}的个人页面"
+  },
+  "topbar": {
+    "register": "注册",
+    "signin": "登入",
+    "messages": "新消息 | 新消息 | 新消息",
+    "lostPositions": "新的空余职位 | 新的空余职位 | 新的空余职位",
+    "proofs": "证明",
+    "account": "帐户",
+    "profile": "个人页面",
+    "logout": "登出"
+  },
+  "user": {
+    "username": "用户名",
+    "language": "语言"
+  },
+  "video": {
+    "label": "Label",
+    "tag": "Tag",
+    "tag_help": "Example: word record,combo,bug",
+    "url_help": "Example: https://youtu.be/iNSuKo8C5uk",
+    "filter": "Filter by label / game",
+    "count": "{0} video | {0} video | {0} videos",
+    "insert": {
+      "info": "You will be able to modify title and tag later with your video manager.",
+      "success": "Video added",
+      "title": "Add a video"
+    },
+    "update": {
+      "success": "Video updated",
+      "title": "Update a video"
+    }
+  }
+}

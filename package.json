@@ -10,14 +10,18 @@
   },
   "dependencies": {
     "@mdi/font": "7.0.96",
+    "axios": "^1.6.0",
+    "axios-extensions": "^3.1.6",
     "core-js": "^3.29.0",
     "pinia": "^2.0.0",
     "roboto-fontface": "*",
     "vue": "^3.2.0",
+    "vue-i18n": "^9.6.2",
     "vue-router": "^4.0.0",
     "vuetify": "^3.0.0"
   },
   "devDependencies": {
+    "@intlify/unplugin-vue-i18n": "^1.5.0",
     "@vitejs/plugin-vue": "^4.0.0",
     "eslint": "^8.37.0",
     "eslint-plugin-vue": "^9.3.0",
