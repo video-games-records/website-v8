@@ -1,0 +1,57 @@
+@charset "UTF-8";
+/**
+ * @site            Video Games Records
+ * @author          Luc Poupard
+ * @note            Config - Mixins
+ */
+
+/* ----------------------------- */
+/* Summary */
+/* ----------------------------- */
+/*
+    == Design tokens
+    == ROCSSTI
+*/
+
+
+/* == @section Design tokens ==================== */
+@mixin page-background {
+    background-image: radial-gradient( circle farthest-corner at 10% 20%,  $base-background 0%, $base-background-2 90% );
+    background-attachment: fixed;
+    background-size: 100vw 100vh;
+}
+
+@mixin box-shadow( $color: hsl(0, 0%, 0%) ) {
+    box-shadow: 0px 0px 0px 0px $color,
+                1px 1px 0px 0px $color,
+                2px 2px 0px 0px $color,
+                3px 3px 0px 0px $color,
+                4px 4px 0px 0px $color,
+                5px 5px 0px 0px $color,
+                6px 6px 0px 0px $color;
+}
+
+@mixin box-form-shadow( $color: hsl(0, 0%, 0%) ) {
+    box-shadow: 0px 0px 0px 0px $color,
+                1px 1px 0px 0px $color,
+                2px 2px 0px 0px $color,
+                3px 3px 0px 0px $color;
+}
+
+@mixin box-proof-shadow( $color: hsl(0, 0%, 0%) ) {
+    box-shadow: 0px 0px 0px 0px $color,
+                1px 1px 0px 0px $color;
+}
+
+/* == @section ROCSSTI ==================== */
+@mixin flow-hr( $value, $type-vr: $vertical-rythm ) {
+    font-size: em($value);
+    line-height: line-height($value, $l-h, $base-font, $type-vr);
+    margin: margin-em($value, $l-h, $base-font, $type-vr); 
+}
+
+@mixin flow-other( $value, $type-vr: $vertical-rythm ) {
+    font-size: em($value);
+    line-height: line-height($value, $l-h, $base-font, $type-vr);
+    margin: margin-em-other($value, $l-h, $base-font, $type-vr);
+}

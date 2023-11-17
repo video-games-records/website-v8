@@ -1,0 +1,45 @@
+@charset "UTF-8";
+/**
+ * @site            Video Games Records
+ * @author          Luc Poupard
+ * @note            Base layout
+ */
+
+/* ----------------------------- */
+/* Summary */
+/* ----------------------------- */
+/*
+    == Global
+        -- Responsive layout
+    == Top bar
+        -- Skip links
+        -- Lang switcher
+        -- Account
+    == Header
+    == Content
+        -- Stats
+        -- Breadcrumb
+        -- Main content
+        -- Aside
+    == Sidebar
+    == Footer
+*/
+
+
+svg[aria-hidden="true"]:not(.svg-sprite) {
+    display: none;
+}
+
+.svg-sprite {
+    use {
+        fill: currentColor;
+    }
+
+    &__prev {
+        transform: rotate(90deg);
+    }
+
+    &__next {
+        transform: rotate(-90deg);
+    }
+}

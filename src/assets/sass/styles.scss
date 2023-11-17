@@ -1,0 +1,35 @@
+@charset "UTF-8";
+/**
+ * @site            Video Games Records
+ * @author          Luc Poupard
+ * @note            Styles for Video Games Records
+ */
+
+/* ----------------------------- */
+/* Summary */
+/* ----------------------------- */
+/*
+    == Config
+    == Project
+        -- Layout
+        -- Views
+        -- Vendor
+        -- Components
+        -- Media queries
+*/
+
+/* == @section Config ==================== */
+@import "config/variables";
+@import "config/functions";
+@import "config/mixins";
+
+/* -- @subsection Layout ---------- */
+@import "layout";
+
+/* -- @subsection Vendor ---------- */
+@import "vendor/ckeditor";
+@import "vendor/freakflagsprite";
+
+/* -- @subsection Components ---------- */
+@import "components/leaderboard";
+

@@ -1,0 +1,27 @@
+.platinum {
+  color: $platinum;
+}
+
+.gold {
+  color: $gold;
+}
+
+.silver {
+  color: $silver;
+}
+
+.bronze {
+  color: $bronze;
+}
+
+.platinum,
+.gold,
+.silver,
+.bronze {
+  &.svg-sprite,
+  .svg-sprite {
+    filter: drop-shadow(0 0 1px rgba( $black, .66 ));
+  }
+}
+
+

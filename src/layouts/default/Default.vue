@@ -4,7 +4,7 @@
       <v-app-bar-nav-icon :disabled=false variant="text" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
     </v-app-bar>
 
-    <v-navigation-drawer v-model="drawer" location="left">
+    <v-navigation-drawer v-model="drawer" location="left" app>
       <v-list-item title="My Application" subtitle="Vuetify"></v-list-item>
       <v-divider></v-divider>
       <v-list-item link title="List Item 1"></v-list-item>

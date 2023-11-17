@@ -17,6 +17,16 @@ const routes = [
             name: 'Home',
             component: () => import(/* webpackChunkName: "home" */ '@/views/Home.vue'),
           },
+          { path: ':slugPlayer-player-p:idPlayer(\\d+)', name: 'PlayerMain', meta: {aside: true}, component: () => import(/* webpackChunkName: "Game" */ '@/views/player/Main.vue'),
+            children: [
+              { path: 'index', name: 'PlayerIndex', component: () => import(/* webpackChunkName: "Player" */ '@/views/player/Index.vue')},
+            ]
+          },
+          { path: ':slugTeam-team-t:idTeam(\\d+)', name: 'TeamMain', meta: {aside: true}, component: () => import(/* webpackChunkName: "Team" */ '@/views/team/Main.vue'),
+            children: [
+              { path: 'index', name: 'TeamIndex', component: () => import(/* webpackChunkName: "Player" */ '@/views/team/Index.vue')},
+            ]
+          },
         ]
       }
     ],

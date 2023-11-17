@@ -1,0 +1,108 @@
+@charset "UTF-8";
+/**
+ * @site            Video Games Records
+ * @author          Luc Poupard
+ * @note            Config - Variables
+ */
+
+/* ----------------------------- */
+/* Summary */
+/* ----------------------------- */
+/*
+    == Fonts
+    == Colors
+    == Breakpoints
+    == Dimensions
+    == Paths
+    == Forms
+    == ROCSSTI
+*/
+
+
+/* == @section Fonts ==================== */
+$font-stack-common      : system-ui;
+$font-stack-headings    : "League Gothic", system-ui;
+
+$root-font-size         : 16;
+
+
+/* == @section Colors ==================== */
+/**
+ * We use HSL format
+ * @link https://www.sarasoueidan.com/blog/hex-rgb-to-hsl/
+ */
+$base-color             : hsl(218, 15%, 15%);
+$base-background        : hsl(35, 88%, 52%);
+$base-background-2      : hsl(27, 100%, 44%);
+
+$primary-color          : hsl(223, 88%, 16%);
+$secondary-color        : hsl(252, 82%, 37%);
+
+$content-background     : hsl(0, 0%, 100%);
+$secondary-background   : hsl(0, 0%, 93%);
+
+$white                  : hsl(0, 0%, 100%);
+$black                  : hsl(0, 0%, 0%);
+
+$platinum               : hsl(197, 100%, 85%);
+$gold                   : hsl(51, 100%, 50%);
+$silver                 : hsl(0, 0%, 75%);
+$bronze                 : hsl(30, 61%, 50%);
+
+$gold-gradient          : linear-gradient(135deg, #ea8100 0%, $gold 10%, #f5ec6b 40%, #f5ec6b 60%, $gold 90%, #ea8100 100%);
+$silver-gradient        : linear-gradient(135deg, #757474 0%, $silver 10%, #d4d1d1  40%, #d4d1d1 60%, $silver 90%, #757474 100%);
+$bronze-gradient        : linear-gradient(135deg, #914707 0%, $bronze 10%, #da8f4d 40%, #da8f4d 60%, $bronze 90%, #914707 100%);
+
+$help                   : hsl(0, 0%, 47%);
+
+$error                  : hsl(358, 72%, 47%);
+$error-bg               : hsl(0, 100%, 94%);
+$warning                : hsl(27, 100%, 44%);
+$warning-bg             : hsl(27, 88%, 94%);
+$valid                  : hsl(120, 100%, 25%);
+$valid-bg               : hsl(120, 100%, 94%);
+$info                   : hsl(252, 82%, 37%);
+$info-bg                : hsl(234, 100%, 94%);
+
+$form-border            : hsl(0, 0%, 53%);
+
+
+/* == @section Breakpoints ==================== */
+$small-screen           : 480; // small screens media query
+$medium-screen          : 768; // medium screens media query
+$large-screen           : 1024; // large screens media query
+$extra-large-screen     : 1280; // extra large screens media query
+$ultra-large-screen     : 1600; // ultra large screens media query
+
+
+/* == @section Dimensions ==================== */
+$navigation-width       : 250; // width of main navigation on extra large screen and beyond
+$aside-width            : 300; // width of aside on medium screen and beyond
+$sidebar-width          : 300; // width of sidebar on ultra large screen
+
+$page-padding-small     : 1em;
+$page-padding-large     : 2em;
+
+
+/* == @section Paths ==================== */
+$img-url                : "/static/images";
+
+
+/* == @section Forms ==================== */
+$form-field-padding     : .5em;
+
+
+/* == @section ROCSSTI ==================== */
+/**
+ * @note ROCSSTI : CSS base by Nicolas Hoffmann http://rocssti.net/
+ * @note inspired by http://www.knacss.com/
+ * @note ROCSSTI is under licence CC-BY : http://creativecommons.org/licenses/by/3.0/fr/
+ */
+
+/* Do not modify */
+$base-font              : 16 !default; // font-size of body. If font-size 1.4em = 14
+$l-h                    : 1.5 !default;
+
+/* Vertical rythm */
+/* valeurs possibles : 'double_top_single_bottom', 'single_top', 'single_bottom' */
+$vertical-rythm         : 'double_top_single_bottom';
