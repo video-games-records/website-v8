@@ -1,7 +1,8 @@
 // Utilities
 import { defineStore } from 'pinia'
+import AuthApi from "@/services/auth.service";
 
-export const useSecuritytore = defineStore('securoty', {
+export const useSecurityStore = defineStore('security', {
     state: () => ({
         // Navigation
         isAuthenticated: false,
@@ -9,12 +10,17 @@ export const useSecuritytore = defineStore('securoty', {
         refreshTokenPromise: null
     }),
     getters: {
-        isAuthenticated: (state) => state.isAuthenticated,
+        getIsAuthenticated: (state) => state.isAuthenticated,
         getUser: (state) => state.user,
     },
     actions: {
-        login() {
-
+        login(payload) {
+            return AuthApi.login(payload.login, payload.password)
+                .then(response => {
+                    this.isAuthenticated = true;
+                    //this.user = response.user;
+                    //this.player = response.player;
+                })
         },
         logout() {
             this.isAuthenticated = false;
@@ -24,4 +30,5 @@ export const useSecuritytore = defineStore('securoty', {
            this.refreshTokenPromise = promise;
         }
     },
+    persist: true
 })

@@ -1,21 +1,21 @@
 <template>
-  <v-container>
+
     <v-row>
-      <v-col cols="12" md="4" lg="3">
+      <v-col cols="12" md="6" lg="3">
         <leaderboard-player-point></leaderboard-player-point>
       </v-col>
-      <v-col cols="12" md="4" lg="3">
+      <v-col cols="12" md="6" lg="3">
         <leaderboard-player-cup></leaderboard-player-cup>
       </v-col>
-      <v-col cols="12" md="4" lg="3">
+      <v-col cols="12" md="6" lg="3">
         <leaderboard-team-point></leaderboard-team-point>
       </v-col>
-      <v-col cols="12" md="4" lg="3">
+      <v-col cols="12" md="6" lg="3">
         <leaderboard-team-cup></leaderboard-team-cup>
       </v-col>
     </v-row>
 
-  </v-container>
+
 </template>
 
 <script>

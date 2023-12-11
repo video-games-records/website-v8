@@ -76,7 +76,7 @@ const AuthenticationService = {
             TokenService.saveToken(response.data.token)
             TokenService.saveRefreshToken(response.data.refresh_token)
 
-            return this.getProfile();
+            return response.data;
 
         } catch (error) {
             throw new AuthenticationError(error.response.status, error.response.data.message)
