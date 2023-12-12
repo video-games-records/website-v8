@@ -1,0 +1,191 @@
+@charset "UTF-8";
+/**
+ * @site            Video Games Records
+ * @author          Luc Poupard
+ * @note            Platforms styles
+ */
+
+/* ----------------------------- */
+/* Summary */
+/* ----------------------------- */
+/*
+	== List
+	== Items
+		-- Colors by platform
+*/
+
+
+/* == @section List ==================== */
+.platform-list {
+	margin: 1em 0;
+	padding-left: 0;
+	list-style: none;
+
+	.site-aside & {
+		margin: 1em;
+		text-align: center;
+	}
+
+	li {
+		display: inline-block;
+		padding: .25em 0;
+	}
+}
+
+@mixin platform-list-small {
+	.platform-list {	
+		li {	
+			&:not(:last-child) {
+				margin-right: .5em;
+			}
+		}
+	}
+}
+
+@mixin platform-list-medium {
+	.platform-list {	
+		li {	
+			&:not(:first-child) {
+				margin-left: .5em;
+			}
+		}
+	}
+}
+
+.game-list {
+	.platform-list {
+		margin-bottom: em(3);
+	}
+}
+
+
+/* == @section Items ==================== */
+.platform-list__item {
+	display: block;
+	padding: .1em .5em;
+	background-color: $base-color;
+	color: $white;
+	@include box-form-shadow( $black );
+	font-size: em(14);
+}
+
+a.platform-list__item {
+	color: $white;
+	text-decoration: none;
+}
+
+
+/* -- @subsection Colors by platform ---------- */
+.platform-list__item--1     { background-color: hsl(274, 100%, 33%); } /* GameCube */
+.platform-list__item--2     { background-color: hsl(236, 98%, 33%); } /* PlayStation 2 */
+.platform-list__item--3     { background-color: hsl(119, 48%, 42%); } /* Xbox */
+.platform-list__item--4     { background-color: hsl(28, 87%, 51%); } /* Dreamcast */
+// .platform-list__item--5 	{} /* Saturn */
+.platform-list__item--6     { background-color: hsl(245, 11%, 59%); } /* PlayStation */
+.platform-list__item--7     { background-color: hsl(305, 79%, 54%); } /* Game Boy Advance */
+.platform-list__item--8     { background-color: hsl(0, 0%, 53%); } /* Super NES */
+.platform-list__item--9     { background-color: hsl(79, 53%, 39%); } /* Game Boy / Color */
+.platform-list__item--10    { background-color: hsl(0, 1%, 67%); } /* Nintendo Dual Screen */
+.platform-list__item--11    { background-color: hsl(11, 100%, 46%); } /* Nintendo 64 */
+// .platform-list__item--12 	{} /* Neo Geo */
+// .platform-list__item--13 	{} /* PC */
+.platform-list__item--14    { background-color: hsl(85, 78%, 46%); } /* Xbox 360 */
+.platform-list__item--15    { background-color: hsl(197, 100%, 43%); } /* Wii */
+.platform-list__item--16    { background-color: hsl(7, 99%, 34%); } /* PlayStation 3 */
+.platform-list__item--17    { background-color: hsl(0, 0%, 66%); } /* Nintendo / Famicom */
+.platform-list__item--18    { background-color: hsl(351, 100%, 27%); } /* Master System */
+.platform-list__item--19    { background-color: hsl(0, 0%, 13%); } /* PlayStation Portable */
+// .platform-list__item--20 	{} /* Megadrive / Genesis */
+// .platform-list__item--21 	{} /* PC-Engine / TurboGrafx */
+// .platform-list__item--22 	{} /* Atari 2600 */
+// .platform-list__item--23 	{} /* NO PLATFORM */
+// .platform-list__item--24 	{} /* Jaguar */
+// .platform-list__item--25 	{} /* NO PLATFORM */
+// .platform-list__item--26 	{} /* NO PLATFORM */
+// .platform-list__item--27 	{} /* Colecovision */
+// .platform-list__item--28 	{} /* Amiga */
+// .platform-list__item--29 	{} /* Game & Watch */
+// .platform-list__item--30 	{} /* Atari 5200 */
+.platform-list__item--31    { background-color: hsl(355, 100%, 50%); } /* Virtual Boy */
+// .platform-list__item--32 	{} /* NO PLATFORM */
+// .platform-list__item--33 	{} /* WonderSwan */
+// .platform-list__item--34 	{} /* Commodore 64 */
+// .platform-list__item--35 	{} /* Game Gear */
+// .platform-list__item--36 	{} /* 3DO Interactive Multiplayer */
+// .platform-list__item--37 	{} /* MSX */
+// .platform-list__item--38 	{} /* Lynx */
+// .platform-list__item--39 	{} /* Neo Geo Pocket Color */
+.platform-list__item--40    { background-color: hsl(357, 96%, 45%); } /* Nintendo 3DS */
+.platform-list__item--41    { background-color: hsl(0, 0%, 16%); } /* iOS */
+.platform-list__item--42    { background-color: hsl(76, 100%, 35%); } /* Android */
+.platform-list__item--43    { background-color: hsl(120, 50%, 40%); } /* Windows Phone */
+// .platform-list__item--44 	{} /* Microvision */
+.platform-list__item--45    { background-color: hsl(192, 100%, 39%); } /* Wii U */
+// .platform-list__item--46 	{} /* Amstrad CPC6128 */
+.platform-list__item--47    { background-color: hsl(218, 100%, 26%); } /* PS Vita */
+.platform-list__item--48    { background-color: hsl(258, 100%, 16%); } /* Windows 8 */
+.platform-list__item--49    { background-color: hsl(240, 100%, 49%); } /* PlayStation 4 */
+.platform-list__item--50    { background-color: hsl(119, 81%, 27%); } /* Xbox One */
+.platform-list__item--51    { background-color: hsl(207, 100%, 42%); } /* Windows 10 */
+.platform-list__item--52    { background-color: hsl(355, 100%, 45%); } /* Switch */
+// .platform-list__item--53 	{} /* ZX Spectrum */
+// .platform-list__item--54 	{} /* Atari ST */
+// .platform-list__item--55 	{} /* Sharp x68000 */
+// .platform-list__item--56 	{} /* MSX2 */
+// .platform-list__item--57 	{} /* Atari 400/800/1200/XL/XE */
+// .platform-list__item--58 	{} /* MegaDrive Classic */
+// .platform-list__item--59 	{} /* Bandai Electronics */
+// .platform-list__item--60 	{} /* Vectrex */
+// .platform-list__item--61 	{} /* Atari 7800 */
+.platform-list__item--62 	{ background-color: hsl(121, 78%, 27%); } /* Xbpx Series */
+.platform-list__item--63 	{ background-color: hsl(207, 99%, 41%); } /* PlayStation 5 */
+// .platform-list__item--64 	{} /* Megadrive Mini / Genesis Mini */
+.platform-list__item--65 	{ background-color: hsl(0, 0%, 53%); } /* Super Nintendo Mini / Super Famicom Mini */
+.platform-list__item--66 	{ background-color: hsl(0, 0%, 66%); } /* Nintendo Mini / Famicom Mini */
+.platform-list__item--67 	{ background-color: hsl(245, 11%, 59%); } /* PlayStation Classic  */
+// .platform-list__item--68 	{} /* Commodore 64 Mini */
+// .platform-list__item--69 	{} /* Neo Geo Mini */
+// .platform-list__item--70 	{} /* Neo Geo Arcade Stick Pro  */
+
+/* @note When contrast white/background, isn't enough: black */
+.platform-list__item--3,
+.platform-list__item--4,
+.platform-list__item--6,
+.platform-list__item--7,
+.platform-list__item--8,
+.platform-list__item--9,
+.platform-list__item--10,
+.platform-list__item--11,
+.platform-list__item--14,
+.platform-list__item--15,
+.platform-list__item--17,
+.platform-list__item--31,
+.platform-list__item--42,
+.platform-list__item--43,
+.platform-list__item--45,
+.platform-list__item--65,
+.platform-list__item--66,
+.platform-list__item--67 {
+	color: $black;
+}
+
+a.platform-list__item--3,
+a.platform-list__item--4,
+a.platform-list__item--6,
+a.platform-list__item--7,
+a.platform-list__item--8,
+a.platform-list__item--9,
+a.platform-list__item--10,
+a.platform-list__item--11,
+a.platform-list__item--14,
+a.platform-list__item--15,
+a.platform-list__item--17,
+a.platform-list__item--31,
+a.platform-list__item--42,
+a.platform-list__item--43,
+a.platform-list__item--45,
+a.platform-list__item--65,
+a.platform-list__item--66,
+a.platform-list__item--67 {
+	color: $black;
+}
