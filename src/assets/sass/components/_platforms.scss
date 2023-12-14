@@ -74,6 +74,10 @@ a.platform-list__item {
 	text-decoration: none;
 }
 
+.platform-list li {
+	display: inline-block;
+	padding: .25em 0
+}
 
 /* -- @subsection Colors by platform ---------- */
 .platform-list__item--1     { background-color: hsl(274, 100%, 33%); } /* GameCube */

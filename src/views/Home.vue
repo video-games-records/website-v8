@@ -13,10 +13,12 @@
       <v-col cols="12" md="6" lg="3">
         <leaderboard-team-cup></leaderboard-team-cup>
       </v-col>
-      <v-col cols="12" md="6" lg="3">
+      <v-col cols="12" md="6" lg="2">
         <game-day />
       </v-col>
-      <game-last />
+      <v-col cols="12" md="6" lg="7">
+        <game-last />
+      </v-col>
     </v-row>
 
 

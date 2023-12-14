@@ -1,6 +1,6 @@
 <template>
   <span v-if="multi  && platforms.length > 1"><span class="platform-list__item">{{ $t('platform.multi') }}</span></span>
-  <ul v-else>
+  <ul v-else class="platform-list">
     <li v-for="platform in platforms" :data-position="platform.position" :key="platform.id">
       <platform v-bind:platform="platform"></platform>
     </li>
