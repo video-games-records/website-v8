@@ -18,7 +18,7 @@ export const useSecurityStore = defineStore('security', {
             return AuthApi.login(payload.login, payload.password)
                 .then(response => {
                     this.isAuthenticated = true;
-                    //this.user = response.user;
+                    this.user = response.user;
                     //this.player = response.player;
                 })
         },
