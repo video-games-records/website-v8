@@ -27,6 +27,13 @@ const routes = [
               { path: 'videos', name: 'AccountVideos', component: () => import(/* webpackChunkName: "Player" */ '@/views/account/Videos.vue')},
             ]
           },
+          /********* LEADERBOARD ***********/
+          { path: 'leaderboard-point-chart', name: 'LeaderboardPointChart', meta: {aside: true}, component: () => import(/* webpackChunkName: "leaderboard" */ '@/views/leaderboard/PointChart.vue')},
+          { path: 'leaderboard-point-game', name: 'LeaderboardPointGame', meta: {aside: true}, component: () => import(/* webpackChunkName: "leaderboard" */ '@/views/leaderboard/PointGame.vue')},
+          { path: 'leaderboard-medal', name: 'LeaderboardMedal', meta: {aside: true}, component: () => import(/* webpackChunkName: "leaderboard" */ '@/views/leaderboard/Medal.vue')},
+          { path: 'leaderboard-cup', name: 'LeaderboardCup', meta: {aside: true}, component: () => import(/* webpackChunkName: "leaderboard" */ '@/views/leaderboard/Cup.vue')},
+          { path: 'leaderboard-proof', name: 'LeaderboardProof', meta: {aside: true}, component: () => import(/* webpackChunkName: "leaderboard" */ '@/views/leaderboard/Proof.vue')},
+          { path: 'leaderboard-badge', name: 'LeaderboardBadge', meta: {aside: true}, component: () => import(/* webpackChunkName: "leaderboard" */ '@/views/leaderboard/Badge.vue')},
           /********* PLAYER ***********/
           { path: ':slugPlayer-player-p:idPlayer(\\d+)', name: 'PlayerMain', meta: {aside: true}, component: () => import(/* webpackChunkName: "Game" */ '@/views/player/Main.vue'),
             children: [
