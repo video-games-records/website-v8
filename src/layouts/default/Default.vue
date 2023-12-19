@@ -5,8 +5,7 @@
 
       <v-app-bar-title>Video Games Records</v-app-bar-title>
 
-      <login v-if="!this.isAuthenticated" />
-      <logout v-if="this.isAuthenticated" />
+      <app-bar />
     </v-app-bar>
 
     <v-navigation-drawer v-model="drawer" location="left" app>
@@ -24,12 +23,9 @@
 </template>
 
 <script>
-import Login from "@/components/security/Login.vue";
-import Logout from "@/components/security/Logout.vue";
-import Security from "@/mixins/Security.vue";
+import AppBar from "@/components/security/AppBar.vue";
 export default {
-  components: {Login, Logout},
-  mixins: [Security],
+  components: {AppBar},
   data: () => ({
     drawer: true,
     group: null,

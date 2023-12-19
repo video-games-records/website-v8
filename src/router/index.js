@@ -17,6 +17,16 @@ const routes = [
             name: 'Home',
             component: () => import(/* webpackChunkName: "home" */ '@/views/Home.vue'),
           },
+          /********* ACCOUNT ***********/
+          { path: 'account', name: 'account', meta: {requiresAuth: true, aside: true}, component: () => import(/* webpackChunkName: "account" */ '@/views/account/Main.vue'),
+            children: [
+              { path: 'index', name: 'AccountIndex', component: () => import(/* webpackChunkName: "Player" */ '@/views/account/Index.vue')},
+              { path: 'avatar', name: 'AccountAvatar', component: () => import(/* webpackChunkName: "Player" */ '@/views/account/Avatar.vue')},
+              { path: 'team', name: 'AccountTeam', component: () => import(/* webpackChunkName: "Player" */ '@/views/account/Team.vue')},
+              { path: 'badges', name: 'AccountBadges', component: () => import(/* webpackChunkName: "Player" */ '@/views/account/Badges.vue')},
+              { path: 'videos', name: 'AccountVideos', component: () => import(/* webpackChunkName: "Player" */ '@/views/account/Videos.vue')},
+            ]
+          },
           /********* PLAYER ***********/
           { path: ':slugPlayer-player-p:idPlayer(\\d+)', name: 'PlayerMain', meta: {aside: true}, component: () => import(/* webpackChunkName: "Game" */ '@/views/player/Main.vue'),
             children: [
