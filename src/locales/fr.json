@@ -405,7 +405,8 @@
       "caption": "Classement Points Jeu",
       "captionTeam": "Classement Points Jeu par équipe",
       "title": "Top {0} Points Jeu",
-      "description": "Qui est premier dans le classement par Points Jeu ?"
+      "description": "Qui est premier dans le classement par Points Jeu ?",
+      "help": "Ce sont les points gagnés lorsque vous avez au moins un score sur le jeu. L'algorithme mis en place pour le calcul de ces points fonctionne ainsi : Plus il y'a de joueurs et moins il y'a d'égalité, plus votre rang rapporte de points"
     },
     "cup": {
       "caption": "Classement Coupes",
@@ -417,7 +418,8 @@
       "caption": "Classement Points Record",
       "captionTeam": "Classement Points Record par équipe",
       "title": "Top {0} Points Record",
-      "description": "Qui est premier dans le classement par Points Record ?"
+      "description": "Qui est premier dans le classement par Points Record ?",
+      "help": "Ce sont les points gagnés lorsque vous avez des records sur un jeu. L'algorithme mis en place pour le calcul de ces points fonctionne ainsi : le 1er a 100 x le nombre de posts sur ce record, le 2ème 80% du 1er, le 3ème 80% du 2ème, le 4ème 81% du 3ème et ainsi de suite en incrémentant le pourcentage toutes les deux positions."
     },
     "medal": {
       "caption": "Classement Médailles",

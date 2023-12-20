@@ -1,6 +1,6 @@
 <template>
   <div v-if="team.id" class="avatar">
-    <img :src="getAvatarUrl" alt="" width="100" height="100" aria-hidden="true"/>
+    <v-avatar :image="getAvatarUrl"></v-avatar>
   </div>
 </template>
 

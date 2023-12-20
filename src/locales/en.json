@@ -405,7 +405,8 @@
       "caption": "Game Points leaderboard",
       "captionTeam": "Team Game Points leaderboard",
       "title": "Top {0} Game Points",
-      "description": "Who is first on Game Points ranking?"
+      "description": "Who is first on Game Points ranking?",
+      "help": "These are the points earned when you have records on a game. The algorithm set up to calculate these points works as follows: The more players there are and the fewer ties there are, the more points your rank earns."
     },
     "cup": {
       "caption": "Cups leaderboard",
@@ -417,7 +418,8 @@
       "caption": "Record Points leaderboard",
       "captionTeam": "Team Record Points leaderboard",
       "title": "Top {0} Record Points",
-      "description": "Who is first on Record Points ranking?"
+      "description": "Who is first on Record Points ranking?",
+      "help": "These are the points earned when you have records on a game. The algorithm set up to calculate these points works as follows: the 1st has 100 x the number of posts on this record, the 2nd 80% of the 1st, the 3rd 80% of 2nd, 4th 81% of 3rd and so on, incrementing the percentage every two positions."
     },
     "medal": {
       "caption": "Medals leaderboard",

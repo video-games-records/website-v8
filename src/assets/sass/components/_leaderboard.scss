@@ -24,4 +24,22 @@
   }
 }
 
+div.leaderboard .avatar {
+  display: none
+}
 
+div.leaderboard [data-rank="1"] .avatar, div.leaderboard [data-rank="2"] .avatar, div.leaderboard [data-rank="3"] .avatar {
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  margin-right: .5em;
+  width: 1.875em;
+  vertical-align: middle
+}
+
+.player--me {
+  background-image: -webkit-radial-gradient(10% 20%,circle farthest-corner,#f09719 0,#e06500 90%);
+  background-image: radial-gradient(circle farthest-corner at 10% 20%,#f09719 0,#e06500 90%);
+  background-attachment: fixed;
+  background-size: 100vw 100vh;
+  background-clip: border-box
+}
