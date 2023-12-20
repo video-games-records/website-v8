@@ -23,17 +23,28 @@
         <td :data-header="$t('global.gamePoints')">{{ item.pointGame | number }}</td>
         <td :data-header="$t('global.gamesLowercase')">{{ item.nbGame | number }}</td>
         <td>
-          <v-btn @click="test(item)" icon="mdi-account-multiple"></v-btn>
+          <v-btn @click="openModal(item)" icon="mdi-account-multiple" size="x-small"></v-btn>
         </td>
       </tr>
       </tbody>
     </v-table>
   </v-card>
+
+  <v-dialog v-model="dialog">
+    <v-card>
+      <v-card-title class="d-flex justify-center">{{ team.libTeam }}</v-card-title>
+      <v-card-item>
+        <leaderboard-player-point-game v-bind:leaderboard=leaderboardPlayer></leaderboard-player-point-game>
+      </v-card-item>
+    </v-card>
+  </v-dialog>
+
 </template>
 
 <script>
 import Team from '@/components/vgr/team/Team.vue';
 import Security from "@/mixins/Security.vue";
+import LeaderboardPlayerPointGame from '@/components/vgr/player/leaderboard/PointGame';
 
 export default {
   mixins: [Security],
@@ -47,10 +58,10 @@ export default {
       type: Boolean,
     },
   },
-  components: {Team},
+  components: {Team, LeaderboardPlayerPointGame},
   data() {
     return {
-      leaderboardPlayer: null,
+      leaderboardPlayer: [],
       dialog: false,
       team: {
         libTeam: '',
@@ -58,21 +69,25 @@ export default {
     };
   },
   methods: {
-    test(item) {
-      alert('test');
-      /*if (item.team) {
-        this.team = item.team;
+    openModal(item) {
+      if (item.team) {
+        this.team = item.team;      alert('test');
       } else {
         this.team = item;
       }
-      this.dialog = true;
+
       if (this.$route.params.idGame) {
-        this.leaderboardPlayer = GameApi.getPlayerRankingPoints(this.$route.params.idGame, {query: {'idTeam': this.team.id}})
-            .then((response) => response);
+        this.axios.get('/api/games/' + this.$route.params.idGame + '/player-ranking-points?idTeam=' + this.team.id)
+          .then(response => {
+            this.leaderboardPlayer = response.data['hydra:member']
+          })
       } else {
-        this.leaderboardPlayer = PlayerApi.getRankingPointGame({query: {'idTeam': this.team.id}})
-            .then((response) => response);
-      }*/
+        this.axios.get('/api/players/ranking-point-game?idTeam=' + this.team.id)
+          .then(response => {
+            this.leaderboardPlayer = response.data['hydra:member']
+          })
+      }
+      this.dialog = true;
     }
   },
 };

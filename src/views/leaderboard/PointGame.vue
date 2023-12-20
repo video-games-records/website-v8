@@ -31,6 +31,7 @@ export default {
     };
   },
   created() {
+    document.title = this.$t('leaderboard.gamePoints.title', [100]) + ' - ' + import.meta.env.VITE_APP_TITLE;
     this.axios.get('/api/players/ranking-point-game?maxRank=100', {useCache: true})
         .then(response => {
           this.leaderboardPlayer = response.data['hydra:member']
@@ -39,23 +40,6 @@ export default {
         .then(response => {
           this.leaderboardTeam = response.data['hydra:member']
         })
-  },
-  computed: {
-    title() {
-      //return this.$i18n.t('leaderboard.gamePoints.title', [100]) + ' - ' + process.env.VUE_APP_TITLE;
-    },
-  },
-  watch: {
-    getLanguage() {
-      this.loadData();
-    },
-  },
-  methods: {
-    loadData() {
-      /*this.setBreadcrumbOnlyItem1(
-          {text: this.$i18n.t('leaderboard.gamePoints.title', [100])}
-      );*/
-    },
   },
 };
 </script>
