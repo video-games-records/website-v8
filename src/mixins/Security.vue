@@ -8,10 +8,10 @@ export default {
     getUser() {
       return useSecurityStore().getUser;
     },
-    /*getPlayer() {
-      return this.$store.getters['security/getPlayer'];
+    getPlayer() {
+      return useSecurityStore().getPlayer;
     },
-    hasRolePlayer() {
+    /*hasRolePlayer() {
      return this.$store.getters['security/hasRole']('ROLE_PLAYER')
     }*/
   },

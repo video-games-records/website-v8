@@ -7,11 +7,13 @@ export const useSecurityStore = defineStore('security', {
         // Navigation
         isAuthenticated: false,
         user: {},
+        player: {},
         refreshTokenPromise: null
     }),
     getters: {
         getIsAuthenticated: (state) => state.isAuthenticated,
         getUser: (state) => state.user,
+        getPlayer: (state) => state.player,
     },
     actions: {
         login(payload) {

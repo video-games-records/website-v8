@@ -9,7 +9,10 @@
         <leaderboard-player v-bind:leaderboard=leaderboardPlayer></leaderboard-player>
       </v-col>
       <v-col cols="12" md="6" lg="6">
-        <leaderboard-team v-bind:leaderboard=leaderboardTeam></leaderboard-team>
+        <leaderboard-team
+            v-bind:leaderboard=leaderboardTeam
+            callback="/api/players/ranking-point-game?idTeam=">
+        </leaderboard-team>
       </v-col>
     </v-row>
 </template>

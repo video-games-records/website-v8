@@ -15,10 +15,10 @@
       <tr v-for="item in leaderboard" :data-rank="item.rankPointGame" :key="item.id">
         <td>{{ item.rankPointGame }}</td>
         <td v-if="item.team">
-          <team v-bind:team="item.team" v-bind:show-avatar="showAvatar"></team>
+          <team v-bind:team="item.team" v-bind:show-avatar="true"></team>
         </td>
         <td v-else>
-          <team v-bind:team="item" v-bind:show-avatar="showAvatar"></team>
+          <team v-bind:team="item" v-bind:show-avatar="true"></team>
         </td>
         <td :data-header="$t('global.gamePoints')">{{ item.pointGame | number }}</td>
         <td :data-header="$t('global.gamesLowercase')">{{ item.nbGame | number }}</td>
@@ -48,15 +48,15 @@ import LeaderboardPlayerPointGame from '@/components/vgr/player/leaderboard/Poin
 
 export default {
   mixins: [Security],
-  name: 'LeaderboardPoint',
+  name: 'TeamLeaderboardPointGame',
   props: {
     'leaderboard': {
       require: true,
     },
-    'showAvatar': {
-      default: true,
-      type: Boolean,
-    },
+    'callback': {
+      require: true,
+      type: String
+    }
   },
   components: {Team, LeaderboardPlayerPointGame},
   data() {
@@ -71,22 +71,16 @@ export default {
   methods: {
     openModal(item) {
       if (item.team) {
-        this.team = item.team;      alert('test');
+        this.team = item.team;
       } else {
         this.team = item;
       }
 
-      if (this.$route.params.idGame) {
-        this.axios.get('/api/games/' + this.$route.params.idGame + '/player-ranking-points?idTeam=' + this.team.id)
-          .then(response => {
-            this.leaderboardPlayer = response.data['hydra:member']
-          })
-      } else {
-        this.axios.get('/api/players/ranking-point-game?idTeam=' + this.team.id)
-          .then(response => {
-            this.leaderboardPlayer = response.data['hydra:member']
-          })
-      }
+      this.axios.get(this.callback + this.team.id)
+        .then(response => {
+          this.leaderboardPlayer = response.data['hydra:member']
+        })
+
       this.dialog = true;
     }
   },
