@@ -1,55 +1,32 @@
 <template>
-    <div>
-        <vue-headful :title="title" :description="description" />
-        <h2>{{ $t('leaderboard.proofs.title', [100]) }}</h2>
-
-        <leaderboard-proof v-bind:leaderboard=leaderboardPlayer></leaderboard-proof>
-    </div>
+  <v-row>
+    <v-col cols="12">
+      <h2 class="d-flex justify-center">{{ $t('leaderboard.proofs.title', [100]) }}</h2>
+    </v-col>
+    <v-col cols="12">
+      <leaderboard-player v-bind:leaderboard=leaderboardPlayer></leaderboard-player>
+    </v-col>
+  </v-row>
 </template>
 
 <script>
-    import PlayerApi from '@/services/api/vgr/Player'
-    import LeaderboardProof from '@/components/vgr/player/leaderboard/Proof';
-    import BreadcrumbsManager from '@/mixins/BreadcrumbManager';
-    import i18n from "@/i18n";
 
-    export default {
-        mixins: [BreadcrumbsManager],
-        name: 'LeaderboardProof',
-        components: {
-            'leaderboard-proof': LeaderboardProof,
-        },
-        data() {
-            return {
-                leaderboardPlayer : PlayerApi.getRankingProof({query: {maxRank:100}})
-                    .then((response) => response),
-            };
-        },
-        computed: {
-            title() {
-                return this.$i18n.t('leaderboard.proofs.title', [100]) + ' - ' + process.env.VUE_APP_TITLE;
-            },
-            description() {
-                return this.$i18n.t('leaderboard.proofs.description');
-            },
-            getLanguage () {
-                return i18n.locale;
-            },
-        },
-        watch : {
-            getLanguage() {
-                this.loadData();
-            },
-        },
-        methods: {
-            loadData() {
-                this.setBreadcrumbOnlyItem1(
-                    { text: this.$i18n.t('leaderboard.proofs.title', [100])}
-                );
-            },
-        },
-        created() {
-            this.loadData();
-        },
-    };
+import LeaderboardPlayer from '@/components/vgr/player/leaderboard/Proof';
+
+export default {
+  name: 'LeaderboardProof',
+  components: { LeaderboardPlayer},
+  data() {
+    return {
+      leaderboardPlayer: []
+    }
+  },
+  created() {
+    document.title = this.$t('leaderboard.proofs.title') + ' - ' + import.meta.env.VITE_APP_TITLE;
+    this.axios.get('/api/players/ranking-proof?maxRank=100', {useCache: true})
+        .then(response => {
+          this.leaderboardPlayer = response.data['hydra:member']
+        })
+  },
+};
 </script>
