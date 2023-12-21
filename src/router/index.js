@@ -46,6 +46,15 @@ const routes = [
               { path: 'index', name: 'TeamIndex', component: () => import(/* webpackChunkName: "Player" */ '@/views/team/Index.vue')},
             ]
           },
+          /********* THE SITE ***********/
+          { path: 'rules', name: 'Rules', meta: {aside: true}, component: () => import(/* webpackChunkName: "rules" */ '@/views/page/Rules.vue')},
+          { path: 'faq', name: 'Faq', meta: {aside: true}, component: () => import(/* webpackChunkName: "faq" */ '@/views/page/Faq.vue')},
+          { path: 'partnership', name: 'Partnership', meta: {aside: true}, component: () => import(/* webpackChunkName: "partnership" */ '@/views/page/Partnership.vue')},
+          { path: 'credits', name: 'Credits', meta: {aside: true}, component: () => import(/* webpackChunkName: "credits" */ '@/views/page/Credits.vue')},
+          { path: 'recruitment', name: 'Recruitment', meta: {aside: true}, component: () => import(/* webpackChunkName: "recruitment" */ '@/views/page/Recruitment.vue')},
+          { path: 'how-it-works', name: 'HowItWorks', meta: {aside: true}, component: () => import(/* webpackChunkName: "how-it-works" */ '@/views/page/HowItWorks.vue')},
+          { path: 'donations', name: 'Donations', meta: {aside: true}, component: () => import(/* webpackChunkName: "donations" */ '@/views/page/Donations.vue')},
+          { path: 'the-vgr-team', name: 'TheVgrTeam', meta: {aside: true}, component: () => import(/* webpackChunkName: "the-vgr-team" */ '@/views/page/TheVgrTeam.vue')},
           /********* PLATFORM ***********/
           { path: 'game-platform-:slugPlatform-p:id(\\d+)', name: 'PlatformMain', component: () => import(/* webpackChunkName: "platform" */ '@/views/platform/Main.vue'), props: {default: true},
             children: [
