@@ -5,41 +5,41 @@
       <thead>
       <tr>
         <th scope="col">{{ $t('global.team') }}</th>
-        <th scope="col" class="">
-                    <span class="platinum" :title="$t('global.platinum')">
-                        <svg width="20" height="20" viewBox="0 0 50 50" class="svg-sprite" aria-hidden="true"
-                             focusable="false">
-                            <use xlink:href="#cup"/>
-                        </svg>
-                        <span class="d-sr-only">{{ $t('global.platinum') }}</span>
-                    </span>
+        <th scope="col">
+          <span class="platinum" :title="$t('global.platinum')">
+              <svg width="20" height="20" viewBox="0 0 50 50" class="svg-sprite" aria-hidden="true"
+                   focusable="false">
+                  <use xlink:href="#cup"/>
+              </svg>
+              <span class="d-sr-only">{{ $t('global.platinum') }}</span>
+          </span>
         </th>
         <th scope="col">
-                    <span class="gold" :title="$t('global.gold')">
-                        <svg width="20" height="20" viewBox="0 0 50 50" class="svg-sprite" aria-hidden="true"
-                             focusable="false">
-                            <use xlink:href="#cup"/>
-                        </svg>
-                        <span class="d-sr-only">{{ $t('global.gold') }}</span>
-                    </span>
+          <span class="gold" :title="$t('global.gold')">
+              <svg width="20" height="20" viewBox="0 0 50 50" class="svg-sprite" aria-hidden="true"
+                   focusable="false">
+                  <use xlink:href="#cup"/>
+              </svg>
+              <span class="d-sr-only">{{ $t('global.gold') }}</span>
+          </span>
         </th>
         <th scope="col">
-                    <span class="silver" :title="$t('global.silver')">
-                        <svg width="20" height="20" viewBox="0 0 50 50" class="svg-sprite" aria-hidden="true"
-                             focusable="false">
-                            <use xlink:href="#cup"/>
-                        </svg>
-                        <span class="d-sr-only">{{ $t('global.silver') }}</span>
-                    </span>
+          <span class="silver" :title="$t('global.silver')">
+              <svg width="20" height="20" viewBox="0 0 50 50" class="svg-sprite" aria-hidden="true"
+                   focusable="false">
+                  <use xlink:href="#cup"/>
+              </svg>
+              <span class="d-sr-only">{{ $t('global.silver') }}</span>
+          </span>
         </th>
         <th scope="col">
-                    <span class="bronze" :title="$t('global.bronze')">
-                        <svg width="20" height="20" viewBox="0 0 50 50" class="svg-sprite" aria-hidden="true"
-                             focusable="false">
-                            <use xlink:href="#cup"/>
-                        </svg>
-                        <span class="d-sr-only">{{ $t('global.bronze') }}</span>
-                    </span>
+          <span class="bronze" :title="$t('global.bronze')">
+              <svg width="20" height="20" viewBox="0 0 50 50" class="svg-sprite" aria-hidden="true"
+                   focusable="false">
+                  <use xlink:href="#cup"/>
+              </svg>
+              <span class="d-sr-only">{{ $t('global.bronze') }}</span>
+          </span>
         </th>
       </tr>
       </thead>
