@@ -11,7 +11,8 @@
       </tr>
       </thead>
       <tbody>
-      <tr v-for="item in leaderboard" :data-rank="item.rankPointGame" :key="item.id" :class="[isAuthenticated && getPlayer.id === item.id ? 'player--me' : 'player' ]">
+      <tr v-for="item in leaderboard" :data-rank="item.rankPointGame" :key="item.id"
+          :class="[isAuthenticated && getAuthenticatedPlayer.id === item.id ? 'player--me' : 'player' ]">
         <td>{{ item.rankPointGame }}</td>
         <td>
           <country v-bind:country="item.country"></country>

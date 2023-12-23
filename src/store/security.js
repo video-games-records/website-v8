@@ -21,7 +21,7 @@ export const useSecurityStore = defineStore('security', {
                 .then(response => {
                     this.isAuthenticated = true;
                     this.user = response.user;
-                    //this.player = response.player;
+                    this.player = response.player;
                 })
         },
         logout() {

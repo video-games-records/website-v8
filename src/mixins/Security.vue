@@ -5,15 +5,20 @@ export default {
     isAuthenticated() {
       return useSecurityStore().isAuthenticated;
     },
-    getUser() {
+    getAuthenticatedUser() {
       return useSecurityStore().getUser;
     },
-    getPlayer() {
+    getAuthenticatedPlayer() {
       return useSecurityStore().getPlayer;
     },
-    /*hasRolePlayer() {
-     return this.$store.getters['security/hasRole']('ROLE_PLAYER')
-    }*/
+    hasRolePlayer() {
+      if (this.isAuthenticated === false) {
+        return false;
+      }
+      return role => {
+        return this.getAuthenticatedUser().roles.indexOf(role) !== -1;
+      }
+    }
   },
 }
 </script>

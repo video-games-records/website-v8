@@ -12,7 +12,8 @@
       </tr>
       </thead>
       <tbody>
-      <tr v-for="item in leaderboard" :data-rank="item.rankPointChart" :key="item.id" :class="[isAuthenticated && getPlayer.team && getPlayer.team.id === getTeamId(item) ? 'player--me' : 'player' ]">
+      <tr v-for="item in leaderboard" :data-rank="item.rankPointChart" :key="item.id"
+          :class="[isAuthenticated && getAuthenticatedPlayer.team && getAuthenticatedPlayer.team.id === getTeamId(item) ? 'player--me' : 'player' ]">
         <td class="leaderboard-points-team__rank">{{ item.rankPointChart }}</td>
         <td v-if="item.team" class="leaderboard-points-team__nickname">
           <team v-bind:team="item.team" v-bind:show-avatar="true"></team>

@@ -12,7 +12,8 @@
       </tr>
       </thead>
       <tbody>
-      <tr v-for="item in leaderboard" :data-rank="item.rankPointGame" :key="item.id">
+      <tr v-for="item in leaderboard" :data-rank="item.rankPointGame" :key="item.id"
+          :class="[isAuthenticated && getAuthenticatedPlayer.team && getAuthenticatedPlayer.team.id === getTeamId(item) ? 'player--me' : 'player' ]">
         <td>{{ item.rankPointGame }}</td>
         <td v-if="item.team">
           <team v-bind:team="item.team" v-bind:show-avatar="true"></team>
@@ -82,7 +83,14 @@ export default {
         })
 
       this.dialog = true;
-    }
+    },
+    getTeamId(item) {
+      if (item.team) {
+        return item.team.id ?? item.id;
+      } else {
+        return item.id;
+      }
+    },
   },
 };
 </script>
