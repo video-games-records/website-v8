@@ -15,12 +15,12 @@
       <tbody>
       <tr v-for="item in leaderboard" :data-rank="item.rankPointChart" :key="item.id"
           :class="[isAuthenticated && getAuthenticatedPlayer.id === getPlayerId(item) ? 'player--me' : 'player' ]">
-        <td class="leaderboard-points-game__rank">{{ getRank(item) }}</td>
-        <td v-if="item.player" class="leaderboard-points-game__nickname">
+        <td>{{ getRank(item) }}</td>
+        <td v-if="item.player">
           <country v-bind:country="item.player.country"></country>
           <player v-bind:player="item.player" v-bind:show-avatar="true"></player>
         </td>
-        <td v-else class="leaderboard-points-game__nickname">
+        <td v-else>
           <country v-bind:country="item.country"></country>
           <player v-bind:player="item" v-bind:show-avatar="true"></player>
         </td>
@@ -82,3 +82,6 @@ export default {
   },
 };
 </script>
+
+
+

@@ -23,6 +23,14 @@
 @import "config/functions";
 @import "config/mixins";
 
+/* == @section Project ==================== */
+@import "utilities/normalize.8.0.1";
+@import "utilities/fonts";
+@import "utilities/base";
+@import "utilities/utilities";
+@import "utilities/tables";
+
+
 /* -- @subsection Layout ---------- */
 @import "layout";
 
@@ -33,3 +41,6 @@
 /* -- @subsection Components ---------- */
 @import "components/leaderboard";
 @import "components/platforms";
+
+/* -- @subsection Media queries ---------- */
+@import "media-queries";

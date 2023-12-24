@@ -1,0 +1,156 @@
+@charset "UTF-8";
+/**
+ * @site            Video Games Records
+ * @author          Luc Poupard
+ * @note            Base styles
+ */
+
+/* ----------------------------- */
+/* Summary */
+/* ----------------------------- */
+/*
+    == Global
+    == Links
+    == Images
+    == Lists
+    == Titles
+    == Margins
+    == Tables
+    == Code
+*/
+
+
+/* == @section Global ==================== */
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: $font-stack-common;
+    //font-size: 1.6em; /* equiv 16px (1em = 10px) */
+    line-height: 1.5;
+}
+
+
+/* == @section Links ==================== */
+a,
+a:active,
+a:visited {
+    color: $base-color;
+    text-decoration: underline;
+}
+
+a:hover,
+a:focus {
+    text-decoration: none;
+}
+
+
+/* == @section Images ==================== */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* figure from CKEditor */
+.image {
+    display: inline-block;
+    margin: .5em .5em .5em 0;
+}
+
+
+/* == @section Lists ==================== */
+ul {
+    padding-left: 2em;
+    list-style: square inside;
+}
+
+dt {
+    font-weight: bold;
+}
+
+dd {
+    margin: 0 0 1em 0;
+}
+
+
+/* == @section Titles ==================== */
+h1,
+.h1 {
+    @include flow-hr(42); // equiv 26px
+}
+
+h2,
+.h2 {
+    @include flow-hr(36); // equiv 24px
+}
+
+h3,
+.h3 {
+    @include flow-hr(28); // equiv 22px
+}
+
+h4,
+.h4 {
+    @include flow-hr(20); // equiv 20px
+}
+
+h5,
+.h5 {
+    @include flow-hr(18); // equiv 18px
+}
+
+h6,
+.h6 {
+    @include flow-hr(16); // equiv 16px
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3 {
+    font-family: $font-stack-headings;
+    font-weight: normal;
+    font-style: normal;
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+    color: $primary-color;
+}
+
+
+/* == @section Margins ==================== */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+dl {
+    &:first-child {
+        margin-top: 0;
+    }
+}
+
+
+/* == @section Code ==================== */
+pre {
+    overflow: auto;
+}

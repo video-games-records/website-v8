@@ -1,0 +1,129 @@
+@charset "UTF-8";
+/**
+ * @site            Video Games Records
+ * @author          Luc Poupard
+ * @note            Tables styles
+ */
+
+table,
+.table {
+    width: 100%;
+    max-width: 100%;
+    border-collapse: collapse;
+    vertical-align: top;
+    border: none;
+}
+
+.table {
+    display: table;
+}
+
+table.table-auto {
+    table-layout: auto;
+}
+
+caption {
+    padding: em(10);
+    color: #555;
+    font-style: italic;
+
+    &.h2,
+    &.h3 {
+        margin-bottom: 0;
+        padding: 0;
+        text-align: left;
+    }
+}
+
+td,
+th {
+    padding: 0.3em 0.8em;
+    vertical-align: middle;
+    min-width: em(20);
+    cursor: default;
+    text-align: left;
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+
+th {
+    background-color: transparent;
+}
+
+tbody {
+    tr:nth-child(2n+1) {
+        background-color: $secondary-background;
+    }
+}
+
+tbody tr,
+.home-articles li {
+    &:hover,
+    &:focus-within {
+        outline: 2px solid $base-background;
+    }
+}
+
+.table-order,
+.table-order:hover,
+.table-order:focus {
+    border: none;
+    box-shadow: unset;
+    padding: 0;
+    max-width: 100%;
+    color: currentColor;
+    font-weight: 700;
+}
+
+.table-order {
+    &::after {
+        content: "\25BC";
+        margin-left: .25em;
+        font-size: .75em;
+        opacity: .75;
+    }
+}
+
+@mixin table-small {
+    tr,
+    td,
+    th {
+        display: block;
+    }
+
+    tr {
+        border: none;
+    }
+
+    thead th {
+        display: none;
+    }
+
+    tbody th,
+    td {
+        padding: 0 .5em;
+
+        &:first-child:not(:nth-last-child(2)) {
+            padding-top: .5em;
+        }
+    }
+
+    td {
+        &:last-child:not(:nth-child(2)) {
+            padding-bottom: .5em;
+        }
+
+        &:last-child:nth-child(2),
+        &:first-child:nth-last-child(2) {
+            padding-top: .25em;
+            padding-bottom: .25em;
+        }
+    }
+}
+
+@mixin table-medium {
+    table,
+    .table {
+        table-layout: fixed;
+    }
+}

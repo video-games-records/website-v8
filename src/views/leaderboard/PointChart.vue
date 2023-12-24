@@ -3,7 +3,7 @@
     <v-col cols="12">
       <h2 class="d-flex justify-center">{{ $t('leaderboard.recordPoints.title', [100]) }}</h2>
 
-      <p>{{ $t('leaderboard.recordPoints.help') }}</p>
+      {{ $t('leaderboard.recordPoints.help') }}
     </v-col>
     <v-col cols="12" md="6" lg="6">
       <leaderboard-player v-bind:leaderboard=leaderboardPlayer></leaderboard-player>

@@ -14,11 +14,11 @@
       <tbody>
       <tr v-for="item in leaderboard" :data-rank="item.rankPointChart" :key="item.id"
           :class="[isAuthenticated && getAuthenticatedPlayer.team && getAuthenticatedPlayer.team.id === getTeamId(item) ? 'player--me' : 'player' ]">
-        <td class="leaderboard-points-team__rank">{{ item.rankPointChart }}</td>
-        <td v-if="item.team" class="leaderboard-points-team__nickname">
+        <td>{{ item.rankPointChart }}</td>
+        <td v-if="item.team">
           <team v-bind:team="item.team" v-bind:show-avatar="true"></team>
         </td>
-        <td v-else class="leaderboard-points-team__nickname">
+        <td v-else>
           <team v-bind:team="item" v-bind:show-avatar="true"></team>
         </td>
         <td v-if="showGamePoints" :data-header="$t('global.gamePoints')">

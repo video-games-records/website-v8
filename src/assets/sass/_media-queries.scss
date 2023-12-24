@@ -1,0 +1,30 @@
+@charset "UTF-8";
+/**
+ * @site            Video Games Records
+ * @author          Luc Poupard
+ * @note            Media queries
+ */
+
+/* ----------------------------- */
+/* Summary */
+/* ----------------------------- */
+/*
+    == Extra-small: up to 480px
+    == Small: 480px and beyond
+        -- Up to 768px
+    == Medium: 768px and beyond
+        -- Up to 1024px
+    == Large: 1024px and beyond
+    == Extra-large: 1280px and beyond
+    == Ultra-large: 1600px and beyond
+*/
+
+
+
+/* -- @subsection Up to 768px ---------- */
+@media ( max-width: em-mq( $medium-screen ) ) {
+    @include table-small;
+    @include leaderboard-small;
+}
+
+
