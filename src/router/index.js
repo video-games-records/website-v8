@@ -113,9 +113,6 @@ const router = createRouter({
 })
 
 router.beforeEach(async (to, from, next) => {
-  //const paramsLocale = to.params.locale
-  const paramsLocale = 'en'
-
   let lang = localStorage.lang ? localStorage.lang.toLowerCase() : 'en';
 
   const toLang = to.params && to.params.lang;
@@ -131,7 +128,7 @@ router.beforeEach(async (to, from, next) => {
       // load locale messages
       await loadLocaleMessages(i18n, toLang)
       // set i18n language
-      setI18nLanguage(i18n, paramsLocale)
+      setI18nLanguage(i18n, toLang)
     }
   }
 
