@@ -20,7 +20,7 @@ import LeaderboardPlayer from '@/components/vgr/player/leaderboard/Cup.vue';
 import LeaderboardTeam from '@/components/vgr/team/leaderboard/Cup';
 
 export default {
-  name: 'LeaderboardPointGame',
+  name: 'LeaderboardCup',
   components: {
     'leaderboard-player': LeaderboardPlayer,
     'leaderboard-team': LeaderboardTeam,
