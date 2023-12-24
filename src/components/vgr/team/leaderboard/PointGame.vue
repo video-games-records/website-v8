@@ -21,8 +21,8 @@
         <td v-else>
           <team v-bind:team="item" v-bind:show-avatar="true"></team>
         </td>
-        <td :data-header="$t('global.gamePoints')">{{ item.pointGame | number }}</td>
-        <td :data-header="$t('global.gamesLowercase')">{{ item.nbGame | number }}</td>
+        <td :data-header="$t('global.gamePoints')">{{ number(item.pointGame) }}</td>
+        <td :data-header="$t('global.gamesLowercase')">{{ number(item.nbGame) }}</td>
         <td>
           <v-btn @click="openModal(item)" icon="mdi-account-multiple" size="x-small"></v-btn>
         </td>
@@ -46,9 +46,10 @@
 import Team from '@/components/vgr/team/Team.vue';
 import Security from "@/mixins/Security.vue";
 import LeaderboardPlayerPointGame from '@/components/vgr/player/leaderboard/PointGame';
+import Filters from "@/mixins/Filters.vue";
 
 export default {
-  mixins: [Security],
+  mixins: [Security, Filters],
   name: 'TeamLeaderboardPointGame',
   props: {
     'leaderboard': {

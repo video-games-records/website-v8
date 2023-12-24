@@ -16,7 +16,7 @@
         <td v-else>
           <team v-bind:team="item"></team>
         </td>
-        <td :data-header="$t('global.gamePoints')">{{ item.pointGame|number }}</td>
+        <td :data-header="$t('global.gamePoints')">{{ number(item.pointGame) }}</td>
       </tr>
       </tbody>
     </v-table>
@@ -25,8 +25,10 @@
 
 <script>
 import Team from '@/components/vgr/team/Team.vue';
+import Filters from "@/mixins/Filters.vue";
 
 export default {
+  mixins: [Filters],
   name: 'LeaderboardPoint',
   components: {
     'Team': Team,

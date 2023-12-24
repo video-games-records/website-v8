@@ -13,7 +13,7 @@
             <td>
               <player v-bind:player="item"></player>
             </td>
-            <td :data-header="$t('global.gamePoints')">{{ item.pointGame|number }}</td>
+            <td :data-header="$t('global.gamePoints')">{{ number(item.pointGame) }}</td>
           </tr>
         </tbody>
     </v-table>
@@ -22,8 +22,10 @@
 
 <script>
 import Player from '@/components/vgr/player/Player.vue'
+import Filters from "@/mixins/Filters.vue";
 
 export default {
+  mixins: [Filters],
   name: 'LeaderboardPoint',
   components: {
     'player': Player,

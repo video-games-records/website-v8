@@ -25,16 +25,16 @@
           <player v-bind:player="item" v-bind:show-avatar="true"></player>
         </td>
         <td v-if="isGameRanking" :data-header="$t('global.gamePoints')">
-          {{ item.pointGame | number }}
+          {{ number(item.pointGame) }}
         </td>
         <td :data-header="$t('global.recordPoints')">
-          {{ item.pointChart | number }}
+          {{ number(item.pointChart) }}
         </td>
         <td :data-header="$t('global.scoresLowercase')">
-          {{ item.nbChart | number }}
+          {{ number(item.nbChart) }}
         </td>
         <td :data-header="$t('global.proofsLowercase')">
-          {{ item.nbChartProven | number }}
+          {{ number(item.nbChartProven) }}
         </td>
       </tr>
       </tbody>
@@ -46,9 +46,10 @@
 import Player from '@/components/vgr/player/Player.vue';
 import Country from '@/components/country/Country.vue';
 import Security from "@/mixins/Security.vue";
+import Filters from "@/mixins/Filters.vue";
 
 export default {
-  mixins: [Security],
+  mixins: [Security, Filters],
   name: 'PlayerLeaderboardPointChart',
   props: {
     'leaderboard': {

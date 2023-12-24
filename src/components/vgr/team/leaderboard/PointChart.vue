@@ -22,10 +22,10 @@
           <team v-bind:team="item" v-bind:show-avatar="true"></team>
         </td>
         <td v-if="showGamePoints" :data-header="$t('global.gamePoints')">
-          {{ item.pointGame | number }}
+          {{ number(item.pointGame) }}
         </td>
         <td :data-header="$t('global.recordPoints')">
-          {{ item.pointChart | number }}
+          {{ number(item.pointChart) }}
         </td>
         <td>
           <v-btn @click="openModal(item)" icon="mdi-account-multiple" size="x-small"></v-btn>
@@ -51,9 +51,10 @@
 import Team from '@/components/vgr/team/Team.vue';
 import LeaderboardPlayerPointChart from '@/components/vgr/player/leaderboard/PointChart';
 import Security from "@/mixins/Security.vue";
+import Filters from "@/mixins/Filters.vue";
 
 export default {
-  mixins: [Security],
+  mixins: [Security, Filters],
   name: 'TeamLeaderboardPointChart',
   props: {
     'leaderboard': {
