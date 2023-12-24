@@ -45,10 +45,10 @@
           :class="[isAuthenticated && getAuthenticatedPlayer.team && getAuthenticatedPlayer.team.id === getTeamId(item) ? 'player--me' : 'player' ]">
         <td>{{ item.rankMedal }}</td>
         <td v-if="item.team">
-          <team v-bind:team="item.team" v-bind:show-avatar="showAvatar"></team>
+          <team v-bind:team="item.team" v-bind:show-avatar="true"></team>
         </td>
         <td v-else>
-          <team v-bind:team="item" v-bind:show-avatar="showAvatar"></team>
+          <team v-bind:team="item" v-bind:show-avatar="true"></team>
         </td>
         <td :data-header="$t('global.platinum')">{{ number(item.chartRank0) }}</td>
         <td :data-header="$t('global.gold')">{{ number(item.chartRank1) }}</td>

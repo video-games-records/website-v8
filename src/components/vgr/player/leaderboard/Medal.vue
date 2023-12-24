@@ -46,11 +46,11 @@
         <td>{{ item.rankMedal }}</td>
         <td v-if="item.player">
           <country v-bind:country="item.player.country"></country>
-          <player v-bind:player="item.player" v-bind:show-avatar="showAvatar"></player>
+          <player v-bind:player="item.player" v-bind:show-avatar="true"></player>
         </td>
         <td v-else>
           <country v-bind:country="item.country"></country>
-          <player v-bind:player="item" v-bind:show-avatar="showAvatar"></player>
+          <player v-bind:player="item" v-bind:show-avatar="true"></player>
         </td>
         <td :data-header="$t('global.platinum')">{{ number(item.chartRank0) }}</td>
         <td :data-header="$t('global.gold')">{{ number(item.chartRank1) }}</td>
