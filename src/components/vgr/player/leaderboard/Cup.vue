@@ -50,7 +50,7 @@
         <td>{{ item.rankCup }}</td>
         <td>
           <country v-bind:country="item.country"></country>
-          <player v-bind:player="item" v-bind:show-avatar="showAvatar"></player>
+          <player v-bind:player="item" v-bind:show-avatar="true"></player>
         </td>
         <td :data-header="$t('global.platinum')">{{ item.gameRank0 }}</td>
         <td :data-header="$t('global.gold')">{{ item.gameRank1 }}</td>
