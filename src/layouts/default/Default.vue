@@ -13,7 +13,7 @@
     </v-navigation-drawer>
 
     <v-main class="d-flex align-center justify-center" style="min-height: 300px;">
-      <v-sheet class="ma-5">
+      <v-sheet class="ma-5 w-100">
         <router-view />
       </v-sheet>
     </v-main>

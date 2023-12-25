@@ -68,15 +68,6 @@ div.leaderboard [data-rank="1"] .avatar, div.leaderboard [data-rank="2"] .avatar
         padding-right: 3em;
         font-weight: bold;
       }
-
-      &:nth-last-child(1),
-      &:nth-last-child(2),
-      &:nth-last-child(3),
-      &:nth-last-child(4) {
-        &::after {
-          content: " " attr(data-header);
-        }
-      }
     }
   }
 }

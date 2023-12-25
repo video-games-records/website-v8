@@ -2,6 +2,18 @@
   <v-list v-model:opened="open">
     <v-list-item title="My Application" subtitle="Vuetify"></v-list-item>
     <v-divider></v-divider>
+    <v-list-group value="Games">
+      <template v-slot:activator="{ props }">
+        <v-list-item
+            v-bind="props"
+            prepend-icon="mdi-gamepad-variant"
+            :title="$t('menu.games')"
+        ></v-list-item>
+      </template>
+      <v-list-item :to="{ name: 'GameListByLetter', params: { letter: getLetter}}" :title="$t('menu.game.alpha')"></v-list-item>
+      <v-list-item :to="{ name: 'GameNext'}" :title="$t('menu.game.next')"></v-list-item>
+      <v-list-item :to="{ name: 'GameLast'}" :title="$t('menu.game.last')"></v-list-item>
+    </v-list-group>
     <v-list-group value="Rankings">
     <template v-slot:activator="{ props }">
       <v-list-item
@@ -38,9 +50,15 @@
 
 
 <script>
+import { useAppStore } from '@/store/app';
 export default {
   data: () => ({
     open: [],
   }),
+  computed: {
+    getLetter() {
+      return useAppStore().getLetter;
+    },
+  },
 }
 </script>

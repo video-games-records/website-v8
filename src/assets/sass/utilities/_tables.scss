@@ -118,7 +118,18 @@ tbody tr,
             padding-top: .25em;
             padding-bottom: .25em;
         }
+
+        &:nth-last-child(1),
+        &:nth-last-child(2),
+        &:nth-last-child(3),
+        &:nth-last-child(4) {
+            &::after {
+                content: " " attr(data-header);
+            }
+        }
     }
+
+
 }
 
 @mixin table-medium {

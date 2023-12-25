@@ -283,6 +283,9 @@
       "title": "Derniers jeux",
       "description": "Liste des derniers jeux ajoutés"
     },
+    "list": {
+      "caption": "Liste des jeux"
+    },
     "byLetter": {
       "title": "Liste des jeux dans l’ordre alphabétique",
       "description": "Liste des jeux dans l’ordre alphabétique"

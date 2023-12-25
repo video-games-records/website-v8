@@ -283,6 +283,9 @@
       "title": "Latest game",
       "description": "list of last added games"
     },
+    "list": {
+      "caption": "Game list"
+    },
     "byLetter": {
       "title": "Alphabetical game list",
       "description": "Alphabetical game list"
