@@ -1,0 +1,92 @@
+@charset "UTF-8";
+/**
+ * @site            Video Games Records
+ * @author          Luc Poupard
+ * @note            Tabs
+ */
+
+.tabs {
+    list-style: none;
+    padding-left: 0;
+}
+
+.tab__item {
+    display: inline-block;
+
+    span,
+    a {
+        display: inline-block;
+        padding: .35em .65em;
+        border: 1px solid transparent;
+        background-color: $white;
+        color: $primary-color;
+        font-weight: 500;
+        line-height: 1.25;
+        text-decoration: none;
+    }
+
+    &--current {
+        span {
+            border-color: $primary-color;
+            @include box-form-shadow( $primary-color );
+        }
+    }
+}
+
+@mixin tabs-like-small {
+    .tabs {
+        padding: .5em .5em .3em .5em;
+        background-color: $secondary-background;
+    }
+
+    .tab__item {
+        span,
+        a {
+            margin-bottom: .5em;
+            background-color: $secondary-background;
+        }
+
+        &--current {
+            span {
+                border-color: $primary-color;
+                background-color: $white;
+            }
+        }
+
+        + .tab__item {
+            margin-left: em(3);
+        }
+    }
+}
+
+@mixin tabs-like-large {
+    .tabs {
+        position: relative;
+        overflow: hidden;
+    
+        &::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+            border-bottom: 1px solid $primary-color;
+        }
+    }
+
+    .tab__item {
+        span,
+        a {
+            border-bottom: 1px solid $primary-color;
+        }
+
+        &--current {
+            span {
+                border-bottom-color: $white;
+            }
+            
+            + .tab__item {
+                margin-left: em(3);
+            }
+        }
+    }
+}

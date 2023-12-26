@@ -41,7 +41,7 @@ export default {
 </script>
 
 <style scoped>
-lu {
+ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

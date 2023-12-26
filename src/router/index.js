@@ -64,6 +64,12 @@ const routes = [
           },
           /********* GAME-LIST ***********/
           { path: 'game-letter-:letter', name: 'GameListByLetter', meta: {aside: true}, component: () => import(/* webpackChunkName: "game-list" */ '@/views/game/list/ByLetter.vue'), props: {default: true}},
+          { path: 'game-platform-:slugPlatform-p:id(\\d+)', name: 'PlatformMain', component: () => import(/* webpackChunkName: "platform" */ '@/views/platform/Main.vue'), props: {default: true},
+            children: [
+              { path: 'index', name: 'PlatformIndex', component: () => import(/* webpackChunkName: "game-list" */ '@/views/platform/Index.vue')},
+              { path: 'leaderboard', name: 'PlatformLeaderboard', component: () => import(/* webpackChunkName: "game-list" */ '@/views/platform/Leaderboard.vue')},
+            ]
+          },
           { path: 'upcoming-games', name: 'GameNext', meta: {aside: true}, component: () => import(/* webpackChunkName: "game-list" */ '@/views/game/list/Next.vue')},
           { path: 'lastest-games', name: 'GameLast', meta: {aside: true}, component: () => import(/* webpackChunkName: "game-list" */ '@/views/game/list/Last.vue')},
           /********* GAME ***********/

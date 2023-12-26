@@ -25,6 +25,20 @@
 @media ( max-width: em-mq( $medium-screen ) ) {
     @include table-small;
     @include leaderboard-small;
+    @include platform-list-small;
 }
 
+/* == @section Medium: 769px and beyond ==================== */
+@media ( min-width: em-mq( $medium-screen + 1 ) ) {
+    @include platform-list-medium;
+}
 
+/* -- @subsection Up to 1024px ---------- */
+@media ( max-width: em-mq( $large-screen ) ) {
+    @include tabs-like-small;
+}
+
+/* == @section Large: 1025px and beyond ==================== */
+@media ( min-width: em-mq( $large-screen + 1 ) ) {
+    @include tabs-like-large;
+}

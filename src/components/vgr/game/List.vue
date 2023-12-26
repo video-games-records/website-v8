@@ -96,6 +96,13 @@ export default {
     };
   },
   computed: {
+    getCallBack() {
+      let callback = this.callback;
+      if (this.activeOrderBy) {
+        callback += '&order[' + this.order.column +'])='+ this.order.direction;
+      }
+      return callback;
+    },
     getLibGame() {
       if (this.$i18n.locale === 'fr') {
         return 'libGameFr';
@@ -104,7 +111,7 @@ export default {
     },
   },
   watch: {
-    callback () {
+    getCallBack () {
       this.load();
     }
   },
@@ -114,7 +121,7 @@ export default {
   },
   methods: {
     load() {
-      this.axios.get(this.callback)
+      this.axios.get(this.getCallBack)
         .then(response => {
           this.games = response.data['hydra:member']
         })
@@ -135,7 +142,6 @@ export default {
       } else {
         this.order.direction = 'ASC';
       }
-      this.load();
     }
   },
 };

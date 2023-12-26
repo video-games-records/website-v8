@@ -1,7 +1,7 @@
 <template>
   <span v-if="platform">
     <router-link @click.native="scrollToTop" :class="'platform-list__item platform-list__item--' + platform.id"
-                 :to="{name: 'PlatformIndex', params: { id: platform.id, slugPlatform: platform.slug  }}">
+                 :to="{name: this.route, params: { id: platform.id, slugPlatform: platform.slug  }}">
       {{ platform.libPlatform }}
     </router-link>
   </span>
@@ -11,11 +11,15 @@
 export default {
   name: 'Platform',
   props: {
-    'platform': {
+    platform: {
       type: Object,
       require: true,
     },
-    'displayLink': {
+    route: {
+      type: String,
+      default: 'PlatformIndex',
+    },
+    displayLink: {
       default: false,
       type: Boolean,
     },
