@@ -37,6 +37,13 @@ export default {
     document.title = this.$t('game.byLetter.title') + ' - ' + import.meta.env.VITE_APP_TITLE;
     useAppStore().setLetter(this.getLetter);
   },
+  watch: {
+    getLetter () {
+      if (this.getLetter !== undefined) {
+        useAppStore().setLetter(this.getLetter);
+      }
+    },
+  },
 }
 </script>
 

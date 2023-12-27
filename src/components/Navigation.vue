@@ -10,8 +10,9 @@
             :title="$t('menu.games')"
         ></v-list-item>
       </template>
-      <v-list-item :to="{ name: 'GameListByLetter', params: { letter: getLetter}}" :title="$t('menu.game.alpha')"></v-list-item>
+      <v-list-item :to="{ name: 'GameListByLetter', params: { letter: getLetter }}" :title="$t('menu.game.alpha')"></v-list-item>
       <v-list-item :to="{ name: 'PlatformIndex', params: { id: getPlatform.id, slugPlatform: getPlatform.slug}}">{{ $t('menu.game.platform') }}</v-list-item>
+      <v-list-item :to="{ name: 'SerieIndex', params: { id: getSerie.id, slugSerie: getSerie.slug}}">{{ $t('menu.game.serie') }}</v-list-item>
       <v-list-item :to="{ name: 'GameNext'}" :title="$t('menu.game.next')"></v-list-item>
       <v-list-item :to="{ name: 'GameLast'}" :title="$t('menu.game.last')"></v-list-item>
     </v-list-group>
@@ -62,6 +63,9 @@ export default {
     },
     getPlatform() {
       return useAppStore().getPlatform;
+    },
+    getSerie() {
+      return useAppStore().getSerie;
     },
   },
 }
