@@ -5,8 +5,8 @@
         v-model="serie"
         :items="this.series"
         item-title="name"
-        item-value="id"
         @update:modelValue="onChange()"
+        return-object
       >
       </v-select>
     </v-col>
@@ -99,6 +99,7 @@ export default {
   components: {SerieCard, Country, Player, Game, PlatformList},
   data() {
     return {
+      selected: null,
       tab: null,
       serie: {
         id: null,
@@ -145,8 +146,7 @@ export default {
       }
     },
     onChange () {
-      //this.$router.push({ name: "SerieIndex", params: {id : this.serie.id, slugSerie: this.serie.slug}});
-      this.$router.push('/en/serie-mario-kart-s2');
+      this.$router.push({ name: 'SerieIndex', params: {id : this.serie.id, slugSerie: this.serie.slug}});
     },
   },
 };
