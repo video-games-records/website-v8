@@ -1,65 +1,52 @@
 <template>
-    <div>
+  <div>
+    <v-row>
+      <v-col cols="12" order="2" lg="9" order-lg="1">
         <game-card v-bind:game=getGame></game-card>
         <router-view></router-view>
-    </div>
+      </v-col>
+      <v-col cols="12" order="1" lg="3" order-lg="2">
+        <game-aside />
+      </v-col>
+    </v-row>
+
+  </div>
 </template>
 
 <script>
-    import GameApi from '@/services/api/vgr/Game';
-    import GameCard from '@/components/vgr/game/Card.vue';
-    import BreadcrumbsManager from '@/mixins/BreadcrumbManager';
-    import i18n from "@/i18n";
+import GameCard from '@/components/vgr/game/Card.vue';
+import GameAside from '@/components/vgr/game/Aside.vue';
+import {useAppStore} from "@/store/app";
 
-    export default {
-        mixins: [BreadcrumbsManager],
-        name: 'GameMain',
-        components: {
-            'game-card' : GameCard,
-        },
-        data() {
-            return {
-            };
-        },
-        computed: {
-            getGame() {
-                return this.$store.getters['navigation/game'];
-            },
-            getLanguage () {
-                return i18n.locale;
-            },
-        },
-        methods: {
-            setGame () {
-                GameApi.getGame(this.$route.params.idGame)
-                .then(game => {
-                    if (game.status.value !== this.$GAME_STATUS_ACTIVE) {
-                        this.$router.push({path: '/'});
-                    }
-                    this.setBreadcrumbItem1(
-                        { text: game.name, to: {name: 'GameIndex',params: { idGame: game.id, slugGame: game.slug }}}
-                    );
-                    this.$store.dispatch('navigation/setGame', game);
-                    this.$store.dispatch('aside/setGame', game);
-                });
-            },
-        },
-        watch : {
-            getLanguage() {
-                this.setGame();
-            },
-        },
-        created() {
-            this.setBreadcrumbLevel(1);
-            this.setGame();
-        },
-        updated() {
-            if (this.$route.name === 'GameIndex') {
-                this.setBreadcrumbLevel(1);
-                if (this.getGame.id !== this.$route.params.idGame) {
-                    this.setGame();
-                }
-            }
-        },
-    };
+export default {
+  name: 'GameMain',
+  components: {GameCard, GameAside},
+  data() {
+    return {};
+  },
+  computed: {
+    getGame() {
+      return useAppStore().getGame;
+    },
+  },
+  created() {
+    this.load();
+  },
+  watch: {
+    '$route.params.idGame' () {
+      this.load();
+    },
+  },
+  methods: {
+    load() {
+      this.axios.get('/api/games/' + this.$route.params.idGame)
+          .then(response => {
+            /*if (game.status.value !== this.$GAME_STATUS_ACTIVE) {
+              this.$router.push({path: '/'});
+            }*/
+            useAppStore().setGame(response.data);
+          })
+    },
+  },
+};
 </script>
