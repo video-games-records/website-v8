@@ -32,7 +32,7 @@
 
     <h2>{{ $t('global.rankings') }}</h2>
 
-    <v-tabs v-model="tab">
+    <v-tabs v-model="tab" :direction="this.$vuetify.display.mobile ? 'vertical' : 'horizontal'">
       <v-tab value="leaderboard-player-point-chart">[{{ $t('global.player')}}] {{ $t('leaderboard.recordPoints.title') }}</v-tab>
       <v-tab value="leaderboard-player-medal">[{{ $t('global.player')}}] {{ $t('leaderboard.medal.title') }}</v-tab>
       <v-tab value="leaderboard-team-point-chart">[{{ $t('global.team')}}] {{ $t('leaderboard.recordPoints.title') }}</v-tab>

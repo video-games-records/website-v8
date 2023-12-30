@@ -24,7 +24,7 @@
           </div>
         </v-col>-->
         <v-col cols="12">
-          <v-sheet class="ma-5 w-100">
+          <v-sheet class="ma-5">
             <router-view />
           </v-sheet>
         </v-col>
