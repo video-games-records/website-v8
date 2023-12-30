@@ -13,9 +13,22 @@
     </v-navigation-drawer>
 
     <v-main class="d-flex align-center justify-center" style="min-height: 300px;">
-      <v-sheet class="ma-5 w-100">
-        <router-view />
-      </v-sheet>
+      <v-row>
+        <!--<v-col v-if="!this.$vuetify.display.mobile" cols="12">
+          <div id="header" role="banner" class="site-header">
+            <div class="site-header__logo">
+              <a href="/fr/" class="router-link-exact-active router-link-active" aria-current="page">
+                <img src="/img/logo.3122c306.svg" width="600" height="72" alt="Video Games Records">
+              </a>
+            </div>
+          </div>
+        </v-col>-->
+        <v-col cols="12">
+          <v-sheet class="ma-5 w-100">
+            <router-view />
+          </v-sheet>
+        </v-col>
+      </v-row>
     </v-main>
   </v-layout>
 </template>

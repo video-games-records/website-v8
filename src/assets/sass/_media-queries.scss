@@ -42,3 +42,8 @@
 @media ( min-width: em-mq( $large-screen + 1 ) ) {
     @include tabs-like-large;
 }
+
+/* == @section Extra-large: 1280px and beyond ==================== */
+@media ( min-width: em-mq( $extra-large-screen + 1 ) ) {
+    @include site-header-bg-medium;
+}

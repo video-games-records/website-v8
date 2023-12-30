@@ -43,3 +43,23 @@ svg[aria-hidden="true"]:not(.svg-sprite) {
         transform: rotate(-90deg);
     }
 }
+
+
+@mixin site-header-bg-medium {
+    .site-header {
+        position: relative;
+
+        &::after {
+            position: absolute;
+            top: -40px;
+            right: -150px;
+            content: "";
+            display: block;
+            width: 722px;
+            height: 431px;
+            background: url("../img/background/header-banner.png");
+            background-size: 100%;
+            z-index: -1;
+        }
+    }
+}
