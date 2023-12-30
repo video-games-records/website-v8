@@ -89,10 +89,9 @@ export default {
     };
   },
   created() {
-    document.title = this.$t('leaderboard.gamePoints.title', [100]) + ' - ' + import.meta.env.VITE_APP_TITLE;
+    document.title = this.getGame.name + ' - ' + import.meta.env.VITE_APP_TITLE;
     this.load();
   },
-
   computed: {
     getGame() {
       return useAppStore().getGame;
