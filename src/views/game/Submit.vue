@@ -1,11 +1,11 @@
 <template>
   <div>
-    <div>
-      <label for="term">{{ $t('search.chart') }}</label>
-      <input id="term" v-model="term" type="text" :minlength="3" required/>
+    <div class="d-flex">
+      <v-text-field class="d-inline" v-model="term" :minlength="3" :label="$t('search.chart')"></v-text-field>
+      <v-btn class="d-inline" @click="updateResource()">{{ $t('tag.submit') }}</v-btn>
     </div>
     <player-chart-list :game="getGame" :displayGroupName="true"></player-chart-list>
-    <v-pagination v-model="page" :length="length" total-visible=6 @update:modelValue="updateResource()"></v-pagination>
+    <v-pagination :density="this.$vuetify.display.mobile ? 'compact' : 'default'" v-model="page" :length="length" total-visible=6 @update:modelValue="updateResource()"></v-pagination>
   </div>
 </template>
 

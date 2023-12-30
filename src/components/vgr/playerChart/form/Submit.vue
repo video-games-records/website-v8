@@ -1,7 +1,9 @@
 <template>
-  <fieldset class="submit-score">
-    <legend v-if="displayGroupName">{{ chart.group.name }}</legend>
-    <legend v-if="displayChartName">{{ chart.name }}</legend>
+  <fieldset class="pa-0">
+    <legend>
+      <span v-if="displayGroupName">{{ chart.group.name }} - </span>
+      <span v-if="displayChartName">{{ chart.name }}</span>
+    </legend>
 
     <v-row>
       <v-col cols="12" md="6">
@@ -150,3 +152,15 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+fieldset {
+  margin: 2rem 0;
+  border: none;
+
+  > legend {
+    //margin-bottom: 1rem;
+    font-weight: bold;
+  }
+}
+</style>

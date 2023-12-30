@@ -17,18 +17,10 @@
             <span v-else>{{ $t('menu.rules') }}</span>
           </router-link>
         </li>
-        <li class="d-inline ma-2">
-          <router-link :to="{ name: 'GameVideoList'}">
-            <span>{{ $t('menu.video') }}</span>
-          </router-link>
-        </li>
         <li v-if="game.serie && game.serie.status.isActive" class="d-inline ma-2">
           <router-link :to="{ name: 'SerieLeaderboard',params: { idSerie: game.serie.id, slugSerie: game.serie.slug }}">
             {{ $t('Serie') }}: {{ game.serie.name }}
           </router-link>
-        </li>
-        <li v-if="hasRolePlayer" class="d-inline ma-2">
-          <router-link :to="{ name: 'GameVideoSubmit'}">{{ $t('video.insert.title') }}</router-link>
         </li>
         <li v-if="isSmartphone" class="d-inline ma-2">
           <a v-if="game.downloadUrl" :href="game.downloadUrl">{{ $t('game.download.URL') }}</a>
@@ -64,3 +56,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.h1 {
+  font-size: 1.8em;
+}
+</style>

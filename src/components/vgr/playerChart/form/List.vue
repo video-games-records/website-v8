@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-for="(chart, index) in getCharts" :data-position="chart.position" :key="index"
-         class="submit-score__container">
+         class="container">
       <player-chart-submit :key="chart.id" ref="playerChart" :chart="chart" :game="game"
                            :displayGroupName="displayGroupName"></player-chart-submit>
     </div>
@@ -78,3 +78,13 @@ export default {
   },
 };
 </script>
+
+
+<style scoped>
+.container {
+  + .container {
+    //margin: 3rem 0;
+    border-top: 1px dashed hsl(0, 0%, 53%);
+  }
+}
+</style>
