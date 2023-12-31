@@ -28,10 +28,12 @@ export default {
   created() {
     this.load();
   },
-  watch: {
-    '$route.params.idGroup' () {
-      this.load();
-    },
+  updated() {
+    if (this.$route.name  === 'GroupIndex') {
+      if (this.getGroup.id !== this.$route.params.idGroup) {
+        this.load();
+      }
+    }
   },
   methods: {
     load() {

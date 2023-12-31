@@ -4,7 +4,7 @@
 
     <div v-if="hasRolePlayer && getGame.id" class="d-flex justify-center ma-3">
       <v-btn >
-        <router-link :to="{ name: 'GameSubmit', params: { id: getGame.id, slug: getGame.slug }}">
+        <router-link :to="{ name: 'GameSubmit', params: { idGame: getGame.id, slugGame: getGame.slug }}">
           {{ $t('group.updateScores') }}
         </router-link>
       </v-btn>

@@ -4,7 +4,7 @@
 
     <div v-if="hasRolePlayer && getGame.id" class="d-flex justify-center ma-3">
       <v-btn >
-        <router-link :to="{ name: 'GroupSubmit', params: { id: getGroup.id, slug: getGroup.slug }}">
+        <router-link :to="{ name: 'GroupSubmit', params: { idGroup: getGroup.id, slugGroup: getGroup.slug }}">
           {{ $t('group.updateScores') }}
         </router-link>
       </v-btn>
@@ -44,7 +44,7 @@
 
     <div v-if="hasRolePlayer && getGame.id" class="d-flex justify-center ma-3">
       <v-btn >
-        <router-link :to="{ name: 'GroupSubmit', params: { id: getGroup.id, slug: getGroup.slug }}">
+        <router-link :to="{ name: 'GroupSubmit', params: { idGroup: getGroup.id, slugGroup: getGroup.slug }}">
           {{ $t('group.updateScores') }}
         </router-link>
       </v-btn>
@@ -129,12 +129,13 @@ export default {
     },
   },
   created() {
-    document.title = this.getGroup.name + ' - ' + this.getGame.name + ' - ' + import.meta.env.VITE_APP_TITLE;
     this.load();
   },
-  watch: {
-    '$route'() {
-      this.load();
+  updated() {
+    if (this.$route.name  === 'GroupIndex') {
+      if (this.getGroup.id !== this.$route.params.idGroup) {
+        this.load();
+      }
     }
   },
   methods: {

@@ -32,18 +32,18 @@ export default {
   created() {
     this.load();
   },
-  watch: {
-    '$route.params.idGame' () {
-      this.load();
-    },
+  updated() {
+    if (this.$route.name === 'GameIndex') {
+      if (this.getGame.id !== this.$route.params.idGame) {
+        this.load();
+      }
+    }
   },
   methods: {
     load() {
       this.axios.get('/api/games/' + this.$route.params.idGame)
           .then(response => {
-            /*if (game.status.value !== this.$GAME_STATUS_ACTIVE) {
-              this.$router.push({path: '/'});
-            }*/
+
             useAppStore().setGame(response.data);
             document.title = this.getGame.name + ' - ' + import.meta.env.VITE_APP_TITLE;
           })
