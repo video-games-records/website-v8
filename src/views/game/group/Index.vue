@@ -115,17 +115,11 @@ export default {
     };
   },
   computed: {
-    title() {
-      return this.getGroup.name + ' - ' + this.getGame.name + ' - ' + import.meta.env.VITE_APP_TITLE;
-    },
     getGame() {
       return useAppStore().getGame;
     },
     getGroup() {
       return useAppStore().getGroup;
-    },
-    getCharts() {
-      return this.$store.getters['navigation/charts'];
     },
     getLibChart() {
       if (this.$i18n.locale === 'fr') {
@@ -135,6 +129,7 @@ export default {
     },
   },
   created() {
+    document.title = this.getGroup.name + ' - ' + this.getGame.name + ' - ' + import.meta.env.VITE_APP_TITLE;
     this.load();
   },
   watch: {

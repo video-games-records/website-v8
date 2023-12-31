@@ -24,7 +24,6 @@
             item-value="@id"
             v-if="isReadOnly === false"
             v-model="chart.playerCharts[0].platform"
-            :id="chart.id"
             @change="change"
         >
         </v-select>

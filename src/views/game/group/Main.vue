@@ -32,7 +32,7 @@ export default {
   },
   methods: {
     load() {
-      this.axios.get('/api/groups/' + this.$route.params.idGame)
+      this.axios.get('/api/groups/' + this.$route.params.idGroup)
           .then(response => {
             useAppStore().setGroup(response.data);
           })

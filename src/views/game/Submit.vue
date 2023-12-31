@@ -20,9 +20,6 @@ export default {
   name: 'GameSubmit',
   components: {PlayerChartList},
   computed: {
-    title() {
-      return this.getGame.name + ' - ' + import.meta.env.VITE_APP_TITLE;
-    },
     getGame() {
       return useAppStore().getGame;
     },
@@ -37,12 +34,13 @@ export default {
   data() {
     return {
       page: 1,
-      length: 0,
+      length: 1,
       term: '',
       itemsPerPage: 10,
     };
   },
   created() {
+    document.title = this.getGame.name + ' - ' + import.meta.env.VITE_APP_TITLE;
     this.updateResource();
   },
   methods: {
@@ -50,7 +48,7 @@ export default {
       this.axios.get(this.getResourceUrl)
           .then(response => {
             useScoreSubmitStore().setCharts(response.data['hydra:member']);
-            this.length = Math.abs(response.data['hydra:totalItems'] / this.itemsPerPage);
+            this.length = Math.trunc(response.data['hydra:totalItems'] / this.itemsPerPage - 1) + 1;
           })
     },
   },

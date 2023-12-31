@@ -1,60 +1,49 @@
 <template>
-    <div>
-        <vue-headful :title="title" :description="description" />
-        <player-chart-list :game="getGame"></player-chart-list>
-        <paginate :resource_url="resource_url" @update="updateResource" class="pagination--bottom"></paginate>
-    </div>
+  <div>
+    <player-chart-list :game="getGame"></player-chart-list>
+    <v-pagination :density="this.$vuetify.display.mobile ? 'compact' : 'default'" v-model="page" :length="length"
+                  total-visible=6 @update:modelValue="updateResource()"></v-pagination>
+  </div>
 </template>
 
 <script>
-    import Paginate from '@/components/Paginate.vue'
-    import playerChartList from '@/components/vgr/playerChart/form/List.vue'
-    import BreadcrumbsManager from '@/mixins/BreadcrumbManager';
+import playerChartList from '@/components/vgr/playerChart/form/List.vue'
+import {useAppStore} from "@/store/app";
+import {useScoreSubmitStore} from "@/store/score/submit";
 
-    export default {
-        mixins: [BreadcrumbsManager],
-        name: 'ChartSubmit',
-        components: {
-            'playerChartList': playerChartList,
-            'paginate' : Paginate,
-        },
-        computed: {
-            title() {
-                return this.getGroup.name + ' - ' + this.getGame.name + ' - ' + process.env.VUE_APP_TITLE;
-            },
-            description() {
-                return this.$i18n.t('group.submit.description') + this.getGame.name + ' ' + this.$store.getters['navigation/gamePlatformList'] + ' / ' + this.getGroup.name;
-            },
-            getIdPlayer() {
-                return this.$store.getters['security/getPlayer'].id;
-            },
-            getGame() {
-                return this.$store.getters['navigation/game'];
-            },
-            getGroup() {
-                return this.$store.getters['navigation/group'];
-            },
-        },
-        data() {
-            return {
-                group: {
-                    game : {},
-                },
-                resource_url : '',
-                itemsPerPage: 50,
-            };
-        },
-        created() {
-            this.resource_url = '/api/groups/' + this.$route.params.idGroup + '/form-data?itemsPerPage='+  this.itemsPerPage;
-            this.setBreadcrumbItem3(
-                { text: this.$i18n.t('group.updateScores') }
-            );
-            this.setBreadcrumbLevel(3);
-        },
-        methods: {
-            updateResource(data){
-                this.$store.dispatch('playerChartSubmit/setCharts', data);
-            },
-        },
+export default {
+  name: 'GroupSubmit',
+  components: {playerChartList},
+  computed: {
+    getGame() {
+      return useAppStore().getGame;
+    },
+    getGroup() {
+      return useAppStore().getGroup;
+    },
+    getResourceUrl() {
+      return '/api/groups/' + this.$route.params.idGroup + '/form-data?itemsPerPage=' + this.itemsPerPage + '&page=' + this.page;
+    },
+  },
+  data() {
+    return {
+      page: 1,
+      length: 1,
+      itemsPerPage: 50,
     };
+  },
+  created() {
+    document.title = this.getGroup.name + ' - ' + this.getGame.name + ' - ' + import.meta.env.VITE_APP_TITLE;
+    this.updateResource();
+  },
+  methods: {
+    updateResource() {
+      this.axios.get(this.getResourceUrl)
+          .then(response => {
+            useScoreSubmitStore().setCharts(response.data['hydra:member']);
+            this.length = Math.trunc(response.data['hydra:totalItems'] / this.itemsPerPage - 1) + 1;
+          })
+    },
+  },
+};
 </script>
