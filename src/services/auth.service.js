@@ -91,7 +91,7 @@ const AuthenticationService = {
     resettingSendEmail: function(email) {
         const requestData = {
             method: 'post',
-            url: "api/users/resetting/send-email",
+            url: import.meta.env.VITE_ROOT_API + "/api/users/resetting/send-email",
             data: {
                 username : email
             }
@@ -110,7 +110,7 @@ const AuthenticationService = {
     resettingReset: function(token, password) {
         const requestData = {
             method: 'post',
-            url: "api/users/resetting/reset",
+            url: import.meta.env.VITE_ROOT_API + "/api/users/resetting/reset",
             data: {
                 token : token,
                 password: password
@@ -132,7 +132,7 @@ const AuthenticationService = {
 
         const requestData = {
             method: 'post',
-            url: "/token/refresh",
+            url: import.meta.env.VITE_ROOT_API + "/token/refresh",
             data: data
         }
         try {

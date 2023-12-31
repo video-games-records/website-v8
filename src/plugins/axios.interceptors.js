@@ -1,4 +1,5 @@
 import {TokenService} from "@/services/token.service";
+import {useSecurityStore} from "@/store/security";
 
 export function createAxiosRequestInterceptor(axiosInstance) {
     axiosInstance.interceptors.request.use(
@@ -24,11 +25,21 @@ export function createAxiosResponseInterceptor(axiosInstance) {
             return response;
         },
         async (error) => {
-            if (error.response.status === 401) {
-                TokenService.removeToken()
+            const originalConfig = error.config;
+            if (error.response.status === 401  && !originalConfig._retry) {
+                originalConfig._retry = true;
+                if (error.config.url.includes('/token/refresh')) {
+                    await useSecurityStore().logout();
+                    throw error
+                } else {
+                    try{
+                        const response = await useSecurityStore().refreshToken();
+                        return axiosInstance(originalConfig);
+                    } catch (e) {
+                        throw error
+                    }
+                }
             }
-            // If error was not 401 just reject as is
-            console.log(error);
             throw error
         }
     );

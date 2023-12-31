@@ -1,5 +1,5 @@
 // Utilities
-import { defineStore } from 'pinia'
+import {defineStore} from 'pinia'
 import AuthApi from "@/services/auth.service";
 
 export const useSecurityStore = defineStore('security', {
@@ -28,8 +28,21 @@ export const useSecurityStore = defineStore('security', {
             this.isAuthenticated = false;
             this.user = {}
         },
-        setRefreshTokenPromise(promise) {
-           this.refreshTokenPromise = promise;
+        refreshToken() {
+            if (null === this.refreshTokenPromise) {
+                const p = AuthApi.refreshToken()
+                this.refreshTokenPromise = p
+
+                p.then(
+                    response => {
+                        this.refreshTokenPromise = null
+                    },
+                    error => {
+                        this.refreshTokenPromise = null
+                    }
+                )
+            }
+            return this.refreshTokenPromise
         }
     },
     persist: true
