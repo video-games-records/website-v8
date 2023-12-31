@@ -89,7 +89,6 @@ export default {
     };
   },
   created() {
-    document.title = this.getGame.name + ' - ' + import.meta.env.VITE_APP_TITLE;
     this.load();
   },
   computed: {

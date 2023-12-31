@@ -45,6 +45,7 @@ export default {
               this.$router.push({path: '/'});
             }*/
             useAppStore().setGame(response.data);
+            document.title = this.getGame.name + ' - ' + import.meta.env.VITE_APP_TITLE;
           })
     },
   },

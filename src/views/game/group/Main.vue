@@ -18,6 +18,9 @@ export default {
     };
   },
   computed: {
+    getGame() {
+      return useAppStore().getGame;
+    },
     getGroup() {
       return useAppStore().getGroup;
     },
@@ -35,6 +38,7 @@ export default {
       this.axios.get('/api/groups/' + this.$route.params.idGroup)
           .then(response => {
             useAppStore().setGroup(response.data);
+            document.title = this.getGroup.name + ' - ' + this.getGame.name + ' - ' + import.meta.env.VITE_APP_TITLE;
           })
     },
   },
