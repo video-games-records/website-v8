@@ -31,6 +31,7 @@
 /* == @section Medium: 769px and beyond ==================== */
 @media ( min-width: em-mq( $medium-screen + 1 ) ) {
     @include platform-list-medium;
+    @include site-breadcrumb-medium;
 }
 
 /* -- @subsection Up to 1024px ---------- */

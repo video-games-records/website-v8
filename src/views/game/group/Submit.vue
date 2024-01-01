@@ -10,6 +10,7 @@
 import playerChartList from '@/components/vgr/playerChart/form/List.vue'
 import {useAppStore} from "@/store/app";
 import {useScoreSubmitStore} from "@/store/score/submit";
+import {useBreadcrumbsStore} from "@/store/base/breadcrumbs";
 
 export default {
   name: 'GroupSubmit',
@@ -33,6 +34,8 @@ export default {
     };
   },
   created() {
+    useBreadcrumbsStore().setLevel(3);
+    useBreadcrumbsStore().setItem3({ text: this.$t('group.updateScores') });
     this.updateResource();
   },
   methods: {

@@ -44,6 +44,42 @@ svg[aria-hidden="true"]:not(.svg-sprite) {
     }
 }
 
+/* -- @subsection Breadcrumb ---------- */
+.site-breadcrumb {
+    padding: .5em $page-padding-small;
+    background-color: $secondary-background;
+
+    ol {
+        @extend %inline-list;
+    }
+
+    li {
+        @extend %inline-list-item;
+
+        &:not(:first-child) {
+            margin-left: .5em;
+
+            &:before {
+                content: "/";
+                margin-right: .5em;
+            }
+        }
+    }
+
+    p {
+        margin: 0;
+    }
+}
+
+@mixin site-breadcrumb-medium {
+    .site-breadcrumb {
+        padding-right: $page-padding-large;
+        padding-left: $page-padding-large;
+    }
+}
+
+
+
 
 @mixin site-header-bg-medium {
     .site-header {
