@@ -18,7 +18,7 @@
           </router-link>
         </li>
         <li v-if="game.serie && game.serie.status.isActive" class="d-inline ma-2">
-          <router-link :to="{ name: 'SerieLeaderboard',params: { idSerie: game.serie.id, slugSerie: game.serie.slug }}">
+          <router-link :to="{ name: 'SerieIndex',params: { id: game.serie.id, slugSerie: game.serie.slug }}">
             {{ $t('Serie') }}: {{ game.serie.name }}
           </router-link>
         </li>

@@ -441,6 +441,8 @@
       "title": "Top {0} Proofs",
       "description": "Who is first on Proofs ranking?"
     },
+    "player": "Player leaderboard",
+    "team": "Team leaderboard",
     "on": "on"
   },
   "loading": {

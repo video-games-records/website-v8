@@ -441,6 +441,8 @@
       "title": "Top {0} Preuves",
       "description": "Qui est premier dans le classement par Preuves ?"
     },
+    "player": "Classement joueur",
+    "team": "Classement équipe",
     "on": "sur"
   },
   "loading": {

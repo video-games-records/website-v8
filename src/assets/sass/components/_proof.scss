@@ -1,0 +1,47 @@
+@charset "UTF-8";
+/**
+ * @site            Video Games Records
+ * @author          Luc Poupard
+ * @note            Proofs
+ */
+
+/* Proofs squares */
+[class^="proof--"] {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    background-color: grey;
+    border: 1px solid $black;
+    @include box-proof-shadow( $black );
+
+    .chart-list__status > & {
+        cursor: help;
+    }
+}
+
+.proof {
+    &--request-pending {
+        background-color: orange;
+    }
+
+    &--request-validated {
+        background-color: red;
+    }
+
+    &--request-sent {
+        background-color: yellow;
+    }
+
+    &--sent {
+        background-color: blue;
+    }
+
+    &--proved {
+        background-color:green;
+    }
+
+    &--unproved {
+        background-color:black;
+    }
+}
+

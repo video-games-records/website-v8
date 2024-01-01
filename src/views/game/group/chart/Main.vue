@@ -1,60 +1,55 @@
 <template>
-    <div>
-        <router-view></router-view>
-    </div>
+  <div>
+    <router-view></router-view>
+  </div>
 </template>
 
 <script>
-    import ChartApi from '@/services/api/vgr/Chart'
-    import BreadcrumbsManager from '@/mixins/BreadcrumbManager';
-    import i18n from "@/i18n";
 
-    export default {
-        mixins: [BreadcrumbsManager],
-        name: 'ChartMain',
-        components: {
+import {useAppStore} from "@/store/app";
+import {useBreadcrumbsStore} from "@/store/base/breadcrumbs";
 
-        },
-        data() {
-            return {
-                selected: ''
-            };
-        },
-        computed: {
-            getChart() {
-                return this.$store.getters['navigation/chart'];
-            },
-            getLanguage () {
-                return i18n.locale;
-            },
-        },
-        methods: {
-            setChart () {
-                ChartApi.getChart(this.$route.params.idChart)
-                    .then(chart => {
-                        this.setBreadcrumbItem3(
-                            { text: chart.name, to: {name: 'ChartIndex',params: { idChart: chart.id, slugChart: chart.slug }}}
-                        );
-                        this.$store.dispatch('navigation/setChart', chart);
-                    });
-            },
-        },
-        watch : {
-            getLanguage() {
-                this.setChart();
-            },
-        },
-        created() {
-            this.setBreadcrumbLevel(3);
-            this.setChart();
-        },
-        updated() {
-            if (this.$route.name  === 'ChartIndex') {
-                this.setBreadcrumbLevel(3);
-                if (this.getChart.id !== this.$route.params.idChart) {
-                    this.setChart();
-                }
-            }
-        },
+export default {
+  name: 'ChartMain',
+  components: {},
+  data() {
+    return {
     };
+  },
+  computed: {
+    getGame() {
+      return useAppStore().getGame;
+    },
+    getGroup() {
+      return useAppStore().getGroup;
+    },
+    getChart() {
+      return useAppStore().getChart;
+    },
+  },
+  created() {
+    useBreadcrumbsStore().setLevel(3);
+    this.load();
+  },
+  updated() {
+    if (this.$route.name  === 'ChartIndex') {
+      useBreadcrumbsStore().setLevel(3);
+      if (this.getChart.id !== this.$route.params.idChart) {
+        this.load();
+      }
+    }
+  },
+  methods: {
+    load() {
+      this.axios.get('/api/charts/' + this.$route.params.idChart)
+          .then(response => {
+            useAppStore().setChart(response.data);
+            useBreadcrumbsStore().setItem3(
+                { text: this.getChart.name, to: {name: 'GroupIndex',params: { idGame: this.getChart.id, slugGame: this.getChart.slug }}}
+            );
+            document.title = this.getChart.name + ' - ' + this.getGroup.name + ' - ' + this.getGame.name + ' - ' + import.meta.env.VITE_APP_TITLE;
+          })
+    },
+  },
+};
 </script>
