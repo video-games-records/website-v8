@@ -665,8 +665,8 @@
     }
   },
   "score": {
-    "updated": "{0} updated score | {0} updated score | {0} updated scores",
-    "toUpdate": "no score to update | {0} score to update | {0} scores to update",
+    "updated": "no updated score | 1 updated score | {count} updated scores",
+    "toUpdate": "no score to update | 1 score to update | {count} scores to update",
     "status": {
       "proof--proved": "proven score | proven score | proven scores",
       "proof--none": "unproven score | unproven score | unproven scores",

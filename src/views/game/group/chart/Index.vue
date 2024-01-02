@@ -207,8 +207,8 @@ export default {
     this.load();
   },
   updated() {
-    if (this.$route.name  === 'ChartIndex') {
-      if (this.getChart.id !== this.$route.params.idChart) {
+    if (this.$route.name === 'ChartIndex') {
+      if (this.getChart.id != this.$route.params.idChart) {
         this.load();
       }
     }

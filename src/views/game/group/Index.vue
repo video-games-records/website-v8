@@ -133,7 +133,7 @@ export default {
   },
   updated() {
     if (this.$route.name  === 'GroupIndex') {
-      if (this.getGroup.id !== this.$route.params.idGroup) {
+      if (this.getGroup.id != this.$route.params.idGroup) {
         this.load();
       }
     }

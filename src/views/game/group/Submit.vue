@@ -19,9 +19,6 @@ export default {
     getGame() {
       return useAppStore().getGame;
     },
-    getGroup() {
-      return useAppStore().getGroup;
-    },
     getResourceUrl() {
       return '/api/groups/' + this.$route.params.idGroup + '/form-data?itemsPerPage=' + this.itemsPerPage + '&page=' + this.page;
     },

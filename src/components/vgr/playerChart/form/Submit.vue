@@ -11,7 +11,7 @@
             <v-text-field v-for="(part, index) in lib.type.parseMask" :data-position="part.position" :key="part.id"
                           v-if="isInitialized" :label="lib.name" :readonly="isReadOnly"
                           v-model="chart.playerCharts[0].libs[z].parseValue[index].value"
-                          :suffix="part['suffixe']" @change="change"
+                          :suffix="part['suffixe']" @update:modelValue="change"
                           class="d-inline" />
         </div>
 
@@ -24,7 +24,7 @@
             item-value="@id"
             v-if="isReadOnly === false"
             v-model="chart.playerCharts[0].platform"
-            @change="change"
+            @update:modelValue="change"
         >
         </v-select>
       </v-col>
@@ -40,6 +40,7 @@
 <script>
 
 //import ProofForm from "@/components/vgr/playerChart/form/Proof";
+import {useAppStore} from "@/store/app";
 import {useScoreSubmitStore} from "@/store/score/submit";
 
 export default {
@@ -131,18 +132,12 @@ export default {
                   this.isCreated = true;
                   return response.data;
                 })
-                .catch(error => {
-                  if (error.response.status === 400) {
-                    alert(error.response.data['hydra:description']);
-                  }
-                });
           } else {
-            await this.axios.put('/api/player_charts/' + playerChart.id, playerChart).then(response => {
-              if (response.status === 200) {
-                this.chart.playerCharts[0] = response.data;
-                useScoreSubmitStore().addChartUpdated();
-                return response.data;
-              }
+            await this.axios.put('/api/player_charts/' + playerChart.id, playerChart)
+                .then(response => {
+                  this.chart.playerCharts[0] = response.data;
+                  useScoreSubmitStore().addChartUpdated();
+                  return response.data;
             });
           }
         }
