@@ -19,7 +19,7 @@
             </v-btn>
           </div>
 
-          <v-table>
+          <v-table density="default" class="leaderboard">
             <caption class="screen-reader-text">{{ $t('leaderboard.player') }}</caption>
             <thead>
             <tr>
@@ -28,7 +28,7 @@
               <th scope="col"></th>
               <th scope="col">{{ $t('global.recordPoints') }}</th>
               <th scope="col" v-for="lib in getChart.libs" :data-position="lib.position" :key="lib.id">{{ lib.name }}</th>
-              <th scope="col" class="chart-list__status">{{ $t('global.status') }}</th>
+              <th scope="col">{{ $t('global.status') }}</th>
             </tr>
             </thead>
             <tbody>
@@ -81,7 +81,7 @@
             </tbody>
           </v-table>
 
-          <table v-if="leaderboardPlayerDisabled.length > 0">
+          <v-table density="default" class="leaderboard" v-if="leaderboardPlayerDisabled.length > 0">
             <caption>{{ $t('score.off') }}</caption>
             <thead>
             <tr>
@@ -122,7 +122,7 @@
               </td>
             </tr>
             </tbody>
-          </table>
+          </v-table>
 
           <div v-if="hasRolePlayer && getGame.id" class="d-flex justify-center ma-3">
             <v-btn >
@@ -206,6 +206,13 @@ export default {
   created() {
     this.load();
   },
+  updated() {
+    if (this.$route.name  === 'ChartIndex') {
+      if (this.getChart.id !== this.$route.params.idChart) {
+        this.load();
+      }
+    }
+  },
   methods: {
     load() {
       let id = this.$route.params.idChart;
@@ -226,11 +233,6 @@ export default {
       this.playerChart = playerChart;
       this.dialog = true;
     },
-  },
-  watch: {
-    '$route'() {
-      this.setData();
-    }
   },
 };
 </script>

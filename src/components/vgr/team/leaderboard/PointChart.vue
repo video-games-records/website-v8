@@ -39,7 +39,10 @@
     <v-card>
       <v-card-title class="d-flex justify-center">{{ team.libTeam }}</v-card-title>
       <v-card-item>
-        <leaderboard-player-point-chart v-bind:leaderboard=leaderboardPlayer></leaderboard-player-point-chart>
+        <leaderboard-player-point-chart
+            v-bind:leaderboard=leaderboardPlayer
+            :origin="getOrigin"
+        ></leaderboard-player-point-chart>
       </v-card-item>
     </v-card>
   </v-dialog>
@@ -79,6 +82,12 @@ export default {
         libTeam: '',
       },
     };
+  },
+  computed: {
+    getOrigin() {
+      let words = this.callback.split('/');
+      return words[2];
+    }
   },
   methods: {
     openModal(item) {

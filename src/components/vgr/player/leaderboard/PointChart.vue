@@ -8,8 +8,8 @@
         <th scope="col">{{ $t('global.nickname') }}</th>
         <th v-if="isGameRanking" scope="col">{{ $t('global.gamePoints') }}</th>
         <th scope="col">{{ $t('global.recordPoints') }}</th>
-        <th scope="col">{{ $t('global.scores') }}</th>
-        <th scope="col">{{ $t('global.proofs') }}</th>
+        <th v-if="origin !== 'charts'" scope="col">{{ $t('global.scores') }}</th>
+        <th v-if="origin !== 'charts'" scope="col">{{ $t('global.proofs') }}</th>
       </tr>
       </thead>
       <tbody>
@@ -30,10 +30,10 @@
         <td :data-header="$t('global.recordPoints')">
           {{ number(item.pointChart) }}
         </td>
-        <td :data-header="$t('global.scoresLowercase')">
+        <td v-if="origin !== 'charts'" :data-header="$t('global.scoresLowercase')">
           {{ number(item.nbChart) }}
         </td>
-        <td :data-header="$t('global.proofsLowercase')">
+        <td v-if="origin !== 'charts'" :data-header="$t('global.proofsLowercase')">
           {{ number(item.nbChartProven) }}
         </td>
       </tr>
@@ -54,6 +54,11 @@ export default {
   props: {
     'leaderboard': {
       require: true,
+    },
+    'origin': {
+      require: true,
+      type: String,
+      default: 'default'
     }
   },
   components: {
