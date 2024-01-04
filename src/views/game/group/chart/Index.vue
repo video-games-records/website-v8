@@ -161,7 +161,7 @@ import LeaderboardTeam from '@/components/vgr/team/leaderboard/PointChart';
 import Player from '@/components/vgr/player/Player.vue';
 import Country from '@/components/country/Country.vue';
 import Platform from '@/components/vgr/platform/Platform.vue';
-import Proof from "@/components/vgr/playerChart/Proof";
+import Proof from "@/components/vgr/playerChart/proof/Proof.vue";
 import Security from "@/mixins/Security.vue";
 import {useAppStore} from "@/store/app";
 import LeaderboardTeamPointChart from "@/components/vgr/team/leaderboard/PointChart.vue";

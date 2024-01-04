@@ -31,13 +31,15 @@
       </v-row>
     </v-main>
   </v-layout>
+  <flash-message />
 </template>
 
 <script>
 import AppBar from "@/components/security/AppBar.vue";
 import Navigation from "@/components/Navigation.vue";
+import FlashMessage from "@/components/base/FlashMessage.vue";
 export default {
-  components: {AppBar, Navigation},
+  components: {FlashMessage, AppBar, Navigation},
   data: () => ({
     drawer: true,
     group: null,

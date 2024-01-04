@@ -80,7 +80,7 @@
     import Status from '@/components/vgr/playerChart/Status.vue';
     import GameApi from "@/services/api/vgr/Game";
     import PlayerChartStatusApi from "@/services/api/vgr/PlayerChartStatus";
-    import Proof from "@/components/vgr/playerChart/Proof";
+    import Proof from "@/components/vgr/playerChart/proof/Proof.vue";
 
     export default {
         name: 'PlayerChartList',

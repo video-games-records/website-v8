@@ -7,8 +7,8 @@
 </template>
 
 <script>
-import Video from "@/components/vgr/video/Video";
-import Picture from "@/components/vgr/picture/Picture";
+import Video from "@/components/vgr/video/Video.vue";
+import Picture from "@/components/vgr/picture/Picture.vue";
 
 export default {
   name: 'PlayerChartProof',

@@ -1,55 +1,49 @@
 <template>
-    <div>
-        <router-view></router-view>
-    </div>
+  <div>
+    <router-view></router-view>
+  </div>
 </template>
 
 <script>
-    import BreadcrumbsManager from '@/mixins/BreadcrumbManager';
-    import PlayerChartApi from "@/services/api/vgr/PlayerChart";
+import {useAppStore} from "@/store/app";
+import {useBreadcrumbsStore} from "@/store/base/breadcrumbs";
 
-    export default {
-        mixins: [BreadcrumbsManager],
-        name: 'PlayerChartMain',
-        components: {
-
-        },
-        data() {
-            return {
-                playerChart: {
-                },
-            };
-        },
-        computed: {
-            getChart() {
-                return this.$store.getters['navigation/chart'];
-            },
-            getPlayerChart() {
-                return this.$store.getters['navigation/playerChart'];
-            },
-        },
-        methods: {
-            setPlayerChart () {
-                if (this.getPlayerChart.id !== this.$route.params.idPc) {
-                    PlayerChartApi.getPlayerChart(this.$route.params.idPc)
-                        .then(playerChart => {
-                            this.setBreadcrumbItem4(
-                                { text: playerChart.player.pseudo}
-                            );
-                            this.$store.dispatch('navigation/setPlayerChart', playerChart);
-                        });
-                }
-            },
-        },
-        created() {
-            this.setBreadcrumbLevel(4);
-            this.setPlayerChart();
-        },
-        updated() {
-            if (this.$route.name  === 'ChartIndex') {
-                this.setBreadcrumbLevel(4);
-            }
-            this.setPlayerChart();
-        },
+export default {
+  name: 'PlayerChartMain',
+  components: {},
+  data() {
+    return {
+      playerChart: {},
     };
+  },
+  computed: {
+    getChart() {
+      return useAppStore().getChart;
+    },
+    getPlayerChart() {
+      return useAppStore().getPlayerChart;
+    },
+  },
+  created() {
+    useBreadcrumbsStore().setLevel(4);
+    this.load();
+  },
+  updated() {
+    if (this.$route.name === 'PlayerChartIndex') {
+      useBreadcrumbsStore().setLevel(4);
+    }
+  },
+  methods: {
+    load() {
+      this.axios.get('/api/player_charts/' + this.$route.params.idPc)
+          .then(response => {
+            useAppStore().setPlayerChart(response.data);
+            useBreadcrumbsStore().setItem4(
+                { text: this.getPlayerChart.player.pseudo}
+            );
+            //document.title = this.getPlayerChart.player.pseudo + ' - ' + this.getChart.name + ' - ' + this.getGroup.name + ' - ' + this.getGame.name + ' - ' + import.meta.env.VITE_APP_TITLE;
+          })
+    },
+  },
+};
 </script>

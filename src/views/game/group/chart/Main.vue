@@ -45,7 +45,7 @@ export default {
           .then(response => {
             useAppStore().setChart(response.data);
             useBreadcrumbsStore().setItem3(
-                { text: this.getChart.name, to: {name: 'GroupIndex',params: { idGame: this.getChart.id, slugGame: this.getChart.slug }}}
+                { text: this.getChart.name, to: {name: 'ChartIndex',params: { idChart: this.getChart.id, slugChart: this.getChart.slug }}}
             );
             document.title = this.getChart.name + ' - ' + this.getGroup.name + ' - ' + this.getGame.name + ' - ' + import.meta.env.VITE_APP_TITLE;
           })

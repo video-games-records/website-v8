@@ -19,17 +19,18 @@
 
 <script>
 
-import PictureForm from "@/components/vgr/playerChart/form/Picture";
-import VideoForm from "@/components/vgr/playerChart/form/Video";
-import Video from "@/components/vgr/video/Video";
-import Picture from "@/components/vgr/picture/Picture";
-import PlayerChartApi from '@/services/api/vgr/PlayerChart';
+import PictureForm from "@/components/vgr/playerChart/proof/PictureForm.vue";
+import VideoForm from "@/components/vgr/playerChart/proof/VideoForm.vue";
+import Video from "@/components/vgr/video/Video.vue";
+import Picture from "@/components/vgr/picture/Picture.vue";
+import {useAppStore} from "@/store/app";
+import Security from "@/mixins/Security.vue";
 
 export default {
+  mixins: [Security],
   name: 'PlayerChartProofForm',
   components: {
-    PictureForm,
-    VideoForm,
+    PictureForm, VideoForm,
     'vgr-video' : Video,
     'vgr-picture' : Picture,
   },
@@ -40,22 +41,14 @@ export default {
   },
   computed: {
     getPlayerChart() {
-      return this.$store.getters['navigation/playerChart'];
+      return useAppStore().getPlayerChart;
     },
     showProofForm() {
       return (
          this.getPlayerChart && (this.getPlayerChart.status.id === 1 || this.getPlayerChart.status.id === 3 || this.getPlayerChart.status.id === 7)
-        && (this.$store.getters['security/getPlayer']['id'] === this.getPlayerChart.player.id)
+        && (this.getAuthenticatedPlayer['id'] === this.getPlayerChart.player.id)
       );
     },
   },
-  methods: {
-    maj() {
-      PlayerChartApi.getPlayerChart(this.getPlayerChart.id)
-        .then(playerChart => {
-          this.$store.dispatch('navigation/setPlayerChart', playerChart);
-        });
-    }
-  }
 };
 </script>
