@@ -70,15 +70,10 @@ export default {
       this.$router.push({name: "GroupIndex", params: {idGroup: group.id, slugGroup: group.slug}});
     },
     load() {
-      this.axios.get('/api/games/' + this.getGame.id + '/groups?pagination=false&order[' + this.getLibGroup + ']=ASC')
+      this.axios.get('/api/games/' + this.$route.params.idGame + '/groups?pagination=false&order[' + this.getLibGroup + ']=ASC')
           .then(response => {
             this.groups = response.data['hydra:member']
           })
-    },
-  },
-  watch: {
-    getGame() {
-      this.loadData();
     },
   },
   created() {
