@@ -29,7 +29,7 @@
         </td>
         <td v-if="isAuthenticated" :data-header="$t('global.myRank')">
                             <span v-if="chart.playerChartP != null">
-                                {{ chart.playerChartP.rank }}/{{ chart.nbPost | number }}
+                                {{ chart.playerChartP.rank }}/{{ number(chart.nbPost) }}
                             </span>
         </td>
         <td v-if="chart.playerChart1 != null" :data-header="$t('global.topScore')">
@@ -56,9 +56,10 @@
 import Player from '@/components/vgr/player/Player.vue';
 import Chart from '@/components/vgr/chart/Chart.vue';
 import Security from "@/mixins/Security.vue";
+import Filters from "@/mixins/Filters.vue";
 
 export default {
-  mixins: [Security],
+  mixins: [Security, Filters],
   name: 'TopScore',
   props: ['charts'],
   components: {
