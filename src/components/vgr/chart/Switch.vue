@@ -1,10 +1,10 @@
 <template>
   <div>
-    <label class="d-flex justify-center">{{ $t('aside.switch.chart') }}</label>
-
     <div class="d-flex">
       <v-btn v-if="!isFirst" rounded="lg" icon="mdi-chevron-left" v-on:click="goToPrev()" />
       <v-select
+          density="comfortable"
+          :label="$t('aside.switch.chart')"
           v-model="chart"
           :items="this.charts"
           item-title="name"

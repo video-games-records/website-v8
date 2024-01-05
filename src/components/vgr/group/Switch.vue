@@ -1,10 +1,10 @@
 <template>
   <div>
-    <label class="d-flex justify-center">{{ $t('aside.switch.group') }}</label>
-
     <div class="d-flex">
       <v-btn v-if="!isFirst" rounded="lg" icon="mdi-chevron-left" v-on:click="goToPrev()" />
       <v-select
+          density="comfortable"
+          :label="$t('aside.switch.group')"
           v-model="group"
           :items="this.groups"
           item-title="name"

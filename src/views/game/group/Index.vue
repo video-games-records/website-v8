@@ -10,7 +10,7 @@
       </v-btn>
     </div>
 
-    <v-tabs v-model="tab[0]">
+    <v-tabs v-model="tab[0]" bg-color="primary">
       <v-tab value="charts">{{ $t('global.charts') }}</v-tab>
       <v-tab value="top-score">Top Score</v-tab>
     </v-tabs>

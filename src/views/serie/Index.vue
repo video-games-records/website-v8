@@ -120,7 +120,9 @@ export default {
   },
   watch: {
     '$route'() {
-      this.load();
+      if (this.$route.params.id !== undefined) {
+        this.load();
+      }
     }
   },
   methods: {
