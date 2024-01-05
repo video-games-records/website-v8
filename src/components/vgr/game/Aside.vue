@@ -1,7 +1,7 @@
 <template>
   <div>
-    <!--<group-switch v-if="getGroup.id != null"></group-switch>
-    <chart-switch v-if="getChart.id != null"></chart-switch>
+    <group-switch v-if="canSwitchGroup"></group-switch>
+    <!--<chart-switch v-if="getChart.id != null"></chart-switch>
     <maj-platform v-bind:game=game v-if="hasRolePlayer && (game.platforms.length > 1)"></maj-platform>-->
     <v-card v-if="!this.$vuetify.display.mobile">
       <v-card-title>TEST</v-card-title>
@@ -16,7 +16,7 @@
 </template>
 
 <script>
-//import GroupSwitch from '@/components/vgr/group/Switch.vue';
+import GroupSwitch from '@/components/vgr/group/Switch.vue';
 //import ChartSwitch from '@/components/vgr/chart/Switch.vue';
 //import MajPlatform from '@/components/vgr/playerChart/form/MajPlatform.vue'
 import Security from "@/mixins/Security.vue";
@@ -26,7 +26,7 @@ export default {
   mixins: [Security],
   name: 'GameAside',
   props: ['game'],
-  //components: {GroupSwitch, ChartSwitch, MajPlatform},
+  components: {GroupSwitch/*,ChartSwitch, MajPlatform*/},
   computed: {
     getGame() {
       return useAppStore().getGame;
@@ -37,6 +37,9 @@ export default {
     getChart() {
       return useAppStore().getChart;
     },
+    canSwitchGroup() {
+      return this.getGroup.id != null && this.$route.name === 'GroupIndex';
+    }
   },
 };
 </script>
