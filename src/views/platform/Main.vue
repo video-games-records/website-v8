@@ -10,7 +10,7 @@
         <router-view></router-view>
       </v-col>
       <v-col cols="12" order="1" md="12" lg="3" order-lg="2">
-        <div v-if="this.$vuetify.display.mobile">
+        <v-sheet v-if="this.$vuetify.display.mobile">
           <v-select
               v-model="platform"
               :items="this.platforms"
@@ -19,11 +19,11 @@
               return-object
           >
           </v-select>
-        </div>
-        <div v-else>
-          <div class="label">{{ $t('platform.choose') }}</div>
+        </v-sheet>
+        <v-sheet v-else>
+          <div class="d-flex justify-center">{{ $t('platform.choose') }}</div>
           <platform-list v-bind:platforms="platforms" :route=null></platform-list>
-        </div>
+        </v-sheet>
       </v-col>
     </v-row>
   </div>
