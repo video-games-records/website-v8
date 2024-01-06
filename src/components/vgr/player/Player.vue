@@ -1,7 +1,7 @@
 <template>
     <span v-if="player.id">
-        <avatar v-if="showAvatar" v-bind:player="player"></avatar>
-        <span v-if="player.team" class="player-tag">[{{ player.team.tag }}]</span>
+        <avatar v-if="showAvatar" v-bind:player="player" class="mr-3"></avatar>
+        <span v-if="player.team" class="mr-1">[{{ player.team.tag }}]</span>
         <router-link :to="{ name: 'PlayerIndex', params: { idPlayer: player.id, slugPlayer: player.slug }}" :title="player.pseudo">{{ player.pseudo }}</router-link>
     </span>
 </template>
