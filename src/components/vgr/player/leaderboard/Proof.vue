@@ -1,6 +1,6 @@
 <template>
   <v-card>
-    <v-card-title>{{ $t('leaderboard.proofs.caption') }}</v-card-title>
+    <v-card-title class="bg-primary">{{ $t('leaderboard.proofs.caption') }}</v-card-title>
     <v-table density="compact" class="leaderboard">
       <thead>
       <tr>
@@ -12,7 +12,7 @@
       </thead>
       <tbody>
       <tr v-for="item in leaderboard" :data-rank="item.rankProof" :key="item.id"
-          :class="[isAuthenticated && getPlayer.id === item.id ? 'player--me' : 'player' ]">
+          :class="[isAuthenticated && this.getAuthenticatedPlayer.id === item.id ? 'player--me' : 'player' ]">
         <td>{{ item.rankProof }}</td>
         <td>
           <country v-bind:country="item.country"></country>

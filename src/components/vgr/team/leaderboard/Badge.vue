@@ -1,58 +1,86 @@
 <template>
-    <table class="leaderboard-badges">
-        <caption class="screen-reader-text">{{ $t('leaderboard.badges.captionTeam') }}</caption>
-        <thead>
-            <tr>
-                <th scope="col">{{ $t('global.rank') }}</th>
-                <th scope="col">{{ $t('global.nickname') }}</th>
-                <th scope="col">{{ $t('global.badgePoints') }}</th>
-                <th scope="col">{{ $t('badge.type.master') }}</th>
-            </tr>
-        </thead>
-        <VAsync :await="leaderboard">
-            <template #pending>
-                <tbody>
-                    <tr>
-                        <td colspan="4">
-                            <loading></loading>
-                        </td>
-                    </tr>
-                </tbody>
-            </template>
-            <template #resolved="leaderboard">
-                <tbody>
-                    <tr v-for="item in leaderboard" :data-rank="item.rankBadge" :key="item.id" :class="[isAuthenticated && getPlayer.team && getPlayer.team.id === item.id ? 'player--me' : 'player' ]">
-                        <td>{{ item.rankBadge }}</td>
-                        <td>
-                            <team v-bind:team="item" v-bind:show-avatar="showAvatar"></team>
-                        </td>
-                        <td :data-header="$t('global.badgePoints')">{{ item.pointBadge | number }}</td>
-                        <td :data-header="$t('badges.master')">{{ item.nbMasterBadge | number }}</td>
-                    </tr>
-                </tbody>
-            </template>
-        </VAsync>
-    </table>
+  <v-card>
+    <v-card-title class="bg-primary">{{ $t('leaderboard.badges.captionTeam') }}</v-card-title>
+    <v-table density="compact" class="leaderboard">
+      <thead>
+      <tr>
+        <th scope="col">{{ $t('global.rank') }}</th>
+        <th scope="col">{{ $t('global.nickname') }}</th>
+        <th scope="col">{{ $t('global.badgePoints') }}</th>
+        <th scope="col">{{ $t('badge.type.master') }}</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr v-for="item in leaderboard" :data-rank="item.rankBadge" :key="item.id"
+          :class="[isAuthenticated && getAuthenticatedPlayer.team && getAuthenticatedPlayer.team.id === item.id ? 'player--me' : 'player' ]">
+        <td>{{ item.rankBadge }}</td>
+        <td>
+          <team v-bind:team="item" v-bind:show-avatar="true"></team>
+        </td>
+        <td :data-header="$t('global.badgePoints')">{{ number(item.pointBadge) }}</td>
+        <td :data-header="$t('badges.master')">{{ number(item.nbMasterBadge) }}</td>
+        <td>
+          <v-btn @click="openModal(item)" icon="mdi-account-multiple" size="x-small"></v-btn>
+        </td>
+      </tr>
+      </tbody>
+    </v-table>
+  </v-card>
+
+  <v-dialog v-model="dialog">
+    <v-card class="pa-5">
+      <v-card-title class="d-flex justify-center">{{ team.libTeam }}</v-card-title>
+      <v-card-item>
+        <leaderboard-player-badge
+            v-bind:leaderboard=leaderboardPlayer
+        ></leaderboard-player-badge>
+      </v-card-item>
+    </v-card>
+  </v-dialog>
+
 </template>
+
 
 <script>
 import Team from '@/components/vgr/team/Team.vue';
 import Security from "@/mixins/Security.vue";
+import LeaderboardPlayerBadge from "@/components/vgr/player/leaderboard/Badge.vue";
+import Filters from "@/mixins/Filters.vue";
 
 export default {
-    mixins: [Security],
-    name: 'LeaderboardMedal',
-    props: {
-        'leaderboard' : {
-            require: true,
-        },
-        'showAvatar': {
-            default: true,
-            type: Boolean,
-        },
+  mixins: [Security, Filters],
+  name: 'LeaderboardMedal',
+  components: { LeaderboardPlayerBadge, Team},
+  props: {
+    'leaderboard': {
+      require: true,
     },
-    components: {
-        'team': Team,
+    'callback': {
+      require: true,
+      type: String
     },
+  },
+  data() {
+    return {
+      leaderboardPlayer: [],
+      dialog: false,
+      team: {
+        libTeam: '',
+      },
+    };
+  },
+  methods: {
+    openModal(item) {
+      this.team = item;
+
+      this.axios.get(this.callback + this.team.id)
+          .then(response => {
+            this.leaderboardPlayer = response.data['hydra:member']
+          })
+
+      this.dialog = true;
+    },
+  },
 };
 </script>

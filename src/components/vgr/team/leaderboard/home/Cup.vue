@@ -1,6 +1,6 @@
 <template>
   <v-card>
-    <v-card-title>{{ $t('leaderboard.cup.captionTeam') }}</v-card-title>
+    <v-card-title class="bg-primary">{{ $t('leaderboard.cup.captionTeam') }}</v-card-title>
     <v-table density="compact">
       <thead>
       <tr>

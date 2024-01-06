@@ -1,68 +1,47 @@
 <template>
-    <div>
-        <vue-headful :title="title" :description="description" />
-        <h2>{{ $t('leaderboard.badges.title', [100]) }}</h2>
-
-        <VTabs ref="tabs" id="leaderboard">
-            <template slot="Player">
-                <leaderboard-player v-bind:leaderboard=leaderboardPlayer></leaderboard-player>
-            </template>
-
-            <template slot="Team">
-                <leaderboard-team v-bind:leaderboard=leaderboardTeam></leaderboard-team>
-            </template>
-        </VTabs>
-    </div>
+  <v-row>
+    <v-col cols="12">
+      <h2 class="d-flex justify-center">{{ $t('leaderboard.badges.title', [100]) }}</h2>
+    </v-col>
+    <v-col cols="12" md="6" lg="6">
+      <leaderboard-player v-bind:leaderboard=leaderboardPlayer></leaderboard-player>
+    </v-col>
+    <v-col cols="12" md="6" lg="6">
+      <leaderboard-team
+          v-bind:leaderboard=leaderboardTeam
+          callback="/api/players/ranking-badge?idTeam=">
+      </leaderboard-team>
+    </v-col>
+  </v-row>
 </template>
 
 <script>
-    import PlayerApi from '@/services/api/vgr/Player';
-    import TeamApi from '@/services/api/vgr/Team';
-    import LeaderboardPlayer from '@/components/vgr/player/leaderboard/Badge';
-    import LeaderboardTeam from '@/components/vgr/team/leaderboard/Badge';
-    import BreadcrumbsManager from '@/mixins/BreadcrumbManager';
-    import i18n from "@/i18n";
 
-    export default {
-        mixins: [BreadcrumbsManager],
-        name: 'LeaderboardBadge',
-        components: {
-            'leaderboard-player': LeaderboardPlayer,
-            'leaderboard-team': LeaderboardTeam,
-        },
-        data() {
-            return {
-                leaderboardPlayer : PlayerApi.getRankingBadge({query: {maxRank:100}})
-                    .then((response) => response),
-                leaderboardTeam : TeamApi.getRankingBadge({query: {maxRank:100}})
-                    .then((response) => response),
-            };
-        },
-        computed: {
-            title() {
-                return this.$i18n.t('leaderboard.badges.title', [100]) + ' - ' + process.env.VUE_APP_TITLE;
-            },
-            description() {
-                return this.$i18n.t('leaderboard.badges.description');
-            },
-            getLanguage () {
-                return i18n.locale;
-            },
-        },
-        watch : {
-            getLanguage() {
-                this.loadData();
-            },
-        },
-        methods: {
-            loadData() {
-                this.setBreadcrumbOnlyItem1(
-                    { text: this.$i18n.t('leaderboard.badges.title', [100])}
-                );
-            },
-        },
-        created() {
-            this.loadData();
-        },
+import LeaderboardPlayer from '@/components/vgr/player/leaderboard/Badge';
+import LeaderboardTeam from '@/components/vgr/team/leaderboard/Badge';
+
+export default {
+  name: 'LeaderboardBadge',
+  components: {
+    'leaderboard-player': LeaderboardPlayer,
+    'leaderboard-team': LeaderboardTeam,
+  },
+  data() {
+    return {
+      leaderboardPlayer:[],
+      leaderboardTeam: [],
     };
+  },
+  created() {
+    document.title = this.$t('leaderboard.cup.title', [100]) + ' - ' + import.meta.env.VITE_APP_TITLE;
+    this.axios.get('/api/players/ranking-badge?maxRank=100', {useCache: true})
+        .then(response => {
+          this.leaderboardPlayer = response.data['hydra:member']
+        })
+    this.axios.get('/api/teams/ranking-badge?maxRank=100', {useCache: true})
+        .then(response => {
+          this.leaderboardTeam = response.data['hydra:member']
+        })
+  },
+};
 </script>
