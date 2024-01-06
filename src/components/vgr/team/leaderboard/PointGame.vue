@@ -21,8 +21,8 @@
         <td v-else>
           <team v-bind:team="item" v-bind:show-avatar="true"></team>
         </td>
-        <td :data-header="$t('global.gamePoints')">{{ number(item.pointGame) }}</td>
-        <td :data-header="$t('global.gamesLowercase')">{{ number(item.nbGame) }}</td>
+        <td :data-header="$t('global.gamePoints')" class="right">{{ number(item.pointGame) }}</td>
+        <td :data-header="$t('global.gamesLowercase')" class="right">{{ number(item.nbGame) }}</td>
         <td>
           <v-btn @click="openModal(item)" icon="mdi-account-multiple" size="x-small"></v-btn>
         </td>

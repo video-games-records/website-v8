@@ -18,8 +18,8 @@
           <country v-bind:country="item.country"></country>
           <player v-bind:player="item" v-bind:show-avatar="true"></player>
         </td>
-        <td :data-header="$t('global.badgePoints')">{{ number(item.pointBadge) }}</td>
-        <td :data-header="$t('badges.master')">{{ number(item.nbMasterBadge) }}</td>
+        <td :data-header="$t('global.badgePoints')" class="right">{{ number(item.pointBadge) }}</td>
+        <td :data-header="$t('badges.master')" class="right">{{ number(item.nbMasterBadge) }}</td>
       </tr>
       </tbody>
     </v-table>

@@ -18,8 +18,8 @@
         <td>
           <team v-bind:team="item" v-bind:show-avatar="true"></team>
         </td>
-        <td :data-header="$t('global.badgePoints')">{{ number(item.pointBadge) }}</td>
-        <td :data-header="$t('badges.master')">{{ number(item.nbMasterBadge) }}</td>
+        <td :data-header="$t('global.badgePoints')" class="right">{{ number(item.pointBadge) }}</td>
+        <td :data-header="$t('badges.master')" class="right">{{ number(item.nbMasterBadge) }}</td>
         <td>
           <v-btn @click="openModal(item)" icon="mdi-account-multiple" size="x-small"></v-btn>
         </td>

@@ -52,10 +52,10 @@
           <country v-bind:country="item.country"></country>
           <player v-bind:player="item" v-bind:show-avatar="true"></player>
         </td>
-        <td :data-header="$t('global.platinum')">{{ number(item.chartRank0) }}</td>
-        <td :data-header="$t('global.gold')">{{ number(item.chartRank1) }}</td>
-        <td :data-header="$t('global.silver')">{{ number(item.chartRank2) }}</td>
-        <td :data-header="$t('global.bronze')">{{ number(item.chartRank3) }}</td>
+        <td :data-header="$t('global.platinum')" class="right">{{ number(item.chartRank0) }}</td>
+        <td :data-header="$t('global.gold')" class="right">{{ number(item.chartRank1) }}</td>
+        <td :data-header="$t('global.silver')" class="right">{{ number(item.chartRank2) }}</td>
+        <td :data-header="$t('global.bronze')" class="right">{{ number(item.chartRank3) }}</td>
       </tr>
       </tbody>
     </v-table>

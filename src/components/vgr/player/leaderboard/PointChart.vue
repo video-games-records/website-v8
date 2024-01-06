@@ -24,16 +24,16 @@
           <country v-bind:country="item.country"></country>
           <player v-bind:player="item" v-bind:show-avatar="true"></player>
         </td>
-        <td v-if="isGameRanking" :data-header="$t('global.gamePoints')">
+        <td v-if="isGameRanking" :data-header="$t('global.gamePoints')" class="right">
           {{ number(item.pointGame) }}
         </td>
-        <td :data-header="$t('global.recordPoints')">
+        <td :data-header="$t('global.recordPoints')" class="right">
           {{ number(item.pointChart) }}
         </td>
-        <td v-if="origin !== 'charts'" :data-header="$t('global.scoresLowercase')">
+        <td v-if="origin !== 'charts'" :data-header="$t('global.scoresLowercase')" class="right">
           {{ number(item.nbChart) }}
         </td>
-        <td v-if="origin !== 'charts'" :data-header="$t('global.proofsLowercase')">
+        <td v-if="origin !== 'charts'" :data-header="$t('global.proofsLowercase')" class="right">
           {{ number(item.nbChartProven) }}
         </td>
       </tr>

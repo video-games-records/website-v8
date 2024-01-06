@@ -18,8 +18,8 @@
           <country v-bind:country="item.country"></country>
           <player v-bind:player="item" v-bind:show-avatar="true"></player>
         </td>
-        <td :data-header="$t('global.gamePoints')">{{ number(item.pointGame) }}</td>
-        <td :data-header="$t('global.gamesLowercase')">{{ number(item.nbGame) }}</td>
+        <td :data-header="$t('global.gamePoints')" class="right">{{ number(item.pointGame) }}</td>
+        <td :data-header="$t('global.gamesLowercase')" class="right">{{ number(item.nbGame) }}</td>
       </tr>
       </tbody>
     </v-table>

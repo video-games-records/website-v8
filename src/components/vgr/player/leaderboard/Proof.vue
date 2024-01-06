@@ -18,8 +18,8 @@
           <country v-bind:country="item.country"></country>
           <player v-bind:player="item" v-bind:show-avatar="true"></player>
         </td>
-        <td :data-header="$t('global.proofsLowercase')">{{ item.nbChartProven | number }}</td>
-        <td :data-header="$t('global.scoreProvenMobile')">{{ percentage(item) | number }} %</td>
+        <td :data-header="$t('global.proofsLowercase')" class="right">{{ item.nbChartProven | number }}</td>
+        <td :data-header="$t('global.scoreProvenMobile')" class="right">{{ percentage(item) | number }} %</td>
       </tr>
       </tbody>
     </v-table>

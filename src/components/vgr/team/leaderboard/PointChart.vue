@@ -21,10 +21,10 @@
         <td v-else>
           <team v-bind:team="item" v-bind:show-avatar="true"></team>
         </td>
-        <td v-if="showGamePoints" :data-header="$t('global.gamePoints')">
+        <td v-if="showGamePoints" :data-header="$t('global.gamePoints')" class="right">
           {{ number(item.pointGame) }}
         </td>
-        <td :data-header="$t('global.recordPoints')">
+        <td :data-header="$t('global.recordPoints')" class="right">
           {{ number(item.pointChart) }}
         </td>
         <td>

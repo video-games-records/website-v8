@@ -44,10 +44,10 @@
           <td>
               <player v-bind:player="item"></player>
           </td>
-          <td :data-header="$t('global.platinum')">{{ item.gameRank0 }}</td>
-          <td :data-header="$t('global.gold')">{{ item.gameRank1 }}</td>
-          <td :data-header="$t('global.silver')">{{ item.gameRank2 }}</td>
-          <td :data-header="$t('global.bronze')">{{ item.gameRank3 }}</td>
+          <td :data-header="$t('global.platinum')" class="right">{{ item.gameRank0 }}</td>
+          <td :data-header="$t('global.gold')" class="right">{{ item.gameRank1 }}</td>
+          <td :data-header="$t('global.silver')" class="right">{{ item.gameRank2 }}</td>
+          <td :data-header="$t('global.bronze')" class="right">{{ item.gameRank3 }}</td>
         </tr>
       </tbody>
     </v-table>

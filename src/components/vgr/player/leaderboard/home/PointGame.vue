@@ -13,7 +13,7 @@
             <td>
               <player v-bind:player="item"></player>
             </td>
-            <td :data-header="$t('global.gamePoints')">{{ number(item.pointGame) }}</td>
+            <td :data-header="$t('global.gamePoints')" class="right">{{ number(item.pointGame) }}</td>
           </tr>
         </tbody>
     </v-table>
