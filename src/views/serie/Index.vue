@@ -14,7 +14,7 @@
       <serie-card :serie=this.serie></serie-card>
     </v-col>
     <v-col>
-      <v-tabs v-model="tab">
+      <v-tabs v-model="tab" class="bg-primary">
         <v-tab value="leaderboard">Leaderboard</v-tab>
         <v-tab value="games">Games</v-tab>
         <v-tab value="description">Description</v-tab>
