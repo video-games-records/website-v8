@@ -26,10 +26,10 @@
     </thead>
     <tbody>
     <tr v-for="item in games" :data-position="item.position" :key="item.id">
-      <td class="game-list__game">
+      <td class="w50">
         <game v-bind:game="item" v-bind:show-link="showLink"></game>
       </td>
-      <td v-if="displayPlatform" class="game-list__platform">
+      <td v-if="displayPlatform">
         <platform-list v-bind:platforms="item.platforms"></platform-list>
       </td>
       <td v-if="displayCharts" :data-header="$t('global.charts')">
