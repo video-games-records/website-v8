@@ -1,30 +1,22 @@
 <template>
-    <div>
-        <p>
-            {{ $t('stats.averageRank') }} : {{ getTeam.averageGameRank }}
-        </p>
-        <team-stats v-bind:team="getTeam" />
-    </div>
+  <v-sheet v-if="this.getTeam.id">
+    <team-stats v-bind:team="getTeam"/>
+  </v-sheet>
 </template>
 
 <script>
-    import TeamStats from '@/components/vgr/team/profile/Stats.vue';
+import TeamStats from '@/components/vgr/team/profile/Stats.vue';
 
-    export default {
-
-        name: 'TeamIndex',
-        components: {
-            'team-stats': TeamStats,
-        },
-        data() {
-            return {
-
-            };
-        },
-        computed: {
-            getTeam() {
-                return this.$parent.team;
-            },
-        },
-    };
+export default {
+  name: 'TeamIndex',
+  components: { TeamStats },
+  data() {
+    return {};
+  },
+  computed: {
+    getTeam() {
+      return this.$parent.$parent.team;
+    },
+  },
+};
 </script>
