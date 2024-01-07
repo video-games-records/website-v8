@@ -1,5 +1,5 @@
 <template>
-  <div v-if="player.id">
+  <div v-if="player.id" class="avatar">
     <v-avatar :size="size" :image="getAvatarUrl"></v-avatar>
   </div>
 </template>
