@@ -622,7 +622,8 @@
     "country": "Country",
     "countryChoice": "Choose a country",
     "lastLogin": "Last login",
-    "nbConnexion": "Nb connexion"
+    "nbConnexion": "Nb connexion",
+    "discord": "Discord nickname"
   },
   "platform": {
     "maj": "Specify your platform for this game",

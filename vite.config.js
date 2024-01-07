@@ -3,6 +3,7 @@ import vue from '@vitejs/plugin-vue'
 import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
 import ViteFonts from 'unplugin-fonts/vite'
 import VueI18nPlugin from '@intlify/unplugin-vue-i18n/vite'
+import ckeditor5 from '@ckeditor/vite-plugin-ckeditor5'
 
 // Utilities
 import { defineConfig } from 'vite'
@@ -15,6 +16,7 @@ export default defineConfig({
     vue({
       template: { transformAssetUrls }
     }),
+    ckeditor5( { theme: require.resolve( '@ckeditor/ckeditor5-theme-lark' ) } ),
     // https://github.com/vuetifyjs/vuetify-loader/tree/next/packages/vite-plugin
     vuetify({
       autoImport: true,

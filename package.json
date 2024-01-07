@@ -9,6 +9,10 @@
     "lint": "eslint . --fix --ignore-path .gitignore"
   },
   "dependencies": {
+    "@ckeditor/ckeditor5-build-classic": "^40.2.0",
+    "@ckeditor/ckeditor5-theme-lark": "^40.2.0",
+    "@ckeditor/ckeditor5-vue": "^5.1.0",
+    "@ckeditor/vite-plugin-ckeditor5": "^0.1.3",
     "@mdi/font": "7.0.96",
     "axios": "^1.6.0",
     "axios-extensions": "^3.1.6",

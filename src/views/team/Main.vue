@@ -37,8 +37,10 @@ export default {
   },
   watch: {
     '$route.params.idTeam'() {
-      this.load();
-      this.$forceUpdate();
+      if (this.$route.params.idTeam != undefined) {
+        this.load();
+        this.$forceUpdate();
+      }
     }
   },
   methods: {
