@@ -21,6 +21,21 @@
     <player-stats v-if="getPlayer.id" v-bind:player="getPlayer"/>
 
     <v-row>
+      <v-col cols="12">
+        <h5>{{ $t('score.lastSubmit.default') }}</h5>
+        <player-chart-list v-if="this.getPlayer.id" :id-player="getPlayer.id" :items-per-page="5" :active-pagination="false" :active-order-by="false" :display-status="true"/>
+      </v-col>
+      <v-col cols="12">
+        <h5>{{ $t('score.lastSubmit.proof.picture') }}</h5>
+        <player-chart-list v-if="this.getPlayer.id" :id-player="getPlayer.id" :with-proof-picture="true" :items-per-page="5" :active-pagination="false" :active-order-by="false" :display-status="true"/>
+      </v-col>
+      <v-col cols="12">
+        <h5>{{ $t('score.lastSubmit.proof.video') }}</h5>
+        <player-chart-list v-if="this.getPlayer.id" :id-player="getPlayer.id" :with-proof-video="true" :items-per-page="5" :active-pagination="false" :active-order-by="false" :display-status="true"/>
+      </v-col>
+    </v-row>
+
+    <v-row>
       <v-col cols="12" lg="6">
         <player-stats-positions v-if="this.getPlayer.id && (this.getPlayer.createdAt < this.getNow)"
                                 v-bind:id-player="$route.params.idPlayer"/>
@@ -37,12 +52,13 @@
 import PlayerStats from '@/components/vgr/player/profile/Stats';
 import PlayerStatsPositions from '@/components/vgr/player/stats/Positions';
 import PlayerStatsMedalsByTime from '@/components/vgr/player/stats/MedalsByTime';
+import PlayerChartList from '@/components/vgr/playerChart/List';
 import Filters from "@/mixins/Filters.vue";
 
 export default {
   mixins: [Filters],
   name: 'PlayerIndex',
-  components: {PlayerStats, PlayerStatsPositions, PlayerStatsMedalsByTime},
+  components: {PlayerStats, PlayerChartList, PlayerStatsPositions, PlayerStatsMedalsByTime},
   data() {
     return {};
   },
