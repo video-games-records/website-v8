@@ -18,7 +18,7 @@ const routes = [
             component: () => import(/* webpackChunkName: "home" */ '@/views/Home.vue'),
           },
           /********* ACCOUNT ***********/
-          { path: 'account', name: 'account', meta: {requiresAuth: true, aside: true}, component: () => import(/* webpackChunkName: "account" */ '@/views/account/Main.vue'),
+          { path: 'account', name: 'account', meta: {requiresAuth: true}, component: () => import(/* webpackChunkName: "account" */ '@/views/account/Main.vue'),
             children: [
               { path: 'index', name: 'AccountIndex', component: () => import(/* webpackChunkName: "Player" */ '@/views/account/Index.vue')},
               { path: 'avatar', name: 'AccountAvatar', component: () => import(/* webpackChunkName: "Player" */ '@/views/account/Avatar.vue')},
@@ -28,33 +28,36 @@ const routes = [
             ]
           },
           /********* LEADERBOARD ***********/
-          { path: 'leaderboard-point-chart', name: 'LeaderboardPointChart', meta: {aside: true}, component: () => import(/* webpackChunkName: "leaderboard" */ '@/views/leaderboard/PointChart.vue')},
-          { path: 'leaderboard-point-game', name: 'LeaderboardPointGame', meta: {aside: true}, component: () => import(/* webpackChunkName: "leaderboard" */ '@/views/leaderboard/PointGame.vue')},
-          { path: 'leaderboard-medal', name: 'LeaderboardMedal', meta: {aside: true}, component: () => import(/* webpackChunkName: "leaderboard" */ '@/views/leaderboard/Medal.vue')},
-          { path: 'leaderboard-cup', name: 'LeaderboardCup', meta: {aside: true}, component: () => import(/* webpackChunkName: "leaderboard" */ '@/views/leaderboard/Cup.vue')},
-          { path: 'leaderboard-proof', name: 'LeaderboardProof', meta: {aside: true}, component: () => import(/* webpackChunkName: "leaderboard" */ '@/views/leaderboard/Proof.vue')},
-          { path: 'leaderboard-badge', name: 'LeaderboardBadge', meta: {aside: true}, component: () => import(/* webpackChunkName: "leaderboard" */ '@/views/leaderboard/Badge.vue')},
+          { path: 'leaderboard-point-chart', name: 'LeaderboardPointChart', component: () => import(/* webpackChunkName: "leaderboard" */ '@/views/leaderboard/PointChart.vue')},
+          { path: 'leaderboard-point-game', name: 'LeaderboardPointGame', component: () => import(/* webpackChunkName: "leaderboard" */ '@/views/leaderboard/PointGame.vue')},
+          { path: 'leaderboard-medal', name: 'LeaderboardMedal', component: () => import(/* webpackChunkName: "leaderboard" */ '@/views/leaderboard/Medal.vue')},
+          { path: 'leaderboard-cup', name: 'LeaderboardCup', component: () => import(/* webpackChunkName: "leaderboard" */ '@/views/leaderboard/Cup.vue')},
+          { path: 'leaderboard-proof', name: 'LeaderboardProof', component: () => import(/* webpackChunkName: "leaderboard" */ '@/views/leaderboard/Proof.vue')},
+          { path: 'leaderboard-badge', name: 'LeaderboardBadge', component: () => import(/* webpackChunkName: "leaderboard" */ '@/views/leaderboard/Badge.vue')},
+          /********* MESSAGE ***********/
+          { path: 'messages', name: 'MessageIndex', meta: {requiresAuth: true}, component: () => import(/* webpackChunkName: "message" */ '@/views/message/Index.vue')},
+
           /********* PLAYER ***********/
-          { path: ':slugPlayer-player-p:idPlayer(\\d+)', name: 'PlayerMain', meta: {aside: true}, component: () => import(/* webpackChunkName: "Game" */ '@/views/player/Main.vue'),
+          { path: ':slugPlayer-player-p:idPlayer(\\d+)', name: 'PlayerMain', component: () => import(/* webpackChunkName: "Game" */ '@/views/player/Main.vue'),
             children: [
               { path: 'index', name: 'PlayerIndex', component: () => import(/* webpackChunkName: "Player" */ '@/views/player/Index.vue')},
             ]
           },
           /********* TEAM ***********/
-          { path: ':slugTeam-team-t:idTeam(\\d+)', name: 'TeamMain', meta: {aside: true}, component: () => import(/* webpackChunkName: "Team" */ '@/views/team/Main.vue'),
+          { path: ':slugTeam-team-t:idTeam(\\d+)', name: 'TeamMain', component: () => import(/* webpackChunkName: "Team" */ '@/views/team/Main.vue'),
             children: [
               { path: 'index', name: 'TeamIndex', component: () => import(/* webpackChunkName: "Player" */ '@/views/team/Index.vue')},
             ]
           },
           /********* THE SITE ***********/
-          { path: 'rules', name: 'Rules', meta: {aside: true}, component: () => import(/* webpackChunkName: "rules" */ '@/views/page/Rules.vue')},
-          { path: 'faq', name: 'Faq', meta: {aside: true}, component: () => import(/* webpackChunkName: "faq" */ '@/views/page/Faq.vue')},
-          { path: 'partnership', name: 'Partnership', meta: {aside: true}, component: () => import(/* webpackChunkName: "partnership" */ '@/views/page/Partnership.vue')},
-          { path: 'credits', name: 'Credits', meta: {aside: true}, component: () => import(/* webpackChunkName: "credits" */ '@/views/page/Credits.vue')},
-          { path: 'recruitment', name: 'Recruitment', meta: {aside: true}, component: () => import(/* webpackChunkName: "recruitment" */ '@/views/page/Recruitment.vue')},
-          { path: 'how-it-works', name: 'HowItWorks', meta: {aside: true}, component: () => import(/* webpackChunkName: "how-it-works" */ '@/views/page/HowItWorks.vue')},
-          { path: 'donations', name: 'Donations', meta: {aside: true}, component: () => import(/* webpackChunkName: "donations" */ '@/views/page/Donations.vue')},
-          { path: 'the-vgr-team', name: 'TheVgrTeam', meta: {aside: true}, component: () => import(/* webpackChunkName: "the-vgr-team" */ '@/views/page/TheVgrTeam.vue')},
+          { path: 'rules', name: 'Rules', component: () => import(/* webpackChunkName: "rules" */ '@/views/page/Rules.vue')},
+          { path: 'faq', name: 'Faq', component: () => import(/* webpackChunkName: "faq" */ '@/views/page/Faq.vue')},
+          { path: 'partnership', name: 'Partnership', component: () => import(/* webpackChunkName: "partnership" */ '@/views/page/Partnership.vue')},
+          { path: 'credits', name: 'Credits', component: () => import(/* webpackChunkName: "credits" */ '@/views/page/Credits.vue')},
+          { path: 'recruitment', name: 'Recruitment', component: () => import(/* webpackChunkName: "recruitment" */ '@/views/page/Recruitment.vue')},
+          { path: 'how-it-works', name: 'HowItWorks', component: () => import(/* webpackChunkName: "how-it-works" */ '@/views/page/HowItWorks.vue')},
+          { path: 'donations', name: 'Donations', component: () => import(/* webpackChunkName: "donations" */ '@/views/page/Donations.vue')},
+          { path: 'the-vgr-team', name: 'TheVgrTeam', component: () => import(/* webpackChunkName: "the-vgr-team" */ '@/views/page/TheVgrTeam.vue')},
           /********* PLATFORM ***********/
           { path: 'game-platform-:slugPlatform-p:id(\\d+)', name: 'PlatformMain', component: () => import(/* webpackChunkName: "platform" */ '@/views/platform/Main.vue'), props: {default: true},
             children: [
@@ -65,15 +68,15 @@ const routes = [
           /********* SERIE ***********/
           { path: 'serie-:slugSerie-s:id(\\d+)', name: 'SerieIndex', component: () => import(/* webpackChunkName: "serie" */ '@/views/serie/Index.vue')},
           /********* GAME-LIST ***********/
-          { path: 'game-letter-:letter', name: 'GameListByLetter', meta: {aside: true}, component: () => import(/* webpackChunkName: "game-list" */ '@/views/game/list/ByLetter.vue'), props: {default: true}},
+          { path: 'game-letter-:letter', name: 'GameListByLetter', component: () => import(/* webpackChunkName: "game-list" */ '@/views/game/list/ByLetter.vue'), props: {default: true}},
           { path: 'game-platform-:slugPlatform-p:id(\\d+)', name: 'PlatformMain', component: () => import(/* webpackChunkName: "platform" */ '@/views/platform/Main.vue'), props: {default: true},
             children: [
               { path: 'index', name: 'PlatformIndex', component: () => import(/* webpackChunkName: "game-list" */ '@/views/platform/Index.vue')},
               { path: 'leaderboard', name: 'PlatformLeaderboard', component: () => import(/* webpackChunkName: "game-list" */ '@/views/platform/Leaderboard.vue')},
             ]
           },
-          { path: 'upcoming-games', name: 'GameNext', meta: {aside: true}, component: () => import(/* webpackChunkName: "game-list" */ '@/views/game/list/Next.vue')},
-          { path: 'lastest-games', name: 'GameLast', meta: {aside: true}, component: () => import(/* webpackChunkName: "game-list" */ '@/views/game/list/Last.vue')},
+          { path: 'upcoming-games', name: 'GameNext', component: () => import(/* webpackChunkName: "game-list" */ '@/views/game/list/Next.vue')},
+          { path: 'lastest-games', name: 'GameLast', component: () => import(/* webpackChunkName: "game-list" */ '@/views/game/list/Last.vue')},
           /********* GAME ***********/
           { path: ':slugGame-game-g:idGame(\\d+)', name: 'GameMain', component: () => import(/* webpackChunkName: "Game" */ '@/views/game/Main.vue'),
             children: [

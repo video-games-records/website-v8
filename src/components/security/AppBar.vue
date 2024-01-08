@@ -1,4 +1,5 @@
 <template>
+  <message-box />
   <language-switcher />
   <account v-if="this.isAuthenticated" />
   <login v-if="!this.isAuthenticated" />
@@ -11,9 +12,10 @@ import Logout from "@/components/security/btn/Logout.vue";
 import Account from "@/components/security/btn/Account.vue";
 import Security from "@/mixins/Security.vue";
 import LanguageSwitcher from "@/components/LanguageSwitcher.vue";
+import MessageBox from "@/components/message/Box.vue";
 
 export default {
-  components: {LanguageSwitcher, Login, Logout, Account},
+  components: {MessageBox, LanguageSwitcher, Login, Logout, Account},
   mixins: [Security],
 }
 </script>

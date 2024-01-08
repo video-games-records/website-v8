@@ -36,7 +36,6 @@ export default {
             'linkImage'
           ]
         },
-        height: 100,
       }
     }
   }
