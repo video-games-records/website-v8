@@ -34,9 +34,10 @@ const routes = [
           { path: 'leaderboard-cup', name: 'LeaderboardCup', component: () => import(/* webpackChunkName: "leaderboard" */ '@/views/leaderboard/Cup.vue')},
           { path: 'leaderboard-proof', name: 'LeaderboardProof', component: () => import(/* webpackChunkName: "leaderboard" */ '@/views/leaderboard/Proof.vue')},
           { path: 'leaderboard-badge', name: 'LeaderboardBadge', component: () => import(/* webpackChunkName: "leaderboard" */ '@/views/leaderboard/Badge.vue')},
+          /********* LOST-POSITION ***********/
+          { path: 'lost-position', name: 'LostPositionIndex', meta: {requiresAuth: true}, component: () => import(/* webpackChunkName: "lost-position" */ '@/views/lost-position/Index.vue')},
           /********* MESSAGE ***********/
           { path: 'messages', name: 'MessageIndex', meta: {requiresAuth: true}, component: () => import(/* webpackChunkName: "message" */ '@/views/message/Index.vue')},
-
           /********* PLAYER ***********/
           { path: ':slugPlayer-player-p:idPlayer(\\d+)', name: 'PlayerMain', component: () => import(/* webpackChunkName: "Game" */ '@/views/player/Main.vue'),
             children: [
