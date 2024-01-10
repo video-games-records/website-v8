@@ -1,5 +1,6 @@
 <template>
-  <message-box />
+  <lost-position-box v-if="this.isAuthenticated" class="ma-3" />
+  <message-box v-if="this.isAuthenticated" class="ma-3" />
   <language-switcher />
   <account v-if="this.isAuthenticated" />
   <login v-if="!this.isAuthenticated" />
@@ -13,9 +14,10 @@ import Account from "@/components/security/btn/Account.vue";
 import Security from "@/mixins/Security.vue";
 import LanguageSwitcher from "@/components/LanguageSwitcher.vue";
 import MessageBox from "@/components/message/Box.vue";
+import LostPositionBox from "@/components/vgr/lost-position/Box.vue";
 
 export default {
-  components: {MessageBox, LanguageSwitcher, Login, Logout, Account},
+  components: {LostPositionBox, MessageBox, LanguageSwitcher, Login, Logout, Account},
   mixins: [Security],
 }
 </script>
