@@ -26,7 +26,7 @@
               <th scope="col">{{ $t('global.rank') }}</th>
               <th scope="col">{{ $t('global.nickname') }}</th>
               <th scope="col"></th>
-              <th scope="col">{{ $t('global.recordPoints') }}</th>
+              <th scope="col" v-if="!this.$vuetify.display.mobile">{{ $t('global.recordPoints') }}</th>
               <th scope="col" v-for="lib in getChart.libs" :data-position="lib.position" :key="lib.id">{{ lib.name }}</th>
               <th scope="col">{{ $t('global.status') }}</th>
             </tr>
@@ -42,7 +42,7 @@
                 <td>
                   <platform v-bind:platform="row[0].platform"></platform>
                 </td>
-                <td :data-header="$t('global.points')">
+                <td :data-header="$t('global.points')" v-if="!this.$vuetify.display.mobile">
                   {{ number(row[0].pointChart) }}
                 </td>
                 <td v-for="value in row.values" :data-position="value.position" :key="value.id"

@@ -24,7 +24,7 @@
 /* -- @subsection Up to 768px ---------- */
 @media ( max-width: em-mq( $medium-screen ) ) {
     //@include table-small;
-    @include leaderboard-small;
+    //@include leaderboard-small;
     @include platform-list-small;
 }
 
@@ -32,6 +32,7 @@
 @media ( min-width: em-mq( $medium-screen + 1 ) ) {
     @include platform-list-medium;
     @include site-breadcrumb-medium;
+    @include leaderboard-medium;
 }
 
 /* -- @subsection Up to 1024px ---------- */

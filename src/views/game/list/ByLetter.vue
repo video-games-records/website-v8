@@ -8,7 +8,12 @@
       </li>
     </ul>
 
-    <game-list ref="games" v-bind:callback=getCallBack></game-list>
+    <game-list
+        ref="games"
+        :display-charts="!this.$vuetify.display.mobile"
+        :display-posts="!this.$vuetify.display.mobile"
+        :display-players="!this.$vuetify.display.mobile"
+        v-bind:callback=getCallBack></game-list>
   </div>
 </template>
 
