@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h2>{{ number(getNbGame()) }} {{ $t('global.games_', getNbGame()) }}</h2>
-    <gameList ref="gameList" v-bind:callback=getCallBack v-bind:display-platform="false"
+
+    <gameList ref="gameList" v-bind:callback=getCallBack v-bind:display-platform="false" :display-nb="true"
               v-bind:active-order-by="true"></gameList>
   </div>
 </template>
@@ -21,25 +21,9 @@ export default {
     };
   },
   computed: {
-    /*getNbGame() {
-      console.log(this.$refs.gameList);
-      if (this.$refs.gameList !== undefined) {
-        return this.$refs.gameList.games.length;
-      } else {
-        return 0;
-      }
-    },*/
     getCallBack() {
       return '/api/games?pagination=false&status' + this.$GAME_STATUS_ACTIVE + '&platforms=' + this.$route.params.id;
     },
   },
-  methods: {
-    getNbGame() {
-      if (this.$refs.gameList !== undefined) {
-        return this.$refs.gameList.games.length;
-      }
-      return 0;
-    }
-  }
 };
 </script>
