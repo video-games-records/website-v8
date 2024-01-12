@@ -5,12 +5,11 @@
     <player-profile-card v-if="player.id" v-bind:player="player"/>
 
     <ul class="tabs">
-      <li v-if="isRoute('Index')" class="tab__item tab__item--current"><span>{{
-          $t('player.profile.tabs.stats')
-        }}</span></li>
-      <li v-else class="tab__item">
-        <router-link :to="{ name: 'PlayerIndex' }">{{ $t('player.profile.tabs.stats') }}</router-link>
-      </li>
+      <li v-if="isRoute('Index')" class="tab__item tab__item--current"><span>{{ $t('player.profile.tabs.stats') }}</span></li>
+      <li v-else class="tab__item"><router-link :to="{ name: 'PlayerIndex' }">{{ $t('player.profile.tabs.stats') }}</router-link></li>
+
+      <li v-if="isRoute('Badges')" class="tab__item tab__item--current"><span>{{ $t('player.profile.tabs.badges') }}</span></li>
+      <li v-else class="tab__item"><router-link :to="{ name: 'PlayerBadges' }">{{ $t('player.profile.tabs.badges') }}</router-link></li>
     </ul>
 
     <router-view></router-view>

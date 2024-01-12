@@ -42,6 +42,7 @@ const routes = [
           { path: ':slugPlayer-player-p:idPlayer(\\d+)', name: 'PlayerMain', component: () => import(/* webpackChunkName: "Game" */ '@/views/player/Main.vue'),
             children: [
               { path: 'index', name: 'PlayerIndex', component: () => import(/* webpackChunkName: "Player" */ '@/views/player/Index.vue')},
+              { path: 'badges', name: 'PlayerBadges', component: () => import(/* webpackChunkName: "Player" */ '@/views/player/Badges.vue')},
             ]
           },
           /********* TEAM ***********/

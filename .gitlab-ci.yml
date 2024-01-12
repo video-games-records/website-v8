@@ -8,8 +8,8 @@ cache:
 
 stages:
   - test
-  - build
-  - deploy
+  # - build
+  # - deploy
 
 quality:
   image: node:18-alpine
