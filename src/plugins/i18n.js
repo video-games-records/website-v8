@@ -1,8 +1,5 @@
 import { nextTick } from 'vue'
 import { createI18n } from 'vue-i18n'
-import axios from "axios";
-
-export const SUPPORT_LOCALES = ['en', 'fr']
 
 export function setupI18n(options = { locale: 'en' }) {
   const i18n = createI18n(options)

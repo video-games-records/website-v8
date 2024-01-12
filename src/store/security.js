@@ -34,10 +34,7 @@ export const useSecurityStore = defineStore('security', {
                 this.refreshTokenPromise = p
 
                 p.then(
-                    response => {
-                        this.refreshTokenPromise = null
-                    },
-                    error => {
+                    () => {
                         this.refreshTokenPromise = null
                     }
                 )

@@ -1,0 +1,89 @@
+default:
+  before_script:
+    - npm install
+
+cache:
+  paths:
+    - node_modules/
+
+stages:
+  - test
+  - build
+  - deploy
+
+quality:
+  image: node:18-alpine
+  stage: test
+  script:
+    - npm run lint
+
+.base-build:
+  image: node:18-alpine
+  stage: build
+  script:
+    - npm run build
+
+build-recette:
+  extends: .base-build
+  environment:
+    name: testing
+  before_script:
+    - echo "Disallow:/" >> public/robots.txt
+  artifacts:
+    paths:
+      - dist/
+    expire_in: 1 day
+
+build-production:
+  extends: .base-build
+  environment:
+    name: production
+  before_script:
+    - echo "Allow:/" >> public/robots.txt
+  only:
+    - master
+  artifacts:
+    paths:
+      - dist/
+    expire_in: 7 day
+
+.base-deploy:
+  image: node:18-alpine
+  stage: deploy
+  variables:
+    PROJECT_DIR: /home/deploy/vgr/website
+  before_script:
+    - apk update && apk upgrade
+    - apk add openssh bash rsync
+    - mkdir ~/.ssh
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' > ~/.ssh/id_ed25519
+    - chmod 700 ~/.ssh/id_ed25519
+    - eval $(ssh-agent -s)
+    - ssh-add ~/.ssh/id_ed25519
+    - ssh-keyscan -H 'gitlab.com' >> ~/.ssh/known_hosts
+    - ssh-keyscan gitlab.com | sort -u - ~/.ssh/known_hosts -o ~/.ssh/known_hosts
+    - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+  script:
+    - rsync -rav --quiet --delete -e "ssh -p ${SSH_PORT}" ${CI_PROJECT_DIR}/dist/ deploy@${SSH_HOST}:/home/deploy/vgr/website
+
+deploy-recette:
+  extends: .base-deploy
+  environment:
+    name: testing
+    url: https://website.vgr.projet-normandie.fr
+  dependencies:
+    - build-recette
+  #only:
+  #  - develop
+  when: manual
+
+deploy-production:
+  extends: .base-deploy
+  environment:
+    name: production
+    url: https://www.video-games-records.com
+  dependencies:
+    - build-production
+  only:
+    - master
+  when: manual

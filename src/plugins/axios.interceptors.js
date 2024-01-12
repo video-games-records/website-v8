@@ -1,4 +1,3 @@
-import {TokenService} from "@/services/token.service";
 import {useSecurityStore} from "@/store/security";
 
 export function createAxiosRequestInterceptor(axiosInstance) {
@@ -33,7 +32,7 @@ export function createAxiosResponseInterceptor(axiosInstance) {
                     throw error
                 } else {
                     try{
-                        const response = await useSecurityStore().refreshToken();
+                        await useSecurityStore().refreshToken();
                         return axiosInstance(originalConfig);
                     } catch (e) {
                         throw error
