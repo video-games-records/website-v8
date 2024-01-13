@@ -15,11 +15,11 @@
           <td :data-header="$t('global.cupsLowercase')">{{ number(team.rankCup) }}</td>
           <td :data-header="$t('global.medalsLowercase')">{{ number(team.rankMedal) }}</td>
         </tr>
-        <transition-group>
+        <tr>
           <th scope="row">{{ $t('global.platinum') }}</th>
           <td :data-header="$t('global.cupsLowercase')">{{ number(team.gameRank0) }}</td>
           <td :data-header="$t('global.medalsLowercase')">{{ number(team.chartRank0) }}</td>
-        </transition-group>
+        </tr>
         <tr>
           <th scope="row">{{ $t('global.gold') }}</th>
           <td :data-header="$t('global.cupsLowercase')">{{ number(team.gameRank1) }}</td>
