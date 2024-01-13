@@ -49,6 +49,7 @@ const routes = [
           { path: ':slugTeam-team-t:idTeam(\\d+)', name: 'TeamMain', component: () => import(/* webpackChunkName: "Team" */ '@/views/team/Main.vue'),
             children: [
               { path: 'index', name: 'TeamIndex', component: () => import(/* webpackChunkName: "Player" */ '@/views/team/Index.vue')},
+              { path: 'badges', name: 'TeamBadges', component: () => import(/* webpackChunkName: "Player" */ '@/views/team/Badges.vue')},
             ]
           },
           /********* THE SITE ***********/

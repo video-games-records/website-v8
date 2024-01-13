@@ -6,9 +6,10 @@
 
     <ul class="tabs">
       <li v-if="isRoute('Index')" class="tab__item tab__item--current"><span>{{ $t('team.tabs.stats') }}</span></li>
-      <li v-else class="tab__item">
-        <router-link :to="{ name: 'TeamIndex' }">{{ $t('team.tabs.stats') }}</router-link>
-      </li>
+      <li v-else class="tab__item"><router-link :to="{ name: 'TeamIndex' }">{{ $t('team.tabs.stats') }}</router-link></li>
+
+      <li v-if="isRoute('TeamBadges')" class="tab__item tab__item--current"><span>{{ $t('team.tabs.badges') }}</span></li>
+      <li v-else class="tab__item"><router-link :to="{ name: 'TeamBadges' }">{{ $t('team.tabs.badges') }}</router-link></li>
     </ul>
 
     <router-view></router-view>
