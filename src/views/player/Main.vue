@@ -8,6 +8,9 @@
       <li v-if="isRoute('Index')" class="tab__item tab__item--current"><span>{{ $t('player.profile.tabs.stats') }}</span></li>
       <li v-else class="tab__item"><router-link :to="{ name: 'PlayerIndex' }">{{ $t('player.profile.tabs.stats') }}</router-link></li>
 
+      <li v-if="isRoute('Games')" class="tab__item tab__item--current"><span>{{ $t('player.profile.tabs.games') }}</span></li>
+      <li v-else class="tab__item"><router-link :to="{ name: 'PlayerGames' }">{{ $t('player.profile.tabs.games') }}</router-link></li>
+
       <li v-if="isRoute('Badges')" class="tab__item tab__item--current"><span>{{ $t('player.profile.tabs.badges') }}</span></li>
       <li v-else class="tab__item"><router-link :to="{ name: 'PlayerBadges' }">{{ $t('player.profile.tabs.badges') }}</router-link></li>
 
