@@ -1,19 +1,19 @@
 <template>
   <div>
-    <div v-html="getCollection"></div>
+    <div v-html="getPresentation"></div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'PlayerPresentation',
+  name: 'TeamPresentation',
   components: {},
   data() {
     return {};
   },
   computed: {
-    getCollection() {
-      return this.$parent.$parent.player.collection;
+    getPresentation() {
+      return this.$parent.$parent.team.presentation;
     },
   }
 };

@@ -10,6 +10,12 @@
 
       <li v-if="isRoute('Badges')" class="tab__item tab__item--current"><span>{{ $t('player.profile.tabs.badges') }}</span></li>
       <li v-else class="tab__item"><router-link :to="{ name: 'PlayerBadges' }">{{ $t('player.profile.tabs.badges') }}</router-link></li>
+
+      <li v-if="isRoute('Presentation')" class="tab__item tab__item--current"><span>{{ $t('player.profile.tabs.presentation') }}</span></li>
+      <li v-else class="tab__item"><router-link :to="{ name: 'PlayerPresentation' }">{{ $t('player.profile.tabs.presentation') }}</router-link></li>
+
+      <li v-if="isRoute('Collection')" class="tab__item tab__item--current"><span>{{ $t('player.profile.tabs.collection') }}</span></li>
+      <li v-else class="tab__item"><router-link :to="{ name: 'PlayerCollection' }">{{ $t('player.profile.tabs.collection') }}</router-link></li>
     </ul>
 
     <router-view></router-view>

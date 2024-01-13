@@ -1,24 +1,20 @@
 <template>
-    <div>
-       <div v-html="getPresentation"></div>
-    </div>
+  <div>
+    <div v-html="getPresentation"></div>
+  </div>
 </template>
 
 <script>
-    export default {
-        name: 'PlayerPresentation',
-        components: {
-
-        },
-        data() {
-            return {
-
-            };
-        },
-        computed: {
-            getPresentation() {
-                return this.$parent.player.presentation;
-            },
-        }
-    };
+export default {
+  name: 'PlayerPresentation',
+  components: {},
+  data() {
+    return {};
+  },
+  computed: {
+    getPresentation() {
+      return this.$parent.$parent.player.presentation;
+    },
+  }
+};
 </script>

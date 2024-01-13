@@ -43,12 +43,15 @@ const routes = [
             children: [
               { path: 'index', name: 'PlayerIndex', component: () => import(/* webpackChunkName: "Player" */ '@/views/player/Index.vue')},
               { path: 'badges', name: 'PlayerBadges', component: () => import(/* webpackChunkName: "Player" */ '@/views/player/Badges.vue')},
+              { path: 'presentation', name: 'PlayerPresentation', component: () => import(/* webpackChunkName: "Player" */ '@/views/player/Presentation.vue')},
+              { path: 'collection', name: 'PlayerCollection', component: () => import(/* webpackChunkName: "Player" */ '@/views/player/Collection.vue')},
             ]
           },
           /********* TEAM ***********/
           { path: ':slugTeam-team-t:idTeam(\\d+)', name: 'TeamMain', component: () => import(/* webpackChunkName: "Team" */ '@/views/team/Main.vue'),
             children: [
               { path: 'index', name: 'TeamIndex', component: () => import(/* webpackChunkName: "Player" */ '@/views/team/Index.vue')},
+              { path: 'presentation', name: 'TeamPresentation', component: () => import(/* webpackChunkName: "Player" */ '@/views/team/Presentation.vue')},
               { path: 'badges', name: 'TeamBadges', component: () => import(/* webpackChunkName: "Player" */ '@/views/team/Badges.vue')},
             ]
           },
