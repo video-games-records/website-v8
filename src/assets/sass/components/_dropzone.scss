@@ -1,0 +1,12 @@
+.dropzone {
+  cursor: pointer;
+  min-height: 150px;
+  border: 2px solid rgba(0,0,0,.3);
+  background: #fff;
+  padding: 20px 20px;
+  font-family: Arial,sans-serif;
+  letter-spacing: .2px;
+  color: #777;
+  -webkit-transition: .2s linear;
+  transition: .2s linear;
+}

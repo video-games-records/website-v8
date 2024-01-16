@@ -6,15 +6,16 @@
 
 <script>
 
-export default {
+import Security from "@/mixins/Security.vue";
 
-  name: 'PlayerGameMain',
+export default {
+  mixins: [Security],
+  name: 'AcountGameMain',
   components: {},
   data() {
     return {
       playerGame: {
         game: {
-          id: null,
           name: '',
         }
       },
@@ -34,7 +35,7 @@ export default {
       this.axios.get('' +
           '/api/player_games?groups[]=game.read.mini&groups[]=game.stats&groups[]=playerGame.game' +
           '&groups[]=playerGame.proof&groups[]=game.platforms&groups[]=platform.read&groups[]=playerGame.proof' +
-          '&pagination=false&player=' + this.$route.params.idPlayer + '&game=' + this.$route.params.idGame
+          '&pagination=false&player=' + this.getAuthenticatedPlayer.id + '&game=' + this.$route.params.idGame
       )
           .then(response => {
             this.playerGame = response.data['hydra:member'][0]

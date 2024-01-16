@@ -1,0 +1,96 @@
+<template>
+  <v-table>
+    <caption class="h3">{{ $t('proof.byGame') }}</caption>
+    <thead>
+    <tr>
+      <th>{{ $t('global.game') }}</th>
+      <td></td>
+      <th>{{ $t('global.scores') }}</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr v-for="playerGame in playerGames" :key="playerGame.id">
+      <td>
+        <game-picture v-bind:game="playerGame.game"/>
+      </td>
+      <td>
+        <game v-bind:game="playerGame.game"/>
+        <platform-list v-bind:platforms="playerGame.game.platforms"></platform-list>
+      </td>
+      <td>
+        <ul>
+          <li v-if="isAccountRoute === false">
+            <router-link
+                :to="{ name: 'PlayerGameProofs', params: { idGame: playerGame.game.id, slugGame: playerGame.game.slug }}">
+              <strong>{{ number(playerGame.game.nbChart) }}</strong> {{ $t('game.score.total', playerGame.game.nbChart) }}
+            </router-link>
+          </li>
+          <li v-else>
+            <strong>{{ number(playerGame.game.nbChart) }}</strong> {{ $t('game.score.total', playerGame.game.nbChart) }}
+          </li>
+          <li v-for="item in playerGame.statuses" :key="item.id">
+            <span :title="item.status.name" :class="item.status.class ">
+                <span class="screen-reader-text">{{ item.status.name }}</span>
+            </span>
+            <span v-if="(item.status.id === 6)">
+              <strong>{{ number(item['nb']) }}</strong> {{ $t('score.status.proof--proved', playerGame.nbChartProven) }}
+            </span>
+            <span v-else>
+              <strong>{{ number(item['nb']) }}</strong> {{ $t('score.status.' + item.status.class, item['nb']) }}
+            </span>
+          </li>
+
+          <li v-if="isAccountRoute === true">
+            <router-link
+                :to="{ name: 'ProofGameProofs', params: { idGame: playerGame.game.id, slugGame: playerGame.game.slug }}">
+              {{ $t('proof.myProofs.description') }} <span class="screen-reader-text">{{ $t('global.on') }} <game
+                v-bind:game="playerGame.game"/></span>
+            </router-link>
+          </li>
+        </ul>
+      </td>
+    </tr>
+    </tbody>
+  </v-table>
+</template>
+<script>
+
+import Game from "@/components/vgr/game/Game";
+import GamePicture from "@/components/vgr/game/Picture";
+import PlatformList from "@/components/vgr/platform/List";
+import Filters from "@/mixins/Filters.vue";
+
+export default {
+  mixins:[Filters],
+  name: 'PlayerProofGames',
+  components: {Game, GamePicture, PlatformList},
+  props: {
+    'idPlayer': {
+      require: true,
+    },
+  },
+  data() {
+    return {
+      playerGames: [],
+      nbGame: 0,
+    };
+  },
+  computed: {
+    isAccountRoute() {
+      return this.$route.name === 'ProofIndex';
+    }
+  },
+  created() {
+    this.load();
+  },
+  methods: {
+    load() {
+      this.axios.get('/api/players/' + this.idPlayer + '/game-stats')
+          .then(response => {
+            this.nbGame = response.data['hydra:totalItems'];
+            this.playerGames= response.data['hydra:member'];
+          });
+    }
+  },
+};
+</script>

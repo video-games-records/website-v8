@@ -17,6 +17,9 @@
       <li v-if="isRoute('Charts')" class="tab__item tab__item--current"><span>{{ $t('player.profile.tabs.charts') }}</span></li>
       <li v-else class="tab__item"><router-link :to="{ name: 'PlayerCharts' }">{{ $t('player.profile.tabs.charts') }}</router-link></li>
 
+      <li v-if="isRoute('Proofs')" class="tab__item tab__item--current"><span>{{ $t('player.profile.tabs.proofs') }}</span></li>
+      <li v-else class="tab__item"><router-link :to="{ name: 'PlayerProofs' }">{{ $t('player.profile.tabs.proofs') }}</router-link></li>
+
       <li v-if="isRoute('Presentation')" class="tab__item tab__item--current"><span>{{ $t('player.profile.tabs.presentation') }}</span></li>
       <li v-else class="tab__item"><router-link :to="{ name: 'PlayerPresentation' }">{{ $t('player.profile.tabs.presentation') }}</router-link></li>
 

@@ -1,4 +1,5 @@
 <template>
+  <proofs v-if="this.isAuthenticated" />
   <lost-position-box v-if="this.isAuthenticated" class="ma-3" />
   <message-box v-if="this.isAuthenticated" class="ma-3" />
   <language-switcher />
@@ -15,9 +16,10 @@ import Security from "@/mixins/Security.vue";
 import LanguageSwitcher from "@/components/LanguageSwitcher.vue";
 import MessageBox from "@/components/message/Box.vue";
 import LostPositionBox from "@/components/vgr/lost-position/Box.vue";
+import Proofs from "@/components/security/btn/Proofs.vue";
 
 export default {
-  components: {LostPositionBox, MessageBox, LanguageSwitcher, Login, Logout, Account},
+  components: {Proofs, LostPositionBox, MessageBox, LanguageSwitcher, Login, Logout, Account},
   mixins: [Security],
 }
 </script>

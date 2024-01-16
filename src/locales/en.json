@@ -758,6 +758,7 @@
     "cancel": "Cancel",
     "success": "Successful updated",
     "delete": "Delete",
+    "upload": "Upload file",
     "selectAll": "Select all",
     "unselectAll": "Unselect all"
   },

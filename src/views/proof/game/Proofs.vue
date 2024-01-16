@@ -1,4 +1,5 @@
 <template>
+
   <v-sheet>
     <v-row>
       <v-col cols="12">
@@ -20,7 +21,8 @@
         </button>
       </v-col>
       <v-col cols="12">
-        <player-proof-group v-for="group in groups" :key="group.id" v-bind:group="group" v-bind:idPlayer="getIdPlayer"/>
+        <player-proof-group v-for="group in groups" :key="group.id" v-bind:group="group" v-bind:idPlayer="getAuthenticatedPlayer.id"
+                            v-bind:manage="true"/>
       </v-col>
     </v-row>
   </v-sheet>
@@ -31,12 +33,18 @@
 import PlayerProofGroup from "@/components/vgr/player/proof/Group";
 import GamePicture from "@/components/vgr/game/Picture";
 import PlatformList from "@/components/vgr/platform/List";
+import Security from "@/mixins/Security.vue";
 import {usePlayerProofStore} from "@/store/player/proof";
 
 export default {
-  name: 'PlayerGameProofs',
+  mixins: [Security],
+  name: 'AccountGameProofs',
   props: {},
-  components: {PlayerProofGroup, GamePicture, PlatformList},
+  components: {
+    PlayerProofGroup,
+    GamePicture,
+    PlatformList,
+  },
   data() {
     return {
       groups: [],
@@ -46,12 +54,15 @@ export default {
     isOpened() {
       return usePlayerProofStore().getIsOpened;
     },
-    getIdPlayer() {
-      return this.$route.params.idPlayer;
-    },
     getPlayerGame() {
       return this.$parent.$parent.playerGame;
-    }
+    },
+    getLibGroup() {
+      if (this.$i18n.locale === 'fr') {
+        return 'libGroupFr';
+      }
+      return 'libGroupEn';
+    },
   },
   created() {
     this.load();
