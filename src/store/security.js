@@ -1,6 +1,7 @@
 // Utilities
 import {defineStore} from 'pinia'
 import AuthApi from "@/services/auth.service";
+import {TokenService} from "@/services/token.service";
 
 export const useSecurityStore = defineStore('security', {
     state: () => ({
@@ -26,7 +27,9 @@ export const useSecurityStore = defineStore('security', {
         },
         logout() {
             this.isAuthenticated = false;
-            this.user = {}
+            this.user = {};
+            this.player = {};
+            TokenService.removeToken();
         },
         refreshToken() {
             if (null === this.refreshTokenPromise) {

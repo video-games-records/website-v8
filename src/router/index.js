@@ -2,6 +2,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import { loadLocaleMessages, setI18nLanguage } from "@/plugins/i18n";
 import i18n from "@/plugins/i18n";
+import {TokenService} from "@/services/token.service";
 
 const routes = [
   {
@@ -24,7 +25,6 @@ const routes = [
               { path: 'avatar', name: 'AccountAvatar', component: () => import(/* webpackChunkName: "Player" */ '@/views/account/Avatar.vue')},
               { path: 'team', name: 'AccountTeam', component: () => import(/* webpackChunkName: "Player" */ '@/views/account/Team.vue')},
               { path: 'badges', name: 'AccountBadges', component: () => import(/* webpackChunkName: "Player" */ '@/views/account/Badges.vue')},
-              { path: 'videos', name: 'AccountVideos', component: () => import(/* webpackChunkName: "Player" */ '@/views/account/Videos.vue')},
             ]
           },
           /********* LEADERBOARD ***********/
@@ -169,6 +169,15 @@ router.beforeEach(async (to, from, next) => {
       await loadLocaleMessages(i18n, toLang)
       // set i18n language
       setI18nLanguage(i18n, toLang)
+    }
+
+    if (to.matched.some(record => record.meta.requiresAuth)) {
+      if (TokenService.getToken() === null) {
+        next({
+          path: '/',
+          query: { redirect: to.fullPath }
+        });
+      }
     }
   }
 

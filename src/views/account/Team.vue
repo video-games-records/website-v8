@@ -1,67 +1,105 @@
 <template>
-    <div>
-        <vue-headful :title="title" :description="description" />
-        <team-admin-index v-if="isLeader"></team-admin-index>
-        <team-player-index v-else></team-player-index>
+  <v-sheet class="ma-5">
+    <v-sheet v-if="isLeader">
+      <v-form v-model="isValid" validate-on="blur" @submit.prevent @submit="update()">
+        <v-text-field v-model="team.libTeam" :label="$t('team.name')" :rules="[rules.required]"></v-text-field>
+        <v-text-field v-model="team.tag" :label="$t('team.tag')" :rules="[rules.required]"></v-text-field>
+        <label for="presentation" class="font-weight-bold">{{ $t('team.presentation') }}</label>
+        <ckeditor :editor="editor" v-model="team.presentation" :config="editorConfig"></ckeditor>
+        <v-btn type="submit" class="mt-2">{{ $t('tag.submit') }}</v-btn>
+      </v-form>
+    </v-sheet>
+    <v-sheet v-else>
+      <v-sheet v-if="hasTeam">
+        <dl>
+          <dt>{{ $t('team.name') }}</dt>
+          <dd>{{ team.libTeam }}</dd>
 
-        <div v-if="isLoading" aria-live="polite" aria-atomic="true">
-            <loading></loading>
-        </div>
-    </div>
+          <dt>{{ $t('team.tag') }}</dt>
+          <dd>{{ team.tag }}</dd>
+
+          <v-btn v-on:click="quit" append-icon="mdi-account-off">
+            {{ $t('team.quit') }}
+          </v-btn>
+        </dl>
+      </v-sheet>
+      <v-sheet v-else>
+        <h2>{{ $t('team.create') }}</h2>
+        <v-form v-model="isValid" validate-on="blur" @submit.prevent @submit="add()">
+          <v-text-field v-model="team.libTeam" :label="$t('team.name')" :rules="[rules.required]"></v-text-field>
+          <v-text-field v-model="team.tag" :label="$t('team.tag')" :rules="[rules.required]"></v-text-field>
+          <v-btn type="submit" class="mt-2">{{ $t('tag.submit') }}</v-btn>
+        </v-form>
+      </v-sheet>
+    </v-sheet>
+
+  </v-sheet>
 </template>
 
 <script>
-import TeamAdminIndex from '@/components/vgr/team/account/admin/Index.vue';
-import TeamPlayerIndex from '@/components/vgr/team/account/player/Index.vue';
+import Security from "@/mixins/Security.vue";
+import Rules from "@/mixins/Rules.vue";
+import Ckeditor from "@/mixins/Ckeditor.vue";
+import {useFlashMessageStore} from "@/store/base/flashMessage";
 
 export default {
-    name: 'AccountTeam',
-    props: [],
-    components: {
-        'teamAdminIndex': TeamAdminIndex,
-        'teamPlayerIndex': TeamPlayerIndex,
+  mixins: [Security, Rules, Ckeditor],
+  name: 'AccountTeam',
+  props: [],
+  components: {
+
+  },
+  data() {
+    return {
+      isValid: false,
+      team: {
+        id: null,
+        libTeam: '',
+        tag: '',
+        presentation: '',
+      }
+    };
+  },
+  created() {
+    if (this.getAuthenticatedPlayer.team !== null) {
+      this.load();
+    }
+  },
+  computed: {
+    hasTeam() {
+      return this.team.id !== null;
     },
-    data() {
-        return {
-        };
+    isLeader() {
+      return this.hasTeam && this.team.leader.id === this.getAuthenticatedPlayer.id;
     },
-    created () {
-        this.$store.dispatch('TeamAccount/init');
+  },
+  methods: {
+    load() {
+      this.axios.get(
+          '/api/teams/' + this.getAuthenticatedPlayer.team.id
+      )
+          .then(response => {
+            this.team = response.data;
+          })
     },
-    updated() {
-        if (this.isInitialized === false) {
-            this.$store.dispatch('TeamAccount/init');
-        }
+    quit: function () {
+      let player = this.getAuthenticatedPlayer;
+      player.team = null;
+      this.axios.put('/api/players/' + player.id, player);
     },
-    computed: {
-        title() {
-            return this.$i18n.t('account.team.title') + ' - ' + process.env.VUE_APP_TITLE;
-        },
-        description() {
-            return this.$i18n.t('account.team.description');
-        },
-        isInitialized() {
-            return this.$store.getters['TeamAccount/isInitialized'];
-        },
-        isLoading() {
-            return this.$store.getters['TeamAccount/isLoading'];
-        },
-        getTeam() {
-            return this.$store.getters['TeamAccount/team'];
-        },
-        getPlayer() {
-            return this.$store.getters['TeamAccount/player'];
-        },
-        hasTeam() {
-            return this.getTeam.id !== undefined;
-        },
-        isLeader() {
-            if (this.isInitialized && this.hasTeam) {
-                return this.getTeam.leader === this.getPlayer['@id'];
-            } else {
-                return false;
-            }
-        },
+    add: function () {
+      this.axios.post('/api/teams', this.team).then((response) => {
+        this.team = response.data;
+        let player = this.getAuthenticatedPlayer;
+        player.team = this.team;
+      });
     },
+    update: function () {
+      this.axios.put('/api/teams/' + this.team.id, this.team).then((response) => {
+        this.team = response.data;
+        useFlashMessageStore().confirm('OK');
+      });
+    },
+  }
 };
 </script>
