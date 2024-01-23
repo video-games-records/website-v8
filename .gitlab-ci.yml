@@ -53,15 +53,12 @@ build-production:
   variables:
     PROJECT_DIR: /home/deploy/vgr/website
   before_script:
-    - apk update && apk upgrade
-    - apk add openssh bash rsync
-    - mkdir ~/.ssh
-    - echo "toto"
-    - echo "$SSH_PRIVATE_KEY"
-    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' > ~/.ssh/id_ed25519
-    - chmod 700 ~/.ssh/id_ed25519
+    - 'command -v ssh-agent >/dev/null || ( apt-get update -y && apt-get install openssh-client -y )'
     - eval $(ssh-agent -s)
-    - ssh-add ~/.ssh/id_ed25519
+    - chmod 400 "$SSH_PRIVATE_KEY"
+    - ssh-add "$SSH_PRIVATE_KEY"
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
     - ssh-keyscan -H 'gitlab.com' >> ~/.ssh/known_hosts
     - ssh-keyscan gitlab.com | sort -u - ~/.ssh/known_hosts -o ~/.ssh/known_hosts
     - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
