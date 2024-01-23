@@ -73,8 +73,8 @@ deploy-recette:
     url: https://website.vgr.projet-normandie.fr
   dependencies:
     - build-recette
-  #only:
-  #  - develop
+  only:
+    - develop
   when: manual
 
 deploy-production:
