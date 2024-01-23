@@ -105,8 +105,6 @@ const routes = [
           { path: ':slugGame-game-g:idGame(\\d+)', name: 'GameMain', component: () => import(/* webpackChunkName: "Game" */ '@/views/game/Main.vue'),
             children: [
               { path: 'index', name: 'GameIndex', component: () => import(/* webpackChunkName: "Game" */ '@/views/game/Index.vue')},
-              { path: 'video-submit', name: 'GameVideoSubmit', meta: {requiresAuth: true}, component: () => import(/* webpackChunkName: "Video" */ '@/views/game/video/Submit.vue')},
-              { path: 'videos', name: 'GameVideoList', component: () => import(/* webpackChunkName: "Video" */ '@/views/game/video/List.vue')},
               { path: 'rules', name: 'GameRules', component: () => import(/* webpackChunkName: "Video" */ '@/views/game/Rules.vue')},
               { path: 'submit', name: 'GameSubmit', component: () => import(/* webpackChunkName: "Game" */ '@/views/game/Submit.vue')},
               { path: ':slugForum-forum-f:idForum(\\d+)', name: 'GameForumMain', component: () => import(/* webpackChunkName: "Video" */ '@/views/game/forum/Main.vue'),
