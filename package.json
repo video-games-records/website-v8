@@ -5,6 +5,8 @@
   "scripts": {
     "dev": "vite --host --port 8080",
     "build": "vite build",
+    "build-testing": "vite build --mode=testing",
+    "build-production": "vite build --mode=production",
     "preview": "vite preview",
     "lint": "eslint . --fix --ignore-path .gitignore"
   },

@@ -20,8 +20,6 @@ quality:
 .base-build:
   image: node:18-alpine
   stage: build
-  script:
-    - npm run build
 
 build-recette:
   extends: .base-build
@@ -29,6 +27,8 @@ build-recette:
     name: testing
   before_script:
     - echo "Disallow:/" >> public/robots.txt
+  script:
+    - npm run build-testing
   artifacts:
     paths:
       - dist/
@@ -40,6 +40,8 @@ build-production:
     name: production
   before_script:
     - echo "Allow:/" >> public/robots.txt
+  script:
+    - npm run build-production
   only:
     - master
   artifacts:
