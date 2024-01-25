@@ -1,6 +1,6 @@
 <template>
   <v-card>
-    <v-card-title class="bg-primary">{{ $t('leaderboard.gamePoints.captionTeam') }}</v-card-title>
+    <v-card-title class="bg-primary pa-1">{{ $t('leaderboard.gamePoints.captionTeam') }}</v-card-title>
     <v-table density="compact" class="leaderboard">
       <thead>
       <tr>
@@ -34,7 +34,7 @@
   <v-dialog v-model="dialog">
     <v-card>
       <v-card-title class="d-flex justify-center">{{ team.libTeam }}</v-card-title>
-      <v-card-item>
+      <v-card-item class="pa-1 mb-5">
         <leaderboard-player-point-game v-bind:leaderboard=leaderboardPlayer></leaderboard-player-point-game>
       </v-card-item>
     </v-card>
