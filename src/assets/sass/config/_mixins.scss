@@ -47,7 +47,7 @@
 @mixin flow-hr( $value, $type-vr: $vertical-rythm ) {
     font-size: em($value);
     line-height: line-height($value, $l-h, $base-font, $type-vr);
-    margin: margin-em($value, $l-h, $base-font, $type-vr); 
+    //margin: margin-em($value, $l-h, $base-font, $type-vr);
 }
 
 @mixin flow-other( $value, $type-vr: $vertical-rythm ) {

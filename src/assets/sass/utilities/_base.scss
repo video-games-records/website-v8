@@ -77,35 +77,47 @@ dd {
 
 
 /* == @section Titles ==================== */
-h1,
-.h1 {
+h1,.h1 {
     @include flow-hr(42); // equiv 26px
 }
-
-h2,
-.h2 {
+h2,.h2 {
     @include flow-hr(36); // equiv 24px
 }
-
-h3,
-.h3 {
+h3,.h3 {
     @include flow-hr(28); // equiv 22px
 }
-
-h4,
-.h4 {
+h4,.h4 {
     @include flow-hr(20); // equiv 20px
 }
-
-h5,
-.h5 {
+h5,.h5 {
     @include flow-hr(18); // equiv 18px
 }
-
-h6,
-.h6 {
+h6,.h6 {
     @include flow-hr(16); // equiv 16px
 }
+
+
+@mixin title-small {
+    h1,.h1 {
+        @include flow-hr(24);
+    }
+    h2,.h2 {
+        @include flow-hr(20);
+    }
+    h3,.h3 {
+        @include flow-hr(18);
+    }
+    h4,.h4 {
+        @include flow-hr(16);
+    }
+    h5,.h5 {
+        @include flow-hr(14);
+    }
+    h6,.h6 {
+        @include flow-hr(12);
+    }
+}
+
 
 h1,
 .h1,

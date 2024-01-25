@@ -7,7 +7,7 @@
         <th scope="col">{{ $t('global.rank') }}</th>
         <th scope="col">{{ $t('global.nickname') }}</th>
         <th scope="col">{{ $t('global.gamePoints') }}</th>
-        <th scope="col">{{ $t('global.games') }}</th>
+        <th v-if="!this.$vuetify.display.mobile" scope="col">{{ $t('global.games') }}</th>
       </tr>
       </thead>
       <tbody>
@@ -18,8 +18,8 @@
           <country v-bind:country="item.country"></country>
           <player v-bind:player="item" v-bind:show-avatar="true"></player>
         </td>
-        <td :data-header="$t('global.gamePoints')" class="right">{{ number(item.pointGame) }}</td>
-        <td :data-header="$t('global.gamesLowercase')" class="right">{{ number(item.nbGame) }}</td>
+        <td class="right">{{ number(item.pointGame) }}</td>
+        <td v-if="!this.$vuetify.display.mobile" class="right">{{ number(item.nbGame) }}</td>
       </tr>
       </tbody>
     </v-table>

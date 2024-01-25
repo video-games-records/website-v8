@@ -23,9 +23,8 @@
 
 /* -- @subsection Up to 768px ---------- */
 @media ( max-width: em-mq( $medium-screen ) ) {
-    //@include table-small;
-    //@include leaderboard-small;
     @include platform-list-small;
+    @include title-small;
 }
 
 /* == @section Medium: 769px and beyond ==================== */

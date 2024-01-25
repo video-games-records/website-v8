@@ -24,7 +24,7 @@
           </div>
         </v-col>-->
         <v-col cols="12">
-          <v-sheet class="ma-5">
+          <v-sheet :class="this.$vuetify.display.mobile ? 'ma-1' : 'ma-5'">
             <router-view />
           </v-sheet>
         </v-col>
