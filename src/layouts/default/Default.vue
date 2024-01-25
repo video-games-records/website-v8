@@ -3,7 +3,7 @@
     <v-app-bar>
       <v-app-bar-nav-icon :disabled=false variant="text" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
 
-      <v-app-bar-title>Video Games Records</v-app-bar-title>
+      <v-app-bar-title>VGR</v-app-bar-title>
 
       <app-bar />
     </v-app-bar>
