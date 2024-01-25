@@ -71,7 +71,11 @@ export default {
       'Contact Us',
     ],
   }),
-
+  created() {
+    if (this.$vuetify.display.mobile) {
+      this.drawer = false;
+    }
+  },
   watch: {
     group() {
       this.drawer = false
