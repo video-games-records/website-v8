@@ -32,6 +32,10 @@ body {
     line-height: 1.5;
 }
 
+html,
+body {
+    overflow-x: hidden;
+}
 
 /* == @section Links ==================== */
 a,
