@@ -77,7 +77,7 @@ deploy-recette:
     - build-recette
   only:
     - dev
-  when: manual
+  #when: manual
 
 deploy-production:
   extends: .base-deploy
