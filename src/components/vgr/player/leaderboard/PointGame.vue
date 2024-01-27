@@ -4,21 +4,21 @@
     <v-table density="compact" class="leaderboard">
       <thead>
       <tr>
-        <th scope="col">{{ $t('global.rank') }}</th>
+        <th class="center" scope="col">#</th>
         <th scope="col">{{ $t('global.nickname') }}</th>
-        <th scope="col">{{ $t('global.gamePoints') }}</th>
-        <th v-if="!this.$vuetify.display.mobile" scope="col">{{ $t('global.games') }}</th>
+        <th class="right" scope="col">{{ $t('global.gamePoints') }}</th>
+        <th class="right" v-if="!this.$vuetify.display.mobile" scope="col">{{ $t('global.games') }}</th>
       </tr>
       </thead>
       <tbody>
       <tr v-for="item in leaderboard" :data-rank="item.rankPointGame" :key="item.id"
           :class="[isAuthenticated && getAuthenticatedPlayer.id === item.id ? 'player--me' : 'player' ]">
-        <td>{{ item.rankPointGame }}</td>
-        <td>
+        <td class="pl-2 center">{{ item.rankPointGame }}</td>
+        <td class="pa-0">
           <country v-bind:country="item.country"></country>
           <player v-bind:player="item" v-bind:show-avatar="true"></player>
         </td>
-        <td class="right">{{ number(item.pointGame) }}</td>
+        <td class="pr-3 right">{{ number(item.pointGame) }}</td>
         <td v-if="!this.$vuetify.display.mobile" class="right">{{ number(item.nbGame) }}</td>
       </tr>
       </tbody>
