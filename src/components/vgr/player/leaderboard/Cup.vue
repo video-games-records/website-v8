@@ -4,58 +4,46 @@
     <v-table density="compact" class="leaderboard">
       <thead>
       <tr>
-        <th scope="col">{{ $t('global.rank') }}</th>
+        <th class="center" scope="col">#</th>
         <th scope="col">{{ $t('global.nickname') }}</th>
-        <th scope="col">
-          <span class="platinum" :title="$t('global.platinum')">
-              <svg width="20" height="20" viewBox="0 0 50 50" class="svg-sprite" aria-hidden="true"
-                   focusable="false">
-                  <use xlink:href="#cup"/>
-              </svg>
-              <span class="d-sr-only">{{ $t('global.platinum') }}</span>
-          </span>
-        </th>
-        <th scope="col">
-          <span class="gold" :title="$t('global.gold')">
-              <svg width="20" height="20" viewBox="0 0 50 50" class="svg-sprite" aria-hidden="true"
-                   focusable="false">
-                  <use xlink:href="#cup"/>
-              </svg>
-              <span class="d-sr-only">{{ $t('global.gold') }}</span>
-          </span>
-        </th>
-        <th scope="col">
-          <span class="silver" :title="$t('global.silver')">
-              <svg width="20" height="20" viewBox="0 0 50 50" class="svg-sprite" aria-hidden="true"
-                   focusable="false">
-                  <use xlink:href="#cup"/>
-              </svg>
-              <span class="d-sr-only">{{ $t('global.silver') }}</span>
-          </span>
-        </th>
-        <th scope="col">
-          <span class="bronze" :title="$t('global.bronze')">
-              <svg width="20" height="20" viewBox="0 0 50 50" class="svg-sprite" aria-hidden="true"
-                   focusable="false">
-                  <use xlink:href="#cup"/>
-              </svg>
-              <span class="d-sr-only">{{ $t('global.bronze') }}</span>
-          </span>
-        </th>
+        <template v-if="this.$vuetify.display.mobile">
+          <th class="right" scope="col">
+            <platinum />#<gold />#<silver />#<bronze />
+          </th>
+        </template>
+        <template v-else>
+          <th class="right" scope="col">
+            <platinum />
+          </th>
+          <th class="right" scope="col">
+            <gold />
+          </th>
+          <th class="right" scope="col">
+            <silver />
+          </th>
+          <th class="right" scope="col">
+            <bronze />
+          </th>
+        </template>
       </tr>
       </thead>
       <tbody>
       <tr v-for="item in leaderboard" :data-rank="item.rankCup" :key="item.id"
           :class="[isAuthenticated && getAuthenticatedPlayer.id === getPlayerId(item) ? 'player--me' : 'player' ]">
-        <td>{{ item.rankCup }}</td>
-        <td>
+        <td class="pl-2 center">{{ item.rankCup }}</td>
+        <td class="pa-0">
           <country v-bind:country="item.country"></country>
           <player v-bind:player="item" v-bind:show-avatar="true"></player>
         </td>
-        <td :data-header="$t('global.platinum')" class="right">{{ item.gameRank0 }}</td>
-        <td :data-header="$t('global.gold')" class="right">{{ item.gameRank1 }}</td>
-        <td :data-header="$t('global.silver')" class="right">{{ item.gameRank2 }}</td>
-        <td :data-header="$t('global.bronze')" class="right">{{ item.gameRank3 }}</td>
+        <template v-if="this.$vuetify.display.mobile">
+          <td class="pr-3 right">{{ number(item.gameRank0) }}#{{ number(item.gameRank1) }}#{{ number(item.gametRank2) }}#{{ number(item.gameRank3) }}</td>
+        </template>
+        <template v-else>
+          <td class="pr-3 right">{{ number(item.gameRank0) }}</td>
+          <td class="pr-3 right">{{ number(item.gameRank1) }}</td>
+          <td class="pr-3 right">{{ number(item.gameRank2) }}</td>
+          <td class="pr-3 right">{{ number(item.gameRank3) }}</td>
+        </template>
       </tr>
       </tbody>
     </v-table>
@@ -66,9 +54,14 @@
 import Player from '@/components/vgr/player/Player.vue';
 import Country from '@/components/country/Country.vue';
 import Security from "@/mixins/Security.vue";
+import Platinum from "@/components/vgr/tools/cup/Platinum.vue";
+import Silver from "@/components/vgr/tools/cup/Silver.vue";
+import Bronze from "@/components/vgr/tools/cup/Bronze.vue";
+import Gold from "@/components/vgr/tools/cup/Gold.vue";
+import Filters from "@/mixins/Filters.vue";
 
 export default {
-  mixins: [Security],
+  mixins: [Security, Filters],
   name: 'PlayerLeaderboardCup',
   props: {
     'leaderboard': {
@@ -76,6 +69,7 @@ export default {
     }
   },
   components: {
+    Gold, Bronze, Silver, Platinum,
     'player': Player,
     'country': Country,
   },
