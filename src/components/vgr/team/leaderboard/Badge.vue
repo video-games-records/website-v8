@@ -4,22 +4,22 @@
     <v-table density="compact" class="leaderboard">
       <thead>
       <tr>
-        <th scope="col">{{ $t('global.rank') }}</th>
+        <th class="center" scope="col">#</th>
         <th scope="col">{{ $t('global.nickname') }}</th>
-        <th scope="col">{{ $t('global.badgePoints') }}</th>
-        <th scope="col">{{ $t('badge.type.master') }}</th>
+        <th class="right" scope="col">{{ $t('global.badgePoints') }}</th>
+        <th class="right" scope="col">{{ $t('badge.type.master') }}</th>
         <th></th>
       </tr>
       </thead>
       <tbody>
       <tr v-for="item in leaderboard" :data-rank="item.rankBadge" :key="item.id"
           :class="[isAuthenticated && getAuthenticatedPlayer.team && getAuthenticatedPlayer.team.id === item.id ? 'player--me' : 'player' ]">
-        <td>{{ item.rankBadge }}</td>
-        <td>
+        <td class="pl-2 center">{{ item.rankBadge }}</td>
+        <td class="pa-0">
           <team v-bind:team="item" v-bind:show-avatar="true"></team>
         </td>
-        <td :data-header="$t('global.badgePoints')" class="right">{{ number(item.pointBadge) }}</td>
-        <td :data-header="$t('badges.master')" class="right">{{ number(item.nbMasterBadge) }}</td>
+        <td class="pr-3 right">{{ number(item.pointBadge) }}</td>
+        <td class="pr-3 right">{{ number(item.nbMasterBadge) }}</td>
         <td>
           <v-btn @click="openModal(item)" icon="mdi-account-multiple" size="x-small"></v-btn>
         </td>
@@ -31,7 +31,7 @@
   <v-dialog v-model="dialog">
     <v-card class="pa-5">
       <v-card-title class="d-flex justify-center">{{ team.libTeam }}</v-card-title>
-      <v-card-item>
+      <v-card-item :class="this.$vuetify.display.mobile ? 'pa-1 mb-5' : 'mb-5'">
         <leaderboard-player-badge
             v-bind:leaderboard=leaderboardPlayer
         ></leaderboard-player-badge>
