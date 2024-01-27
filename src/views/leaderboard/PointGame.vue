@@ -6,10 +6,10 @@
     <v-col cols="12" class="px-5">
       <p>{{ $t('leaderboard.gamePoints.help') }}</p>
     </v-col>
-    <v-col cols="12" md="6" lg="6">
+    <v-col cols="12" md="6" lg="6" class="pa-1">
       <leaderboard-player v-bind:leaderboard=leaderboardPlayer></leaderboard-player>
     </v-col>
-    <v-col cols="12" md="6" lg="6">
+    <v-col cols="12" md="6" lg="6" class="pa-1">
       <leaderboard-team
           v-bind:leaderboard=leaderboardTeam
           callback="/api/players/ranking-point-game?idTeam=">

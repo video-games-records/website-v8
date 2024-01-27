@@ -5,18 +5,15 @@
       <thead>
       <tr>
         <th scope="col">{{ $t('global.team') }}</th>
-        <th scope="col">{{ $t('global.gamePoints') }}</th>
+        <th class="right" scope="col">{{ $t('global.gamePoints') }}</th>
       </tr>
       </thead>
       <tbody>
       <tr v-for="item in leaderboard" :data-rank="item.rankPointGame" :key="item.id">
-        <td v-if="item.team">
-          <team v-bind:team="item.team"></team>
-        </td>
-        <td v-else>
+        <td class="pa-1">
           <team v-bind:team="item"></team>
         </td>
-        <td :data-header="$t('global.gamePoints')" class="right">{{ number(item.pointGame) }}</td>
+        <td class="pr-3 right">{{ number(item.pointGame) }}</td>
       </tr>
       </tbody>
     </v-table>

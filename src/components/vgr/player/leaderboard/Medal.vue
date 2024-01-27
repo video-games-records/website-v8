@@ -4,9 +4,9 @@
     <v-table density="compact" class="leaderboard">
       <thead>
       <tr>
-        <th scope="col">{{ $t('global.rank') }}</th>
+        <th class="center" scope="col">#</th>
         <th scope="col">{{ $t('global.nickname') }}</th>
-        <th scope="col">
+        <th class="right" scope="col">
           <span class="platinum" :title="$t('global.platinum')">
               <svg width="20" height="20" viewBox="0 0 50 50" class="svg-sprite" aria-hidden="true" focusable="false">
                   <use xlink:href="#medal" />
@@ -14,7 +14,7 @@
               <span class="screen-reader-text">{{ $t('global.platinum') }}</span>
           </span>
         </th>
-        <th scope="col">
+        <th class="right" scope="col">
           <span class="gold" :title="$t('global.gold')">
               <svg width="20" height="20" viewBox="0 0 50 50" class="svg-sprite" aria-hidden="true" focusable="false">
                   <use xlink:href="#medal" />
@@ -22,7 +22,7 @@
               <span class="screen-reader-text">{{ $t('global.gold') }}</span>
           </span>
         </th>
-        <th scope="col">
+        <th class="right" scope="col">
           <span class="silver" :title="$t('global.silver')">
               <svg width="20" height="20" viewBox="0 0 50 50" class="svg-sprite" aria-hidden="true" focusable="false">
                   <use xlink:href="#medal" />
@@ -30,7 +30,7 @@
               <span class="screen-reader-text">{{ $t('global.silver') }}</span>
           </span>
         </th>
-        <th scope="col">
+        <th class="right" scope="col">
           <span class="bronze" :title="$t('global.bronze')">
               <svg width="20" height="20" viewBox="0 0 50 50" class="svg-sprite" aria-hidden="true" focusable="false">
                   <use xlink:href="#medal" />
@@ -43,19 +43,19 @@
       <tbody>
       <tr v-for="item in leaderboard" :data-rank="item.rankMedal" :key="item.id"
           :class="[isAuthenticated && getAuthenticatedPlayer.id === getPlayerId(item) ? 'player--me' : 'player' ]">
-        <td>{{ item.rankMedal }}</td>
-        <td v-if="item.player">
+        <td class="pl-2 center">{{ item.rankMedal }}</td>
+        <td class="pa-0" v-if="item.player">
           <country v-bind:country="item.player.country"></country>
           <player v-bind:player="item.player" v-bind:show-avatar="true"></player>
         </td>
-        <td v-else>
+        <td class="pa-0" v-else>
           <country v-bind:country="item.country"></country>
           <player v-bind:player="item" v-bind:show-avatar="true"></player>
         </td>
-        <td :data-header="$t('global.platinum')" class="right">{{ number(item.chartRank0) }}</td>
-        <td :data-header="$t('global.gold')" class="right">{{ number(item.chartRank1) }}</td>
-        <td :data-header="$t('global.silver')" class="right">{{ number(item.chartRank2) }}</td>
-        <td :data-header="$t('global.bronze')" class="right">{{ number(item.chartRank3) }}</td>
+        <td class="pr-3 right">{{ number(item.chartRank0) }}</td>
+        <td class="pr-3 right">{{ number(item.chartRank1) }}</td>
+        <td class="pr-3 right">{{ number(item.chartRank2) }}</td>
+        <td class="pr-3 right">{{ number(item.chartRank3) }}</td>
       </tr>
       </tbody>
     </v-table>

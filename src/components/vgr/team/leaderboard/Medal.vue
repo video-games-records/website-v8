@@ -4,9 +4,9 @@
     <v-table density="compact" class="leaderboard">
       <thead>
       <tr>
-        <th scope="col">{{ $t('global.rank') }}</th>
+        <th class="center" scope="col">#</th>
         <th scope="col">{{ $t('global.nickname') }}</th>
-        <th scope="col" class="">
+        <th class="right" scope="col">
           <span class="platinum" :title="$t('global.platinum')">
               <svg width="20" height="20" viewBox="0 0 50 50" class="svg-sprite" aria-hidden="true" focusable="false">
                   <use xlink:href="#medal" />
@@ -14,7 +14,7 @@
               <span class="screen-reader-text">{{ $t('global.platinum') }}</span>
           </span>
         </th>
-        <th scope="col">
+        <th class="right" scope="col">
           <span class="gold" :title="$t('global.gold')">
               <svg width="20" height="20" viewBox="0 0 50 50" class="svg-sprite" aria-hidden="true" focusable="false">
                   <use xlink:href="#medal" />
@@ -22,7 +22,7 @@
               <span class="screen-reader-text">{{ $t('global.gold') }}</span>
           </span>
         </th>
-        <th scope="col">
+        <th class="right" scope="col">
           <span class="silver" :title="$t('global.silver')">
               <svg width="20" height="20" viewBox="0 0 50 50" class="svg-sprite" aria-hidden="true" focusable="false">
                   <use xlink:href="#medal" />
@@ -30,7 +30,7 @@
               <span class="screen-reader-text">{{ $t('global.silver') }}</span>
           </span>
         </th>
-        <th scope="col">
+        <th class="right" scope="col">
           <span class="bronze" :title="$t('global.bronze')">
               <svg width="20" height="20" viewBox="0 0 50 50" class="svg-sprite" aria-hidden="true" focusable="false">
                   <use xlink:href="#medal" />
@@ -43,17 +43,17 @@
       <tbody>
       <tr v-for="item in leaderboard" :data-rank="item.rankMedal" :key="item.id"
           :class="[isAuthenticated && getAuthenticatedPlayer.team && getAuthenticatedPlayer.team.id === getTeamId(item) ? 'player--me' : 'player' ]">
-        <td>{{ item.rankMedal }}</td>
-        <td v-if="item.team">
+        <td class="pl-2 center">{{ item.rankMedal }}</td>
+        <td class="pa-0" v-if="item.team">
           <team v-bind:team="item.team" v-bind:show-avatar="true"></team>
         </td>
-        <td v-else>
+        <td v-else class="pa-0">
           <team v-bind:team="item" v-bind:show-avatar="true"></team>
         </td>
-        <td :data-header="$t('global.platinum')" class="right">{{ number(item.chartRank0) }}</td>
-        <td :data-header="$t('global.gold')" class="right">{{ number(item.chartRank1) }}</td>
-        <td :data-header="$t('global.silver')" class="right">{{ number(item.chartRank2) }}</td>
-        <td :data-header="$t('global.bronze')" class="right">{{ number(item.chartRank3) }}</td>
+        <td class="pr-3 right">{{ number(item.chartRank0) }}</td>
+        <td class="pr-3 right">{{ number(item.chartRank1) }}</td>
+        <td class="pr-3 right">{{ number(item.chartRank2) }}</td>
+        <td class="pr-3 right">{{ number(item.chartRank3) }}</td>
         <td>
           <v-btn @click="openModal(item)" icon="mdi-account-multiple" size="x-small"></v-btn>
         </td>
@@ -65,7 +65,7 @@
   <v-dialog v-model="dialog">
     <v-card>
       <v-card-title class="d-flex justify-center">{{ team.libTeam }}</v-card-title>
-      <v-card-item>
+      <v-card-item :class="this.$vuetify.display.mobile ? 'pa-1 mb-5' : 'mb-5'">
         <leaderboard-player-medal v-bind:leaderboard=leaderboardPlayer></leaderboard-player-medal>
       </v-card-item>
     </v-card>
