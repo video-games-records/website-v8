@@ -4,25 +4,25 @@
     <v-table density="compact" class="leaderboard">
       <thead>
       <tr>
-        <th scope="col">{{ $t('global.rank') }}</th>
+        <th class="center" scope="col">#</th>
         <th scope="col">{{ $t('global.nickname') }}</th>
-        <th scope="col">{{ $t('global.gamePoints') }}</th>
-        <th v-if="!this.$vuetify.display.mobile" scope="col">{{ $t('global.games') }}</th>
+        <th class="right" scope="col">{{ $t('global.gamePoints') }}</th>
+        <th class="right" v-if="!this.$vuetify.display.mobile" scope="col">{{ $t('global.games') }}</th>
         <th scope="col"></th>
       </tr>
       </thead>
       <tbody>
       <tr v-for="item in leaderboard" :data-rank="item.rankPointGame" :key="item.id"
           :class="[isAuthenticated && getAuthenticatedPlayer.team && getAuthenticatedPlayer.team.id === getTeamId(item) ? 'player--me' : 'player' ]">
-        <td>{{ item.rankPointGame }}</td>
-        <td v-if="item.team">
+        <td class="pl-2 center">{{ item.rankPointGame }}</td>
+        <td class="pa-0" v-if="item.team">
           <team v-bind:team="item.team" v-bind:show-avatar="true"></team>
         </td>
-        <td v-else>
+        <td v-else class="pa-0">
           <team v-bind:team="item" v-bind:show-avatar="true"></team>
         </td>
-        <td class="right">{{ number(item.pointGame) }}</td>
-        <td v-if="!this.$vuetify.display.mobile" class="right">{{ number(item.nbGame) }}</td>
+        <td class="pr-3 right">{{ number(item.pointGame) }}</td>
+        <td class="pr-3 right" v-if="!this.$vuetify.display.mobile">{{ number(item.nbGame) }}</td>
         <td>
           <v-btn @click="openModal(item)" icon="mdi-account-multiple" size="x-small"></v-btn>
         </td>
@@ -34,7 +34,7 @@
   <v-dialog v-model="dialog">
     <v-card>
       <v-card-title class="d-flex justify-center">{{ team.libTeam }}</v-card-title>
-      <v-card-item class="pa-1 mb-5">
+      <v-card-item :class="this.$vuetify.display.mobile ? 'pa-1 mb-5' : 'mb-5'">
         <leaderboard-player-point-game v-bind:leaderboard=leaderboardPlayer></leaderboard-player-point-game>
       </v-card-item>
     </v-card>
