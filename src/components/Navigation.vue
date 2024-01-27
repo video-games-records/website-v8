@@ -1,6 +1,6 @@
 <template>
   <v-list v-model:opened="open">
-    <v-list-item title="My Application" subtitle="Vuetify"></v-list-item>
+    <v-list-item :to="{ name: 'Home'}" title="Video Games Records" subtitle="Home"></v-list-item>
     <v-divider></v-divider>
     <v-list-group value="Games">
       <template v-slot:activator="{ props }">

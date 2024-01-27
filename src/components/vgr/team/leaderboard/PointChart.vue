@@ -4,29 +4,25 @@
     <v-table density="compact" class="leaderboard">
       <thead>
       <tr>
-        <th scope="col">{{ $t('global.rank') }}</th>
+        <th class="center" scope="col">#</th>
         <th scope="col">{{ $t('global.nickname') }}</th>
-        <th v-if="showGamePoints" scope="col">{{ $t('global.gamePoints') }}</th>
-        <th scope="col">{{ $t('global.recordPoints') }}</th>
+        <th class="right" v-if="showGamePoints" scope="col">{{ $t('global.gamePoints') }}</th>
+        <th class="right" scope="col">{{ $t('global.recordPoints') }}</th>
         <th scope="col"></th>
       </tr>
       </thead>
       <tbody>
       <tr v-for="item in leaderboard" :data-rank="item.rankPointChart" :key="item.id"
           :class="[isAuthenticated && getAuthenticatedPlayer.team && getAuthenticatedPlayer.team.id === getTeamId(item) ? 'player--me' : 'player' ]">
-        <td>{{ item.rankPointChart }}</td>
-        <td v-if="item.team">
+        <td class="pl-2 center">{{ item.rankPointChart }}</td>
+        <td class="pa-0" v-if="item.team">
           <team v-bind:team="item.team" v-bind:show-avatar="true"></team>
         </td>
-        <td v-else>
+        <td v-else class="pa-0">
           <team v-bind:team="item" v-bind:show-avatar="true"></team>
         </td>
-        <td v-if="showGamePoints" :data-header="$t('global.gamePoints')" class="right">
-          {{ number(item.pointGame) }}
-        </td>
-        <td :data-header="$t('global.recordPoints')" class="right">
-          {{ number(item.pointChart) }}
-        </td>
+        <td v-if="showGamePoints" class="pr-3 right">{{ number(item.pointGame) }}</td>
+        <td class="pr-3 right">{{ number(item.pointChart) }}</td>
         <td>
           <v-btn @click="openModal(item)" icon="mdi-account-multiple" size="x-small"></v-btn>
         </td>
@@ -38,7 +34,7 @@
   <v-dialog v-model="dialog">
     <v-card>
       <v-card-title class="d-flex justify-center">{{ team.libTeam }}</v-card-title>
-      <v-card-item>
+      <v-card-item :class="this.$vuetify.display.mobile ? 'pa-1 mb-5' : 'mb-5'">
         <leaderboard-player-point-chart
             v-bind:leaderboard=leaderboardPlayer
             :origin="getOrigin"
