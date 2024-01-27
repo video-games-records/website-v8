@@ -46,30 +46,17 @@ div.leaderboard .avatar {
   background-clip: border-box
 }
 
-
-@mixin leaderboard-small {
-  .leaderboard {
-    tr {
-      position: relative;
-    }
-
-    td {
-      &:nth-child(1) {
-        position: absolute;
-        top: 0;
-        right: 0;
-        font-weight: bold;
-
-        &::before {
-          content: "#";
-        }
-      }
-
-      &:nth-child(2) {
-        padding-top: .5em;
-        padding-right: 3em;
-        font-weight: bold;
-      }
-    }
-  }
+th.rank {
+  position: relative;
+  text-align: right;
 }
+
+.v-table > .v-table__wrapper > table > thead > tr > th.center {
+  text-align: center;
+}
+
+.v-table > .v-table__wrapper > table > thead > tr > th.right {
+  text-align: right;
+}
+
+
