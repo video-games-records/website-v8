@@ -1,12 +1,5 @@
 <template>
   <v-layout class="rounded rounded-md">
-    <v-app-bar>
-      <v-app-bar-nav-icon :disabled=false variant="text" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-
-      <v-app-bar-title>VGR</v-app-bar-title>
-
-      <app-bar />
-    </v-app-bar>
 
     <v-navigation-drawer v-model="drawer" location="left" app>
       <navigation />
@@ -54,11 +47,10 @@
 </template>
 
 <script>
-import AppBar from "@/components/security/AppBar.vue";
 import Navigation from "@/components/Navigation.vue";
 import FlashMessage from "@/components/base/FlashMessage.vue";
 export default {
-  components: {FlashMessage, AppBar, Navigation},
+  components: {FlashMessage, Navigation},
   data: () => ({
     drawer: true,
     group: null,
