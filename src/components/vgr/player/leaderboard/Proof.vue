@@ -4,22 +4,22 @@
     <v-table density="compact" class="leaderboard">
       <thead>
       <tr>
-        <th scope="col">{{ $t('global.rank') }}</th>
+        <th class="center" scope="col">#</th>
         <th scope="col">{{ $t('global.nickname') }}</th>
-        <th scope="col">{{ $t('global.proofs') }}</th>
-        <th scope="col">{{ $t('global.scoreProven') }}</th>
+        <th class="right" scope="col">{{ $t('global.proofs') }}</th>
+        <th class="right" scope="col">{{ $t('global.scoreProven') }}</th>
       </tr>
       </thead>
       <tbody>
       <tr v-for="item in leaderboard" :data-rank="item.rankProof" :key="item.id"
           :class="[isAuthenticated && this.getAuthenticatedPlayer.id === item.id ? 'player--me' : 'player' ]">
-        <td>{{ item.rankProof }}</td>
-        <td>
+        <td class="pl-2 center">{{ item.rankProof }}</td>
+        <td class="pa-0">
           <country v-bind:country="item.country"></country>
           <player v-bind:player="item" v-bind:show-avatar="true"></player>
         </td>
-        <td :data-header="$t('global.proofsLowercase')" class="right">{{ item.nbChartProven | number }}</td>
-        <td :data-header="$t('global.scoreProvenMobile')" class="right">{{ percentage(item) | number }} %</td>
+        <td class="pr-3 right">{{ item.nbChartProven | number }}</td>
+        <td class="pr-3 right">{{ percentage(item) | number }} %</td>
       </tr>
       </tbody>
     </v-table>

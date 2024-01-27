@@ -4,36 +4,36 @@
     <v-table density="compact" class="leaderboard">
       <thead>
       <tr>
-        <th scope="col">{{ $t('global.rank') }}</th>
+        <th class="center" scope="col">#</th>
         <th scope="col">{{ $t('global.nickname') }}</th>
-        <th v-if="isGameRanking" scope="col">{{ $t('global.gamePoints') }}</th>
-        <th scope="col">{{ $t('global.recordPoints') }}</th>
-        <th v-if="origin !== 'charts'" scope="col">{{ $t('global.scores') }}</th>
-        <th v-if="origin !== 'charts'" scope="col">{{ $t('global.proofs') }}</th>
+        <th class="right" v-if="isGameRanking" scope="col">{{ $t('global.gamePoints') }}</th>
+        <th class="right" scope="col">{{ $t('global.recordPoints') }}</th>
+        <th class="right" v-if="origin !== 'charts'" scope="col">{{ $t('global.scores') }}</th>
+        <th class="right" v-if="origin !== 'charts'" scope="col">{{ $t('global.proofs') }}</th>
       </tr>
       </thead>
       <tbody>
       <tr v-for="item in leaderboard" :data-rank="item.rankPointChart" :key="item.id"
           :class="[isAuthenticated && getAuthenticatedPlayer.id === getPlayerId(item) ? 'player--me' : 'player' ]">
-        <td>{{ getRank(item) }}</td>
-        <td v-if="item.player">
+        <td class="pl-2 center">{{ getRank(item) }}</td>
+        <td class="pa-0" v-if="item.player">
           <country v-bind:country="item.player.country"></country>
           <player v-bind:player="item.player" v-bind:show-avatar="true"></player>
         </td>
-        <td v-else>
+        <td class="pa-0" v-else>
           <country v-bind:country="item.country"></country>
           <player v-bind:player="item" v-bind:show-avatar="true"></player>
         </td>
-        <td v-if="isGameRanking" :data-header="$t('global.gamePoints')" class="right">
+        <td class="pr-3 right" v-if="isGameRanking">
           {{ number(item.pointGame) }}
         </td>
-        <td :data-header="$t('global.recordPoints')" class="right">
+        <td class="pr-3 right">
           {{ number(item.pointChart) }}
         </td>
-        <td v-if="origin !== 'charts'" :data-header="$t('global.scoresLowercase')" class="right">
+        <td v-if="origin !== 'charts'" class="pr-3 right">
           {{ number(item.nbChart) }}
         </td>
-        <td v-if="origin !== 'charts'" :data-header="$t('global.proofsLowercase')" class="right">
+        <td v-if="origin !== 'charts'" class="pr-3 right">
           {{ number(item.nbChartProven) }}
         </td>
       </tr>

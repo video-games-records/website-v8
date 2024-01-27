@@ -5,7 +5,7 @@
       <thead>
       <tr>
         <th scope="col">{{ $t('global.team') }}</th>
-        <th scope="col">
+        <th class="right" scope="col">
           <span class="platinum" :title="$t('global.platinum')">
               <svg width="20" height="20" viewBox="0 0 50 50" class="svg-sprite" aria-hidden="true"
                    focusable="false">
@@ -14,7 +14,7 @@
               <span class="d-sr-only">{{ $t('global.platinum') }}</span>
           </span>
         </th>
-        <th scope="col">
+        <th class="right" scope="col">
           <span class="gold" :title="$t('global.gold')">
               <svg width="20" height="20" viewBox="0 0 50 50" class="svg-sprite" aria-hidden="true"
                    focusable="false">
@@ -23,7 +23,7 @@
               <span class="d-sr-only">{{ $t('global.gold') }}</span>
           </span>
         </th>
-        <th scope="col">
+        <th class="right" scope="col">
           <span class="silver" :title="$t('global.silver')">
               <svg width="20" height="20" viewBox="0 0 50 50" class="svg-sprite" aria-hidden="true"
                    focusable="false">
@@ -32,7 +32,7 @@
               <span class="d-sr-only">{{ $t('global.silver') }}</span>
           </span>
         </th>
-        <th scope="col">
+        <th class="right" scope="col">
           <span class="bronze" :title="$t('global.bronze')">
               <svg width="20" height="20" viewBox="0 0 50 50" class="svg-sprite" aria-hidden="true"
                    focusable="false">
@@ -45,13 +45,13 @@
       </thead>
       <tbody>
       <tr v-for="item in leaderboard" :data-rank="item.rankCup" :key="item.id">
-        <td>
+        <td class="pa-1">
           <team v-bind:team="item"></team>
         </td>
-        <td :data-header="$t('global.platinum')" class="right">{{ item.gameRank0 }}</td>
-        <td :data-header="$t('global.gold')" class="right">{{ item.gameRank1 }}</td>
-        <td :data-header="$t('global.silver')" class="right">{{ item.gameRank2 }}</td>
-        <td :data-header="$t('global.bronze')" class="right">{{ item.gameRank3 }}</td>
+        <td class="pr-3 right">{{ item.gameRank0 }}</td>
+        <td class="pr-3 right">{{ item.gameRank1 }}</td>
+        <td class="pr-3 right">{{ item.gameRank2 }}</td>
+        <td class="pr-3 right">{{ item.gameRank3 }}</td>
       </tr>
       </tbody>
 

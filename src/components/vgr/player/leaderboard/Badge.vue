@@ -4,22 +4,22 @@
     <v-table density="compact" class="leaderboard">
       <thead>
       <tr>
-        <th scope="col">{{ $t('global.rank') }}</th>
+        <th class="center" scope="col">#</th>
         <th scope="col">{{ $t('global.nickname') }}</th>
-        <th scope="col">{{ $t('global.badgePoints') }}</th>
-        <th scope="col">{{ $t('badge.type.master') }}</th>
+        <th class="right" scope="col">{{ $t('global.badgePoints') }}</th>
+        <th class="right" scope="col">{{ $t('badge.type.master') }}</th>
       </tr>
       </thead>
       <tbody>
       <tr v-for="item in leaderboard" :data-rank="item.rankBadge" :key="item.id"
           :class="[isAuthenticated && getAuthenticatedPlayer.id === item.id ? 'player--me' : 'player' ]">
-        <td>{{ item.rankBadge }}</td>
-        <td>
+        <td class="pl-2 center">{{ item.rankBadge }}</td>
+        <td class="pa-0">
           <country v-bind:country="item.country"></country>
           <player v-bind:player="item" v-bind:show-avatar="true"></player>
         </td>
-        <td :data-header="$t('global.badgePoints')" class="right">{{ number(item.pointBadge) }}</td>
-        <td :data-header="$t('badges.master')" class="right">{{ number(item.nbMasterBadge) }}</td>
+        <td class="pr-3 right">{{ number(item.pointBadge) }}</td>
+        <td class="pr-3 right">{{ number(item.nbMasterBadge) }}</td>
       </tr>
       </tbody>
     </v-table>
