@@ -4,7 +4,7 @@
     <v-table density="compact" class="leaderboard">
       <thead>
       <tr>
-        <th class="center" scope="col">{{ $t('global.rank') }}</th>
+        <th class="center" scope="col">#</th>
         <th scope="col">{{ $t('global.nickname') }}</th>
         <th class="right" scope="col">{{ $t('global.gamePoints') }}</th>
         <th class="right" v-if="!this.$vuetify.display.mobile" scope="col">{{ $t('global.games') }}</th>
