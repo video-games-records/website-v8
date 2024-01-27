@@ -33,7 +33,7 @@ body {
 }
 
 @mixin body-small {
-    body {
+    #app {
         overflow-x: hidden;
     }
 }
