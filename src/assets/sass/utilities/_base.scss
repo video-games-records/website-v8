@@ -32,12 +32,11 @@ body {
     line-height: 1.5;
 }
 
-/*@mixin body-small {
-    html,
-    body {
+@mixin body-small {
+    html {
         overflow-x: hidden;
     }
-}*/
+}
 
 /* == @section Links ==================== */
 a,

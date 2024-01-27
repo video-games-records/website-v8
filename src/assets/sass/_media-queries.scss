@@ -25,7 +25,7 @@
 @media ( max-width: em-mq( $medium-screen ) ) {
     @include platform-list-small;
     @include title-small;
-    //@include body-small;
+    @include body-small;
 }
 
 /* == @section Medium: 769px and beyond ==================== */
