@@ -1,7 +1,7 @@
 <template>
   <v-row>
     <v-col v-if="!this.$vuetify.display.mobile" cols="12" order="1">
-      {{ getPlatform.libPlatform }}
+      <h2>{{ getPlatform.libPlatform }}</h2>
     </v-col>
     <v-col cols="12" order="2" md="12" lg="3" order-lg="3">
       <v-sheet v-if="this.$vuetify.display.mobile">
@@ -34,7 +34,7 @@
               <tr>
                 <th class="center" scope="col">#</th>
                 <th scope="col">{{ $t('global.nickname') }}</th>
-                <th class="right" scope="col">{{ $t('global.platformPoints') }}</th>
+                <th class="right" scope="col">{{ $t('global.points') }}</th>
                 <th class="right" scope="col">{{ $t('global.scores') }}</th>
               </tr>
               </thead>
