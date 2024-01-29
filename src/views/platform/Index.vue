@@ -125,6 +125,9 @@ export default {
             this.leaderboard = response.data['hydra:member']
           })
     },
+    onChange () {
+      this.$router.push({ name: 'PlatformIndex', params: {id : this.platform.id, slugPlatform: this.platform.slug}});
+    },
   }
 };
 </script>
