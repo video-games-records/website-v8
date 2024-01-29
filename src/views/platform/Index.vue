@@ -25,7 +25,7 @@
         <v-tab value="games">Games</v-tab>
       </v-tabs>
 
-      <v-card-text>
+      <v-card-text class="pa-0">
         <v-window v-model="tab">
           <v-window-item value="leaderboard">
             <v-table class="leaderboard">
