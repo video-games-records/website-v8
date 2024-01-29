@@ -28,7 +28,7 @@
       </thead>
       <tbody>
       <tr v-for="item in games" :data-position="item.position" :key="item.id">
-        <td class="w50">
+        <td>
           <game v-bind:game="item" v-bind:show-link="showLink"></game>
         </td>
         <td v-if="displayPlatform">
