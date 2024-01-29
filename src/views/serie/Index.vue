@@ -10,7 +10,7 @@
       >
       </v-select>
     </v-col>
-    <v-col cols="12">
+    <v-col cols="12" v-if="!this.$vuetify.display.mobile">
       <serie-card :serie=this.serie></serie-card>
     </v-col>
     <v-col>
@@ -20,31 +20,31 @@
         <v-tab value="description">Description</v-tab>
       </v-tabs>
 
-      <v-card-text>
+      <v-card-text class="pa-0">
         <v-window v-model="tab">
           <v-window-item value="leaderboard">
             <v-table class="leaderboard">
               <caption class="screen-reader-text">{{ $t('leaderboard.recordPoints.caption') }}</caption>
               <thead>
               <tr>
-                <th scope="col">{{ $t('global.rank') }}</th>
+                <th class="center" scope="col">#</th>
                 <th scope="col">{{ $t('global.nickname') }}</th>
-                <th scope="col">{{ $t('global.points') }}</th>
-                <th scope="col">{{ $t('global.scores') }}</th>
+                <th class="right" scope="col">{{ $t('global.points') }}</th>
+                <th class="right" scope="col">{{ $t('global.scores') }}</th>
               </tr>
               </thead>
               <tbody>
               <tr v-for="item in leaderboard" :data-rank="item.rankPointChart" :key="item.id"
                   :class="[isAuthenticated && getAuthenticatedPlayer.id === getPlayerId(item) ? 'player--me' : 'player' ]">
-                <td>{{ item.rankPointChart }}</td>
-                <td>
+                <td class="pl-2 center">{{ item.rankPointChart }}</td>
+                <td class="pa-0">
                   <country v-bind:country="item.player.country"></country>
                   <player v-bind:player="item.player" v-bind:show-avatar="true"></player>
                 </td>
-                <td :data-header="$t('global.platformPoints')">
+                <td class="pr-3 right">
                   {{ number(item.pointChart) }}
                 </td>
-                <td :data-header="$t('global.scoresLowercase')">
+                <td class="pr-3 right">
                   {{ number(item.nbChart) }}
                 </td>
               </tr>
@@ -75,7 +75,7 @@
           </v-window-item>
 
           <v-window-item value="description">
-            <div v-html="this.serie.description"></div>
+            <v-sheet v-html="this.serie.description" class="pa-4 ckeditor"></v-sheet>
           </v-window-item>
         </v-window>
       </v-card-text>

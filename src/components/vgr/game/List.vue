@@ -14,11 +14,11 @@
           <span v-if="displayPlatform">{{ $t('global.charts') }}</span>
           <button v-else type="button" class="table-order" @click="orderBy('nbChart')">{{ $t('global.charts') }}</button>
         </th>
-        <th scope="col" v-if="displayPosts">
+        <th scope="col" v-if="!this.$vuetify.display.mobile && displayPosts">
           <span v-if="displayPlatform">{{ $t('global.scores') }}</span>
           <button v-else type="button" class="table-order" @click="orderBy('nbPost')">{{ $t('global.scores') }}</button>
         </th>
-        <th scope="col" v-if="displayPlayers">
+        <th scope="col" v-if="!this.$vuetify.display.mobile && displayPlayers">
           <span v-if="displayPlatform">{{ $t('global.players') }}</span>
           <button v-else type="button" class="table-order" @click="orderBy('nbPlayer')">
             {{ $t('global.players') }}
@@ -28,7 +28,7 @@
       </thead>
       <tbody>
       <tr v-for="item in games" :data-position="item.position" :key="item.id">
-        <td class="w50">
+        <td>
           <game v-bind:game="item" v-bind:show-link="showLink"></game>
         </td>
         <td v-if="displayPlatform">
@@ -37,10 +37,10 @@
         <td v-if="displayCharts" :data-header="$t('global.charts')">
           {{ number(item.nbChart) }}
         </td>
-        <td v-if="displayPosts" :data-header="$t('global.scores')">
+        <td v-if="!this.$vuetify.display.mobile && displayPosts" :data-header="$t('global.scores')">
           {{ number(item.nbPost) }}
         </td>
-        <td v-if="displayPlayers" :data-header="$t('global.players')">
+        <td v-if="!this.$vuetify.display.mobile && displayPlayers" :data-header="$t('global.players')">
           {{ number(item.nbPlayer) }}
         </td>
       </tr>

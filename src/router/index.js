@@ -83,22 +83,11 @@ const routes = [
           { path: 'donations', name: 'Donations', component: () => import(/* webpackChunkName: "donations" */ '@/views/page/Donations.vue')},
           { path: 'the-vgr-team', name: 'TheVgrTeam', component: () => import(/* webpackChunkName: "the-vgr-team" */ '@/views/page/TheVgrTeam.vue')},
           /********* PLATFORM ***********/
-          { path: 'game-platform-:slugPlatform-p:id(\\d+)', name: 'PlatformMain', component: () => import(/* webpackChunkName: "platform" */ '@/views/platform/Main.vue'), props: {default: true},
-            children: [
-              { path: 'index', name: 'PlatformIndex', component: () => import(/* webpackChunkName: "game-list" */ '@/views/platform/Index.vue')},
-              { path: 'leaderboard', name: 'PlatformLeaderboard', component: () => import(/* webpackChunkName: "game-list" */ '@/views/platform/Leaderboard.vue')},
-            ]
-          },
+          { path: 'game-platform-:slugPlatform-p:id(\\d+)', name: 'PlatformIndex', component: () => import(/* webpackChunkName: "platform" */ '@/views/platform/Index.vue'), props: {default: true}},
           /********* SERIE ***********/
           { path: 'serie-:slugSerie-s:id(\\d+)', name: 'SerieIndex', component: () => import(/* webpackChunkName: "serie" */ '@/views/serie/Index.vue')},
           /********* GAME-LIST ***********/
           { path: 'game-letter-:letter', name: 'GameListByLetter', component: () => import(/* webpackChunkName: "game-list" */ '@/views/game/list/ByLetter.vue'), props: {default: true}},
-          { path: 'game-platform-:slugPlatform-p:id(\\d+)', name: 'PlatformMain', component: () => import(/* webpackChunkName: "platform" */ '@/views/platform/Main.vue'), props: {default: true},
-            children: [
-              { path: 'index', name: 'PlatformIndex', component: () => import(/* webpackChunkName: "game-list" */ '@/views/platform/Index.vue')},
-              { path: 'leaderboard', name: 'PlatformLeaderboard', component: () => import(/* webpackChunkName: "game-list" */ '@/views/platform/Leaderboard.vue')},
-            ]
-          },
           { path: 'upcoming-games', name: 'GameNext', component: () => import(/* webpackChunkName: "game-list" */ '@/views/game/list/Next.vue')},
           { path: 'lastest-games', name: 'GameLast', component: () => import(/* webpackChunkName: "game-list" */ '@/views/game/list/Last.vue')},
           /********* GAME ***********/
