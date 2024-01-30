@@ -75,7 +75,7 @@
           </v-window-item>
 
           <v-window-item value="description">
-            <div v-html="this.serie.description"></div>
+            <v-sheet v-html="this.serie.description" class="pa-4 ckeditor"></v-sheet>
           </v-window-item>
         </v-window>
       </v-card-text>
