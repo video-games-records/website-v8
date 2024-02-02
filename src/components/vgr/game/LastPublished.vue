@@ -19,7 +19,7 @@ import GamePicture from "@/components/vgr/game/Picture";
 import PlatformList from "@/components/vgr/platform/List.vue";
 
 export default {
-  name: 'GameLast',
+  name: 'GameLastPublished',
   components: {
     PlatformList,
     GamePicture
