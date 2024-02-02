@@ -1,6 +1,6 @@
 <template>
   <v-layout class="rounded rounded-md">
-    <v-app-bar scroll-behavior="elevate">
+    <v-app-bar scroll-behavior="elevate" fixed app>
       <v-app-bar-nav-icon :disabled=false variant="text" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
 
       <v-app-bar-title><router-link v-bind:to="{name:'Home'}">VGR</router-link></v-app-bar-title>
@@ -12,7 +12,7 @@
       <navigation />
     </v-navigation-drawer>
 
-    <v-main class="d-flex align-center justify-center" style="min-height: 300px;">
+    <v-main class="d-flex align-center justify-center" style="min-height: 300px;" class="hidden-">
       <v-row>
         <!--<v-col v-if="!this.$vuetify.display.mobile" cols="12">
           <div id="header" role="banner" class="site-header">
