@@ -5,7 +5,7 @@
 
       <v-app-bar-title><router-link v-bind:to="{name:'Home'}">VGR</router-link></v-app-bar-title>
 
-      <app-bar />
+      <app-bar scroll-behavior="elevate" />
     </v-app-bar>
 
     <v-navigation-drawer v-model="drawer" location="left" app>
