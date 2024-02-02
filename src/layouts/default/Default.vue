@@ -1,15 +1,19 @@
 <template>
-  <v-layout class="rounded rounded-md">
+  <v-app id="app" :full-height="true">
     <v-app-bar>
       <v-app-bar-nav-icon :disabled=false variant="text" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
 
-      <v-app-bar-title><router-link v-bind:to="{name:'Home'}">VGR</router-link></v-app-bar-title>
+      <v-app-bar-title>
+        <router-link v-bind:to="{name:'Home'}">VGR</router-link>
+      </v-app-bar-title>
 
-      <app-bar />
+      <app-bar/>
     </v-app-bar>
 
-    <v-navigation-drawer v-model="drawer" location="left" app>
-      <navigation />
+
+
+    <v-navigation-drawer v-model="drawer" location="left">
+      <navigation/>
     </v-navigation-drawer>
 
     <v-main class="d-flex align-center justify-center" style="min-height: 300px;">
@@ -25,38 +29,40 @@
         </v-col>-->
         <v-col cols="12">
           <v-sheet :class="this.$vuetify.display.mobile ? 'ma-1' : 'ma-5'">
-            <router-view />
+            <router-view/>
           </v-sheet>
-        </v-col>
-        <v-col cols="12">
-          <v-footer class="bg-grey-lighten-1">
-          <v-row justify="center" no-gutters>
-            <v-btn
-                v-for="link in links"
-                :key="link"
-                color="white"
-                variant="text"
-                class="mx-2"
-                rounded="xl"
-            >
-              {{ link }}
-            </v-btn>
-            <v-col class="text-center mt-4" cols="12">
-              &copy; 2003-{{ new Date().getFullYear() }} — <strong>Video Games Records</strong>
-            </v-col>
-          </v-row>
-        </v-footer>
         </v-col>
       </v-row>
     </v-main>
-  </v-layout>
-  <flash-message />
+
+    <v-footer class="bg-grey-lighten-1">
+      <v-row justify="center" no-gutters>
+        <v-btn
+            v-for="link in links"
+            :key="link"
+            color="white"
+            variant="text"
+            class="mx-2"
+            rounded="xl"
+        >
+          {{ link }}
+        </v-btn>
+        <v-col class="text-center mt-4" cols="12">
+          &copy; 2003-{{ new Date().getFullYear() }} — <strong>Video Games Records</strong>
+        </v-col>
+      </v-row>
+    </v-footer>
+
+
+  </v-app>
+  <flash-message/>
 </template>
 
 <script>
 import AppBar from "@/components/security/AppBar.vue";
 import Navigation from "@/components/Navigation.vue";
 import FlashMessage from "@/components/base/FlashMessage.vue";
+
 export default {
   components: {FlashMessage, AppBar, Navigation},
   data: () => ({
