@@ -11,12 +11,6 @@
       <div class="h1">{{ game.name }}</div>
       <platform-list v-bind:platforms="game.platforms"></platform-list>
       <ul class="pa-0">
-        <li class="d-inline ma-2">
-          <router-link :to="{ name: 'GameRules' }">
-            <span v-if="game.rules && game.rules.length > 0">{{ $t('menu.rules') }}</span>
-            <span v-else>{{ $t('menu.rules') }}</span>
-          </router-link>
-        </li>
         <li v-if="game.serie && game.serie.status.isActive" class="d-inline ma-2">
           <router-link :to="{ name: 'SerieIndex',params: { id: game.serie.id, slugSerie: game.serie.slug }}">
             {{ $t('Serie') }}: {{ game.serie.name }}

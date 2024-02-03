@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <v-sheet>
     <h1 class="screen-reader-text">{{ getGame.name }}</h1>
 
     <div v-if="hasRolePlayer && getGame.id" class="d-flex justify-center ma-3">
@@ -30,16 +30,28 @@
       </tbody>
     </table>
 
-    <h2>{{ $t('global.rankings') }}</h2>
+    <div class="text-h4 pa-3">{{ $t('global.rankings') }}</div>
 
-    <v-tabs v-model="tab" :direction="this.$vuetify.display.mobile ? 'vertical' : 'horizontal'" bg-color="primary">
-      <v-tab value="leaderboard-player-point-chart">[{{ $t('global.player')}}] {{ $t('leaderboard.recordPoints.title') }}</v-tab>
-      <v-tab value="leaderboard-player-medal">[{{ $t('global.player')}}] {{ $t('leaderboard.medal.title') }}</v-tab>
-      <v-tab value="leaderboard-team-point-chart">[{{ $t('global.team')}}] {{ $t('leaderboard.recordPoints.title') }}</v-tab>
-      <v-tab value="leaderboard-team-medal">[{{ $t('global.team')}}] {{ $t('leaderboard.medal.title') }}</v-tab>
+    <v-tabs v-model="tab" bg-color="primary">
+      <v-tab value="leaderboard-player-point-chart">
+        <span v-if="this.$vuetify.display.mobile"><v-icon>mdi-alpha-p-box</v-icon> / Pts</span>
+        <span v-else>[{{ $t('global.player')}}] {{ $t('leaderboard.recordPoints.title') }}</span>
+      </v-tab>
+      <v-tab value="leaderboard-player-medal">
+        <span v-if="this.$vuetify.display.mobile"><v-icon>mdi-alpha-p-box</v-icon> / <v-icon>mdi-medal</v-icon></span>
+        <span v-else>[{{ $t('global.player')}}] {{ $t('leaderboard.medal.title') }}</span>
+      </v-tab>
+      <v-tab value="leaderboard-team-point-chart">
+        <span v-if="this.$vuetify.display.mobile"><v-icon>mdi-alpha-t-box</v-icon> / Pts</span>
+        <span v-else>[{{ $t('global.team')}}] {{ $t('leaderboard.recordPoints.title') }}</span>
+      </v-tab>
+      <v-tab value="leaderboard-team-medal">
+        <span v-if="this.$vuetify.display.mobile"><v-icon>mdi-alpha-t-box</v-icon> / <v-icon>mdi-medal</v-icon></span>
+        <span v-else>[{{ $t('global.team')}}] {{ $t('leaderboard.medal.title') }}</span>
+      </v-tab>
     </v-tabs>
 
-    <v-card-text>
+    <v-card-text class="pa-0 pt-2">
       <v-window v-model="tab">
         <v-window-item value="leaderboard-player-point-chart">
          <leaderboard-player-point-chart v-bind:leaderboard=leaderboardPlayerPointChart></leaderboard-player-point-chart>
@@ -61,7 +73,7 @@
         </v-window-item>
       </v-window>
     </v-card-text>
-  </div>
+  </v-sheet>
 </template>
 
 <script>
