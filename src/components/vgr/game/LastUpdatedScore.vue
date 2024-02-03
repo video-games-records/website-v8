@@ -6,8 +6,8 @@
       <thead>
       <tr>
         <th scope="col">{{ $t('global.game') }}</th>
-        <th scope="col">{{ $t('global.score') }}</th>
-        <th scope="col">{{ $t('score.lastUpdate') }}</th>
+        <th scope="col" class="hidden-sm-and-down">{{ $t('global.score') }}</th>
+        <th scope="col" class="hidden-lg-and-down">{{ $t('score.lastUpdate') }}</th>
         <th scope="col">{{ $t('global.player') }}</th>
       </tr>
       </thead>
@@ -16,10 +16,10 @@
         <td class="pr-3">
           <game :game="game">{{ game.name }}</game>
         </td>
-        <td class="pr-3">
+        <td class="pr-3 hidden-sm-and-down">
           {{ game.lastScore.chart.name }}
         </td>
-        <td class="pr-3">
+        <td class="pr-3 hidden-lg-and-down">
           <tools-date v-bind:date="game.lastUpdate"
                       v-bind:options="{ year: 'numeric', month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric' }"></tools-date>
         </td>
