@@ -94,8 +94,7 @@ const routes = [
           { path: ':slugGame-game-g:idGame(\\d+)', name: 'GameMain', component: () => import(/* webpackChunkName: "Game" */ '@/views/game/Main.vue'),
             children: [
               { path: 'index', name: 'GameIndex', component: () => import(/* webpackChunkName: "Game" */ '@/views/game/Index.vue')},
-              { path: 'rules', name: 'GameRules', component: () => import(/* webpackChunkName: "Video" */ '@/views/game/Rules.vue')},
-              { path: 'submit', name: 'GameSubmit', component: () => import(/* webpackChunkName: "Game" */ '@/views/game/Submit.vue')},
+              { path: 'submit', name: 'GameSubmit', meta: {requiresAuth: true}, component: () => import(/* webpackChunkName: "Game" */ '@/views/game/Submit.vue')},
               { path: ':slugGroup-group-g:idGroup(\\d+)', name: 'GroupMain', component: () => import(/* webpackChunkName: "Game" */ '@/views/game/group/Main.vue'),
                 children: [
                   { path: 'index', name: 'GroupIndex', component: () => import(/* webpackChunkName: "Game" */ '@/views/game/group/Index.vue')},

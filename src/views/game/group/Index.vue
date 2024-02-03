@@ -2,7 +2,7 @@
   <div>
     <h1 class="h2">{{ getGroup.name }}</h1>
 
-    <div v-if="hasRolePlayer && getGame.id" class="d-flex justify-center ma-3">
+    <div v-if="hasRolePlayer && getGame.id && !this.$vuetify.display.mobile" class="d-flex justify-center ma-3">
       <v-btn >
         <router-link :to="{ name: 'GroupSubmit', params: { idGroup: getGroup.id, slugGroup: getGroup.slug }}">
           {{ $t('group.updateScores') }}
@@ -15,9 +15,10 @@
       <v-tab value="top-score">Top Score</v-tab>
     </v-tabs>
 
-    <v-card-text>
+    <v-card-text class="pa-0 pt-2">
       <v-window v-model="tab[0]">
         <v-window-item value="charts">
+          <v-progress-linear v-if="isLoading" indeterminate color="yellow-darken-2"></v-progress-linear>
           <table class="record-list">
             <caption class="screen-reader-text">{{ $t('global.charts') }}</caption>
             <thead>
@@ -42,7 +43,7 @@
       </v-window>
     </v-card-text>
 
-    <div v-if="hasRolePlayer && getGame.id" class="d-flex justify-center ma-3">
+    <div v-if="hasRolePlayer && getGame.id && !this.$vuetify.display.mobile" class="d-flex justify-center ma-3">
       <v-btn >
         <router-link :to="{ name: 'GroupSubmit', params: { idGroup: getGroup.id, slugGroup: getGroup.slug }}">
           {{ $t('group.updateScores') }}
@@ -50,17 +51,28 @@
       </v-btn>
     </div>
 
+    <h2 class="pa-3">{{ $t('global.rankings') }}</h2>
 
-    <h2>{{ $t('global.rankings') }}</h2>
-
-    <v-tabs v-model="tab[1]" :direction="this.$vuetify.display.mobile ? 'vertical' : 'horizontal'">
-      <v-tab value="leaderboard-player-point-chart">[{{ $t('global.player')}}] {{ $t('leaderboard.recordPoints.title') }}</v-tab>
-      <v-tab value="leaderboard-player-medal">[{{ $t('global.player')}}] {{ $t('leaderboard.medal.title') }}</v-tab>
-      <v-tab value="leaderboard-team-point-chart">[{{ $t('global.team')}}] {{ $t('leaderboard.recordPoints.title') }}</v-tab>
-      <v-tab value="leaderboard-team-medal">[{{ $t('global.team')}}] {{ $t('leaderboard.medal.title') }}</v-tab>
+    <v-tabs v-model="tab[1]" bg-color="primary">
+      <v-tab value="leaderboard-player-point-chart">
+        <span v-if="this.$vuetify.display.mobile"><v-icon>mdi-alpha-p-box</v-icon> / Pts</span>
+        <span v-else>[{{ $t('global.player')}}] {{ $t('leaderboard.recordPoints.title') }}</span>
+      </v-tab>
+      <v-tab value="leaderboard-player-medal">
+        <span v-if="this.$vuetify.display.mobile"><v-icon>mdi-alpha-p-box</v-icon> / <v-icon>mdi-medal</v-icon></span>
+        <span v-else>[{{ $t('global.player')}}] {{ $t('leaderboard.medal.title') }}</span>
+      </v-tab>
+      <v-tab value="leaderboard-team-point-chart">
+        <span v-if="this.$vuetify.display.mobile"><v-icon>mdi-alpha-t-box</v-icon> / Pts</span>
+        <span v-else>[{{ $t('global.team')}}] {{ $t('leaderboard.recordPoints.title') }}</span>
+      </v-tab>
+      <v-tab value="leaderboard-team-medal">
+        <span v-if="this.$vuetify.display.mobile"><v-icon>mdi-alpha-t-box</v-icon> / <v-icon>mdi-medal</v-icon></span>
+        <span v-else>[{{ $t('global.team')}}] {{ $t('leaderboard.medal.title') }}</span>
+      </v-tab>
     </v-tabs>
 
-    <v-card-text>
+    <v-card-text class="pa-0 pt-2">
       <v-window v-model="tab[1]">
         <v-window-item value="leaderboard-player-point-chart">
           <leaderboard-player-point-chart v-bind:leaderboard=leaderboardPlayerPointChart></leaderboard-player-point-chart>
@@ -105,6 +117,7 @@ export default {
   },
   data() {
     return {
+      isLoading: false,
       tab: [],
       charts: [],
       leaderboardPlayerPointChart: [],
@@ -141,8 +154,10 @@ export default {
   methods: {
     load() {
       let id = this.$route.params.idGroup;
+      this.isLoading = true;
       this.axios.get('api/groups/' + id + '/charts?pagination=false&order[' + this.getLibChart + ']=ASC')
           .then(response => {
+            this.isLoading = false;
             this.charts = response.data['hydra:member']
           })
       this.axios.get('/api/groups/' + id + '/player-ranking-points?maxRank=100')

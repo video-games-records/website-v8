@@ -2,13 +2,12 @@
   <div>
     <h1 class="h2">{{ getChart.name }}</h1>
 
-
-    <v-tabs v-model="tab" :direction="this.$vuetify.display.mobile ? 'vertical' : 'horizontal'" bg-color="primary">
+    <v-tabs v-model="tab" bg-color="primary">
       <v-tab value="leaderboard-player">{{ $t('leaderboard.player') }}</v-tab>
       <v-tab value="leaderboard-team">{{ $t('leaderboard.team') }}</v-tab>
     </v-tabs>
 
-    <v-card-text>
+    <v-card-text class="pa-0">
       <v-window v-model="tab">
         <v-window-item value="leaderboard-player">
           <div v-if="hasRolePlayer && getGame.id" class="d-flex justify-center ma-3">
@@ -19,14 +18,15 @@
             </v-btn>
           </div>
 
-          <v-table density="default" class="leaderboard">
+          <v-progress-linear v-if="isLoading" indeterminate color="yellow-darken-2"></v-progress-linear>
+          <v-table density="compact" class="leaderboard">
             <caption class="screen-reader-text">{{ $t('leaderboard.player') }}</caption>
             <thead>
             <tr>
-              <th scope="col">{{ $t('global.rank') }}</th>
+              <th class="center" scope="col">#</th>
               <th scope="col">{{ $t('global.nickname') }}</th>
-              <th scope="col"></th>
-              <th scope="col" v-if="!this.$vuetify.display.mobile">{{ $t('global.recordPoints') }}</th>
+              <th scope="col" class="hidden-sm-and-down"></th>
+              <th scope="col" class="hidden-md-and-down">{{ $t('global.recordPoints') }}</th>
               <th scope="col" v-for="lib in getChart.libs" :data-position="lib.position" :key="lib.id">{{ lib.name }}</th>
               <th scope="col">{{ $t('global.status') }}</th>
             </tr>
@@ -34,15 +34,15 @@
             <tbody>
               <tr v-for="row in leaderboardPlayer" :data-rank="row[0].rank" :key="row.id"
                   :class="[isAuthenticated && row[0].player.id === getAuthenticatedPlayer.id ? 'player--me' : 'player' ]">
-                <td>{{ row[0].rank }}</td>
+                <td class="pl-2 center">{{ row[0].rank }}</td>
                 <td>
                   <country v-bind:country="row[0].player.country"></country>
                   <player v-bind:player="row[0].player" v-bind:show-avatar="showAvatar"></player>
                 </td>
-                <td>
+                <td class="hidden-sm-and-down">
                   <platform v-bind:platform="row[0].platform"></platform>
                 </td>
-                <td :data-header="$t('global.points')" v-if="!this.$vuetify.display.mobile">
+                <td class="hidden-md-and-down">
                   {{ number(row[0].pointChart) }}
                 </td>
                 <td v-for="value in row.values" :data-position="value.position" :key="value.id"
@@ -53,8 +53,8 @@
                 </td>
                 <td>
                   <ul>
-                    <li class="d-inline">
-                      <button v-if="row[0].proof" type="button" class="d-inline" @click="showProof(row[0])"
+                    <li class="d-inline pa-1">
+                      <button v-if="row[0].proof" type="button" @click="showProof(row[0])"
                               :aria-labelledby="row[0].id">
                         <status v-bind:status=row[0].status></status>
                         <v-tooltip
@@ -72,8 +72,8 @@
                         </button>
                       </router-link>
                     </li>
-                    <li class="d-inline">
-                      <last-update class="d-inline" v-bind:player-chart=row[0]></last-update>
+                    <li class="d-inline" v-if="!this.$vuetify.display.mobile">
+                      <last-update class="d-inline"  v-bind:player-chart=row[0]></last-update>
                     </li>
                   </ul>
                  </td>
@@ -81,7 +81,7 @@
             </tbody>
           </v-table>
 
-          <v-table density="default" class="leaderboard" v-if="leaderboardPlayerDisabled.length > 0">
+          <v-table density="compact" class="leaderboard" v-if="leaderboardPlayerDisabled.length > 0">
             <caption>{{ $t('score.off') }}</caption>
             <thead>
             <tr>
@@ -90,7 +90,7 @@
               <th scope="col"></th>
               <th scope="col"></th>
               <th scope="col" v-for="lib in getChart.libs" :data-position="lib.position" :key="lib.id">{{ lib.name }}</th>
-              <th scope="col" class="chart-list__status">{{ $t('global.status') }}</th>
+              <th scope="col">{{ $t('global.status') }}</th>
             </tr>
             </thead>
             <tbody>
@@ -133,7 +133,7 @@
           </div>
 
         </v-window-item>
-        <v-window-item value="leaderboard-team">
+        <v-window-item value="leaderboard-team" class="ma-1">
           <leaderboard-team
               v-bind:leaderboard=leaderboardTeam
               :callback="'/api/charts/' + this.$route.params.idChart + '/player-ranking-points?idTeam='">
@@ -169,6 +169,7 @@ import LeaderboardTeamMedal from "@/components/vgr/team/leaderboard/Medal.vue";
 import LeaderboardPlayerPointChart from "@/components/vgr/player/leaderboard/PointChart.vue";
 import LeaderboardPlayerMedal from "@/components/vgr/player/leaderboard/Medal.vue";
 import Filters from "@/mixins/Filters.vue";
+import {useBreadcrumbsStore} from "@/store/base/breadcrumbs";
 
 export default {
   mixins: [Security, Filters],
@@ -185,6 +186,7 @@ export default {
   data() {
     return {
       tab: null,
+      isLoading: false,
       leaderboardPlayer: [],
       leaderboardPlayerDisabled: [],
       leaderboardTeam: [],
@@ -208,6 +210,7 @@ export default {
   },
   updated() {
     if (this.$route.name === 'ChartIndex') {
+      useBreadcrumbsStore().setLevel(3);
       if (this.getChart.id != this.$route.params.idChart) {
         this.load();
       }
@@ -216,8 +219,10 @@ export default {
   methods: {
     load() {
       let id = this.$route.params.idChart;
+      this.isLoading = true;
       this.axios.get('/api/charts/' + id + '/player-ranking')
           .then(response => {
+            this.isLoading = false;
             this.leaderboardPlayer = response.data['hydra:member']
           })
       this.axios.get('/api/charts/' + id + '/player-ranking-disabled')

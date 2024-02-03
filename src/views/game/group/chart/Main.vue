@@ -31,13 +31,10 @@ export default {
     useBreadcrumbsStore().setLevel(3);
     this.load();
   },
-  updated() {
-    if (this.$route.name  === 'ChartIndex') {
-      useBreadcrumbsStore().setLevel(3);
-      if (this.getChart.id !== this.$route.params.idChart) {
-        this.load();
-      }
-    }
+  watch: {
+    '$route.params.idChart' () {
+      this.load();
+    },
   },
   methods: {
     load() {

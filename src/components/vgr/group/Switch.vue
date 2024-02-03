@@ -1,6 +1,9 @@
 <template>
-  <div>
-    <div class="d-flex">
+  <v-sheet>
+    <v-sheet v-if="isLoading" class="d-flex justify-center">
+      <v-progress-circular indeterminate color="yellow-darken-2"></v-progress-circular>
+    </v-sheet>
+    <v-sheet v-else class="d-flex">
       <v-btn v-if="!isFirst" rounded="lg" icon="mdi-chevron-left" v-on:click="goToPrev()" />
       <v-select
           density="comfortable"
@@ -13,8 +16,8 @@
       >
       </v-select>
       <v-btn v-if="!isLast" rounded="lg" icon="mdi-chevron-right" v-on:click="goToNext()" />
-    </div>
-  </div>
+    </v-sheet>
+  </v-sheet>
 </template>
 
 <script>
@@ -25,6 +28,7 @@ export default {
   components: {},
   data() {
     return {
+      isLoading: true,
       selectedIndex: 0,
       groups: [],
     };
@@ -70,8 +74,10 @@ export default {
       this.$router.push({name: "GroupIndex", params: {idGroup: group.id, slugGroup: group.slug}});
     },
     load() {
+      this.isLoading = true;
       this.axios.get('/api/games/' + this.$route.params.idGame + '/groups?pagination=false&order[' + this.getLibGroup + ']=ASC')
           .then(response => {
+            this.isLoading = false;
             this.groups = response.data['hydra:member']
           })
     },

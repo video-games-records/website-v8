@@ -8,8 +8,8 @@
 
     <div>
       <div class="d-flex justify-center ma-3">
-        {{ $t('score.updated', getNbChartUpdated, [getNbChartUpdated]) }} /
-        {{ $t('score.toUpdate', getNbChartToUpdate, [getNbChartToUpdate]) }}
+        {{ $t('score.updated', getNbChartUpdated, {count: getNbChartUpdated}) }} /
+        {{ $t('score.toUpdate', getNbChartToUpdate, {count :getNbChartToUpdate}) }}
       </div>
 
       <div class="d-flex justify-center ma-3">
