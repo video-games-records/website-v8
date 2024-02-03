@@ -1,20 +1,20 @@
 <template>
-  <div>
+  <v-sheet>
     <h2>{{ $t('global.proof') }}</h2>
 
-    <div v-if="getPlayerChart && getPlayerChart.proof">
+    <v-sheet v-if="getPlayerChart && getPlayerChart.proof">
       <vgr-picture v-if="getPlayerChart && getPlayerChart.proof.picture" v-bind:picture="getPlayerChart.proof.picture"></vgr-picture>
       <vgr-video v-if="getPlayerChart && getPlayerChart.proof.video" v-bind:video="getPlayerChart.proof.video" width="720" height="405"></vgr-video>
-    </div>
+    </v-sheet>
 
-    <div v-if="showProofForm">
+    <v-sheet v-if="showProofForm">
       <h3>{{ $t('proof.withPicture') }}</h3>
       <picture-form v-bind:player-chart="getPlayerChart"></picture-form>
 
       <h3>{{ $t('proof.withVideo') }}</h3>
       <video-form v-bind:player-chart="getPlayerChart"></video-form>
-    </div>
-  </div>
+    </v-sheet>
+  </v-sheet>
 </template>
 
 <script>

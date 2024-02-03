@@ -1,36 +1,28 @@
 <template>
   <div>
     <div v-if="showForm" class="container">
-      <image-uploader
-          :debug="1"
-          :maxWidth="1920"
-          :maxHeight="1080"
-          :quality="0.9"
-          :autoRotate=false
-          outputFormat="verbose"
-          :preview=true
-          :className="['fileinput', { 'fileinput--loaded' : hasImage }]"
-          :capture="false"
+      <vue-base64-file-upload
+          class="v1"
           accept="image/png,image/jpeg"
-          @input="setImage"
-          @onUpload="startImageResize"
-          @onComplete="endImageResize"
-      ></image-uploader>
-
-      <button :disabled="!hasImage" v-on:click="submitFile()">{{ $t('tag.submit') }}</button>
+          image-class="v1-image"
+          input-class="v1-image"
+          @size-exceeded="onSizeExceeded"
+          @file="onFile"
+          @load="onLoad" />
+      <v-btn :disabled="!hasImage" v-on:click="submitFile()">{{ $t('tag.submit') }}</v-btn>
     </div>
   </div>
 </template>
 
 <script>
-import ImageUploader from 'vue-image-upload-resize';
+import VueBase64FileUpload from 'vue-base64-file-upload';
 import App from "@/mixins/App.vue";
 
 export default {
   mixins:[App],
   name: 'PlayerChartPictureForm',
   components: {
-    ImageUploader
+    VueBase64FileUpload
   },
   props: {
     'playerChart': {
@@ -45,30 +37,38 @@ export default {
       hasSuccess: false,
       hasError: false,
       error: null,
-      file: {},
-      hasImage: false,
+      file: null,
+      customImageMaxSize: 2,
     };
   },
-  computed: {},
+  computed: {
+    hasImage() {
+      return this.file !== null;
+    }
+  },
   methods: {
-    startImageResize() {
+    onFile(file) {
+      console.log(file); // file object
+    },
 
+    onLoad(dataUri) {
+      console.log(dataUri); // data-uri string
+      this.file = dataUri;
     },
-    endImageResize() {
 
+    onSizeExceeded(size) {
+      alert(`Image ${size}Mb size exceeds limits of ${this.customImageMaxSize}Mb!`);
     },
-    setImage(file) {
-      this.hasImage = true;
-      this.file = file;
-    },
+
     submitFile() {
       this.loading = true;
+      console.log(this.file);
 
       const requestData = {
         method: 'post',
         url: "api/player-charts/" + this.playerChart.id +"/send-picture",
         data: {
-          file : this.file.dataUrl
+          file : this.file
         }
       }
 

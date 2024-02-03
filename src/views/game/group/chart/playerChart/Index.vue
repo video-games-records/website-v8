@@ -2,21 +2,42 @@
   <div>
     <h1>{{ $t('score.player', [getPlayerChart.player.pseudo]) }}</h1>
 
-    <dl>
-      <dt v-for="lib in getChart.libs" :data-position="lib.position" :key="lib.id">{{ lib.name }}</dt>
-      <dd v-for="lib in getPlayerChart.libs" :data-position="lib.position" :key="lib.id">{{ lib.formatValue }}</dd>
-      <dt>{{ $t('score.lastUpdate') }}</dt>
-      <dd>
-        <last-update v-bind:player-chart=getPlayerChart v-bind:tooltip=false></last-update>
-      </dd>
+    <v-table>
+      <thead>
+      <tr>
+        <th v-for="lib in getChart.libs" :data-position="lib.position" :key="lib.id">{{ lib.name ?? 'Score' }}</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td v-for="lib in getPlayerChart.libs" :data-position="lib.position" :key="lib.id">{{ lib.formatValue }}</td>
+      </tr>
+      </tbody>
+    </v-table>
 
-      <dt>{{ $t('global.status') }}</dt>
-      <dd>{{ getPlayerChart.status.name }}</dd>
-      <dt v-if="getPlayerChart.dateInvestigation">{{ $t('score.dateInvestigation') }}</dt>
-      <dd v-if="getPlayerChart.dateInvestigation">
-        <date v-bind:date="getPlayerChart.dateInvestigation"></date>
-      </dd>
-    </dl>
+    <v-table>
+      <thead>
+      <tr>
+        <th colspan="2" class="text-center">Informations</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td class="font-weight-bold">{{ $t('score.lastUpdate') }}</td>
+        <td>
+          <last-update v-bind:player-chart=getPlayerChart v-bind:tooltip=false></last-update>
+        </td>
+      </tr>
+      <tr>
+        <td class="font-weight-bold">{{ $t('global.status') }}</td>
+        <td>{{ getPlayerChart.status.name }}</td>
+      </tr>
+      <tr v-if="getPlayerChart.dateInvestigation">
+        <td>{{ $t('score.dateInvestigation') }}</td>
+        <td><date v-bind:date="getPlayerChart.dateInvestigation"></date></td>
+      </tr>
+      </tbody>
+    </v-table>
 
     <proof-form/>
 

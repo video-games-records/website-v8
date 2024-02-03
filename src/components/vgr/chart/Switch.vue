@@ -1,6 +1,9 @@
 <template>
-  <div>
-    <div class="d-flex">
+  <v-sheet>
+    <v-sheet v-if="isLoading" class="d-flex justify-center">
+      <v-progress-circular indeterminate color="yellow-darken-2"></v-progress-circular>
+    </v-sheet>
+    <v-sheet v-else class="d-flex">
       <v-btn v-if="!isFirst" rounded="lg" icon="mdi-chevron-left" v-on:click="goToPrev()" />
       <v-select
           density="comfortable"
@@ -13,8 +16,8 @@
       >
       </v-select>
       <v-btn v-if="!isLast" rounded="lg" icon="mdi-chevron-right" v-on:click="goToNext()" />
-    </div>
-  </div>
+    </v-sheet>
+  </v-sheet>
 </template>
 
 <script>
@@ -24,6 +27,7 @@ export default {
   name: 'ChartSwitch',
   data() {
     return {
+      isLoading: true,
       charts: [],
     };
   },
@@ -65,11 +69,13 @@ export default {
       this.goTo(this.charts[this.charts.map(g => g.id).indexOf(this.chart.id) + 1]);
     },
     goTo(chart) {
-      this.$router.push({name: "ChartIndex", params: {idChart: chart.id, slugChart: chart.slug}});
+      this.$router.push({name: this.$route.name, params: {idChart: chart.id, slugChart: chart.slug}});
     },
     load() {
+      this.isLoading = true;
       this.axios.get('/api/groups/' + this.$route.params.idGroup  + '/charts?pagination=false&order[' + this.getLibChart + ']=ASC')
           .then(response => {
+            this.isLoading = false
             this.charts = response.data['hydra:member']
           })
     },

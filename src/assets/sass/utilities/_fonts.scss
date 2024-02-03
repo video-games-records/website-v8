@@ -179,8 +179,8 @@
     font-family: "League Gothic";
     font-weight: normal;
     font-style: normal;
-    src:    url("../../fonts/leaguegothic-regular-webfont.woff2") format("woff2"),
-            url("../../fonts/leaguegothic-regular-webfont.woff") format("woff");
+    src:    url("/fonts/leaguegothic-regular-webfont.woff2") format("woff2"),
+            url("/fonts/leaguegothic-regular-webfont.woff") format("woff");
 }
 
 /* -- @subsection Regular Italic ---------- */
@@ -188,24 +188,24 @@
     font-family: "League Gothic";
     font-weight: normal;
     font-style: italic;
-    src:    url("../../fonts/leaguegothic-italic-webfont.woff2") format("woff2"),
-            url("../../fonts/leaguegothic-italic-webfont.woff") format("woff");
+    src:    url("/fonts/leaguegothic-italic-webfont.woff2") format("woff2"),
+            url("/fonts/leaguegothic-italic-webfont.woff") format("woff");
 }
 
 /* -- @subsection Condensed ---------- */
-// @font-face {
-//     font-family: "League Gothic Condensed";
-//     font-weight: normal;
-//     font-style: normal;
-//     src:    url("../fonts/leaguegothic-condensedregular-webfont.woff2") format("woff2"),
-//             url("../fonts/leaguegothic-condensedregular-webfont.woff") format("woff");
-// }
+@font-face {
+     font-family: "League Gothic Condensed";
+     font-weight: normal;
+     font-style: normal;
+     src:    url("/fonts/leaguegothic-condensedregular-webfont.woff2") format("woff2"),
+             url("/fonts/leaguegothic-condensedregular-webfont.woff") format("woff");
+}
 
 /* -- @subsection Condensed Italic ---------- */
-// @font-face {
-//     font-family: "League Gothic Condensed";
-//     font-weight: normal;
-//     font-style: italic;
-//     src:    url("../fonts/leaguegothic-condenseditalic-webfont.woff2") format("woff2"),
-//             url("../fonts/leaguegothic-condenseditalic-webfont.woff") format("woff");
-// }
+@font-face {
+     font-family: "League Gothic Condensed";
+     font-weight: normal;
+     font-style: italic;
+     src:    url("/fonts/leaguegothic-condenseditalic-webfont.woff2") format("woff2"),
+             url("/fonts/leaguegothic-condenseditalic-webfont.woff") format("woff");
+}
