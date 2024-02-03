@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <v-sheet>
     <div class="d-flex">
       <v-btn v-if="!isFirst" rounded="lg" icon="mdi-chevron-left" v-on:click="goToPrev()" />
       <v-select
@@ -14,7 +14,7 @@
       </v-select>
       <v-btn v-if="!isLast" rounded="lg" icon="mdi-chevron-right" v-on:click="goToNext()" />
     </div>
-  </div>
+  </v-sheet>
 </template>
 
 <script>

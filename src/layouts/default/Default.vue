@@ -16,7 +16,7 @@
       <navigation/>
     </v-navigation-drawer>
 
-    <v-main class="d-flex align-center justify-center" style="min-height: 300px;">
+    <v-main class="d-flex justify-center" style="min-height: 300px;">
       <v-row>
         <!--<v-col v-if="!this.$vuetify.display.mobile" cols="12">
           <div id="header" role="banner" class="site-header">
