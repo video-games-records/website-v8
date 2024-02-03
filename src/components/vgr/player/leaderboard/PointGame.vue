@@ -7,7 +7,7 @@
         <th class="center" scope="col">#</th>
         <th scope="col">{{ $t('global.nickname') }}</th>
         <th class="right" scope="col">{{ $t('global.gamePoints') }}</th>
-        <th class="right" v-if="!this.$vuetify.display.mobile" scope="col">{{ $t('global.games') }}</th>
+        <th class="right hidden-md-and-down" scope="col">{{ $t('global.games') }}</th>
       </tr>
       </thead>
       <tbody>
@@ -19,7 +19,7 @@
           <player v-bind:player="item" v-bind:show-avatar="true"></player>
         </td>
         <td class="pr-3 right">{{ number(item.pointGame) }}</td>
-        <td v-if="!this.$vuetify.display.mobile" class="right">{{ number(item.nbGame) }}</td>
+        <td class="right hidden-md-and-down">{{ number(item.nbGame) }}</td>
       </tr>
       </tbody>
     </v-table>

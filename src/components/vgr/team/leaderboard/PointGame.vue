@@ -7,7 +7,7 @@
         <th class="center" scope="col">#</th>
         <th scope="col">{{ $t('global.nickname') }}</th>
         <th class="right" scope="col">{{ $t('global.gamePoints') }}</th>
-        <th class="right" v-if="!this.$vuetify.display.mobile" scope="col">{{ $t('global.games') }}</th>
+        <th class="right hidden-md-and-down" scope="col">{{ $t('global.games') }}</th>
         <th scope="col"></th>
       </tr>
       </thead>
@@ -22,7 +22,7 @@
           <team v-bind:team="item" v-bind:show-avatar="true"></team>
         </td>
         <td class="pr-3 right">{{ number(item.pointGame) }}</td>
-        <td class="pr-3 right" v-if="!this.$vuetify.display.mobile">{{ number(item.nbGame) }}</td>
+        <td class="pr-3 right hidden-md-and-down">{{ number(item.nbGame) }}</td>
         <td>
           <v-btn @click="openModal(item)" icon="mdi-account-multiple" size="x-small"></v-btn>
         </td>

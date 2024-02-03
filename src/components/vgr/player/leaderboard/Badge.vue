@@ -7,7 +7,7 @@
         <th class="center" scope="col">#</th>
         <th scope="col">{{ $t('global.nickname') }}</th>
         <th class="right" scope="col">{{ $t('global.badgePoints') }}</th>
-        <th v-if="!this.$vuetify.display.mobile" class="right" scope="col">{{ $t('badge.type.master') }}</th>
+        <th class="right hidden-md-and-down" scope="col">{{ $t('badge.type.master') }}</th>
       </tr>
       </thead>
       <tbody>
@@ -19,7 +19,7 @@
           <player v-bind:player="item" v-bind:show-avatar="true"></player>
         </td>
         <td class="pr-3 right">{{ number(item.pointBadge) }}</td>
-        <td class="pr-3 right" v-if="!this.$vuetify.display.mobile">{{ number(item.nbMasterBadge) }}</td>
+        <td class="pr-3 right hidden-md-and-down">{{ number(item.nbMasterBadge) }}</td>
       </tr>
       </tbody>
     </v-table>

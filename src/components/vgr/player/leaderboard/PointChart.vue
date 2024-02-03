@@ -8,8 +8,8 @@
         <th scope="col">{{ $t('global.nickname') }}</th>
         <th class="right" v-if="isGameRanking" scope="col">{{ $t('global.gamePoints') }}</th>
         <th class="right" scope="col">{{ $t('global.recordPoints') }}</th>
-        <th class="right" v-if="!this.$vuetify.display.mobile && origin !== 'charts'" scope="col">{{ $t('global.scores') }}</th>
-        <th class="right" v-if="!this.$vuetify.display.mobile && origin !== 'charts'" scope="col">{{ $t('global.proofs') }}</th>
+        <th class="right hidden-md-and-down" v-if="origin !== 'charts'" scope="col">{{ $t('global.scores') }}</th>
+        <th class="right hidden-md-and-down" v-if="origin !== 'charts'" scope="col">{{ $t('global.proofs') }}</th>
       </tr>
       </thead>
       <tbody>
@@ -30,10 +30,10 @@
         <td class="pr-3 right">
           {{ number(item.pointChart) }}
         </td>
-        <td v-if="!this.$vuetify.display.mobile && origin !== 'charts'"class="pr-3 right">
+        <td v-if="origin !== 'charts'" class="pr-3 right hidden-md-and-down">
           {{ number(item.nbChart) }}
         </td>
-        <td v-if="!this.$vuetify.display.mobile && origin !== 'charts'" class="pr-3 right">
+        <td v-if="origin !== 'charts'" class="pr-3 right hidden-md-and-down">
           {{ number(item.nbChartProven) }}
         </td>
       </tr>
