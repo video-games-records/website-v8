@@ -3,7 +3,7 @@
     <h1 class="h2">{{ getChart.name }}</h1>
 
 
-    <v-tabs v-model="tab" :direction="this.$vuetify.display.mobile ? 'vertical' : 'horizontal'" bg-color="primary">
+    <v-tabs v-model="tab" bg-color="primary">
       <v-tab value="leaderboard-player">{{ $t('leaderboard.player') }}</v-tab>
       <v-tab value="leaderboard-team">{{ $t('leaderboard.team') }}</v-tab>
     </v-tabs>

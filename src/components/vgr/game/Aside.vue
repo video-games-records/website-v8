@@ -3,7 +3,17 @@
     <group-switch v-if="canSwitchGroup"></group-switch>
     <chart-switch v-if="canSwitchChart"></chart-switch>
     <maj-platform v-bind:game=getGame v-if="!this.$vuetify.display.mobile && hasRolePlayer && (getGame.platforms.length > 1)"></maj-platform>
-    <v-card v-if="!this.$vuetify.display.mobile">
+    <v-card v-if="!this.$vuetify.display.mobile" class="ma-1">
+      <v-card-title>{{ $t('game.rules.title') }}</v-card-title>
+      <v-card-item>
+        <div v-if="getGame.rules && getGame.rules.length > 0">
+          <div v-for="rule in getGame.rules" :data-position="rule.position" :key="rule.id" v-html="rule.text" />
+        </div>
+        <div v-else>{{ $t('game.rules.none') }}</div>
+        <router-link :to="{ name: 'Rules'}">{{ $t('game.rules.seeGeneral') }}</router-link>
+      </v-card-item>
+    </v-card>
+    <v-card v-if="!this.$vuetify.display.mobile" class="ma-1">
       <v-card-title>TEST</v-card-title>
       <v-card-item>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ratione debitis quis est labore voluptatibus! Eaque cupiditate minima, at placeat totam, magni doloremque veniam neque porro libero rerum unde voluptatem!
@@ -34,10 +44,12 @@ export default {
       return useAppStore().getGame;
     },
     canSwitchGroup() {
-      return useBreadcrumbsStore().getLevel > 1;
+      const routes = ['GroupIndex', 'GroupSubmit', 'ChartIndex', 'ChartSubmit'];
+      return routes.indexOf(this.$route.name) !== -1;
     },
     canSwitchChart() {
-      return useBreadcrumbsStore().getLevel > 2;
+      const routes = ['ChartIndex', 'ChartSubmit'];
+      return routes.indexOf(this.$route.name) !== -1;
     }
   },
 };
