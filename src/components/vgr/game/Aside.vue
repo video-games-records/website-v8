@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <v-sheet>
     <group-switch v-if="canSwitchGroup"></group-switch>
     <chart-switch v-if="canSwitchChart"></chart-switch>
     <maj-platform v-bind:game=getGame v-if="!this.$vuetify.display.mobile && hasRolePlayer && (getGame.platforms.length > 1)"></maj-platform>
@@ -22,7 +22,7 @@
         <v-btn>Click me</v-btn>
       </v-card-actions>
     </v-card>
-  </div>
+  </v-sheet>
 </template>
 
 <script>

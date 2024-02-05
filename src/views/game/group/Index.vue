@@ -50,8 +50,7 @@
       </v-btn>
     </div>
 
-
-    <h2>{{ $t('global.rankings') }}</h2>
+    <div class="text-h4 pa-3">{{ $t('global.rankings') }}</div>
 
     <v-tabs v-model="tab[1]" bg-color="primary">
       <v-tab value="leaderboard-player-point-chart">
