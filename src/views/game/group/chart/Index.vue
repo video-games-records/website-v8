@@ -71,8 +71,8 @@
                         </button>
                       </router-link>
                     </li>
-                    <li class="d-inline">
-                      <last-update class="d-inline" v-bind:player-chart=row[0]></last-update>
+                    <li class="d-inline" v-if="!this.$vuetify.display.mobile">
+                      <last-update class="d-inline"  v-bind:player-chart=row[0]></last-update>
                     </li>
                   </ul>
                  </td>
