@@ -65,7 +65,7 @@ export default {
       this.goTo(this.charts[this.charts.map(g => g.id).indexOf(this.chart.id) + 1]);
     },
     goTo(chart) {
-      this.$router.push({name: "ChartIndex", params: {idChart: chart.id, slugChart: chart.slug}});
+      this.$router.push({name: this.$route.name, params: {idChart: chart.id, slugChart: chart.slug}});
     },
     load() {
       this.axios.get('/api/groups/' + this.$route.params.idGroup  + '/charts?pagination=false&order[' + this.getLibChart + ']=ASC')

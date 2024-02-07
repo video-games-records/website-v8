@@ -18,6 +18,9 @@ export default {
     getGame() {
       return useAppStore().getGame;
     },
+    getChart() {
+      return useAppStore().getChart;
+    },
     getResourceUrl() {
       return '/api/charts/' + this.$route.params.idChart + '/form-data';
     },
@@ -25,6 +28,13 @@ export default {
   data() {
     return {
     };
+  },
+  updated() {
+    if (this.$route.name === 'ChartSubmit') {
+      if (this.getChart.id != this.$route.params.idChart) {
+        this.updateResource();
+      }
+    }
   },
   created() {
     useBreadcrumbsStore().setLevel(4);

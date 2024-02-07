@@ -168,6 +168,7 @@ import LeaderboardTeamMedal from "@/components/vgr/team/leaderboard/Medal.vue";
 import LeaderboardPlayerPointChart from "@/components/vgr/player/leaderboard/PointChart.vue";
 import LeaderboardPlayerMedal from "@/components/vgr/player/leaderboard/Medal.vue";
 import Filters from "@/mixins/Filters.vue";
+import {useBreadcrumbsStore} from "@/store/base/breadcrumbs";
 
 export default {
   mixins: [Security, Filters],
@@ -207,6 +208,7 @@ export default {
   },
   updated() {
     if (this.$route.name === 'ChartIndex') {
+      useBreadcrumbsStore().setLevel(3);
       if (this.getChart.id != this.$route.params.idChart) {
         this.load();
       }
