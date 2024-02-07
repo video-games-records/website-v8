@@ -8,9 +8,10 @@
           item-title="libPlatform"
           return-object
           :rules="[rules.required]"
+          density="compact"
       >
       </v-select>
-      <v-btn v-on:click="submit">{{ $t('tag.submit') }}</v-btn>
+      <v-btn v-on:click="submit" density="default">{{ $t('tag.submit') }}</v-btn>
     </v-form>
   </div>
 </template>
