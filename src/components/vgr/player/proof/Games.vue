@@ -4,13 +4,11 @@
     <thead>
     <tr>
       <th>{{ $t('global.game') }}</th>
-      <td></td>
-      <th>{{ $t('global.scores') }}</th>
     </tr>
     </thead>
     <tbody>
     <tr v-for="playerGame in playerGames" :key="playerGame.id">
-      <td>
+      <td class="hidden-md-and-down">
         <game-picture v-bind:game="playerGame.game"/>
       </td>
       <td>
@@ -22,21 +20,18 @@
           <li v-if="isAccountRoute === false">
             <router-link
                 :to="{ name: 'PlayerGameProofs', params: { idGame: playerGame.game.id, slugGame: playerGame.game.slug }}">
-              <strong>{{ number(playerGame.game.nbChart) }}</strong> {{ $t('game.score.total', playerGame.game.nbChart) }}
+              <strong>{{ number(playerGame.game.nbChart) }}</strong>
+              <span v-if="this.$vuetify.display.mobile">&nbsp; scores</span>
+              <span v-else>{{ $t('game.score.total', playerGame.game.nbChart) }}</span>
             </router-link>
           </li>
-          <li v-else>
-            <strong>{{ number(playerGame.game.nbChart) }}</strong> {{ $t('game.score.total', playerGame.game.nbChart) }}
-          </li>
+
           <li v-for="item in playerGame.statuses" :key="item.id">
             <span :title="item.status.name" :class="item.status.class ">
                 <span class="screen-reader-text">{{ item.status.name }}</span>
-            </span>
-            <span v-if="(item.status.id === 6)">
-              <strong>{{ number(item['nb']) }}</strong> {{ $t('score.status.proof--proved', playerGame.nbChartProven) }}
-            </span>
-            <span v-else>
-              <strong>{{ number(item['nb']) }}</strong> {{ $t('score.status.' + item.status.class, item['nb']) }}
+            </span>&nbsp;
+            <span>
+              <strong>{{ number(item['nb']) }}</strong> <span class="hidden-sm-and-down">{{ $t('score.status.' + item.status.class, item['nb']) }}</span>
             </span>
           </li>
 
@@ -94,3 +89,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+ul {
+  list-style-type: none;
+}
+</style>

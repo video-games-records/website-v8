@@ -4,12 +4,7 @@
       <v-list-item v-if="getTotal > 0" height="20">
         <strong>{{ number(getTotal) }}</strong> {{ $t('score.total', getTotal) }}
       </v-list-item>
-      <v-list-item
-          v-for="row in stats"
-          :key="row.id"
-          height="20"
-          max-height="15"
-      >
+      <v-list-item v-for="row in stats" :key="row.id">
         <span :title="row[0].name" :class="row[0].class ">
             <span class="screen-reader-text">{{ row[0].name }}</span>
         </span>&nbsp;
