@@ -1,7 +1,7 @@
 <template>
   <router-link :to="{ name: 'LostPositionIndex' }">
     <v-badge :content="nb">
-      <v-icon icon="mdi-arrow-down-thin" size="x-large"></v-icon>
+      <v-icon icon="mdi-arrow-bottom-right-thin-circle-outline" size="x-large"></v-icon>
       <v-tooltip
           activator="parent"
           location="bottom"

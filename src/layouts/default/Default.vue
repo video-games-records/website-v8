@@ -1,6 +1,6 @@
 <template>
   <v-app id="app" :full-height="true">
-    <v-app-bar>
+    <v-app-bar app color="primary" elevate-on-scroll>
       <v-app-bar-nav-icon :disabled=false variant="text" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
 
       <v-app-bar-title>
