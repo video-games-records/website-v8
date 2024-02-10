@@ -2,13 +2,12 @@
   <v-card>
     <v-card-title>{{ $t('game.last.title') }}</v-card-title>
     <v-card-item>
+      <v-progress-linear v-if="games.length === 0" indeterminate color="yellow-darken-2"></v-progress-linear>
       <v-row>
-      <div v-for="game in games" :data-position="game.position" :key="game.id">
-        <v-col cols="12">
+        <v-col cols="6" md="6" lg="3" v-for="game in games" :data-position="game.position" :key="game.id">
           <game-picture v-bind:game="game"/>
           <platform-list v-bind:platforms="game.platforms" v-bind:multi="true"/>
         </v-col>
-      </div>
       </v-row>
     </v-card-item>
   </v-card>
