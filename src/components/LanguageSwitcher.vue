@@ -1,12 +1,14 @@
 <template>
-  <ul class="lang-switcher">
-    <li>
-      <button @click="setLanguage('en')" class="button-as-link" :disabled="(getLanguage === 'en')">English</button>
-    </li>
-    <li>
-      <button @click="setLanguage('fr')" class="button-as-link" :disabled="(getLanguage === 'fr')">français</button>
-    </li>
-  </ul>
+  <v-menu>
+    <template v-slot:activator="{ props }">
+      <v-btn icon="mdi-translate" v-bind="props"></v-btn>
+    </template>
+
+    <v-list>
+      <v-list-item @click="setLanguage('en')" :disabled="(getLanguage === 'en')">English</v-list-item>
+      <v-list-item @click="setLanguage('fr')" :disabled="(getLanguage === 'fr')">French</v-list-item>
+    </v-list>
+  </v-menu>
 </template>
 
 <script>
@@ -21,9 +23,9 @@ export default {
     setLanguage(lang) {
       let name = this.$router.currentRoute.value.name;
       let params = this.$router.currentRoute.value.params;
+      localStorage.lang = lang;
       params['lang'] = lang;
       this.$router.push({name: name, params: params});
-      console.log(this.$router);
     },
   },
 };
