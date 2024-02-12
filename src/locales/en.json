@@ -700,7 +700,8 @@
     }
   },
   "search": {
-    "tilte": "Search",
+    "title": "Search",
+    "max": "Your search has returned more than 100 results. Please refine your search criteria for better accuracy.",
     "description": "Search for a game, a topic… on the site",
     "label": "Search among games, players, topics, videos…",
     "placeholder": "Games, players, topics, videos…",
