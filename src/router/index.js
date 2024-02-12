@@ -18,6 +18,7 @@ const routes = [
             name: 'Home',
             component: () => import(/* webpackChunkName: "home" */ '@/views/Home.vue'),
           },
+          { path: 'search', name: 'Search', meta: {aside: true}, component: () => import(/* webpackChunkName: "Search" */ '@/views/Search.vue')},
           /********* ACCOUNT ***********/
           { path: 'account', name: 'account', meta: {requiresAuth: true}, component: () => import(/* webpackChunkName: "account" */ '@/views/account/Main.vue'),
             children: [

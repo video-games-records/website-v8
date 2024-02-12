@@ -700,7 +700,8 @@
     }
   },
   "search": {
-    "tilte": "Recherche",
+    "title": "Recherche",
+    "max" : "Votre recherche a retourné plus de 100 résultats. Veuillez affiner vos critères de recherche pour une meilleure précision.",
     "description": "Rechercher un jeu, un sujet… sur le site",
     "label": "Rechercher parmi les jeux, joueurs, sujets, vidéos…",
     "placeholder": "Jeux, joueurs, sujets, vidéos…",
