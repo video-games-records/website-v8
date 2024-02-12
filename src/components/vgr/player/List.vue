@@ -3,7 +3,7 @@
     <v-table density="compact">
       <thead>
       <tr>
-        <th scope="col"></th>
+        <th scope="col">{{ $t('global.player') }}</th>
         <th scope="col">{{ $t('global.medals') }}</th>
         <th scope="col">{{ $t('global.points') }}</th>
       </tr>

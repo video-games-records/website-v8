@@ -700,7 +700,7 @@
     }
   },
   "search": {
-    "tilte": "Search",
+    "title": "Search",
     "description": "Search for a game, a topic… on the site",
     "label": "Search among games, players, topics, videos…",
     "placeholder": "Games, players, topics, videos…",

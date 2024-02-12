@@ -700,7 +700,7 @@
     }
   },
   "search": {
-    "tilte": "Recherche",
+    "title": "Recherche",
     "description": "Rechercher un jeu, un sujet… sur le site",
     "label": "Rechercher parmi les jeux, joueurs, sujets, vidéos…",
     "placeholder": "Jeux, joueurs, sujets, vidéos…",
