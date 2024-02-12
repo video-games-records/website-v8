@@ -1,0 +1,13 @@
+table .avatar {
+  display: none
+}
+
+@mixin avatar-medium {
+  table .avatar {
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    margin-right: .9em;
+    width: 1.875em;
+    vertical-align: middle
+  }
+}
