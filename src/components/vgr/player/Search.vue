@@ -4,22 +4,22 @@
       <thead>
       <tr>
         <th scope="col">{{ $t('global.player') }}</th>
-        <th scope="col">{{ $t('global.medals') }}</th>
-        <th scope="col">{{ $t('global.points') }}</th>
+        <th class="right" scope="col">{{ $t('global.medals') }}</th>
+        <th class="right" scope="col">{{ $t('global.points') }}</th>
       </tr>
       </thead>
       <tbody>
       <tr v-for="item in players" :data-position="item.position" :key="item.id">
-        <td>
+        <td class="pa-1">
           <country v-bind:country="item.country"></country>
           <player v-bind:player="item" v-bind:show-avatar="showAvatar"></player>
         </td>
-        <td>
+        <td class="pr-3 right">
           rank#{{ item.rankMedal }}
           <br/>
           {{ item.chartRank0 }} # {{ item.chartRank1 }} # {{ item.chartRank2 }} # {{ item.chartRank3 }}
         </td>
-        <td>
+        <td class="pr-3 right">
           rank#{{ item.rankPointChart }}
           <br/>
           {{ item.pointChart|number }} pts

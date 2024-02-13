@@ -22,7 +22,7 @@
 
 <script>
 import GameList from '@/components/vgr/game/List.vue';
-import PlayerList from '@/components/vgr/player/List.vue';
+import PlayerList from '@/components/vgr/player/Search.vue';
 
 export default {
   name: 'search',
