@@ -3,6 +3,7 @@
     <v-tabs v-model="tab" class="bg-primary">
       <v-tab value="games">{{ $t('global.games') }}</v-tab>
       <v-tab value="players">{{ $t('global.players') }}</v-tab>
+      <v-tab value="teams">{{ $t('global.teams') }}</v-tab>
     </v-tabs>
 
     <v-card-text class="pa-0">
@@ -13,7 +14,11 @@
         </v-window-item>
 
         <v-window-item value="players">
-          <player-list v-bind:callback=getCallBackPlayer />
+          <player-search-result v-bind:callback=getCallBackPlayer />
+        </v-window-item>
+
+        <v-window-item value="teams">
+          <team-search-result v-bind:callback=getCallBackTeam />
         </v-window-item>
       </v-window>
     </v-card-text>
@@ -22,12 +27,15 @@
 
 <script>
 import GameList from '@/components/vgr/game/List.vue';
-import PlayerList from '@/components/vgr/player/Search.vue';
+import TeamSearchResult from "@/components/vgr/team/SearchResult.vue";
+import PlayerSearchResult from "@/components/vgr/player/SearchResult.vue";
 
 export default {
   name: 'search',
   components: {
-    GameList, PlayerList
+    PlayerSearchResult,
+    TeamSearchResult,
+    GameList
   },
   data() {
     return {
@@ -42,8 +50,12 @@ export default {
           '&groups[]=platform.read&' + this.getLibGame + '=' + this.term + '&order[' + this.getLibGame + ']=ASC';
     },
     getCallBackPlayer() {
-      return '/api/players?pagination=false&user.enabled1&groups[]=player.read&groups[]=player.pointChart' +
+      return '/api/players?pagination=false&user.enabled=1&groups[]=player.read&groups[]=player.pointChart' +
           '&groups[]=player.medal&groups[]=player.country&groups[]=country.read&pseudo=' + this.term + '&order[pseudo]=ASC';
+    },
+    getCallBackTeam() {
+      return '/api/teams?pagination=false&groups[]=team.read&groups[]=team.rank.pointChart' +
+          '&groups[]=team.rank.medal&libTeam=' + this.term + '&order[libTeam]=ASC';
     },
     getLibGame() {
       if (localStorage.lang === 'fr') {

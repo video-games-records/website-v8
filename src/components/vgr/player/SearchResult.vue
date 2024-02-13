@@ -22,7 +22,7 @@
         <td class="pr-3 right">
           rank#{{ item.rankPointChart }}
           <br/>
-          {{ item.pointChart|number }} pts
+          {{ number(item.pointChart) }} pts
         </td>
       </tr>
       </tbody>
@@ -33,9 +33,11 @@
 <script>
 import Player from '@/components/vgr/player/Player.vue';
 import country from "@/components/country/Country.vue";
+import filters from "@/mixins/Filters.vue";
 
 export default {
-  name: 'PlayerList',
+  mixins: [filters],
+  name: 'PlayerSearchResult',
   props: {
     'callback': {
       require: true,
