@@ -3,7 +3,7 @@
     <h3>{{ $t('article.comment.add') }}</h3>
 
     <v-form @submit="submit" @submit.prevent>
-      <ckeditor :editor="editor" v-model="comment.text" :config="editorConfig" minlength="4" required></ckeditor>
+      <ckeditor :editor="editor" v-model="comment.text" :config="getCkeditorToolBar" minlength="4" required></ckeditor>
       <v-btn type="submit">{{ $t('tag.submit') }}</v-btn>
     </v-form>
 

@@ -2,7 +2,7 @@
   <v-sheet>
     <h3>{{ $t('article.comment.edit') }}</h3>
     <v-form id="app" @submit="submit" @submit.prevent>
-      <ckeditor :editor="editor" v-model="comment.text" :config="editorConfig" minlength="4" required></ckeditor>
+      <ckeditor :editor="editor" v-model="comment.text" :config="getCkeditorToolBar" minlength="4" required></ckeditor>
       <v-btn type="submit">{{ $t('tag.submit') }}</v-btn>
     </v-form>
   </v-sheet>

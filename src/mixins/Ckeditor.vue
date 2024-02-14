@@ -9,33 +9,67 @@ export default {
       editor: NormandieEditor,
       editorData: '',
       editorConfig: {
-        toolbar: {
-          items: [
-            'heading',
-            'bold',
-            'italic',
-            'strikethrough',
-            '|',
-            'bulletedList',
-            'numberedList',
-            'blockQuote',
-            '|',
-            'link',
-            'insertImage',
-            'specialCharacters',
-            'mediaEmbed',
-            '|',
-            'removeFormat',
-            'undo',
-            'redo',
-          ]
+        default: {
+          toolbar: {
+            items: [
+              'heading',
+              'bold',
+              'italic',
+              'strikethrough',
+              '|',
+              'bulletedList',
+              'numberedList',
+              'blockQuote',
+              '|',
+              'link',
+              'insertImage',
+              'specialCharacters',
+              'mediaEmbed',
+              '|',
+              'removeFormat',
+              'undo',
+              'redo',
+            ]
+          },
+          image: {
+            toolbar: [
+              'imageTextAlternative',
+              'linkImage'
+            ]
+          },
         },
-        image: {
-          toolbar: [
-            'imageTextAlternative',
-            'linkImage'
-          ]
-        },
+        mobile: {
+          toolbar: {
+            items: [
+              'bold',
+              'italic',
+              'strikethrough',
+              '|',
+              'bulletedList',
+              '|',
+              'link',
+              'insertImage',
+              'specialCharacters',
+              'mediaEmbed',
+            ]
+          },
+          image: {
+            toolbar: [
+              'imageTextAlternative',
+              'linkImage'
+            ]
+          },
+        }
+
+      }
+    }
+  },
+  computed: {
+    getCkeditorToolBar() {
+      if (this.$vuetify.display.mobile) {
+        return this.editorConfig.mobile;
+      } else {
+        return this.editorConfig.default;
       }
     }
   }
