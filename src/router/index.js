@@ -28,6 +28,9 @@ const routes = [
               { path: 'badges', name: 'AccountBadges', component: () => import(/* webpackChunkName: "Player" */ '@/views/account/Badges.vue')},
             ]
           },
+          /********* ARTICLE ***********/
+          { path: ':slugArticle-article-a:id(\\d+)', name: 'ArticleIndex', component: () => import(/* webpackChunkName: "article" */ '@/views/article/Index.vue')},
+
           /********* LEADERBOARD ***********/
           { path: 'leaderboard-point-chart', name: 'LeaderboardPointChart', component: () => import(/* webpackChunkName: "leaderboard" */ '@/views/leaderboard/PointChart.vue')},
           { path: 'leaderboard-point-game', name: 'LeaderboardPointGame', component: () => import(/* webpackChunkName: "leaderboard" */ '@/views/leaderboard/PointGame.vue')},

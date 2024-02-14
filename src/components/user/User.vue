@@ -1,10 +1,8 @@
 <template>
-    <span v-if="user.id">
-
-          <avatar v-if="showAvatar" v-bind:user="user"></avatar>
-            {{user.username}}
-
-    </span>
+  <v-sheet v-if="user.id">
+    <avatar v-if="showAvatar" v-bind:user="user"></avatar>
+    <v-sheet>{{ user.username }}</v-sheet>
+   </v-sheet>
 </template>
 
 <script>

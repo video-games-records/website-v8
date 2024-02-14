@@ -1,0 +1,38 @@
+@charset "UTF-8";
+/**
+ * @site            Video Games Records
+ * @author          Luc Poupard
+ * @note            Views/Articles
+ */
+
+// Weekly tops
+.article-top {
+    &__players,
+    &__games {
+        text-align: center;
+    }
+
+    // Avatar and cover images
+    &__player,
+    &__game {
+        display: inline-block;
+        margin: .25em .5rem;
+    }
+
+    // Position changes
+    &--new {
+        color: $secondary-color;
+    }
+
+    &--up {
+        color: $valid;
+    }
+
+    &--down {
+        color: $error;
+    }
+
+    &--equal {
+        color: $help;
+    }
+}
