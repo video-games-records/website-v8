@@ -6,6 +6,9 @@
       <v-col cols="12" md="6" lg="7">
         <game-last-published />
       </v-col>
+      <v-col cols="12" md="6" lg=4>
+        <article-last-published />
+      </v-col>
       <v-col cols="12" md="6" lg="3">
         <leaderboard-player-point></leaderboard-player-point>
       </v-col>
@@ -32,10 +35,12 @@ import LeaderboardTeamCup from '@/components/vgr/team/leaderboard/home/Cup';
 import GameDay from "@/components/vgr/game/Day.vue";
 import GameLastPublished from "@/components/vgr/game/LastPublished.vue";
 import GameLastUpdatedScore from "@/components/vgr/game/LastUpdatedScore.vue";
+import ArticleLastPublished from "@/components/article/LastPublished.vue";
 
 export default {
   name: 'vgrHome',
   components: {
+    ArticleLastPublished,
     GameLastPublished,
     GameLastUpdatedScore,
     GameDay,
