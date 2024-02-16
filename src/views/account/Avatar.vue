@@ -1,77 +1,51 @@
 <template>
   <v-sheet>
-    <h1 class="screen-reader-text">{{ $t('title') }}</h1>
-    <div>
-      <label for="fileInput">{{ $t('avatar.choose') }}</label>
-      <image-uploader
-          :debug="1"
-          :maxWidth="100"
-          :maxHeight="100"
-          :quality="0.9"
-          :autoRotate=false
-          outputFormat="verbose"
-          :preview=true
-          :className="['fileinput', { 'fileinput--loaded' : hasImage }]"
-          :capture="false"
-          accept="image/png,image/jpeg"
-          @input="setImage"
-          @onUpload="startImageResize"
-          @onComplete="endImageResize"
-      ></image-uploader>
-    </div>
-
-    <div>
-      <button :disabled="!hasImage" v-on:click="submitFile()">{{ $t('avatar.submit') }}</button>
-    </div>
-
-    <div v-if="hasMessage" role="alert">
-      {{ message }}
-    </div>
+    <avatar-upload-form callback="api/users/upload-avatar"/>
   </v-sheet>
 </template>
-
 <script>
-import ImageUploader from 'vue-image-upload-resize';
+
+import {resizeImage} from '@/plugins/image-resize.js';
+import {useFlashMessageStore} from "@/store/base/flashMessage";
+import AvatarUploadForm from "@/components/avatar/UploadForm.vue";
 
 export default {
   name: 'AccountAvatar',
-  components: {
-    ImageUploader
-  },
+  components: {AvatarUploadForm},
   data() {
     return {
-      file: {},
-      apiResult: null,
-      message: null,
-      hasImage: false,
+      files: [],
+      base64String: null,
     };
   },
-  computed: {
-    hasMessage() {
-      return this.message != null;
-    },
-  },
   methods: {
-    startImageResize() {
+    onChange() {
+      let file = this.files[0];
+      // start: preview resized
+      resizeImage({ file: file, maxSize: 100})
+        .then((resizedimage) => {
+          this.base64String = resizedimage;
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    },
 
-    },
-    endImageResize() {
-
-    },
-    setImage(file) {
-      this.hasImage = true;
-      this.file = file;
-    },
-    submitFile() {
-      /*UserApi.updloadAvatar(this.file.dataUrl).then(response => {
-        if (response.status === 200) {
-          this.apiResult = response.data.success;
-          this.message = response.data.message;
-        } else {
-          this.apiResult = false;
-          this.message = 'ERROR';
+    submit() {
+      const requestData = {
+        method: 'post',
+        url: "api/users/upload-avatar",
+        data: {
+          file : this.base64String
         }
-      });*/
+      }
+      this.axios(requestData)
+          .then(response => {
+            useFlashMessageStore().confirm(response.data.message)
+          })
+          .catch(error => {
+            useFlashMessageStore().error('ERR0R')
+          });
     },
   },
 };
