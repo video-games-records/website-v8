@@ -1,21 +1,9 @@
-export const dataURItoBlob = (dataURI) => {
-    const bytes = dataURI.split(',')[0].indexOf('base64') >= 0
-        ? atob(dataURI.split(',')[1])
-        : unescape(dataURI.split(',')[1]);
-    const mime = dataURI.split(',')[0].split(':')[1].split(';')[0];
-    const max = bytes.length;
-    const ia = new Uint8Array(max);
-    for (let i = 0; i < max; i += 1) ia[i] = bytes.charCodeAt(i);
-    return new Blob([ia], {type: mime});
-};
-
 export const resizeImage = ({file, maxSize}) => {
     const reader = new FileReader();
     const image = new Image();
     const canvas = document.createElement('canvas');
 
     const resize = () => {
-        console.log('resize');
         let {width, height} = image;
 
         if (width > height) {
@@ -33,9 +21,7 @@ export const resizeImage = ({file, maxSize}) => {
 
         canvas.getContext('2d').drawImage(image, 0, 0, width, height);
 
-        const dataUrl = canvas.toDataURL('image/jpeg');
-
-        return dataURItoBlob(dataUrl);
+        return canvas.toDataURL('image/jpeg');
     };
 
     return new Promise((ok) => {
