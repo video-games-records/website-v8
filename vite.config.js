@@ -36,6 +36,7 @@ export default defineConfig({
       /* options */
       // locale messages resource pre-compile option
       include: resolve(dirname(fileURLToPath(import.meta.url)), './locales/**'),
+      runtimeOnly: false
     }),
   ],
   define: { 'process.env': {} },

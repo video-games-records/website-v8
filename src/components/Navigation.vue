@@ -47,6 +47,8 @@
     <v-list-item :to="{ name: 'Recruitment'}" :title="$t('menu.recruitments')"></v-list-item>
     <v-list-item :to="{ name: 'TheVgrTeam'}" :title="$t('menu.staff')"></v-list-item>
     </v-list-group>
+    <v-list-item :to="{ name: 'PlayerChartSearch'}" :title="$t('menu.searchScore')" prepend-icon="mdi-magnify"></v-list-item>
+    <v-list-item :href="getYoutubeUrl" :title="$t('menu.video')" prepend-icon="mdi-video"></v-list-item>
   </v-list>
 </template>
 
@@ -66,6 +68,9 @@ export default {
     },
     getSerie() {
       return useAppStore().getSerie;
+    },
+    getYoutubeUrl() {
+      return import.meta.env.VITE_VGR_YOUTUBE_URL;
     },
   },
 }
