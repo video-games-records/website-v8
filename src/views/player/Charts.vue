@@ -18,21 +18,32 @@
 
 <script>
 import PlayerChartList from '@/components/vgr/playerChart/List';
+import {useScoreSearchStore} from "@/store/score/search";
 
 export default {
-  name: 'PlayerGames',
+  name: 'PlayerCharts',
   components: {
     PlayerChartList,
   },
   data() {
-    return {};
+    return {
+      player: null,
+    };
+  },
+  created() {
+    this.load();
   },
   methods: {
     search() {
-      /*let data = [this.$parent.player];
-      this.$store.dispatch('playerChartSearch/setPlayers', data);
-      this.$router.push({name: 'PlayerChartSearch'});*/
+      useScoreSearchStore().pushPlayer(this.player);
+      this.$router.push({name: 'PlayerChartSearch'});
     },
+    load() {
+      this.axios.get('/api/players/' + this.$route.params.idPlayer)
+          .then(response => {
+            this.player = response.data;
+          })
+    }
   },
 };
 </script>

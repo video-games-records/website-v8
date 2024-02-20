@@ -18,7 +18,9 @@ const routes = [
             name: 'Home',
             component: () => import(/* webpackChunkName: "home" */ '@/views/Home.vue'),
           },
-          { path: 'search', name: 'Search', meta: {aside: true}, component: () => import(/* webpackChunkName: "Search" */ '@/views/Search.vue')},
+          /********* SEARCH ***********/
+          { path: 'search', name: 'Search', component: () => import(/* webpackChunkName: "Search" */ '@/views/Search.vue')},
+          { path: 'advanced-score-search', name: 'PlayerChartSearch', component: () => import(/* webpackChunkName: "game-list" */ '@/views/player-chart/Search.vue')},
           /********* ACCOUNT ***********/
           { path: 'account', name: 'account', meta: {requiresAuth: true}, component: () => import(/* webpackChunkName: "account" */ '@/views/account/Main.vue'),
             children: [
@@ -30,7 +32,6 @@ const routes = [
           },
           /********* ARTICLE ***********/
           { path: ':slugArticle-article-a:id(\\d+)', name: 'ArticleIndex', component: () => import(/* webpackChunkName: "article" */ '@/views/article/Index.vue')},
-
           /********* LEADERBOARD ***********/
           { path: 'leaderboard-point-chart', name: 'LeaderboardPointChart', component: () => import(/* webpackChunkName: "leaderboard" */ '@/views/leaderboard/PointChart.vue')},
           { path: 'leaderboard-point-game', name: 'LeaderboardPointGame', component: () => import(/* webpackChunkName: "leaderboard" */ '@/views/leaderboard/PointGame.vue')},

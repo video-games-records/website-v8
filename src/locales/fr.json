@@ -459,6 +459,7 @@
   },
   "menu": {
     "search": "Recherche",
+    "searchScore": "Recherche score",
     "menu": "Menu",
     "home": "Accueil",
     "forum": "Forum",
