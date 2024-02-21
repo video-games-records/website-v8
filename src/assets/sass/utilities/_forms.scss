@@ -1,0 +1,93 @@
+@charset "UTF-8";
+/**
+ * @site            Video Games Records
+ * @author          Luc Poupard
+ * @note            Forms
+ */
+
+/* ----------------------------- */
+/* Summary */
+/* ----------------------------- */
+/*
+    == Global
+        -- VGR specifics
+    == Labels
+    == Fields
+        -- Global
+    == Buttons
+    == Messages
+*/
+
+
+/* == @section Buttons ==================== */
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+button,
+.link-as-button {
+    display: inline-block;
+    border: 1px solid $primary-color;
+    background-color: $white;
+    @include box-form-shadow( $primary-color );
+    color: $primary-color;
+    font-weight: 500;
+    line-height: 1.25;
+
+    &:focus,
+    &:hover {
+        border: 1px solid $base-background-2;
+        @include box-form-shadow( $base-background-2 );
+    }
+
+    &[disabled],
+    &[disabled]:hover,
+    &[disabled]:focus {
+        border: 1px solid $form-border;
+        @include box-form-shadow( $form-border );
+        background-color: rgba( $form-border, .15 );
+        color: $form-border;
+    }
+}
+
+.button-as-link {
+    display: inline;
+    padding: 0;
+    border: none;
+    background: none;
+    box-shadow: unset;
+    color: currentColor;
+    font-weight: normal;
+    text-decoration: underline;
+    line-height: inherit;
+    cursor: pointer;
+
+    &:hover,
+    &:focus,
+    &[disabled],
+    &[disabled]:hover,
+    &[disabled]:focus {
+        border: none;
+        background: none;
+        box-shadow: unset;
+        color: currentColor;
+        text-decoration: none;
+    }
+
+    &[disabled],
+    &[disabled]:hover,
+    &[disabled]:focus {
+        color: currentColor;
+        cursor: default;
+    }
+}
+
+.link-as-button {
+    padding: $form-field-padding;
+}
+
+.link-as-button,
+.link-as-button:active,
+.link-as-button:focus {
+    text-decoration: none;
+}
+

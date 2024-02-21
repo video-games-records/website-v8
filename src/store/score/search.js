@@ -22,6 +22,15 @@ export const useScoreSearchStore = defineStore('score-search', {
         removeGame(game) {
             this.games.splice(this.games.map(g => g.id).indexOf(game.id), 1);
         },
+        pushPlayer(player) {
+            let index = this.players.map(g => g.id).indexOf(player.id);
+            if (index === -1) {
+                this.players.push(player);
+            }
+        },
+        removePlayer(player) {
+            this.players.splice(this.players.map(g => g.id).indexOf(player.id), 1);
+        },
     },
     persist: true
 })

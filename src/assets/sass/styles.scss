@@ -26,6 +26,7 @@
 /* == @section Project ==================== */
 @import "utilities/normalize.8.0.1";
 @import "utilities/fonts";
+//@import "utilities/forms";
 @import "utilities/base";
 @import "utilities/utilities";
 @import "utilities/tables";
@@ -47,6 +48,7 @@
 @import "components/ckeditor";
 @import "components/dropzone";
 @import "components/avatar";
+@import "components/tag";
 
 /* -- @subsection Media queries ---------- */
 @import "media-queries";

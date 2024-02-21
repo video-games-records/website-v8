@@ -7,7 +7,14 @@
         <v-col cols="12" md="6" lg="4">
           <game-select-multiple />
         </v-col>
+        <v-col cols="12" md="6" lg="4">
+          <player-select-multiple />
+        </v-col>
+        <v-col cols="12">
+          <v-btn type="submit" class="mt-2">{{ $t('search.submit') }}</v-btn>
+        </v-col>
       </v-row>
+
 
     </form>
 
@@ -80,6 +87,13 @@
       </tbody>
     </table>
 
+    <v-pagination
+        :density="this.$vuetify.display.mobile ? 'compact' : 'default'"
+        v-model="page"
+        :length="length"
+        total-visible=6
+        @update:modelValue="updateResource()" />
+
   </div>
 </template>
 
@@ -89,32 +103,24 @@ import Player from '@/components/vgr/player/Player';
 import Chart from '@/components/vgr/chart/Chart';
 import Status from '@/components/vgr/playerChart/Status.vue';
 import GameSelectMultiple from "@/components/vgr/advance-search/GameSelect.vue";
+import PlayerSelectMultiple from "@/components/vgr/advance-search/PlayerSelect.vue";
+import {useScoreSearchStore} from "@/store/score/search";
 
 export default {
   name: 'PlayerChartSearch',
   components: {
+    PlayerSelectMultiple,
     GameSelectMultiple,
     'tools-date': ToolsDate,
     'player': Player,
     'chart': Chart,
     'status': Status
   },
-  props: {
-    'activeOrderBy': {
-      default: false,
-      type: Boolean,
-    },
-    'activeFilter': {
-      default: false,
-      type: Boolean,
-    },
-    'itemsPerPage': {
-      default: 20,
-      type: Number,
-    },
-  },
   data() {
     return {
+      page: 1,
+      length: 1,
+      itemsPerPage: 20,
       playerCharts: [],
       ressource_url: '',
       order: {
@@ -150,43 +156,37 @@ export default {
       }
       return 'chart.libChartEn';
     },
-  },
-  created() {
-    document.title = this.$t('search.advanced') + ' - ' + import.meta.env.VITE_APP_TITLE;
-    /*PlayerChartStatusApi.getList().then(statuses => {
-      this.statuses = statuses;
-    });*/
-  },
-  methods: {
-    isSearchable() {
-      if (!this.$refs.players) return false;
-      return (this.$refs.players.data.length > 0)
-          || (this.$refs.games.data.length > 0)
-          || (this.$refs.platforms.data.length > 0)
-          || (this.filter.libChart.length >= 3);
+    getFilterGames() {
+      let filter = '';
+      useScoreSearchStore().getGames.forEach(function (game) {
+        filter += '&chart.group.game[]=' + game.id;
+      });
+      return filter;
     },
-    search() {
-      let params = {
-        query: {
-          groups: [
-            'playerChart.player', 'chart.read.mini', 'group.read.mini',
-            'game.read.mini', 'chart.group', 'player.read.mini', 'group.game', 'playerChartLib.format',
-            'playerChart.proof', 'proof.read', 'picture.read', 'video.read', 'playerChart.read',
-            'playerChart.chart', 'playerChart.status', 'playerChartStatus.read'
-          ],
-          //'player': this.$refs.players.getIds(),
-          //'chart.group.game': this.$refs.games.getIds(),
-          //'chart.group.game.platforms': this.$refs.platforms.getIds(),
-          'status': this.filter.statuses,
-        }
-      };
-      if (this.filter.libChart.length >= 3) {
+    getFilterPlayers() {
+      let filter = '';
+      useScoreSearchStore().getPlayers.forEach(function (player) {
+        filter += '&player[]=' + player.id;
+      });
+      return filter;
+    },
+    getResourceUrl() {
+      let url = '/api/player_charts?groups[]=playerChart.player&groups[]=chart.read.mini&groups[]=group.read.mini' +
+          '&groups[]=game.read.mini&groups[]=chart.group&groups[]=player.read.mini' +
+          '&groups[]=group.game&groups[]=playerChartLib.format&groups[]=playerChart.proof' +
+          '&groups[]=proof.read&groups[]=picture.read&groups[]=video.read' +
+          '&groups[]=playerChart.read&groups[]=playerChart.status&groups[]=playerChartStatus.read' +
+          '&groups[]=playerChart.chart&status=' + this.filter.statuses +
+          this.getFilterGames + this.getFilterPlayers;
+      //'chart.group.game.platforms': this.$refs.platforms.getIds(),
+
+      url = url + '&page=' + this.page;
+      /*if (this.filter.libChart.length >= 3) {
         params.query[this.getLibChart] = this.filter.libChart;
-      }
+      }*/
       // players
       //let queryString = utils.getQueryString(params.query);
-      let queryString = '';
-      if (this.filter.platinum) {
+      /*if (this.filter.platinum) {
         queryString = queryString + '&rank=1&nbEqual=1&chart.nbPost[gt]=1';
       }
       if (this.filter.rank.value) {
@@ -196,11 +196,34 @@ export default {
         queryString = queryString + '&pointChart[' + this.filter.pointChart.operator + ']=' + this.filter.pointChart.value;
       }
       queryString = queryString + '&itemsPerPage=' + this.itemsPerPage;
-      queryString = queryString + '&order[' + this.order.column + ']=' + this.order.direction;
-      this.ressource_url = 'api/player_charts' + queryString;
+      queryString = queryString + '&order[' + this.order.column + ']=' + this.order.direction;*/
+      return url;
+    }
+  },
+  created() {
+    document.title = this.$t('search.advanced') + ' - ' + import.meta.env.VITE_APP_TITLE;
+    /*PlayerChartStatusApi.getList().then(statuses => {
+      this.statuses = statuses;
+    });*/
+  },
+  methods: {
+    /*isSearchable() {
+      if (!this.$refs.players) return false;
+      return (this.$refs.players.data.length > 0)
+          || (this.$refs.games.data.length > 0)
+          || (this.$refs.platforms.data.length > 0)
+          || (this.filter.libChart.length >= 3);
+    },*/
+    search() {
+      this.page = 1;
+      this.updateResource();
     },
-    updateResource(data) {
-      this.playerCharts = data
+    updateResource() {
+      this.axios.get(this.getResourceUrl)
+          .then(response => {
+            this.playerCharts = response.data['hydra:member'];
+            this.length = Math.trunc(response.data['hydra:totalItems'] / this.itemsPerPage - 1) + 1;
+          })
     },
     orderBy(column) {
       if (column !== this.order.column) {

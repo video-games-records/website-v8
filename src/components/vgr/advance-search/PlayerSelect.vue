@@ -1,20 +1,20 @@
 <template>
   <v-sheet>
     <v-autocomplete
-        v-model="game"
+        v-model="player"
         v-model:search="search"
         :loading="loading"
-        :label="$t('global.games')"
+        :label="$t('global.players')"
         menu-icon=""
         :items="items"
         item-value="id"
-        item-title="name"
+        item-title="pseudo"
         variant="outlined"
         @update:modelValue="select"
         return-object />
-    <button v-for="(game, index) in this.getGames" :key="game.id" @click="remove(game)"
+    <button v-for="(player, index) in this.getPlayers" :key="player.id" @click="remove(player)"
             class="button-as-link tag">
-      <span class="tag--close" :aria-label="$t('tag.remove')">×</span> {{ game.name }}
+      <span class="tag--close" :aria-label="$t('tag.remove')">×</span> {{ player.pseudo }}
     </button>
   </v-sheet>
 </template>
@@ -24,10 +24,10 @@
 import {useScoreSearchStore} from "@/store/score/search";
 
 export default {
-  name: 'GameSelectMultiple',
+  name: 'PlayerSelectMultiple',
   data() {
     return {
-      game: null,
+      player: null,
       loading: false,
       items: [],
       search: null,
@@ -39,8 +39,8 @@ export default {
     },
   },
   computed: {
-    getGames() {
-      return useScoreSearchStore().getGames;
+    getPlayers() {
+      return useScoreSearchStore().getPlayers;
     }
   },
   methods: {
@@ -48,17 +48,17 @@ export default {
       this.loading = true
       this.items = [];
 
-      this.axios.get('/api/games/autocomplete',{params: {query: v}}).then(response => {
+      this.axios.get('/api/players/autocomplete',{params: {query: v}}).then(response => {
         this.items = response.data['hydra:member'];
         this.loading = false;
       })
     },
     select() {
-      useScoreSearchStore().pushGame(this.game);
-      this.game = null;
+      useScoreSearchStore().pushPlayer(this.player);
+      this.player = null;
     },
-    remove(game) {
-      useScoreSearchStore().removeGame(game);
+    remove(player) {
+      useScoreSearchStore().removePlayer(player);
     },
   },
 };
