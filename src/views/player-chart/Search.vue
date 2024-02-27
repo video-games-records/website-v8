@@ -37,8 +37,16 @@
           <v-text-field :label="$t('search.filter.value')" v-model="filter.pointChart.value" />
         </v-col>
         <v-col cols="12" md="6" lg="4">
-          <v-checkbox  v-for="status in statuses" :key="status.id"
-                      :label="status.name" :value="status.id" v-model="filter.statuses" />
+          <v-select
+              :label="$t('search.filter.status')"
+              v-model="filter.statuses"
+              :items="this.statuses"
+              :multiple=true
+              item-value="id"
+              item-title="name"
+          ></v-select>
+          <!--<v-checkbox  v-for="status in statuses" :key="status.id"
+                      :label="status.name" :value="status.id" v-model="filter.statuses" />-->
         </v-col>
         <v-col cols="12" md="6" lg="4" >
           <v-checkbox :label="$t('search.filter.platinum')" v-model="filter.platinum" />
