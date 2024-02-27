@@ -105,6 +105,8 @@ export default {
       url += '&groups[]=team.read&groups[]=team.rank.pointGame&groups[]=team.rank.medal'
       // Add order by
       url += '&order[' + this.order.column + ']=' + this.order.direction;
+      // Add page
+      url = url + '&page=' + this.page;
       return url;
     }
   },
