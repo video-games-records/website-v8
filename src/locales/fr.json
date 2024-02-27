@@ -466,6 +466,7 @@
     "video": "Vidéos",
     "games": "Jeux",
     "players": "Joueurs",
+    "teams": "Equipes",
     "game": {
       "alpha": "Liste alphabétique",
       "platform": "Liste par plateforme",
@@ -584,8 +585,7 @@
   "player": {
     "list": {
       "title": "Liste des joueurs",
-      "caption": "Liste des joueurs",
-      "desciption": "Liste des joueurs"
+      "caption": "Liste des joueurs"
     },
     "profile": {
       "description": "Profil de {0}",
@@ -766,6 +766,10 @@
     "unselectAll": "Tous déslectionner"
   },
   "team": {
+    "list": {
+      "title": "Liste des équipes",
+      "caption": "Liste des équipes"
+    },
     "request": {
       "recruit": "Recruter un joueur",
       "success": "La demande a été envoyée",

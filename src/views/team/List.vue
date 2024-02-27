@@ -1,63 +1,53 @@
 <template>
   <v-sheet>
 
-    <h1>{{ $t('player.list.title') }}</h1>
+    <h1>{{ $t('team.list.title') }}</h1>
 
     <v-table class="members-list">
-      <caption class="screen-reader-text">{{ $t('player.list.caption') }}</caption>
+      <caption class="screen-reader-text">{{ $t('team.list.caption') }}</caption>
       <thead>
       <tr>
         <th scope="col">
           #
         </th>
         <th scope="col">
-          <button class="table-order" @click="orderBy('pseudo')">{{ $t('player.pseudo') }}</button>
-        </th>
-        <th scope="col" class="hidden-md-and-down">
-          {{ $t('player.country') }}
+          <button class="table-order" @click="orderBy('libTeam')">{{ $t('team.name') }}</button>
         </th>
         <th scope="col" class="hidden-sm-and-down">
           <button class="table-order" @click="orderBy('createdAt')">{{ $t('global.createdAt') }}</button>
         </th>
+        <th scope="col">
+          <button class="table-order" @click="orderBy('rankPointGame')">{{ $t('global.rank') }}</button>
+        </th>
         <th scope="col" class="hidden-sm-and-down">
-          <button class="table-order" @click="orderBy('nbConnexion')">{{ $t('player.nbConnexion') }}</button>
+          <button class="table-order" @click="orderBy('nbGame')">{{ $t('global.games') }}</button>
         </th>
         <th scope="col">
-          <button class="table-order" @click="orderBy('lastLogin')">{{ $t('player.lastLogin') }}</button>
-        </th>
-        <th scope="col">
-          <button class="table-order" @click="orderBy('nbChart')">{{ $t('global.charts') }}</button>
+          <button class="table-order" @click="orderBy('pointGame')">{{ $t('global.gamePoints') }}</button>
         </th>
       </tr>
       </thead>
       <tbody>
-      <tr v-for="(player, index) in players" :data-position="player.position" :key="player.id">
+      <tr v-for="(team, index) in teams" :key="team.id">
         <td>
           {{ itemsPerPage * (page - 1) + index + 1 }}
         </td>
         <td>
-          <player v-bind:player="player"/>
-          <span v-if="player.status.name !== $t('player.status.member')">
-                            (<em>{{ player.status.name }}</em>)
-                        </span>
-        </td>
-        <td class="hidden-md-and-down">
-          <country v-bind:country="player.country"></country>
-          <span v-if="player.country">{{ player.country.name }}</span>
+          <team v-bind:team="team"/>
+
         </td>
         <td class="hidden-sm-and-down">
-          <date v-bind:date="player.createdAt"
+          <date v-bind:date="team.createdAt"
                 v-bind:options="{ month: 'long', day: 'numeric', year: 'numeric' }"></date>
-        </td>
-        <td class="hidden-sm-and-down">
-          {{ number(player.nbConnexion) }}
         </td>
         <td>
-          <date v-bind:date="player.lastLogin"
-                v-bind:options="{ month: 'long', day: 'numeric', year: 'numeric' }"></date>
+          {{ team.rankPointGame }}
         </td>
-        <td :data-header="$t('global.charts')">
-          {{ number(player.nbChart) }}
+        <td class="hidden-sm-and-down">
+          {{ number(team.nbGame) }}
+        </td>
+        <td>
+          {{ number(team.pointGame) }}
         </td>
       </tr>
       </tbody>
@@ -79,11 +69,13 @@ import Date from '@/components/tools/Date.vue';
 import Player from '@/components/vgr/player/Player';
 import Country from "@/components/country/Country";
 import Filters from "@/mixins/Filters.vue";
+import Team from "@/components/vgr/team/Team.vue";
 
 export default {
   mixins:[Filters],
-  name: 'PlayerList',
+  name: 'TeamList',
   components: {
+    Team,
     Player,
     Country,
     'date': Date,
@@ -93,7 +85,7 @@ export default {
       page: 1,
       length: 1,
       itemsPerPage: 20,
-      players: [],
+      teams: [],
       order: {
         column: 'user.createdAt',
         direction: 'DESC',
@@ -105,20 +97,12 @@ export default {
   },
   computed: {
     title() {
-      return this.$t('player.list.title') + ' - ' + import.meta.env.VITE_APP_TITLE;
+      return this.$t('team.list.title') + ' - ' + import.meta.env.VITE_APP_TITLE;
     },
     getResourceUrl() {
-      let url = '/api/players??itemsPerPage=' + this.itemsPerPage;
-      // Add filter
-      url += '&user.enabled=1';
+      let url = '/api/teams?itemsPerPage=' + this.itemsPerPage;
       // Add group player + team
-      url += '&groups[]=player.read&groups[]=player.pointChart&groups[]=player.medal'
-      // Add group team
-      url += '&groups[]=player.team&groups[]=team.read.mini';
-      // Add group country
-      url += '&groups[]=player.country&groups[]=country.read';
-      // Add group user
-      url += '&groups[]=player.status&groups[]=player.status.read';
+      url += '&groups[]=team.read&groups[]=team.rank.pointGame&groups[]=team.rank.medal'
       // Add order by
       url += '&order[' + this.order.column + ']=' + this.order.direction;
       return url;
@@ -128,7 +112,7 @@ export default {
     updateResource() {
       this.axios.get(this.getResourceUrl)
           .then(response => {
-            this.players = response.data['hydra:member'];
+            this.teams = response.data['hydra:member'];
             this.length = Math.trunc(response.data['hydra:totalItems'] / this.itemsPerPage - 1) + 1;
           })
     },

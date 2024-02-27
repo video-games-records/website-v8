@@ -466,6 +466,7 @@
     "video": "Videos",
     "games": "Games",
     "players": "Players",
+    "teams": "Teams",
     "game": {
       "alpha": "Alphabetical list",
       "platform": "Platform list",
@@ -584,8 +585,7 @@
   "player": {
     "list": {
       "title": "Players list",
-      "caption": "Players list",
-      "desciption": "Players list"
+      "caption": "Players list"
     },
     "profile": {
       "description": "{0}'s profile",
@@ -766,6 +766,10 @@
     "unselectAll": "Unselect all"
   },
   "team": {
+    "list": {
+      "title": "Teams list",
+      "caption": "Teams list"
+    },
     "request": {
       "recruit": "Recruit a player",
       "success": "Request has been sent",

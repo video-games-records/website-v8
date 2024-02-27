@@ -44,6 +44,7 @@ const routes = [
           /********* MESSAGE ***********/
           { path: 'messages', name: 'MessageIndex', meta: {requiresAuth: true}, component: () => import(/* webpackChunkName: "message" */ '@/views/message/Index.vue')},
           /********* PLAYER ***********/
+          { path: 'player/list', name: 'PlayerList', component: () => import(/* webpackChunkName: "Game" */ '@/views/player/List.vue')},
           { path: ':slugPlayer-player-p:idPlayer(\\d+)', name: 'PlayerMain', component: () => import(/* webpackChunkName: "Game" */ '@/views/player/Main.vue'),
             children: [
               { path: 'index', name: 'PlayerIndex', component: () => import(/* webpackChunkName: "Player" */ '@/views/player/Index.vue')},
@@ -71,6 +72,7 @@ const routes = [
             ]
           },
           /********* TEAM ***********/
+          { path: 'team/list', name: 'TeamList', component: () => import(/* webpackChunkName: "Game" */ '@/views/team/List.vue')},
           { path: ':slugTeam-team-t:idTeam(\\d+)', name: 'TeamMain', component: () => import(/* webpackChunkName: "Team" */ '@/views/team/Main.vue'),
             children: [
               { path: 'index', name: 'TeamIndex', component: () => import(/* webpackChunkName: "Player" */ '@/views/team/Index.vue')},

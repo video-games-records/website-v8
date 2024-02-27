@@ -16,6 +16,8 @@
       <v-list-item :to="{ name: 'GameNext'}" :title="$t('menu.game.next')"></v-list-item>
       <v-list-item :to="{ name: 'GameLast'}" :title="$t('menu.game.last')"></v-list-item>
     </v-list-group>
+    <v-list-item :to="{ name: 'PlayerList'}" :title="$t('menu.players')" prepend-icon="mdi-ghost-outline"></v-list-item>
+    <v-list-item :to="{ name: 'TeamList'}" :title="$t('menu.teams')" prepend-icon="mdi-star-face"></v-list-item>
     <v-list-group value="Rankings">
     <template v-slot:activator="{ props }">
       <v-list-item
