@@ -37,16 +37,65 @@
 
     <v-footer class="bg-grey-lighten-1">
       <v-row justify="center" no-gutters>
-        <v-btn
-            v-for="link in links"
-            :key="link"
-            color="white"
-            variant="text"
-            class="mx-2"
-            rounded="xl"
-        >
-          {{ link }}
-        </v-btn>
+        <ul class="d-flex" style="list-style-type: none">
+          <li class="ma-2">
+            <a href="https://video-games-records.myspreadshop.fr/" target="_blank">
+              <svg width="24" height="24" viewBox="0 0 50 50" class="svg-sprite" aria-hidden="true" focusable="false">
+                <use xlink:href="#shop" />
+              </svg>
+              <div class="hidden-md-and-down">{{ $t('aside.shop') }}</div>
+            </a>
+          </li>
+          <li class="ma-2">
+            <a href="https://discord.com/invite/nYsRzsZ" target="_blank">
+              <svg width="24" height="24" viewBox="0 0 50 50" class="svg-sprite" aria-hidden="true" focusable="false">
+                <use xlink:href="#social-discord" />
+              </svg>
+              <div class="hidden-md-and-down"><span class="screen-reader-text">VGR {{ $t('aside.on') }}</span> Discord</div>
+            </a>
+          </li>
+          <li class="ma-2">
+            <a href="https://www.twitch.tv/videogamesrecords/" target="_blank">
+              <svg width="24" height="24" viewBox="0 0 50 50" class="svg-sprite" aria-hidden="true" focusable="false">
+                <use xlink:href="#social-twitch" />
+              </svg>
+              <div class="hidden-md-and-down"><span class="screen-reader-text">VGR {{ $t('aside.on') }}</span> Twitch</div>
+            </a>
+          </li>
+          <li class="ma-2">
+            <a href="https://www.youtube.com/channel/UC_b4IOPqkN9uOsk-vktl8eA" target="_blank">
+              <svg width="24" height="24" viewBox="0 0 50 50" class="svg-sprite" aria-hidden="true" focusable="false">
+                <use xlink:href="#social-youtube" />
+              </svg>
+              <div class="hidden-md-and-down"><span class="screen-reader-text">VGR {{ $t('aside.on') }}</span> Youtube</div>
+            </a>
+          </li>
+          <li class="ma-2">
+            <a href="https://steamcommunity.com/groups/vgrr" target="_blank">
+              <svg width="24" height="24" viewBox="0 0 50 50" class="svg-sprite" aria-hidden="true" focusable="false">
+                <use xlink:href="#social-steam" />
+              </svg>
+              <div class="hidden-md-and-down"><span class="screen-reader-text">VGR {{ $t('aside.on') }}</span> Steam</div>
+            </a>
+          </li>
+          <li class="ma-2">
+            <a href="https://twitter.com/VGRecords" target="_blank">
+              <svg width="24" height="24" viewBox="0 0 50 50" class="svg-sprite" aria-hidden="true" focusable="false">
+                <use xlink:href="#social-twitter" />
+              </svg>
+              <div class="hidden-md-and-down"><span class="screen-reader-text">VGR {{ $t('aside.on') }}</span> Twitter</div>
+            </a>
+          </li>
+          <li class="ma-2">
+            <a href="https://www.linkedin.com/company/video-games-records/" target="_blank">
+              <svg width="24" height="24" viewBox="0 0 50 50" class="svg-sprite" aria-hidden="true" focusable="false">
+                <use xlink:href="#social-linkedin" />
+              </svg>
+              <div class="hidden-md-and-down"><span class="screen-reader-text">VGR {{ $t('aside.on') }}</span> LinkedIn</div>
+            </a>
+          </li>
+        </ul>
+
         <v-col class="text-center mt-4" cols="12">
           &copy; 2003-{{ new Date().getFullYear() }} — <strong>Video Games Records</strong>
         </v-col>
@@ -69,7 +118,6 @@ export default {
     drawer: true,
     group: null,
     links: [
-      'Home',
       'About Us',
       'Team',
       'Services',
