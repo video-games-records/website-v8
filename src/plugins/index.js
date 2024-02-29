@@ -13,6 +13,7 @@ import i18n from "./i18n";
 import constante from './constante';
 import HighchartsVue from 'highcharts-vue';
 import CKEditor from '@ckeditor/ckeditor5-vue';
+import VueGtag from "vue-gtag";
 
 export function registerPlugins (app) {
   app
@@ -24,4 +25,12 @@ export function registerPlugins (app) {
     .use(constante)
     .use(HighchartsVue)
     .use(CKEditor)
+    .use(VueGtag, {
+      config: {
+          id: import.meta.env.VITE_GA_MEASUREMENT_ID,
+          params: {
+              anonymize_ip: true
+          }
+      },
+    }, router)
 }

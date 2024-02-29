@@ -30,6 +30,8 @@ export const useAppStore = defineStore('app', {
       player: {},
       status: {}
     },
+    forum: {},
+    topic: {}
   }),
   getters: {
     getLanguage: (state) => state.language,
@@ -40,6 +42,8 @@ export const useAppStore = defineStore('app', {
     getGroup: (state) => state.group,
     getChart: (state) => state.chart,
     getPlayerChart: (state) => state.playerChart,
+    getForum: (state) => state.forum,
+    getTopic: (state) => state.topic,
   },
   actions: {
     setLanguage(language) {
@@ -65,6 +69,12 @@ export const useAppStore = defineStore('app', {
     },
     setPlayerChart(playerChart) {
       this.playerChart = playerChart;
+    },
+    setForum(forum) {
+      this.forum = forum;
+    },
+    setTopic(topic) {
+      this.topic = topic;
     },
   },
 })
