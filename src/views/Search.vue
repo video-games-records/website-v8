@@ -4,6 +4,7 @@
       <v-tab value="games">{{ $t('global.games') }}</v-tab>
       <v-tab value="players">{{ $t('global.players') }}</v-tab>
       <v-tab value="teams">{{ $t('global.teams') }}</v-tab>
+      <v-tab value="topics">{{ $t('global.topics') }}</v-tab>
     </v-tabs>
 
     <v-card-text class="pa-0">
@@ -19,16 +20,20 @@
         <v-window-item value="teams">
           <team-search-result v-bind:callback=getCallBackTeam />
         </v-window-item>
+
+        <v-window-item value="topics">
+          <topic-search-result v-bind:callback=getCallBackTopic />
+        </v-window-item>
       </v-window>
     </v-card-text>
   </v-sheet>
 </template>
 
 <script>
-import GameList from '@/components/vgr/game/List.vue';
 import TeamSearchResult from "@/components/vgr/team/SearchResult.vue";
 import PlayerSearchResult from "@/components/vgr/player/SearchResult.vue";
 import GameSearchResult from "@/components/vgr/game/SearchResult.vue";
+import TopicSearchResult from "@/components/forum/topic/SearchResult.vue";
 
 export default {
   name: 'search',
@@ -36,7 +41,7 @@ export default {
     GameSearchResult,
     PlayerSearchResult,
     TeamSearchResult,
-    GameList
+    TopicSearchResult
   },
   data() {
     return {
@@ -57,6 +62,9 @@ export default {
     getCallBackTeam() {
       return '/api/teams?itemsPerPage=100&groups[]=team.read&groups[]=team.rank.pointChart' +
           '&groups[]=team.rank.medal&libTeam=' + this.term + '&order[libTeam]=ASC';
+    },
+    getCallBackTopic() {
+      return '/api/forum_topics?itemsPerPage=100&libTopic=' + this.term;
     },
     getLibGame() {
       if (localStorage.lang === 'fr') {

@@ -32,6 +32,21 @@ const routes = [
           },
           /********* ARTICLE ***********/
           { path: ':slugArticle-article-a:id(\\d+)', name: 'ArticleIndex', component: () => import(/* webpackChunkName: "article" */ '@/views/article/Index.vue')},
+          /********* FORUM ***********/
+          { path: 'forum-home', name: 'ForumHome', component: () => import(/* webpackChunkName: "forum" */ '@/views/forum/Home.vue')},
+          { path: 'forum-notify', name: 'ForumNotify', meta: {requiresAuth: true}, component: () => import(/* webpackChunkName: "forum" */ '@/views/forum/forum/Notify.vue')},
+          { path: ':slugForum-forum-f:idForum(\\d+)', name: 'ForumMain', component: () => import(/* webpackChunkName: "forum" */ '@/views/forum/forum/Main.vue'),
+            children: [
+              { path: 'index', name: 'ForumIndex', component: () => import(/* webpackChunkName: "forum" */ '@/views/forum/forum/Index.vue')},
+              { path: ':slugTopic-topic-t:idTopic(\\d+)', name: 'TopicMain', component: () => import(/* webpackChunkName: "forum" */ '@/views/forum/forum/topic/Main.vue'),
+                children: [
+                  { path: 'index', name: 'TopicIndex', component: () => import(/* webpackChunkName: "forum" */ '@/views/forum/forum/topic/Index.vue')},
+                  { path: 'reply', name: 'TopicReply', meta: {requiresAuth: true}, component: () => import(/* webpackChunkName: "forum" */ '@/views/forum/forum/topic/Reply.vue')},
+                ]
+              },
+              { path: 'new-topic', name: 'TopicNew', component: () => import(/* webpackChunkName: "forum" */ '@/views/forum/forum/NewTopic.vue')},
+            ]
+          },
           /********* LEADERBOARD ***********/
           { path: 'leaderboard-point-chart', name: 'LeaderboardPointChart', component: () => import(/* webpackChunkName: "leaderboard" */ '@/views/leaderboard/PointChart.vue')},
           { path: 'leaderboard-point-game', name: 'LeaderboardPointGame', component: () => import(/* webpackChunkName: "leaderboard" */ '@/views/leaderboard/PointGame.vue')},
