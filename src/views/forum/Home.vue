@@ -2,10 +2,9 @@
   <v-sheet>
     <h1>{{ $t('forum.home.title') }}</h1>
 
-    <v-sheet v-if="isAuthenticated" class="button-actions button-actions--top">
-      <router-link :to="{ name: 'ForumNotify'}" class="link-as-button">{{ $t('forum.notify.title') }}</router-link>
+    <v-sheet v-if="isAuthenticated" class="d-flex justify-center">
+      <v-btn :to="{ name: 'ForumNotify'}">{{ $t('forum.notify.title') }}</v-btn>
     </v-sheet>
-
 
     <v-sheet v-for="category in categories" :data-position="category.position" :key="category.id" class="forum-list">
       <h2>{{ category.libCategory }}</h2>
