@@ -18,6 +18,7 @@
     </v-list-group>
     <v-list-item :to="{ name: 'PlayerList'}" :title="$t('menu.players')" prepend-icon="mdi-ghost-outline"></v-list-item>
     <v-list-item :to="{ name: 'TeamList'}" :title="$t('menu.teams')" prepend-icon="mdi-star-face"></v-list-item>
+    <v-list-item :to="{ name: 'ForumHome'}" :title="$t('menu.forum')" prepend-icon="mdi-forum"></v-list-item>
     <v-list-group value="Rankings">
     <template v-slot:activator="{ props }">
       <v-list-item

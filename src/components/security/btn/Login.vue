@@ -64,7 +64,7 @@ export default {
         login: this.$data.email,
         password: this.$data.password
       }
-
+      this.$gtag.event('login', { method: 'Google' })
       useSecurityStore().login(payload)
         .catch(() => {
           this.error = true
