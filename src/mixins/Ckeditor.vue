@@ -37,6 +37,15 @@ export default {
               'linkImage'
             ]
           },
+          table: {
+            contentToolbar: [
+              'tableColumn',
+              'tableRow',
+              'mergeTableCells',
+              'tableCellProperties',
+              'tableProperties'
+            ]
+          },
         },
         mobile: {
           toolbar: {
