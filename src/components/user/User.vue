@@ -1,8 +1,8 @@
 <template>
-  <v-sheet v-if="user.id">
+  <div v-if="user.id">
     <avatar v-if="showAvatar" v-bind:user="user"></avatar>
-    <v-sheet>{{ user.username }}</v-sheet>
-   </v-sheet>
+    <div>{{ user.username }}</div>
+  </div>
 </template>
 
 <script>

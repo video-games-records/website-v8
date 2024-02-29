@@ -1,0 +1,57 @@
+<template>
+  <v-sheet>
+    <h1>{{ $t('forum.home.title') }}</h1>
+
+    <v-sheet v-if="isAuthenticated" class="button-actions button-actions--top">
+      <router-link :to="{ name: 'ForumNotify'}" class="link-as-button">{{ $t('forum.notify.title') }}</router-link>
+    </v-sheet>
+
+
+    <v-sheet v-for="category in categories" :data-position="category.position" :key="category.id" class="forum-list">
+      <h2>{{ category.libCategory }}</h2>
+      <forum-list v-bind:forums=category.forums />
+    </v-sheet>
+
+  </v-sheet>
+</template>
+
+<script>
+import ForumList from '@/components/forum/forum/List.vue';
+import Security from "@/mixins/Security.vue";
+import {useAppStore} from "@/store/app";
+
+export default {
+  mixins: [Security],
+  name: 'ForumHome',
+  components: {
+    ForumList
+  },
+  data() {
+    return {
+      categories: []
+    };
+  },
+  computed: {
+    getNow: function () {
+      function pad(s) {
+        return (s < 10) ? '0' + s : s;
+      }
+
+      let d = new Date();
+      return [d.getFullYear(), pad(d.getMonth() + 1), pad(d.getDate())].join('-');
+    }
+  },
+  created() {
+    document.title = 'Forum' + ' - ' + import.meta.env.VITE_APP_TITLE;
+    this.load();
+  },
+  methods: {
+    load() {
+      this.axios.get('/api/categorie/home')
+          .then(response => {
+            this.categories = response.data['hydra:member'];
+          })
+    }
+  },
+};
+</script>
