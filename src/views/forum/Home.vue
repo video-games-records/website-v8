@@ -6,6 +6,7 @@
       <v-btn :to="{ name: 'ForumNotify'}">{{ $t('forum.notify.title') }}</v-btn>
     </v-sheet>
 
+    <v-progress-linear v-if="categories.length === 0" indeterminate color="yellow-darken-2"></v-progress-linear>
     <v-sheet v-for="category in categories" :data-position="category.position" :key="category.id" class="forum-list">
       <h2>{{ category.libCategory }}</h2>
       <forum-list v-bind:forums=category.forums />
