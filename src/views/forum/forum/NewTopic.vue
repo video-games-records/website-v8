@@ -6,6 +6,7 @@
 
 <script>
 import TopicCreate from "@/components/forum/topic/Create";
+import {useAppStore} from "@/store/app";
 
 export default {
   components: {TopicCreate},
@@ -14,45 +15,22 @@ export default {
     return {}
   },
   computed: {
-    title() {
-      return this.$i18n.t('forum.newTopic.title') + ' - ' + this.getForum.libForum + ' - ' + process.env.VUE_APP_TITLE;
-    },
-    description() {
-      return this.$i18n.t('forum.newTopic.description') + this.getForum.libForum;
-    },
     getForum() {
-      return this.$parent.forum;
+      return useAppStore().getForum
     },
     hasParent() {
       return this.getForum.parent != null;
     },
-    getBreadcrumbLevel() {
+   /* getBreadcrumbLevel() {
       if (this.hasParent) {
         return 4;
       }
       return 3;
-    },
-    getLanguage() {
-      return i18n.locale;
-    },
-  },
-  watch: {
-    getLanguage() {
-      this.loadData();
-    },
+    },*/
   },
   created() {
-    this.loadData();
-  },
-  methods: {
-    loadData() {
-      if (this.hasParent) {
-        this.setBreadcrumbItem4({text: this.$i18n.t('forum.newTopic.title')});
-      } else {
-        this.setBreadcrumbItem3({text: this.$i18n.t('forum.newTopic.title')});
-      }
-      this.setBreadcrumbLevel(this.getBreadcrumbLevel);
-    }
-  },
+    document.title = this.$t('forum.newTopic.title') + ' - ' + this.getForum.libForum + ' - ' + import.meta.env.VITE_APP_TITLE;
+  }
+
 };
 </script>
