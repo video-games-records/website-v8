@@ -17,7 +17,6 @@
 <script>
 import ForumList from '@/components/forum/forum/List.vue';
 import Security from "@/mixins/Security.vue";
-import {useAppStore} from "@/store/app";
 
 export default {
   mixins: [Security],
