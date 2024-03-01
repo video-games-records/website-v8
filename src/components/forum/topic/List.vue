@@ -63,14 +63,7 @@ import Filters from "@/mixins/Filters.vue";
 export default {
   mixins: [Security, Filters],
   name: 'TopicList',
-  components: {
-    'topic': Topic,
-    'lastMessage': LastMessage,
-    'shortcut': Shortcut,
-    'read': Read,
-    'notify': Notify,
-    User,
-  },
+  components: {Topic, LastMessage, Shortcut, Read, Notify, User},
   props: {
     'topics': {
       type: Array,
