@@ -1,5 +1,9 @@
 <template>
   <v-sheet>
+
+    <breadcrumb />
+
+    </v-sheet>
     <h1>{{ $t('forum.home.title') }}</h1>
 
     <v-sheet v-if="isAuthenticated" class="d-flex justify-center">
@@ -12,17 +16,19 @@
       <forum-list v-bind:forums=category.forums />
     </v-sheet>
 
-  </v-sheet>
 </template>
 
 <script>
 import ForumList from '@/components/forum/forum/List.vue';
 import Security from "@/mixins/Security.vue";
+import Breadcrumb from "@/components/base/Breadcrumb.vue";
+import {useBreadcrumbsStore} from "@/store/base/breadcrumbs";
 
 export default {
   mixins: [Security],
   name: 'ForumHome',
   components: {
+    Breadcrumb,
     ForumList
   },
   data() {
@@ -43,6 +49,10 @@ export default {
   created() {
     document.title = 'Forum' + ' - ' + import.meta.env.VITE_APP_TITLE;
     this.load();
+    useBreadcrumbsStore().setLevel(1);
+    useBreadcrumbsStore().setItem1(
+        { text: 'Forum', to: {name: 'ForumHome'}}
+    );
   },
   methods: {
     load() {

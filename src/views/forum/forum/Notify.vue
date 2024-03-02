@@ -1,6 +1,9 @@
 <template>
   <div>
+    <breadcrumb />
+
     <h1>{{ $t('forum.notify.title') }}</h1>
+
 
     <div>
       <v-pagination
@@ -26,11 +29,14 @@
 <script>
 import TopicList from '@/components/forum/topic/List.vue';
 import Security from "@/mixins/Security.vue";
+import Breadcrumb from "@/components/base/Breadcrumb.vue";
+import {useBreadcrumbsStore} from "@/store/base/breadcrumbs";
 
 export default {
   mixins: [Security],
   name: 'ForumNotif',
   components: {
+    Breadcrumb,
     TopicList
   },
   data() {
@@ -52,6 +58,13 @@ export default {
   },
   created() {
     this.updateResource();
+    useBreadcrumbsStore().setLevel(2);
+    useBreadcrumbsStore().setItem1(
+        { text: 'Forum', to: {name: 'ForumHome'}}
+    );
+    useBreadcrumbsStore().setItem2(
+        { text: this.$t('forum.notify.title'), to: {name: 'ForumNotify'}}
+    );
   },
   methods: {
     updateResource() {
