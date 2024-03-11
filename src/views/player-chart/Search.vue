@@ -44,9 +44,16 @@
               :multiple=true
               item-value="id"
               item-title="name"
-          ></v-select>
-          <!--<v-checkbox  v-for="status in statuses" :key="status.id"
-                      :label="status.name" :value="status.id" v-model="filter.statuses" />-->
+          >
+            <template #item="{ item, props }">
+              <v-list-item v-bind="props">
+                <template #title>
+                  <span>{{item.title}}</span>&nbsp;<span :class="item.raw.class" />
+                </template>
+              </v-list-item>
+            </template>
+          </v-select>
+
         </v-col>
         <v-col cols="12" md="6" lg="4" >
           <v-checkbox :label="$t('search.filter.platinum')" v-model="filter.platinum" />
