@@ -2,6 +2,7 @@
   <v-sheet>
     <v-autocomplete
         v-model="platform"
+        :custom-filter="customFilter"
         v-model:search="search"
         :loading="loading"
         :label="$t('global.platforms')"
@@ -12,7 +13,7 @@
         variant="outlined"
         @update:modelValue="select"
         return-object />
-    <button v-for="(platform, index) in this.getPlatforms" :key="platform.id" @click="remove(platform)"
+    <button v-for="(platform) in this.getPlatforms" :key="platform.id" @click="remove(platform)"
             class="button-as-link tag">
       <span class="tag--close" :aria-label="$t('tag.remove')">×</span> {{ platform.libPlatform }}
     </button>
@@ -59,6 +60,9 @@ export default {
     },
     remove(platform) {
       useScoreSearchStore().removePlatform(platform);
+    },
+    customFilter () {
+      return true;
     },
   },
 };

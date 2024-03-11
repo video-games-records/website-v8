@@ -2,6 +2,7 @@
   <v-sheet>
     <v-autocomplete
         v-model="game"
+        :custom-filter="customFilter"
         v-model:search="search"
         :loading="loading"
         :label="$t('global.games')"
@@ -12,7 +13,7 @@
         variant="outlined"
         @update:modelValue="select"
         return-object />
-    <button v-for="(game, index) in this.getGames" :key="game.id" @click="remove(game)"
+    <button v-for="(game) in this.getGames" :key="game.id" @click="remove(game)"
             class="button-as-link tag">
       <span class="tag--close" :aria-label="$t('tag.remove')">×</span> {{ game.name }}
     </button>
@@ -59,6 +60,9 @@ export default {
     },
     remove(game) {
       useScoreSearchStore().removeGame(game);
+    },
+    customFilter () {
+      return true;
     },
   },
 };

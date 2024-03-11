@@ -2,6 +2,7 @@
   <v-sheet>
     <v-autocomplete
         v-model="player"
+        :custom-filter="customFilter"
         v-model:search="search"
         :loading="loading"
         :label="$t('global.players')"
@@ -12,7 +13,7 @@
         variant="outlined"
         @update:modelValue="select"
         return-object />
-    <button v-for="(player, index) in this.getPlayers" :key="player.id" @click="remove(player)"
+    <button v-for="(player) in this.getPlayers" :key="player.id" @click="remove(player)"
             class="button-as-link tag">
       <span class="tag--close" :aria-label="$t('tag.remove')">×</span> {{ player.pseudo }}
     </button>
@@ -59,6 +60,9 @@ export default {
     },
     remove(player) {
       useScoreSearchStore().removePlayer(player);
+    },
+    customFilter () {
+      return true;
     },
   },
 };
