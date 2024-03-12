@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="pa-4">
     <div v-html="getCollection"></div>
   </div>
 </template>

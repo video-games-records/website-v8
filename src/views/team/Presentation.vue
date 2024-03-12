@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <v-sheet class="pa-4">
     <div v-html="getPresentation"></div>
-  </div>
+  </v-sheet>
 </template>
 
 <script>

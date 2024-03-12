@@ -1,7 +1,7 @@
 <template>
-  <v-sheet>
+  <div>
     <avatar-upload-form callback="api/users/upload-avatar"/>
-  </v-sheet>
+  </div>
 </template>
 <script>
 

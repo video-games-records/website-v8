@@ -1,5 +1,5 @@
 <template>
-  <v-sheet>
+  <div>
     <ul class="tabs">
       <li v-if="isRoute('Index')" class="tab__item tab__item--current"><span>{{ $t('account.tabs.account') }}</span></li>
       <li v-else class="tab__item"><router-link :to="{ name: 'AccountIndex' }">{{ $t('account.tabs.account') }}</router-link></li>
@@ -14,7 +14,7 @@
       <li v-else class="tab__item"><router-link :to="{ name: 'AccountTeam' }">{{ $t('account.tabs.team') }}</router-link></li>
     </ul>
     <router-view></router-view>
-  </v-sheet>
+  </div>
 </template>
 
 <script>

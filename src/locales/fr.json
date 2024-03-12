@@ -87,9 +87,10 @@
   "aside": {
     "on": "sur",
     "shop": "Boutique",
-    "paypal": {
-      "title": "PayPal - Le plus sûr et plus facile moyen de payer en ligne !",
-      "alt": "Faire un don sur Paypal"
+    "donate": {
+      "title": "Aidez-nous",
+      "message": "\nChers joueurs, Contribuons ensemble à façonner l'avenir des records de jeux vidéo en faisant un don aujourd'hui.<br />\nChaque don, quelle que soit sa taille, a un impact significatif.<br />\nRejoignez-nous dans cette aventure passionnante et investissez dans la continuité de notre communauté en faisant un don dès maintenant.<br />\nMerci pour votre générosité !",
+      "action": "Donner"
     },
     "switch": {
       "group": "Afficher un autre groupe",

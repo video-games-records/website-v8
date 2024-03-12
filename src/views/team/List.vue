@@ -1,5 +1,5 @@
 <template>
-  <v-sheet>
+  <div>
 
     <h1>{{ $t('team.list.title') }}</h1>
 
@@ -61,7 +61,7 @@
         total-visible=6
         @update:modelValue="updateResource()" />
 
-  </v-sheet>
+  </div>
 </template>
 
 <script>
@@ -115,7 +115,7 @@ export default {
       this.axios.get(this.getResourceUrl)
           .then(response => {
             this.teams = response.data['hydra:member'];
-            this.length = Math.trunc(response.data['hydra:totalItems'] / this.itemsPerPage - 1) + 1;
+            this.length = Math.trunc((response.data['hydra:totalItems'] - 1) / this.itemsPerPage ) + 1;
           })
     },
     orderBy(column) {

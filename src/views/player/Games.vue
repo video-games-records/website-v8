@@ -1,5 +1,5 @@
 <template>
-  <v-sheet>
+  <div class="pa-2">
 
     <fieldset>
       <legend>{{ $t('global.filterBy') }}</legend>
@@ -91,7 +91,7 @@
       </tbody>
 
     </v-table>
-  </v-sheet>
+  </div>
 </template>
 
 <script>

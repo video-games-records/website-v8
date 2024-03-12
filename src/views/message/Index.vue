@@ -1,5 +1,5 @@
 <template>
-  <v-sheet>
+  <div>
     <h1>{{ $t('privateMessage.title') }}</h1>
 
     <v-row>
@@ -28,7 +28,7 @@
         </v-card-text>
       </v-col>
     </v-row>
-  </v-sheet>
+  </div>
 </template>
 
 <script>

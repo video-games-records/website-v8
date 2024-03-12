@@ -1,5 +1,5 @@
 <template>
-  <v-sheet class="ma-5">
+  <div class="ma-5">
     <v-btn @click="dialog = true" append-icon="mdi-send">
       {{ getTitle }}
     </v-btn>
@@ -35,7 +35,7 @@
           </v-card-item>
         </v-card>
     </v-dialog>
-  </v-sheet>
+  </div>
 </template>
 
 <script>

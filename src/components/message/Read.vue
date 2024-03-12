@@ -1,8 +1,8 @@
 <template>
-  <v-sheet>
+  <div>
     <h2 class="screen-reader-text">{{ $t('privateMessage.message.message') }}</h2>
     <div v-if="getMessage.id">
-      <v-table>
+      <v-table class="pa-1 ma-1">
         <tr>
           <td>{{ $t('privateMessage.message.createdAt') }}</td>
           <td>
@@ -25,14 +25,10 @@
         <tr>
           <td colspan="2"><span v-html="getMessage.message"></span></td>
         </tr>
-        <tr v-if="isReply">
-          <td colspan="2">
-            <message-post ref="post" v-bind:message="getMessage"></message-post>
-          </td>
-        </tr>
       </v-table>
+      <message-post v-if="isReply" ref="post" v-bind:message="getMessage"></message-post>
     </div>
-  </v-sheet>
+  </div>
 </template>
 
 

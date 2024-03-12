@@ -1,5 +1,5 @@
 <template>
-  <v-sheet>
+  <div>
     <h1 class="screen-reader-text">{{ $t('avatar.choose') }}</h1>
     <v-row class="ma-2">
       <v-col cols="12">
@@ -24,7 +24,7 @@
         </v-card>
       </v-col>
     </v-row>
-  </v-sheet>
+  </div>
 </template>
 <script>
 

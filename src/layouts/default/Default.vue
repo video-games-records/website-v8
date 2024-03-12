@@ -28,9 +28,9 @@
           </div>
         </v-col>-->
         <v-col cols="12">
-          <v-sheet :class="this.$vuetify.display.mobile ? 'ma-1' : 'ma-5'">
+          <div :class="this.$vuetify.display.mobile ? 'ma-1' : 'ma-5'">
             <router-view/>
-          </v-sheet>
+          </div>
         </v-col>
       </v-row>
     </v-main>

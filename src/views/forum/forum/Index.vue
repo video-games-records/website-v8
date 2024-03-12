@@ -1,27 +1,35 @@
 <template>
-  <v-sheet>
+  <div>
     <h1>{{ getForum.libForum }}</h1>
 
     <sub-forums v-if="getForum.isParent" v-bind:id-forum="this.$route.params.idForum"></sub-forums>
 
-    <v-sheet v-else>
-      <v-sheet class="d-flex justify-center flex-wrap">
+    <div v-else>
+      <div class="d-flex justify-center flex-wrap">
         <router-link v-if="isAuthenticated === true" :to="{ name: 'TopicNew'}" class="link-as-button">
           <v-btn class="ma-2">{{ $t('forum.newTopic.title') }}</v-btn>
         </router-link>
         <read-form class="ma-2" v-if="isAuthenticated" v-bind:id-forum="this.$route.params.idForum"></read-form>
-      </v-sheet>
+      </div>
 
       <topic-list v-bind:topics="topics"></topic-list>
 
-      <v-sheet class="d-flex justify-center flex-wrap">
+      <v-pagination
+          :density="this.$vuetify.display.mobile ? 'compact' : 'default'"
+          v-model="page"
+          :length="length"
+          total-visible=6
+          @update:modelValue="updateResource()" />
+
+
+      <div class="d-flex justify-center flex-wrap">
         <router-link v-if="isAuthenticated === true" :to="{ name: 'TopicNew'}" class="link-as-button">
           <v-btn class="ma-2">{{ $t('forum.newTopic.title') }}</v-btn>
         </router-link>
         <read-form class="ma-2" v-if="isAuthenticated" v-bind:id-forum="this.$route.params.idForum"></read-form>
-      </v-sheet>
-    </v-sheet>
-  </v-sheet>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -44,7 +52,7 @@ export default {
       return useAppStore().getForum
     },
     getResourceUrl() {
-      return '/api/forum_topics?forum=' + this.$route.params.idForum + '&boolArchive=false&itemsPerPage=' + this.itemsPerPage;
+      return '/api/forum_topics?forum=' + this.$route.params.idForum + '&boolArchive=false&itemsPerPage=' + this.itemsPerPage + '&page=' + this.page;
     }
   },
   data() {
@@ -63,7 +71,7 @@ export default {
       this.axios.get(this.getResourceUrl)
           .then(response => {
             this.topics = response.data['hydra:member'];
-            this.length = Math.trunc(response.data['hydra:totalItems'] / this.itemsPerPage - 1) + 1;
+            this.length = Math.trunc((response.data['hydra:totalItems'] - 1) / this.itemsPerPage ) + 1;
           })
     },
   },

@@ -1,5 +1,5 @@
 <template>
-  <v-sheet>
+  <div>
     <h2 class="screen-reader-text">{{ $t('privateMessage.inbox.title') }}</h2>
 
     <fieldset class="filter">
@@ -69,7 +69,7 @@
         total-visible=6
         @update:modelValue="updateResource()" />
 
-  </v-sheet>
+  </div>
 </template>
 
 
@@ -148,7 +148,7 @@ export default {
       this.axios.get(this.getResourceUrl)
           .then(response => {
             this.messages = response.data['hydra:member'];
-            this.length = Math.trunc(response.data['hydra:totalItems'] / this.itemsPerPage - 1) + 1;
+            this.length = Math.trunc((response.data['hydra:totalItems'] - 1) / this.itemsPerPage ) + 1;
           })
     },
     setMessage: function (message) {

@@ -1,6 +1,6 @@
 <template>
-  <v-sheet class="ma-5">
-    <v-sheet v-if="isLeader">
+  <div class="ma-5">
+    <div v-if="isLeader">
       <v-form v-model="isValid" validate-on="blur" @submit.prevent @submit="update()">
         <v-text-field v-model="team.libTeam" :label="$t('team.name')" :rules="[rules.required, rules.minlength(5, team.libTeam)]"></v-text-field>
         <v-text-field v-model="team.tag" :label="$t('team.tag')" :rules="[rules.required, rules.minlength(2, team.tag)]"></v-text-field>
@@ -11,7 +11,7 @@
       <h3 class="ma-2">{{ $t('avatar.choose') }}</h3>
       <avatar-upload-form callback="api/teams/upload-avatar"/>
 
-    </v-sheet>
+    </div>
 
     <v-sheet v-else>
       <v-sheet v-if="hasTeam">
@@ -36,8 +36,7 @@
         </v-form>
       </v-sheet>
     </v-sheet>
-
-  </v-sheet>
+  </div>
 </template>
 
 <script>
