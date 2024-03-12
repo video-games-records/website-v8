@@ -1,9 +1,9 @@
 <template>
-  <v-sheet>
-    <v-sheet v-if="isLoading" class="d-flex justify-center">
+  <div>
+    <div v-if="isLoading" class="d-flex justify-center">
       <v-progress-circular indeterminate color="yellow-darken-2"></v-progress-circular>
-    </v-sheet>
-    <v-sheet v-else class="d-flex">
+    </div>
+    <div v-else class="d-flex">
       <v-btn v-if="!isFirst" rounded="lg" icon="mdi-chevron-left" v-on:click="goToPrev()" />
       <v-select
           density="comfortable"
@@ -16,8 +16,8 @@
       >
       </v-select>
       <v-btn v-if="!isLast" rounded="lg" icon="mdi-chevron-right" v-on:click="goToNext()" />
-    </v-sheet>
-  </v-sheet>
+    </div>
+  </div>
 </template>
 
 <script>

@@ -1,5 +1,5 @@
 <template>
-  <v-sheet v-if="this.getPlayer.id">
+  <div v-if="this.getPlayer.id" class="pa-2">
     <v-row class="ma-1">
       <v-col cols="12" lg="6">
         {{ $t('stats.nbGame') }} : {{ number(getPlayer.nbGame) }} <br/>
@@ -45,7 +45,7 @@
                                      v-bind:id-player="$route.params.idPlayer"/>
       </v-col>
     </v-row>
-  </v-sheet>
+  </div>
 </template>
 
 <script>

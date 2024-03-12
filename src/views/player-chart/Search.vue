@@ -1,5 +1,5 @@
 <template>
-  <v-sheet>
+  <div>
     <h1>{{ $t('search.advanced') }}</h1>
 
     <v-form @submit.prevent @submit="search()">
@@ -148,7 +148,7 @@
       </v-card>
     </v-dialog>
 
-  </v-sheet>
+  </div>
 </template>
 
 <script>
@@ -316,7 +316,7 @@ export default {
       this.axios.get(this.getResourceUrl)
           .then(response => {
             this.playerCharts = response.data['hydra:member'];
-            this.length = Math.trunc(response.data['hydra:totalItems'] / this.itemsPerPage - 1) + 1;
+            this.length = Math.trunc((response.data['hydra:totalItems'] - 1) / this.itemsPerPage ) + 1;
             this.isLoading = false;
           })
     },

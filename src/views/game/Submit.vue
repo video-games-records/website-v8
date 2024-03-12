@@ -50,7 +50,7 @@ export default {
       this.axios.get(this.getResourceUrl)
           .then(response => {
             useScoreSubmitStore().setCharts(response.data['hydra:member']);
-            this.length = Math.trunc(response.data['hydra:totalItems'] / this.itemsPerPage - 1) + 1;
+            this.length = Math.trunc((response.data['hydra:totalItems'] - 1) / this.itemsPerPage ) + 1;
           })
     },
   },

@@ -1,5 +1,5 @@
 <template>
-  <v-sheet>
+  <div class="pa-2">
     <v-row>
       <v-col cols="12">
         <player-proof-stats v-bind:id-player="this.$route.params.idPlayer"/>
@@ -8,7 +8,7 @@
         <player-proof-games v-bind:id-player="this.$route.params.idPlayer"/>
       </v-col>
     </v-row>
-  </v-sheet>
+  </div>
 </template>
 
 <script>

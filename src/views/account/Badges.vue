@@ -1,5 +1,5 @@
 <template>
-  <v-sheet class="ma-3">
+  <div class="ma-3">
     <v-row>
       <v-col cols="12" class="d-flex flex-wrap">
         <draggable v-model="badges" item-key="id">
@@ -12,7 +12,7 @@
         <v-btn @click="order">{{ $t('badge.order.button') }}</v-btn>
       </v-col>
     </v-row>
-  </v-sheet>
+  </div>
 </template>
 
 <script>

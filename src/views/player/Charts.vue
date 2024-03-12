@@ -1,5 +1,5 @@
 <template>
-  <v-sheet>
+  <div class="pa-2">
     <v-row>
       <v-col cols="12" class="d-flex justify-center ma-2">
         <v-btn @click="search()">{{ $t('search.advanced') }}</v-btn>
@@ -13,7 +13,7 @@
         </player-chart-list>
       </v-col>
     </v-row>
-  </v-sheet>
+  </div>
 </template>
 
 <script>

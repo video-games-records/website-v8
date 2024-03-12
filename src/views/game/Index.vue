@@ -1,5 +1,5 @@
 <template>
-  <v-sheet>
+  <div>
     <h1 class="screen-reader-text">{{ getGame.name }}</h1>
 
     <div v-if="hasRolePlayer && getGame.id && !this.$vuetify.display.mobile" class="d-flex justify-center ma-3">
@@ -73,7 +73,7 @@
         </v-window-item>
       </v-window>
     </v-card-text>
-  </v-sheet>
+  </div>
 </template>
 
 <script>

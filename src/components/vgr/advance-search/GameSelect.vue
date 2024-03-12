@@ -1,5 +1,5 @@
 <template>
-  <v-sheet>
+  <div>
     <v-autocomplete
         v-model="game"
         :custom-filter="customFilter"
@@ -17,7 +17,7 @@
             class="button-as-link tag">
       <span class="tag--close" :aria-label="$t('tag.remove')">×</span> {{ game.name }}
     </button>
-  </v-sheet>
+  </div>
 </template>
 
 <script>

@@ -82,7 +82,7 @@ export default {
       this.axios.get(this.getResourceUrl)
           .then(response => {
             this.messages = response.data['hydra:member'];
-            this.length = Math.trunc(response.data['hydra:totalItems'] / this.itemsPerPage - 1) + 1;
+            this.length = Math.trunc((response.data['hydra:totalItems'] - 1) / this.itemsPerPage ) + 1;
             if (this.$route.hash) {
               let id = this.$route.hash.substring(1,this.$route.hash.length);
               setTimeout(function() {

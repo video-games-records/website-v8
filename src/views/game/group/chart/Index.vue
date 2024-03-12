@@ -56,7 +56,8 @@
                     <li class="d-inline pa-1">
                       <button v-if="row[0].proof" type="button" @click="showProof(row[0])"
                               :aria-labelledby="row[0].id">
-                        <status v-bind:status=row[0].status></status>
+                        <v-icon v-if="row[0].proof.video">mdi-video-box</v-icon>
+                        <status v-else v-bind:status=row[0].status></status>
                         <v-tooltip
                             activator="parent"
                             location="start"
@@ -211,7 +212,7 @@ export default {
   updated() {
     if (this.$route.name === 'ChartIndex') {
       useBreadcrumbsStore().setLevel(3);
-      if (this.getChart.id != this.$route.params.idChart) {
+      if (this.getChart.id !== this.$route.params.idChart) {
         this.load();
       }
     }
