@@ -1,5 +1,5 @@
 <template>
-  <v-sheet class="pa-0">
+  <div class="pa-0">
     <v-row>
       <v-col v-if="!this.$vuetify.display.mobile" cols="12">
         <breadcrumb />
@@ -12,7 +12,7 @@
         <game-aside />
       </v-col>
     </v-row>
-  </v-sheet>
+  </div>
 </template>
 
 <script>

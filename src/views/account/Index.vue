@@ -1,5 +1,5 @@
 <template>
-  <v-sheet class="ma-2">
+  <div class="ma-2">
     <h1 class="screen-reader-text">{{ $t('account.index.title') }}</h1>
     <v-form  v-model="isValid" validate-on="blur" @submit.prevent @submit="submit()">
       <v-row>
@@ -55,7 +55,7 @@
       </v-row>
     </v-form>
 
-  </v-sheet>
+  </div>
 </template>
 
 <script>

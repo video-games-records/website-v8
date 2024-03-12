@@ -1,5 +1,5 @@
 <template>
-  <v-sheet class="pa-0">
+  <div class="pa-0">
     <v-row>
       <v-col cols="12">
         <breadcrumb />
@@ -8,7 +8,7 @@
         <router-view></router-view>
       </v-col>
     </v-row>
-  </v-sheet>
+  </div>
 </template>
 
 <script>

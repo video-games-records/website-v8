@@ -1,27 +1,27 @@
 <template>
-  <v-sheet>
+  <div>
     <h1>{{ getForum.libForum }}</h1>
 
     <sub-forums v-if="getForum.isParent" v-bind:id-forum="this.$route.params.idForum"></sub-forums>
 
-    <v-sheet v-else>
-      <v-sheet class="d-flex justify-center flex-wrap">
+    <div v-else>
+      <div class="d-flex justify-center flex-wrap">
         <router-link v-if="isAuthenticated === true" :to="{ name: 'TopicNew'}" class="link-as-button">
           <v-btn class="ma-2">{{ $t('forum.newTopic.title') }}</v-btn>
         </router-link>
         <read-form class="ma-2" v-if="isAuthenticated" v-bind:id-forum="this.$route.params.idForum"></read-form>
-      </v-sheet>
+      </div>
 
       <topic-list v-bind:topics="topics"></topic-list>
 
-      <v-sheet class="d-flex justify-center flex-wrap">
+      <div class="d-flex justify-center flex-wrap">
         <router-link v-if="isAuthenticated === true" :to="{ name: 'TopicNew'}" class="link-as-button">
           <v-btn class="ma-2">{{ $t('forum.newTopic.title') }}</v-btn>
         </router-link>
         <read-form class="ma-2" v-if="isAuthenticated" v-bind:id-forum="this.$route.params.idForum"></read-form>
-      </v-sheet>
-    </v-sheet>
-  </v-sheet>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>

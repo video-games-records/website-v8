@@ -4,7 +4,7 @@
       <h2>{{ getPlatform.libPlatform }}</h2>
     </v-col>
     <v-col cols="12" order="2" md="12" lg="3" order-lg="3">
-      <v-sheet v-if="this.$vuetify.display.mobile">
+      <div v-if="this.$vuetify.display.mobile">
         <v-select
             v-model="platform"
             :items="this.platforms"
@@ -13,11 +13,11 @@
             return-object
         >
         </v-select>
-      </v-sheet>
-      <v-sheet v-else>
+      </div>
+      <div v-else>
         <div class="d-flex justify-center">{{ $t('platform.choose') }}</div>
         <platform-list v-bind:platforms="platforms" :route=null></platform-list>
-      </v-sheet>
+      </div>
     </v-col>
     <v-col cols="12" order="3" md="12" lg="9" order-lg="1">
       <v-tabs v-model="tab" class="bg-primary">

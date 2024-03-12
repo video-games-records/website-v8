@@ -1,5 +1,5 @@
 <template>
-  <v-sheet>
+  <div>
     <h1>{{ $t('search.advanced') }}</h1>
 
     <v-form @submit.prevent @submit="search()">
@@ -148,7 +148,7 @@
       </v-card>
     </v-dialog>
 
-  </v-sheet>
+  </div>
 </template>
 
 <script>

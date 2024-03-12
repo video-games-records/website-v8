@@ -1,5 +1,5 @@
 <template>
-  <v-sheet>
+  <div>
 
     <h1>{{ $t('player.list.title') }}</h1>
 
@@ -71,7 +71,7 @@
         total-visible=6
         @update:modelValue="updateResource()" />
 
-  </v-sheet>
+  </div>
 </template>
 
 <script>

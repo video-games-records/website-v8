@@ -1,5 +1,5 @@
 <template>
-  <v-sheet>
+  <div>
     <h1>{{ $t('lostPosition.index.title') }}</h1>
 
 
@@ -56,7 +56,7 @@
           :length="length"
           total-visible=6
           @update:modelValue="updateResource()" />
-  </v-sheet>
+  </div>
 </template>
 
 <script>

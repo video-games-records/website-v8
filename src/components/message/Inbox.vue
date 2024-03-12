@@ -1,5 +1,5 @@
 <template>
-  <v-sheet>
+  <div>
     <h2 class="screen-reader-text">{{ $t('privateMessage.inbox.title') }}</h2>
 
     <fieldset class="filter">
@@ -69,7 +69,7 @@
         total-visible=6
         @update:modelValue="updateResource()" />
 
-  </v-sheet>
+  </div>
 </template>
 
 

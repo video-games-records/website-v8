@@ -1,5 +1,5 @@
 <template>
-  <div class="profile-badges">
+  <div class="pa-4">
     <player-badge-default v-if="getSpecial !== 0" v-bind:badges="getSpecial"
                           v-bind:title="this.$t('badge.type.special')"/>
 

@@ -1,12 +1,12 @@
 <template>
-  <v-sheet>
+  <div>
     <group-switch v-if="canSwitchGroup"></group-switch>
 
     <chart-switch v-if="canSwitchChart"></chart-switch>
 
     <maj-platform v-bind:game=getGame v-if="!this.$vuetify.display.mobile && hasRolePlayer && (getGame.platforms.length > 1)"></maj-platform>
 
-    <v-card v-if="!this.$vuetify.display.mobile" class="ma-2 bg-orange-lighten-2">
+    <v-card v-if="!this.$vuetify.display.mobile" class="ma-2">
       <v-card-title>{{ $t('game.rules.title') }}</v-card-title>
       <v-card-item>
         <div v-if="getGame.rules && getGame.rules.length > 0">
@@ -24,14 +24,14 @@
       </v-card-item>
     </v-card>
 
-    <v-card v-if="!this.$vuetify.display.mobile">
+    <v-card v-if="!this.$vuetify.display.mobile" class="ma-2">
       <v-card-title></v-card-title>
       <v-card-item>
         <v-img src="https://s3.eu-west-3.amazonaws.com/picture.video-games-records.com/partenariat/vgr/120-600_4.jpg" />
       </v-card-item>
     </v-card>
 
-    <v-card v-if="!this.$vuetify.display.mobile" class="ma-2 bg-orange-lighten-2">
+    <v-card v-if="!this.$vuetify.display.mobile" class="ma-2">
       <v-card-title>Help us</v-card-title>
       <v-card-item class="d-flex justify-center">
         Dear players, Let's shape the future of Video Games Records together by contributing today. <br />
@@ -43,7 +43,7 @@
         <v-btn href="https://streamlabs.com/videogamesrecords/tip" target="_blank">Make a donation</v-btn>
       </v-card-actions>
     </v-card>
-  </v-sheet>
+  </div>
 </template>
 
 <script>
