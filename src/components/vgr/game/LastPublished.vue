@@ -1,5 +1,5 @@
 <template>
-  <v-card>
+  <v-card variant="outlined">
     <v-card-title>{{ $t('game.last.title') }}</v-card-title>
     <v-card-item>
       <v-progress-linear v-if="games.length === 0" indeterminate color="yellow-darken-2"></v-progress-linear>

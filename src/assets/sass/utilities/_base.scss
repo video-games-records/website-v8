@@ -42,9 +42,8 @@ body {
 a,
 a:active,
 a:visited {
-    color: $base-color;
-    //color: rgb(var(--v-theme-link));
-    text-decoration: underline;
+    color: rgb(var(--v-theme-link));
+    //text-decoration: underline;
 }
 
 a:hover,

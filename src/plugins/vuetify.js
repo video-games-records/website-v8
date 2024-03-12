@@ -15,20 +15,18 @@ import colors from 'vuetify/util/colors'
 // https://vuetifyjs.com/en/introduction/why-vuetify/#feature-guides
 export default createVuetify({
   theme: {
-    defaultTheme: 'light',
+    defaultTheme: 'dark',
     themes: {
       light: {
         colors: {
           primary: colors.orange.lighten1,
           secondary: colors.orange.lighten4,
-          //link: colors.blue.lighten4
         },
       },
       dark: {
         colors: {
           primary: colors.orange.lighten1,
-          secondary: colors.orange.lighten4,
-          link: colors.brown.lighten1,
+          secondary: colors.blueGrey.darken2,
         },
       },
     },
