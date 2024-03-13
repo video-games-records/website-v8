@@ -47,7 +47,7 @@ svg[aria-hidden="true"]:not(.svg-sprite) {
 /* -- @subsection Breadcrumb ---------- */
 .site-breadcrumb {
     padding: .5em $page-padding-small;
-    background-color: $secondary-background;
+    background-color: rgb(var(--v-theme-breadcrumb));
 
     ol {
         @extend %inline-list;
