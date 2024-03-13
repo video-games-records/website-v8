@@ -87,9 +87,10 @@
   "aside": {
     "on": "on",
     "shop": "Shop",
-    "paypal": {
-      "title": "PayPal - The safer, easier way to pay online!",
-      "alt": "Donate with PayPal"
+    "donate": {
+      "title": "Help us",
+      "message": "Dear players, Let's shape the future of Video Games Records together by contributing today. <br />\n Every donation, no matter the size, makes a significant impact.<br />\n Join us in this exciting venture and invest in the continuity of our community by making a donation now.<br />\n Thank you for your generosity!",
+      "action": "Make a donation"
     },
     "switch": {
       "group": "Switch to another group",

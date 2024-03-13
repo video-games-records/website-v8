@@ -32,15 +32,12 @@
     </v-card>
 
     <v-card v-if="!this.$vuetify.display.mobile" class="ma-2">
-      <v-card-title>Help us</v-card-title>
+      <v-card-title>{{ $t('aside.donate.title') }}</v-card-title>
       <v-card-item class="d-flex justify-center">
-        Dear players, Let's shape the future of Video Games Records together by contributing today. <br />
-        Every donation, no matter the size, makes a significant impact.<br />
-        Join us in this exciting venture and invest in the continuity of our community by making a donation now.<br />
-        Thank you for your generosity!
+        <span v-html="$t('aside.donate.message')" />
       </v-card-item>
       <v-card-actions>
-        <v-btn href="https://streamlabs.com/videogamesrecords/tip" target="_blank">Make a donation</v-btn>
+        <v-btn href="https://streamlabs.com/videogamesrecords/tip" target="_blank">{{ $t('aside.donate.action') }}</v-btn>
       </v-card-actions>
     </v-card>
   </div>
