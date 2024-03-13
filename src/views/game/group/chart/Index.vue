@@ -56,7 +56,8 @@
                     <li class="d-inline pa-1">
                       <button v-if="row[0].proof" type="button" @click="showProof(row[0])"
                               :aria-labelledby="row[0].id">
-                        <status v-bind:status=row[0].status></status>
+                        <v-icon v-if="row[0].proof.video">mdi-video-box</v-icon>
+                        <status v-else v-bind:status=row[0].status></status>
                         <v-tooltip
                             activator="parent"
                             location="start"
