@@ -16,24 +16,16 @@
       <navigation/>
     </v-navigation-drawer>
 
-    <v-main class="d-flex justify-center" style="min-height: 300px;">
-      <v-row>
-        <!--<v-col v-if="!this.$vuetify.display.mobile" cols="12">
-          <div id="header" role="banner" class="site-header">
-            <div class="site-header__logo">
-              <a href="/fr/" class="router-link-exact-active router-link-active" aria-current="page">
-                <img src="/img/logo.3122c306.svg" width="600" height="72" alt="Video Games Records">
-              </a>
-            </div>
-          </div>
-        </v-col>-->
-        <v-col cols="12">
-          <div :class="this.$vuetify.display.mobile ? 'ma-1' : 'ma-5'">
-            <router-view/>
-          </div>
-        </v-col>
-      </v-row>
-    </v-main>
+
+    <v-container class="fill-height" fluid>
+      <v-responsive class="fill-height">
+        <v-main>
+          <router-view/>
+        </v-main>
+      </v-responsive>
+    </v-container>
+
+
 
     <v-footer class="bg-grey-lighten-1">
       <v-row justify="center" no-gutters>

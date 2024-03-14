@@ -1,6 +1,12 @@
 import { TokenService } from './token.service'
 import axios from "axios";
+import { createAxiosResponseInterceptor } from '@/plugins/axios.interceptors'
 
+const axiosInstance = axios.create({
+    baseURL: import.meta.env.VITE_API_URL,
+});
+
+createAxiosResponseInterceptor(axiosInstance);
 
 class AuthenticationError extends Error {
     constructor(errorCode, message) {
@@ -24,7 +30,7 @@ const AuthenticationService = {
     register: async function(email, username, password, rules_accepted) {
         const requestData = {
             method: 'post',
-            url: import.meta.env.VITE_ROOT_API + "/api/users/registration/register",
+            url: "/api/users/registration/register",
             data: {
                 email : email,
                 username: username,
@@ -32,7 +38,7 @@ const AuthenticationService = {
                 rules_accepted: rules_accepted
             }
         }
-        return axios(requestData).then(response => {
+        return axiosInstance(requestData).then(response => {
             return response;
         })
     },
@@ -44,12 +50,12 @@ const AuthenticationService = {
     confirm: function(token) {
         const requestData = {
             method: 'post',
-            url: import.meta.env.VITE_ROOT_API + "/api/users/registration/confirm",
+            url: "/api/users/registration/confirm",
             data: {
                 token : token
             }
         }
-        return axios(requestData).then(response => {
+        return axiosInstance(requestData).then(response => {
             return response;
         })
     },
@@ -63,7 +69,7 @@ const AuthenticationService = {
     login: async function(email, password) {
         const requestData = {
             method: 'post',
-            url: import.meta.env.VITE_ROOT_API + "/api/login_check",
+            url: "/api/login_check",
             data: {
                 username : email,
                 password : password
@@ -71,7 +77,7 @@ const AuthenticationService = {
         }
 
         try {
-            const response = await axios(requestData)
+            const response = await axiosInstance(requestData)
 
             TokenService.saveToken(response.data.token)
             TokenService.saveRefreshToken(response.data.refresh_token)
@@ -91,12 +97,12 @@ const AuthenticationService = {
     resettingSendEmail: function(email) {
         const requestData = {
             method: 'post',
-            url: import.meta.env.VITE_ROOT_API + "/api/users/resetting/send-email",
+            url: "/api/users/resetting/send-email",
             data: {
                 username : email
             }
         }
-        return axios(requestData).then(response => {
+        return axiosInstance(requestData).then(response => {
             return response;
         })
     },
@@ -110,13 +116,13 @@ const AuthenticationService = {
     resettingReset: function(token, password) {
         const requestData = {
             method: 'post',
-            url: import.meta.env.VITE_ROOT_API + "/api/users/resetting/reset",
+            url: "/api/users/resetting/reset",
             data: {
                 token : token,
                 password: password
             }
         }
-        return axios(requestData).then(response => {
+        return axiosInstance(requestData).then(response => {
             return response;
         })
     },
@@ -136,7 +142,7 @@ const AuthenticationService = {
             data: data
         }
         try {
-            const response = await axios(requestData)
+            const response = await axiosInstance(requestData)
             TokenService.saveToken(response.data.token);
             TokenService.saveRefreshToken(response.data.refresh_token);
             return true;

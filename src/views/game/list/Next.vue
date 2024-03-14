@@ -2,7 +2,7 @@
   <div>
     <h1>{{ $t('game.next.title') }}</h1>
 
-    <h2>{{ $t('game.next.status.created') }}</h2>
+    <h2 class="ma-2">{{ $t('game.next.status.created') }}</h2>
     <gameList
         v-bind:callback="this.getCallBack('CREATED')"
         v-bind:show-link="false"
@@ -11,7 +11,7 @@
         v-bind:display-players="false">
     </gameList>
 
-    <h2>{{ $t('game.next.status.addScore') }}</h2>
+    <h2 class="ma-2">{{ $t('game.next.status.addScore') }}</h2>
     <gameList
         v-bind:callback="this.getCallBack('ADD_SCORE')"
         v-bind:show-link="false"
@@ -20,7 +20,7 @@
         v-bind:display-players="false">
     </gameList>
 
-    <h2>{{ $t('game.next.status.addPicture') }}</h2>
+    <h2 class="ma-2">{{ $t('game.next.status.addPicture') }}</h2>
     <gameList
         v-bind:callback="this.getCallBack('ADD_PICTURE')"
         v-bind:show-link="false"
@@ -29,7 +29,7 @@
         v-bind:display-players="false">
     </gameList>
 
-    <h2>{{ $t('game.next.status.completed') }}</h2>
+    <h2 class="ma-2">{{ $t('game.next.status.completed') }}</h2>
     <gameList
         v-bind:callback="this.getCallBack('COMPLETED')"
         v-bind:show-link="false"

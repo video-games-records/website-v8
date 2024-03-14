@@ -108,7 +108,7 @@ export default {
       return this.$t('player.list.title') + ' - ' + import.meta.env.VITE_APP_TITLE;
     },
     getResourceUrl() {
-      let url = '/api/players??itemsPerPage=' + this.itemsPerPage;
+      let url = '/api/players?itemsPerPage=' + this.itemsPerPage;
       // Add filter
       url += '&user.enabled=1';
       // Add group player + team

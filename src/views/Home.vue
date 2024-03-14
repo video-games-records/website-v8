@@ -1,12 +1,12 @@
 <template>
     <v-row>
+
       <v-col cols="12" md="6" lg="5">
         <game-last-updated-score />
       </v-col>
       <v-col cols="12" md="6" lg="7">
         <game-last-published />
       </v-col>
-
       <v-col cols="12" md="6" lg="3">
         <leaderboard-player-point></leaderboard-player-point>
       </v-col>
@@ -18,6 +18,9 @@
       </v-col>
       <v-col cols="12" md="6" lg="3">
         <leaderboard-team-cup></leaderboard-team-cup>
+      </v-col>
+      <v-col cols="12" md="6" lg="5">
+        <home-message />
       </v-col>
       <v-col cols="12" md="6" lg=3>
         <article-last-published />
@@ -37,10 +40,12 @@ import GameDay from "@/components/vgr/game/Day.vue";
 import GameLastPublished from "@/components/vgr/game/LastPublished.vue";
 import GameLastUpdatedScore from "@/components/vgr/game/LastUpdatedScore.vue";
 import ArticleLastPublished from "@/components/article/LastPublished.vue";
+import HomeMessage from "@/components/page/HomeMessage.vue";
 
 export default {
   name: 'vgrHome',
   components: {
+    HomeMessage,
     ArticleLastPublished,
     GameLastPublished,
     GameLastUpdatedScore,

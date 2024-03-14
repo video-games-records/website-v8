@@ -1,16 +1,16 @@
 <template>
-  <v-sheet>
-    <div class="message-info">
-      <p>
-        <strong v-html="$t('proof.rules.link', [rulesLink] )"></strong><br/>
+  <div>
+    <v-card class="ma-2">
+      <v-card-title><span v-html="$t('proof.rules.link', [rulesLink] )"></span><br/></v-card-title>
+      <v-card-item>
         {{ $t('proof.rules.reminder') }}
-      </p>
-    </div>
+      </v-card-item>
+    </v-card>
 
     <player-proof-stats v-bind:id-player="getAuthenticatedPlayer.id"/>
 
     <player-proof-games v-bind:id-player="getAuthenticatedPlayer.id"/>
-  </v-sheet>
+  </div>
 </template>
 
 <script>

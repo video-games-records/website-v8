@@ -1,6 +1,7 @@
 <template>
+  <h3 class="ma-2">{{ $t('proof.byGame') }}</h3>
   <v-table>
-    <caption class="h3">{{ $t('proof.byGame') }}</caption>
+
     <thead>
     <tr>
       <th>{{ $t('global.game') }}</th>
