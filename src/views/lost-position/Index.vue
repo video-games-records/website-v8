@@ -23,15 +23,6 @@
         <th scope="col">{{ $t('lostPosition.change') }}</th>
       </tr>
       </thead>
-      <tfoot v-if="!this.$vuetify.display.mobile">
-      <tr>
-        <td colspan="4">
-          <v-btn  v-if="isSelectAll === false" @click="selectAll()">{{ $t('tag.selectAll') }}</v-btn>
-          <v-btn  v-else @click="unselectAll()">{{ $t('tag.unselectAll') }}</v-btn>
-          <v-btn  @click="deleteRow()">{{ $t('tag.delete') }}</v-btn>
-        </td>
-      </tr>
-      </tfoot>
       <tbody>
       <tr v-for="row in data" :data-position="row.position" :key="row.id">
         <td v-if="!this.$vuetify.display.mobile">
@@ -49,6 +40,12 @@
       </tr>
       </tbody>
     </v-table>
+
+    <div class="d-flex flex-wrap">
+      <v-btn class="ma-2" v-if="isSelectAll === false" @click="selectAll()">{{ $t('tag.selectAll') }}</v-btn>
+      <v-btn class="ma-2" v-else @click="unselectAll()">{{ $t('tag.unselectAll') }}</v-btn>
+      <v-btn class="ma-2" @click="deleteRow()">{{ $t('tag.delete') }}</v-btn>
+    </div>
 
       <v-pagination
           :density="this.$vuetify.display.mobile ? 'compact' : 'default'"

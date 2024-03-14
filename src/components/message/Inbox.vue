@@ -23,7 +23,7 @@
 
     </fieldset>
 
-    <v-table class="private-message">
+    <v-table>
       <caption class="screen-reader-text">{{ $t('privateMessage.inbox.caption') }}</caption>
       <thead>
       <tr>
@@ -33,15 +33,7 @@
         <th scope="col">{{ $t('privateMessage.message.createdAt') }}</th>
       </tr>
       </thead>
-      <tfoot v-if="!this.$vuetify.display.mobile">
-      <tr>
-        <td colspan="4">
-          <v-btn v-if="isSelectAll === false" @click="selectAll()">{{ $t('privateMessage.selectAll') }}</v-btn>
-          <v-btn v-else @click="unselectAll()">{{ $t('privateMessage.unselectAll') }}</v-btn>
-          <v-btn @click="deleteMessage()">{{ $t('privateMessage.delete') }}</v-btn>
-        </td>
-      </tr>
-      </tfoot>
+
       <tbody>
       <tr v-for="message in messages" :data-position="message.position" :key="message.id">
         <td v-if="!this.$vuetify.display.mobile"><input v-model="message.isDeletedRecipient" type="checkbox" value="1">
@@ -61,6 +53,11 @@
       </tr>
       </tbody>
     </v-table>
+    <div class="d-flex flex-wrap">
+      <v-btn class="ma-2" v-if="isSelectAll === false" @click="selectAll()">{{ $t('privateMessage.selectAll') }}</v-btn>
+      <v-btn class="ma-2" v-else @click="unselectAll()">{{ $t('privateMessage.unselectAll') }}</v-btn>
+      <v-btn class="ma-2" @click="deleteMessage()">{{ $t('privateMessage.delete') }}</v-btn>
+    </div>
 
     <v-pagination
         :density="this.$vuetify.display.mobile ? 'compact' : 'default'"

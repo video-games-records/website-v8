@@ -58,7 +58,7 @@
         <v-col cols="12" md="6" lg="4" >
           <v-checkbox :label="$t('search.filter.platinum')" v-model="filter.platinum" />
         </v-col>
-        <v-col cols="12">
+        <v-col cols="12" class="ma-2">
           <v-btn :disabled="!this.isSearchable" type="submit" class="mt-2">{{ $t('search.submit') }}</v-btn>
         </v-col>
       </v-row>

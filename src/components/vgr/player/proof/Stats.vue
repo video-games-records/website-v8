@@ -1,5 +1,5 @@
 <template>
-  <v-sheet>
+  <div class="ma-2">
     <v-list density="compact">
       <v-list-item v-if="getTotal > 0" height="20">
         <strong>{{ number(getTotal) }}</strong> {{ $t('score.total', getTotal) }}
@@ -11,7 +11,7 @@
         <strong>{{ number(row['nb'] ) }}</strong> {{ $t('score.status.' + row[0].class, row['nb']) }}
       </v-list-item>
     </v-list>
-  </v-sheet>
+  </div>
 </template>
 
 <script>
