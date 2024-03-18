@@ -1,17 +1,23 @@
 <template>
-  <div class="ma-3">
-    <v-row>
-      <v-col cols="12" class="d-flex flex-wrap">
-        <draggable v-model="badges" item-key="id">
-          <template #item="{element}">
-            <badge v-bind:badge="element.badge" v-bind:createdAt="element.createdAt" class="ma-1"></badge>
-          </template>
-        </draggable>
-      </v-col>
-      <v-col cols="12">
+  <div>
+    <v-card class="ma-3">
+      <v-card-title class="bg-primary">{{ $t('badge.type.master') }}</v-card-title>
+      <v-card-item>
+        <v-row>
+          <v-col cols="12" class="d-flex flex-wrap">
+            <draggable v-model="badges" item-key="id">
+              <template #item="{element}">
+                <badge v-bind:badge="element.badge" v-bind:createdAt="element.createdAt" class="ma-1"></badge>
+              </template>
+            </draggable>
+          </v-col>
+        </v-row>
+      </v-card-item>
+      <v-card-actions>
         <v-btn @click="order">{{ $t('badge.order.button') }}</v-btn>
-      </v-col>
-    </v-row>
+      </v-card-actions>
+    </v-card>
+
   </div>
 </template>
 

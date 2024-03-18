@@ -1,17 +1,22 @@
 <template>
-  <div class="ma-5">
+  <div class="ma-2">
     <div v-if="isLeader">
-      <v-form v-model="isValid" validate-on="blur" @submit.prevent @submit="update()">
-        <v-text-field v-model="team.libTeam" :label="$t('team.name')" :rules="[rules.required, rules.minlength(5, team.libTeam)]"></v-text-field>
-        <v-text-field v-model="team.tag" :label="$t('team.tag')" :rules="[rules.required, rules.minlength(2, team.tag)]"></v-text-field>
-        <label for="presentation" class="font-weight-bold">{{ $t('team.presentation') }}</label>
-        <ckeditor :editor="editor" v-model="team.presentation" :config="editorConfig"></ckeditor>
-        <v-btn type="submit" class="mt-2">{{ $t('tag.submit') }}</v-btn>
-      </v-form>
-      <h3 class="ma-2">{{ $t('avatar.choose') }}</h3>
+      <v-card class="ma-3">
+        <v-card-title class="bg-primary">{{ $t('team.update.title') }}</v-card-title>
+        <v-card-item>
+          <v-form v-model="isValid" validate-on="blur" @submit.prevent @submit="update()">
+            <v-text-field v-model="team.libTeam" :label="$t('team.name')" :rules="[rules.required, rules.minlength(5, team.libTeam)]"></v-text-field>
+            <v-text-field v-model="team.tag" :label="$t('team.tag')" :rules="[rules.required, rules.minlength(2, team.tag)]"></v-text-field>
+            <label for="presentation" class="font-weight-bold">{{ $t('team.presentation') }}</label>
+            <ckeditor :editor="editor" v-model="team.presentation" :config="editorConfig"></ckeditor>
+            <v-btn type="submit" class="mt-2">{{ $t('tag.submit') }}</v-btn>
+          </v-form>
+        </v-card-item>
+      </v-card>
+
       <avatar-upload-form callback="api/teams/upload-avatar"/>
-      <h3 class="ma-2">{{ $t('badge.type.master') }}</h3>
       <account-master-badges type="team" :id="team.id" />
+      <team-recruit />
     </div>
 
     <v-sheet v-else>
@@ -47,12 +52,14 @@ import Ckeditor from "@/mixins/Ckeditor.vue";
 import {useFlashMessageStore} from "@/store/base/flashMessage";
 import AvatarUploadForm from "@/components/avatar/UploadForm.vue";
 import AccountMasterBadges from "@/components/vgr/account/MasterBadges.vue";
+import TeamRecruit from "@/components/vgr/account/TeamRecruit.vue";
 
 export default {
   mixins: [Security, Rules, Ckeditor],
   name: 'AccountTeam',
   props: [],
   components: {
+    TeamRecruit,
     AccountMasterBadges,
     AvatarUploadForm
   },

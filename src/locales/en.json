@@ -793,6 +793,7 @@
       "success": "Team added"
     },
     "update": {
+      "title": "Update my team",
       "success": "Team updated"
     },
     "tabs": {

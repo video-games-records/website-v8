@@ -793,6 +793,7 @@
       "success": "Equipe ajoutée"
     },
     "update": {
+      "title": "Modifier mon équipe",
       "success": "Equipe modifiée"
     },
     "tabs": {

@@ -30,7 +30,7 @@
               <ckeditor @ready="onEditorReady" :editor="editor" v-model="post.message"
                         :config="editorConfig" :rules="[rules.required]"></ckeditor>
 
-              <v-btn  type="submit" block class="mt-2">{{ $t('privateMessage.post.submit') }}</v-btn>
+              <v-btn type="submit" block class="mt-2">{{ $t('privateMessage.post.submit') }}</v-btn>
             </v-form>
           </v-card-item>
         </v-card>
@@ -111,7 +111,7 @@ export default {
       this.error = null;
       if ((this.post.recipient != null) && (this.post.message != null)) {
         this.axios.post('/api/messages', this.post)
-            .then(response => {
+            .then(() => {
               useFlashMessageStore().confirm('OK');
               this.dialog = false;
             });
