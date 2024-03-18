@@ -46,7 +46,7 @@ import Rules from "@/mixins/Rules.vue";
 import Ckeditor from "@/mixins/Ckeditor.vue";
 import {useFlashMessageStore} from "@/store/base/flashMessage";
 import AvatarUploadForm from "@/components/avatar/UploadForm.vue";
-import AccountMasterBadges from "@/components/account/MasterBadges.vue";
+import AccountMasterBadges from "@/components/vgr/account/MasterBadges.vue";
 
 export default {
   mixins: [Security, Rules, Ckeditor],

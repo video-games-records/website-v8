@@ -8,7 +8,7 @@
 <script>
 
 import Security from "@/mixins/Security.vue";
-import AccountMasterBadges from "@/components/account/MasterBadges.vue";
+import AccountMasterBadges from "@/components/vgr/account/MasterBadges.vue";
 
 export default {
   mixins: [Security],
