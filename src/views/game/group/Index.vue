@@ -19,7 +19,7 @@
       <v-window v-model="tab[0]">
         <v-window-item value="charts">
           <v-progress-linear v-if="isLoading" indeterminate color="yellow-darken-2"></v-progress-linear>
-          <table class="record-list">
+          <v-table>
             <caption class="screen-reader-text">{{ $t('global.charts') }}</caption>
             <thead>
             <tr>
@@ -35,7 +35,7 @@
               <td :data-header="$t('global.scores')">{{ number(chart.nbPost) }}</td>
             </tr>
             </tbody>
-          </table>
+          </v-table>
         </v-window-item>
         <v-window-item value="top-score">
           <top-score v-bind:charts=topScore></top-score>

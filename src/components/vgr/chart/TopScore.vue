@@ -1,6 +1,6 @@
 <template>
   <div>
-    <table class="top-score">
+    <v-table>
       <caption class="screen-reader-text">{{ $t('global.topScore') }}</caption>
       <thead>
       <tr>
@@ -48,7 +48,7 @@
         <td v-else></td>
       </tr>
       </tbody>
-    </table>
+    </v-table>
   </div>
 </template>
 

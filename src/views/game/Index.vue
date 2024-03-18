@@ -10,7 +10,7 @@
       </v-btn>
     </div>
 
-    <table class="group-list">
+    <v-table>
       <caption class="screen-reader-text">{{ $t('global.charts') }}</caption>
       <thead>
       <tr>
@@ -28,7 +28,7 @@
         <td :data-header="$t('global.scores')">{{ number(group.nbPost) }}</td>
       </tr>
       </tbody>
-    </table>
+    </v-table>
 
     <h2 class="pa-3">{{ $t('global.rankings') }}</h2>
 
