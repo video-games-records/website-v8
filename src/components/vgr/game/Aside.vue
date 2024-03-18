@@ -6,8 +6,8 @@
 
     <maj-platform v-bind:game=getGame v-if="!this.$vuetify.display.mobile && hasRolePlayer && (getGame.platforms.length > 1)"></maj-platform>
 
-    <v-card v-if="!this.$vuetify.display.mobile" class="ma-2">
-      <v-card-title>{{ $t('game.rules.title') }}</v-card-title>
+    <v-card v-if="!this.$vuetify.display.mobile" class="ma-2" variant="outlined">
+      <v-card-title class="bg-primary">{{ $t('game.rules.title') }}</v-card-title>
       <v-card-item>
         <div v-if="getGame.rules && getGame.rules.length > 0">
           <div v-for="rule in getGame.rules" :data-position="rule.position" :key="rule.id" v-html="rule.text" />
@@ -17,8 +17,8 @@
       </v-card-item>
     </v-card>
 
-    <v-card v-if="getGame.serie && !this.$vuetify.display.mobile" class="ma-2 bg-orange-lighten-2">
-      <v-card-title>Série</v-card-title>
+    <v-card v-if="getGame.serie && !this.$vuetify.display.mobile" class="ma-2" variant="outlined">
+      <v-card-title class="bg-primary">Série</v-card-title>
       <v-card-item class="d-flex justify-center">
         <serie-card :serie="getGame.serie" />
       </v-card-item>
@@ -31,8 +31,8 @@
       </v-card-item>
     </v-card>
 
-    <v-card v-if="!this.$vuetify.display.mobile" class="ma-2">
-      <v-card-title>{{ $t('aside.donate.title') }}</v-card-title>
+    <v-card v-if="!this.$vuetify.display.mobile" class="ma-2" variant="outlined">
+      <v-card-title class="bg-primary">{{ $t('aside.donate.title') }}</v-card-title>
       <v-card-item class="d-flex justify-center">
         <span v-html="$t('aside.donate.message')" />
       </v-card-item>

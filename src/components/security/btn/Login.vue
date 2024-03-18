@@ -9,7 +9,7 @@
 
       <template v-slot:default="{ isActive }">
         <v-card>
-          <v-card-title>Login</v-card-title>
+          <v-card-title class="bg-primary">Login</v-card-title>
           <v-card-item>
             <v-form v-model="isValid" validate-on="blur" @submit.prevent @submit="submit()">
               <v-text-field v-model="email" :label="$t('authentication.login.form.email')"
