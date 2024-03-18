@@ -3,7 +3,7 @@ import axios from "axios";
 import { createAxiosResponseInterceptor } from '@/plugins/axios.interceptors'
 
 const axiosInstance = axios.create({
-    baseURL: import.meta.env.VITE_API_URL,
+    baseURL: import.meta.env.VITE_ROOT_API,
 });
 
 createAxiosResponseInterceptor(axiosInstance);
@@ -13,7 +13,6 @@ class AuthenticationError extends Error {
         super(message)
         this.name = this.constructor.name
         this.message = message
-        this.errorCode = errorCode
     }
 }
 
