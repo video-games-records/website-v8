@@ -1,5 +1,5 @@
 <template>
-  <v-sheet>
+  <div>
     <h3 class="h3">{{ $t('badge.type.serie') }}</h3>
 
     <div class="d-flex flex-wrap">
@@ -46,7 +46,7 @@
         </v-card-item>
       </v-card>
     </v-dialog>
-  </v-sheet>
+  </div>
 </template>
 
 <script>

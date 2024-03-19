@@ -16,11 +16,11 @@
 
       <avatar-upload-form callback="api/teams/upload-avatar"/>
       <account-master-badges type="team" :id="team.id" />
-      <team-recruit />
+      <leader-team-requests />
     </div>
 
-    <v-sheet v-else>
-      <v-sheet v-if="hasTeam">
+    <div v-else>
+      <div v-if="hasTeam">
         <dl>
           <dt>{{ $t('team.name') }}</dt>
           <dd>{{ team.libTeam }}</dd>
@@ -32,16 +32,18 @@
             {{ $t('team.quit') }}
           </v-btn>
         </dl>
-      </v-sheet>
-      <v-sheet v-else>
+      </div>
+      <div v-else>
         <h2>{{ $t('team.create') }}</h2>
         <v-form v-model="isValid" validate-on="blur" @submit.prevent @submit="add()">
           <v-text-field v-model="team.libTeam" :label="$t('team.name')" :rules="[rules.required, rules.minlength(5, team.libTeam)]"></v-text-field>
           <v-text-field v-model="team.tag" :label="$t('team.tag')" :rules="[rules.required, rules.minlength(2, team.tag), rules.maxlength(4, team.tag)]"></v-text-field>
           <v-btn type="submit" class="mt-2">{{ $t('tag.submit') }}</v-btn>
         </v-form>
-      </v-sheet>
-    </v-sheet>
+
+        <player-team-requests />
+      </div>
+    </div>
   </div>
 </template>
 
@@ -52,14 +54,16 @@ import Ckeditor from "@/mixins/Ckeditor.vue";
 import {useFlashMessageStore} from "@/store/base/flashMessage";
 import AvatarUploadForm from "@/components/avatar/UploadForm.vue";
 import AccountMasterBadges from "@/components/vgr/account/MasterBadges.vue";
-import TeamRecruit from "@/components/vgr/account/TeamRecruit.vue";
+import LeaderTeamRequests from "@/components/vgr/account/LeaderTeamRequests.vue";
+import PlayerTeamRequests from "@/components/vgr/account/PlayerTeamRequests.vue";
 
 export default {
   mixins: [Security, Rules, Ckeditor],
   name: 'AccountTeam',
   props: [],
   components: {
-    TeamRecruit,
+    PlayerTeamRequests,
+    LeaderTeamRequests,
     AccountMasterBadges,
     AvatarUploadForm
   },

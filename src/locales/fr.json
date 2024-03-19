@@ -775,6 +775,11 @@
       "recruit": "Recruter un joueur",
       "success": "La demande a été envoyée",
       "none": "Vous n’avez aucune demande en cours.",
+      "action": {
+        "ACCEPT": "Accepter",
+        "REFUSE": "Refuser",
+        "CANCEL": "Annuler"
+      },
       "status": {
         "ACTIVE": "Active",
         "ACCEPTED": "Acceptée",

@@ -1,8 +1,8 @@
 <template>
-  <v-sheet class="pa-4">
+  <div class="pa-4">
     <team-badge-serie v-bind:team="this.$parent.$parent.team" v-bind:id-team="this.$route.params.idTeam"/>
     <team-badge-master v-bind:team="this.$parent.$parent.team" v-bind:id-team="this.$route.params.idTeam"/>
-  </v-sheet>
+  </div>
 </template>
 
 <script>

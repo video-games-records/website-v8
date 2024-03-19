@@ -1,7 +1,7 @@
 <template>
-  <v-sheet v-if="this.getTeam.id" class="pa-2">
+  <div v-if="this.getTeam.id" class="pa-2">
     <team-stats v-bind:team="getTeam"/>
-  </v-sheet>
+  </div>
 </template>
 
 <script>

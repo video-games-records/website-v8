@@ -93,6 +93,7 @@ const routes = [
               { path: 'index', name: 'TeamIndex', component: () => import(/* webpackChunkName: "Player" */ '@/views/team/Index.vue')},
               { path: 'presentation', name: 'TeamPresentation', component: () => import(/* webpackChunkName: "Player" */ '@/views/team/Presentation.vue')},
               { path: 'badges', name: 'TeamBadges', component: () => import(/* webpackChunkName: "Player" */ '@/views/team/Badges.vue')},
+              { path: 'players', name: 'TeamPlayers', component: () => import(/* webpackChunkName: "Player" */ '@/views/team/Players.vue')},
             ]
           },
           /********* THE SITE ***********/
