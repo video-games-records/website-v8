@@ -1,5 +1,5 @@
 <template>
-  <v-sheet>
+  <div>
     <v-tabs v-model="tab" class="bg-primary">
       <v-tab value="games">{{ $t('global.games') }}</v-tab>
       <v-tab value="players">{{ $t('global.players') }}</v-tab>
@@ -26,7 +26,7 @@
         </v-window-item>
       </v-window>
     </v-card-text>
-  </v-sheet>
+  </div>
 </template>
 
 <script>

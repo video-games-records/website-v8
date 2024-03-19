@@ -1,37 +1,35 @@
 <template>
-  <v-sheet>
-    <h2>{{ nb }} {{ $t('global.players_', nb) }}</h2>
-    <div v-if="nb > 100" class="d-flex justify-center text-red-darken-3 ma-2">
-      {{ $t('search.max') }}
-    </div>
-    <v-table density="compact" v-if="nb > 0">
-      <thead>
-      <tr>
-        <th scope="col">{{ $t('global.player') }}</th>
-        <th class="right" scope="col">{{ $t('global.medals') }}</th>
-        <th class="right" scope="col">{{ $t('global.points') }}</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr v-for="item in players" :data-position="item.position" :key="item.id">
-        <td class="pa-1">
-          <country v-bind:country="item.country"></country>
-          <player v-bind:player="item" v-bind:show-avatar="showAvatar"></player>
-        </td>
-        <td class="pr-3 right">
-          rank#{{ item.rankMedal }}
-          <br/>
-          {{ item.chartRank0 }} # {{ item.chartRank1 }} # {{ item.chartRank2 }} # {{ item.chartRank3 }}
-        </td>
-        <td class="pr-3 right">
-          rank#{{ item.rankPointChart }}
-          <br/>
-          {{ number(item.pointChart) }} pts
-        </td>
-      </tr>
-      </tbody>
-    </v-table>
-  </v-sheet>
+  <h2 class="ma-4">{{ nb }} {{ $t('global.players_', nb) }}</h2>
+  <div v-if="nb > 100" class="d-flex justify-center text-red-darken-3 ma-2">
+    {{ $t('search.max') }}
+  </div>
+  <v-table density="compact" v-if="nb > 0">
+    <thead>
+    <tr>
+      <th scope="col">{{ $t('global.player') }}</th>
+      <th class="right" scope="col">{{ $t('global.medals') }}</th>
+      <th class="right" scope="col">{{ $t('global.points') }}</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr v-for="item in players" :data-position="item.position" :key="item.id">
+      <td class="pa-1">
+        <country v-bind:country="item.country"></country>
+        <player v-bind:player="item" v-bind:show-avatar="showAvatar"></player>
+      </td>
+      <td class="pr-3 right">
+        rank#{{ item.rankMedal }}
+        <br/>
+        {{ item.chartRank0 }} # {{ item.chartRank1 }} # {{ item.chartRank2 }} # {{ item.chartRank3 }}
+      </td>
+      <td class="pr-3 right">
+        rank#{{ item.rankPointChart }}
+        <br/>
+        {{ number(item.pointChart) }} pts
+      </td>
+    </tr>
+    </tbody>
+  </v-table>
 </template>
 
 <script>

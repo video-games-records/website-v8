@@ -21,8 +21,8 @@ export default createVuetify({
         colors: {
           background: "#FFFFFF",
           surface: "#FFFFFF",
-          primary: colors.orange.lighten1,
-          secondary: colors.orange.lighten4,
+          primary: '05194DFF',
+          secondary: '3011ACFF',
           header: '05194DFF',
           breadcrumb: 'EDEDEDFF',
           'tr-odd': colors.orange.lighten4,

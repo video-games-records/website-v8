@@ -1,5 +1,5 @@
 <template>
-  <h2>{{ nb }} {{ $t('global.teams_', nb) }}</h2>
+  <h2 class="ma-4">{{ nb }} {{ $t('global.teams_', nb) }}</h2>
   <div v-if="nb > 100" class="d-flex justify-center text-red-darken-3 ma-2">
     {{ $t('search.max') }}
   </div>
