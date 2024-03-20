@@ -94,6 +94,8 @@ const routes = [
               { path: 'presentation', name: 'TeamPresentation', component: () => import(/* webpackChunkName: "Player" */ '@/views/team/Presentation.vue')},
               { path: 'badges', name: 'TeamBadges', component: () => import(/* webpackChunkName: "Player" */ '@/views/team/Badges.vue')},
               { path: 'players', name: 'TeamPlayers', component: () => import(/* webpackChunkName: "Player" */ '@/views/team/Players.vue')},
+              { path: 'games', name: 'TeamGames', component: () => import(/* webpackChunkName: "Player" */ '@/views/team/Games.vue')},
+              { path: 'leaderboards', name: 'TeamLeaderboards', component: () => import(/* webpackChunkName: "Player" */ '@/views/team/Leaderboards.vue')},
             ]
           },
           /********* THE SITE ***********/

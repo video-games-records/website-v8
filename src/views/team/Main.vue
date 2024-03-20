@@ -18,6 +18,12 @@
 
       <li v-if="isRoute('TeamBadges')" class="tab__item tab__item--current"><span>{{ $t('team.tabs.badges') }}</span></li>
       <li v-else class="tab__item"><router-link :to="{ name: 'TeamBadges' }">{{ $t('team.tabs.badges') }}</router-link></li>
+
+      <li v-if="isRoute('TeamGames')" class="tab__item tab__item--current"><span>{{ $t('team.tabs.games') }}</span></li>
+      <li v-else class="tab__item"><router-link :to="{ name: 'TeamGames' }">{{ $t('team.tabs.games') }}</router-link></li>
+
+      <li v-if="isRoute('TeamLeaderboards')" class="tab__item tab__item--current"><span>{{ $t('team.tabs.leaderboards') }}</span></li>
+      <li v-else class="tab__item"><router-link :to="{ name: 'TeamLeaderboards' }">{{ $t('team.tabs.leaderboards') }}</router-link></li>
     </ul>
 
     <router-view></router-view>
