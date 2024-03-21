@@ -11,7 +11,7 @@
         </thead>
         <tbody>
         <tr>
-          <th scope="row">{{ $t('global.leaderboard') }} ({{ $t('leaderboard.on') }} {{ number(getNbPlayer) }})</th>
+          <th scope="row">{{ $t('global.leaderboard') }}</th>
           <td :data-header="$t('global.cupsLowercase')">{{ number(player.rankCup) }}</td>
           <td :data-header="$t('global.medalsLowercase')">{{ number(player.rankMedal) }}</td>
         </tr>
@@ -43,26 +43,30 @@
         <thead>
         <tr>
           <td></td>
-          <th scope="col">{{ $t('global.gamePoints') }}</th>
-          <th scope="col">{{ $t('global.recordPoints') }}</th>
-          <th scope="col">{{ $t('global.badgePoints') }}</th>
-          <th scope="col">{{ $t('global.proofs') }}</th>
+          <th scope="col">{{ $t('global.leaderboard') }}</th>
+          <th scope="col">{{ $t('global.points') }}</th>
         </tr>
         </thead>
         <tbody>
         <tr>
-          <th scope="row">{{ $t('global.leaderboard') }} ({{ $t('on') }} {{ number(getNbPlayer) }})</th>
-          <td :data-header="$t('global.gamePoints')">{{ number(player.rankPointGame) }}</td>
-          <td :data-header="$t('global.recordPoints')">{{ number(player.rankPointChart) }}</td>
-          <td :data-header="$t('global.badgePoints')">{{ number(player.rankBadge) }}</td>
-          <td :data-header="$t('global.proofsLowercase')">{{ number(player.rankProof) }}</td>
+          <th>{{ $t('global.gamePoints') }}</th>
+          <td :data-label="$t('global.gamePoints')">{{ number(player.rankPointGame) }}</td>
+          <td :data-label="$t('global.gamePoints')">{{ number(player.pointGame) }}</td>
         </tr>
         <tr>
-          <th scope="row">{{ $t('global.points') }}</th>
-          <td :data-header="$t('global.gamePoints')">{{ number(player.pointGame) }}</td>
-          <td :data-header="$t('global.recordPoints')">{{ number(player.pointChart) }}</td>
-          <td :data-header="$t('global.badgePoints')">{{ number(player.pointBadge) }}</td>
-          <td :data-header="$t('global.proofsLowercase')">{{ number(player.nbChartProven) }}</td>
+          <th scope="row">{{ $t('global.recordPoints') }}</th>
+          <td :data-label="$t('global.recordPoints')">{{ number(player.rankPointChart) }}</td>
+          <td :data-label="$t('global.recordPoints')">{{ number(player.pointChart) }}</td>
+        </tr>
+        <tr>
+          <th>{{ $t('global.badgePoints') }}</th>
+          <td :data-label="$t('global.badgePoints')">{{ number(player.rankBadge) }}</td>
+          <td :data-label="$t('global.badgePoints')">{{ number(player.pointBadge) }}</td>
+        </tr>
+        <tr>
+          <th>{{ $t('global.proofs') }}</th>
+          <td :data-label="$t('global.proofsLowercase')">{{ number(player.rankProof) }}</td>
+          <td :data-label="$t('global.proofsLowercase')">{{ number(player.nbChartProven) }}</td>
         </tr>
         </tbody>
       </v-table>

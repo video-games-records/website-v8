@@ -12,14 +12,14 @@
           </button>
           <span v-else>{{ $t('global.rank') }}</span>
         </th>
-        <th scope="col" class="player-chart__date">
+        <th scope="col">
           <button v-if="activePagination" class="table-order" @click="orderBy('lastUpdate')">{{
               $t('score.lastUpdate')
             }}
           </button>
           <span v-else>{{ $t('score.lastUpdate') }}</span>
         </th>
-        <th v-if="displayStatus" scope="col" class="player-chart__status">{{ $t('global.status') }}</th>
+        <th v-if="displayStatus" scope="col">{{ $t('global.status') }}</th>
       </tr>
       </thead>
       <tbody>

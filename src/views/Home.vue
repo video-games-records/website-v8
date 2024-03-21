@@ -1,6 +1,8 @@
 <template>
     <v-row>
-
+      <v-col cols="12" class="d-flex justify-center">
+        <stats />
+      </v-col>
       <v-col cols="12" md="6" lg="5">
         <game-last-updated-score />
       </v-col>
@@ -41,6 +43,7 @@ import GameLastPublished from "@/components/vgr/game/LastPublished.vue";
 import GameLastUpdatedScore from "@/components/vgr/game/LastUpdatedScore.vue";
 import ArticleLastPublished from "@/components/article/LastPublished.vue";
 import HomeMessage from "@/components/page/HomeMessage.vue";
+import Stats from "@/components/Stats.vue";
 
 export default {
   name: 'vgrHome',
@@ -53,7 +56,8 @@ export default {
     LeaderboardPlayerPoint,
     LeaderboardPlayerCup,
     LeaderboardTeamPoint,
-    LeaderboardTeamCup
+    LeaderboardTeamCup,
+    Stats
   },
   data() {
     return {
