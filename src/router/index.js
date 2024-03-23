@@ -18,6 +18,9 @@ const routes = [
             name: 'Home',
             component: () => import(/* webpackChunkName: "home" */ '@/views/Home.vue'),
           },
+          /********* AUTHENTICATION ***********/
+          { path: 'auth/reset', name: 'AuthReset', component: () => import(/* webpackChunkName: "Authentication" */ '@/views/authentication/Reset.vue'),},
+          { path: 'register', name: 'Register', component: () => import(/* webpackChunkName: "Authentication" */ '@/views/authentication/Register.vue'),},
           /********* SEARCH ***********/
           { path: 'search', name: 'Search', component: () => import(/* webpackChunkName: "Search" */ '@/views/Search.vue')},
           { path: 'advanced-score-search', name: 'PlayerChartSearch', component: () => import(/* webpackChunkName: "game-list" */ '@/views/player-chart/Search.vue')},
