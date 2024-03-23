@@ -23,7 +23,14 @@
             </div>
           </v-form>
 
-          <!--<router-link :to="{ name: 'AuthReset'}">{{ $t('authentication.login.forgotten_password') }}</router-link>-->
+          <v-divider />
+
+          <div class="ma-2">
+            <v-row>
+              <v-col cols="12" class="d-flex justify-center"><router-link @click="isActive.value = false" :to="{ name: 'Register'}">{{ $t('authentication.register.title') }}</router-link> </v-col>
+              <v-col cols="12" class="d-flex justify-center"><router-link @click="isActive.value = false" :to="{ name: 'AuthReset'}">{{ $t('authentication.login.forgotten_password') }}</router-link></v-col>
+            </v-row>
+          </div>
 
           <v-card-actions>
             <v-spacer></v-spacer>
@@ -51,9 +58,6 @@ export default {
       email : '',
       password : ''
     }
-  },
-  created () {
-
   },
   methods: {
     submit () {

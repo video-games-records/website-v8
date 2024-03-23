@@ -28,7 +28,8 @@
       "form": {
         "email": "E-mail",
         "email_help": "You will receive an e-mail to reset your password",
-        "submit": "Reset password"
+        "submit": "Reset password",
+        "confirm": "If this email is linked to an account, you will receive an email to reset your password"
       },
       "confirm": {
         "password": "New password",
