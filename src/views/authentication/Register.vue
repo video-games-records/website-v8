@@ -24,13 +24,8 @@ export default {
   },
   created() {
     document.title = this.$t('authentication.register.title') + ' - ' + import.meta.env.VITE_APP_TITLE;
-    let redirect = this.$route.query.redirect;
     if (this.isAuthenticated) {
-      if (typeof redirect !== 'undefined') {
-        this.$router.push({path: redirect});
-      } else {
-        this.$router.push({path: '/'});
-      }
+      this.$router.push({path: '/'});
     }
   },
   computed: {

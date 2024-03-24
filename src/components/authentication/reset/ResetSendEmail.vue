@@ -35,10 +35,10 @@ export default {
     submit() {
       if (!this.isValid) return;
       AuthService.resettingSendEmail(this.email)
-        .then(response => {
+        .then(() => {
           useFlashMessageStore().confirm(this.$t('authentication.reset.form.confirm'));
         })
-        .catch(error => {
+        .catch(() => {
           useFlashMessageStore().confirm(this.$t('authentication.reset.form.confirm'));
         });
     },

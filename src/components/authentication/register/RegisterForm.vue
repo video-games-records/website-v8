@@ -1,19 +1,26 @@
 <template>
   <div>
-    <span v-html="message.text"></span>
+    <v-row>
+      <v-col cols="12" class="ma-2">
+        <span v-html="message.text"></span>
+      </v-col>
+      <v-col cols="12">
+        <v-form v-model="isValid" @submit="submit" @submit.prevent>
+          <v-text-field  v-model="email" type="email"
+                         :label="$t('authentication.register.form.email')" :rules="[rules.required]" />
 
-    <v-form v-model="isValid" @submit="submit" @submit.prevent>
-      <v-text-field  v-model="email" type="email"
-                     :label="$t('authentication.register.form.email')" :rules="[rules.required]" />
+          <v-text-field type="text" v-model="username"
+                        :label="$t('authentication.register.form.username')" :rules="[rules.required]" />
 
-      <v-text-field type="text" v-model="username"
-                    :label="$t('authentication.register.form.username')" :rules="[rules.required]" />
+          <v-text-field type="password" v-model="password"
+                        :label="$t('authentication.register.form.password')" :rules="[rules.required]" />
 
-      <v-text-field type="password" v-model="password"
-                    :label="$t('authentication.register.form.password')" :rules="[rules.required]" />
+          <v-checkbox v-model="rules_accepted" :label="$t('authentication.register.form.rules_accepted')" :rules="[rules.required]" />
 
-      <v-btn type="submit">{{ $t('authentication.register.form.submit') }}</v-btn>
-    </v-form>
+          <v-btn type="submit">{{ $t('authentication.register.form.submit') }}</v-btn>
+        </v-form>
+      </v-col>
+    </v-row>
   </div>
 </template>
 
