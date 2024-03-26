@@ -30,6 +30,9 @@
       <v-col cols="12" md="6" lg="2">
         <game-day />
       </v-col>
+      <v-col cols="12" md="6" lg="2">
+        <partner-list />
+      </v-col>
     </v-row>
 </template>
 
@@ -44,10 +47,12 @@ import GameLastUpdatedScore from "@/components/vgr/game/LastUpdatedScore.vue";
 import ArticleLastPublished from "@/components/article/LastPublished.vue";
 import HomeMessage from "@/components/page/HomeMessage.vue";
 import Stats from "@/components/Stats.vue";
+import PartnerList from "@/components/partner/List.vue";
 
 export default {
   name: 'vgrHome',
   components: {
+    PartnerList,
     HomeMessage,
     ArticleLastPublished,
     GameLastPublished,

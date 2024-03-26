@@ -1,6 +1,6 @@
 <template>
   <v-card variant="outlined">
-    <v-card-title>INFOS</v-card-title>
+    <v-card-title class="bg-primary">INFOS</v-card-title>
     <v-card-item>
       <span v-html="message.text"></span>
     </v-card-item>

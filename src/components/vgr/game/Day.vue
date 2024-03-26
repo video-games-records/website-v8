@@ -1,6 +1,6 @@
 <template>
-  <v-card v-if="game !== null">
-    <v-card-title>
+  <v-card variant="outlined" v-if="game !== null">
+    <v-card-title class="bg-primary">
       {{ $t('game.day') }}
     </v-card-title>
     <v-card-item>

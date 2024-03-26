@@ -23,7 +23,7 @@
       <v-card-text class="pa-0">
         <v-window v-model="tab">
           <v-window-item value="leaderboard">
-            <v-table class="leaderboard">
+            <v-table>
               <caption class="screen-reader-text">{{ $t('leaderboard.recordPoints.caption') }}</caption>
               <thead>
               <tr>
@@ -53,7 +53,7 @@
           </v-window-item>
 
           <v-window-item value="games">
-            <table class="game-list">
+            <v-table>
               <caption class="screen-reader-text">{{ $t('game.list.caption') }}</caption>
               <thead>
               <tr>
@@ -71,7 +71,7 @@
                 </td>
               </tr>
               </tbody>
-            </table>
+            </v-table>
           </v-window-item>
 
           <v-window-item value="description">

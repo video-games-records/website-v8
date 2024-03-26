@@ -1,6 +1,6 @@
 <template>
   <v-card variant="outlined">
-    <v-card-title>{{ $t('score.lastSubmit.default') }}</v-card-title>
+    <v-card-title class="bg-primary">{{ $t('score.lastSubmit.default') }}</v-card-title>
     <v-progress-linear v-if="games.length === 0" indeterminate color="yellow-darken-2"></v-progress-linear>
     <v-table density="compact">
       <caption class="screen-reader-text">{{ $t('score.lastSubmit.default') }}</caption>
