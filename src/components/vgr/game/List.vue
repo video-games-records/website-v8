@@ -1,6 +1,6 @@
 <template>
   <v-sheet>
-    <h2 v-if="displayNb">{{ nb }} {{ $t('global.games_', nb) }}</h2>
+    <h2 v-if="displayNb" class="pa-3">{{ nb }} {{ $t('global.games_', nb) }}</h2>
     <table>
       <caption class="screen-reader-text">{{ $t('game.list.caption') }}</caption>
       <thead>

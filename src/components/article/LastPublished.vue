@@ -1,6 +1,6 @@
 <template>
   <v-card variant="outlined">
-    <v-card-title>{{ $t('article.last.title') }}</v-card-title>
+    <v-card-title class="bg-primary">{{ $t('article.last.title') }}</v-card-title>
     <v-progress-linear v-if="articles.length === 0" indeterminate color="yellow-darken-2"></v-progress-linear>
     <v-table density="compact">
       <thead>
