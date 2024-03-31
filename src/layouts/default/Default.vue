@@ -27,7 +27,7 @@
 
 
 
-    <v-footer class="bg-grey-lighten-1">
+    <v-footer class="ma-5">
       <v-row justify="center" no-gutters>
         <ul class="d-flex" style="list-style-type: none">
           <li class="ma-2">
