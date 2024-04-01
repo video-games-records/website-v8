@@ -1,11 +1,12 @@
 <template>
   <div>
     <h5>{{$t('user.connected', [this.nb])}}</h5>
-      <div class="d-flex">
-        <router-link v-for="player in players" :key="player.id"
-                     :to="{ name: 'PlayerIndex', params: { idPlayer: player.id, slugPlayer: player.slug }}"
-                     class="d-flex flex-wrap ma-1"
+      <div class="d-flex flex-wrap">
+        <div v-for="player in players" :key="player.id">
+        <router-link :to="{ name: 'PlayerIndex', params: { idPlayer: player.id, slugPlayer: player.slug }}"
+                     class="ma-1"
                      :title="player.pseudo">{{ player.pseudo }}</router-link>
+        </div>
       </div>
   </div>
 </template>
