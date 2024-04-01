@@ -95,8 +95,8 @@ export default {
       itemsPerPage: 20,
       players: [],
       order: {
-        column: 'createdAt',
-        direction: 'ASC',
+        column: 'lastLogin',
+        direction: 'DESC',
       }
     };
   },
