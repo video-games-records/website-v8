@@ -2,7 +2,7 @@
   <div>
     <h1>{{ player.pseudo }}</h1>
 
-    <player-profile-card v-if="player.id" v-bind:player="player"/>
+    <player-profile-card class="ma-2" v-if="player.id" v-bind:player="player"/>
 
     <ul class="tabs">
       <li v-if="isRoute('Index')" class="tab__item tab__item--current"><span>{{ $t('player.profile.tabs.stats') }}</span></li>

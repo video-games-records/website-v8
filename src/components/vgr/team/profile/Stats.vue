@@ -11,7 +11,7 @@
         </thead>
         <tbody>
         <tr>
-          <th scope="row">{{ $t('global.leaderboard') }} ({{ $t('leaderboard.on') }} {{ number(getNbteam) }})</th>
+          <th scope="row">{{ $t('global.leaderboard') }}</th>
           <td :data-header="$t('global.cupsLowercase')">{{ number(team.rankCup) }}</td>
           <td :data-header="$t('global.medalsLowercase')">{{ number(team.rankMedal) }}</td>
         </tr>
@@ -50,7 +50,7 @@
         </thead>
         <tbody>
         <tr>
-          <th scope="row">{{ $t('global.leaderboard') }} ({{ $t('on') }} {{ number(getNbteam) }})</th>
+          <th scope="row">{{ $t('global.leaderboard') }}</th>
           <td :data-header="$t('global.gamePoints')">{{ number(team.rankPointGame) }}</td>
           <td :data-header="$t('global.recordPoints')">{{ number(team.rankPointChart) }}</td>
           <td :data-header="$t('global.badgePoints')">{{ number(team.rankBadge) }}</td>
@@ -74,12 +74,6 @@ export default {
   mixins: [Filters],
   name: 'TeamProfileStats',
   props: ['team'],
-  computed: {
-    getNbteam() {
-      return 0;
-      //return new Intl.NumberFormat().format(this.$store.getters['stats/data'][4]);
-    },
-  },
 };
 </script>
 

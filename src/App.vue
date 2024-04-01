@@ -8,6 +8,9 @@
 import Sprite from './components/Sprite';
 import {useMessageStore} from "@/store/message";
 import Security from "@/mixins/Security.vue";
+import {useThemeStore} from "@/store/base/theme";
+import { useTheme } from 'vuetify'
+
 export default {
   mixins: [Security],
   name: 'app',
@@ -18,6 +21,7 @@ export default {
     //setTimeout(() => this.scrollFix(this.$route.hash), 1);
   },
   created() {
+    useTheme().global.name.value = useThemeStore().getName;
     if (this.isAuthenticated) {
       this.updateNbMessage();
       // Every 5 mins

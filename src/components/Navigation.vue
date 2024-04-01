@@ -1,7 +1,6 @@
 <template>
   <v-list v-model:opened="open">
     <v-list-item :to="{ name: 'Home'}" title="Video Games Records" subtitle="Home"></v-list-item>
-    <v-list-item><switch-theme /></v-list-item>
     <v-divider></v-divider>
     <v-list-group value="Games">
       <template v-slot:activator="{ props }">

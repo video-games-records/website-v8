@@ -12,6 +12,8 @@
       <h2 class="ma-2">{{ category.libCategory }}</h2>
       <forum-list v-bind:forums=category.forums />
     </div>
+
+    <player-list-connected />
   </div>
 
 </template>
@@ -22,11 +24,13 @@ import Security from "@/mixins/Security.vue";
 import Breadcrumb from "@/components/base/Breadcrumb.vue";
 import {useBreadcrumbsStore} from "@/store/base/breadcrumbs";
 import {useFlashMessageStore} from "@/store/base/flashMessage";
+import PlayerListConnected from "@/components/vgr/player/list/Connected.vue";
 
 export default {
   mixins: [Security],
   name: 'ForumHome',
   components: {
+    PlayerListConnected,
     Breadcrumb,
     ForumList
   },

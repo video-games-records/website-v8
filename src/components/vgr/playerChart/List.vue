@@ -1,6 +1,6 @@
 <template>
   <div>
-    <table class="player-chart">
+    <v-table>
       <caption class="screen-reader-text">{{ $t('search.playerChart.caption') }}</caption>
       <thead>
       <tr>
@@ -65,7 +65,7 @@
         </td>
       </tr>
       </tbody>
-    </table>
+    </v-table>
 
     <v-pagination
         v-if="activePagination"

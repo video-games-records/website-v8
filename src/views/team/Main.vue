@@ -2,7 +2,7 @@
   <div>
     <h1>{{ team.libTeam }}</h1>
 
-    <team-profile-card v-if="team.id" v-bind:team="team"/>
+    <team-profile-card class="ma-2" v-if="team.id" v-bind:team="team"/>
 
     <team-join :team="team" />
 

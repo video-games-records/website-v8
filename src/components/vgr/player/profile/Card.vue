@@ -28,7 +28,7 @@
         </li>
         <li v-if="player.youtube"><a :href="player.youtube">{{ $t('player.youtube') }}</a></li>
         <li v-if="player.twitch"><a :href="player.twitch">{{ $t('player.twitch') }}</a></li>
-        <li v-if="player.website">{{ $t('player.website') }} <a :href="player.website">{{ player.website }}</a></li>
+        <li v-if="player.website">{{ $t('player.website') }}: <a :href="player.website">{{ player.website }}</a></li>
       </ul>
     </v-col>
   </v-row>
