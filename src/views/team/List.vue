@@ -87,8 +87,8 @@ export default {
       itemsPerPage: 20,
       teams: [],
       order: {
-        column: 'user.createdAt',
-        direction: 'DESC',
+        column: 'rankPointGame',
+        direction: 'ASC',
       }
     };
   },
