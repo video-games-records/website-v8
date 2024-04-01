@@ -19,9 +19,6 @@ export default {
     return {};
   },
   computed: {
-    title() {
-      return this.$t('forum.reply.title') + ' - ' + this.getTopic.libTopic + ' - ' + this.getForum.libForum + ' - ' + import.meta.env.VITE_APP_TITLE;
-    },
     getForum() {
       return useAppStore().getForum;
     },
@@ -45,7 +42,6 @@ export default {
     } else {
       useBreadcrumbsStore().setItem4({ text: this.$t('forum.reply.title')});
     }
-    console.log(this.getBreadcrumbLevel);
     useBreadcrumbsStore().setLevel(this.getBreadcrumbLevel);
   },
 };

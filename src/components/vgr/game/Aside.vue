@@ -6,6 +6,13 @@
 
     <maj-platform v-bind:game=getGame v-if="!this.$vuetify.display.mobile && hasRolePlayer && (getGame.platforms.length > 1)"></maj-platform>
 
+    <v-card v-if="!this.$vuetify.display.mobile && getGame && getGame.forum" class="ma-2" variant="outlined">
+      <v-card-title class="bg-primary">Forum</v-card-title>
+      <v-card-item>
+        <router-link :to="{ name: 'GameForumIndex' , params: { idForum: getGame.forum.id, slugForum: getGame.forum.slug }}">Forum</router-link>
+      </v-card-item>
+    </v-card>
+
     <v-card v-if="!this.$vuetify.display.mobile" class="ma-2" variant="outlined">
       <v-card-title class="bg-primary">{{ $t('game.rules.title') }}</v-card-title>
       <v-card-item>
@@ -46,7 +53,6 @@
 <script>
 import GroupSwitch from '@/components/vgr/group/Switch.vue';
 import ChartSwitch from '@/components/vgr/chart/Switch.vue';
-
 import MajPlatform from '@/components/vgr/playerChart/form/MajPlatform.vue'
 import Security from "@/mixins/Security.vue";
 import {useAppStore} from "@/store/app";

@@ -123,6 +123,18 @@ const routes = [
             children: [
               { path: 'index', name: 'GameIndex', component: () => import(/* webpackChunkName: "Game" */ '@/views/game/Index.vue')},
               { path: 'submit', name: 'GameSubmit', meta: {requiresAuth: true}, component: () => import(/* webpackChunkName: "Game" */ '@/views/game/Submit.vue')},
+              { path: ':slugForum-forum-f:idForum(\\d+)', name: 'GameForumMain', component: () => import(/* webpackChunkName: "Video" */ '@/views/game/forum/Main.vue'),
+                children: [
+                  { path: 'index', name: 'GameForumIndex', component: () => import(/* webpackChunkName: "forum" */ '@/views/game/forum/Index.vue')},
+                  { path: ':slugTopic-topic-t:idTopic(\\d+)', name: 'GameForumTopicMain', component: () => import(/* webpackChunkName: "forum" */ '@/views/game/forum/topic/Main.vue'),
+                    children: [
+                      { path: 'index', name: 'GameForumTopicIndex', component: () => import(/* webpackChunkName: "forum" */ '@/views/game/forum/topic/Index.vue')},
+                      { path: 'reply', name: 'GameForumTopicReply', meta: {requiresAuth: true}, component: () => import(/* webpackChunkName: "forum" */ '@/views/game/forum/topic/Reply.vue')},
+                    ]
+                  },
+                  { path: 'new-topic', name: 'GameForumTopicNew', component: () => import(/* webpackChunkName: "forum" */ '@/views/game/forum/NewTopic.vue')},
+                ]
+              },
               { path: ':slugGroup-group-g:idGroup(\\d+)', name: 'GroupMain', component: () => import(/* webpackChunkName: "Game" */ '@/views/game/group/Main.vue'),
                 children: [
                   { path: 'index', name: 'GroupIndex', component: () => import(/* webpackChunkName: "Game" */ '@/views/game/group/Index.vue')},

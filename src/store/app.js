@@ -19,7 +19,7 @@ export const useAppStore = defineStore('app', {
     },
     game: {
       platforms: [],
-      forum: {},
+      forum: null,
       status: {
         value: null
       }
