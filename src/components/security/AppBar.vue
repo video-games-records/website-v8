@@ -1,7 +1,7 @@
 <template>
   <search-box />
   <lost-position-box v-if="this.isAuthenticated" class="ma-3" />
-  <language-switcher />
+  <settings />
   <account v-if="this.isAuthenticated" />
   <login v-if="!this.isAuthenticated" />
 </template>
@@ -13,9 +13,10 @@ import Security from "@/mixins/Security.vue";
 import LanguageSwitcher from "@/components/LanguageSwitcher.vue";
 import LostPositionBox from "@/components/vgr/lost-position/Box.vue";
 import SearchBox from "@/components/SearchBox.vue";
+import Settings from "@/components/base/Settings.vue";
 
 export default {
-  components: {SearchBox, LostPositionBox, LanguageSwitcher, Login, Account},
+  components: {Settings, SearchBox, LostPositionBox, LanguageSwitcher, Login, Account},
   mixins: [Security],
 }
 </script>

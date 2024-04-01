@@ -7,7 +7,7 @@
 
 <script setup>
 import { useTheme } from 'vuetify'
-import { ref, reactive, computed  } from 'vue'
+import { computed  } from 'vue'
 import {useThemeStore} from "@/store/base/theme";
 
 const theme = useTheme()
