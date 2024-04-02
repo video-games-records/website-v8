@@ -260,6 +260,7 @@
     },
     "all": "All games",
     "filter": "Select game",
+    "unranked": "Points acquired in this game do not count for the main rankings",
     "index": {
       "description": "Submit your highscores on "
     },

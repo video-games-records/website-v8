@@ -260,6 +260,7 @@
     },
     "all": "Tous les jeux",
     "filter": "Selectionner un jeu",
+    "unranked": "Les points acquis sur ce jeu ne compte pas pour les classement principal",
     "index": {
       "description": "Postez vos meilleurs scores sur "
     },

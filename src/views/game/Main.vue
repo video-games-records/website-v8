@@ -4,6 +4,9 @@
       <v-col v-if="!this.$vuetify.display.mobile" cols="12">
         <breadcrumb />
       </v-col>
+      <v-col v-if="getGame.isRank === false" cols="12">
+        <v-alert :text="$t('game.unranked')" title="Infos" type="info" variant="tonal"></v-alert>
+      </v-col>
       <v-col cols="12" order="2" lg="9" order-lg="1">
         <game-card v-bind:game=getGame></game-card>
         <router-view></router-view>
