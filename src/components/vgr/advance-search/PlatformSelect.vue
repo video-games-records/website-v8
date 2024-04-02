@@ -13,10 +13,9 @@
         variant="outlined"
         @update:modelValue="select"
         return-object />
-    <button v-for="(platform) in this.getPlatforms" :key="platform.id" @click="remove(platform)"
-            class="button-as-link tag">
-      <span class="tag--close" :aria-label="$t('tag.remove')">×</span> {{ platform.libPlatform }}
-    </button>
+    <v-chip v-for="(platform) in this.getPlatforms" :key="platform.id" @click:close="remove(platform)" closable>
+      {{ platform.libPlatform }}
+    </v-chip>
   </div>
 </template>
 

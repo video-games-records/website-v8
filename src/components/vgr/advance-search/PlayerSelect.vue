@@ -13,10 +13,9 @@
         variant="outlined"
         @update:modelValue="select"
         return-object />
-    <button v-for="(player) in this.getPlayers" :key="player.id" @click="remove(player)"
-            class="button-as-link tag">
-      <span class="tag--close" :aria-label="$t('tag.remove')">×</span> {{ player.pseudo }}
-    </button>
+    <v-chip v-for="(player) in this.getPlayers" :key="player.id" @click:close="remove(player)" closable>
+      {{ player.pseudo }}
+    </v-chip>
   </div>
 </template>
 
