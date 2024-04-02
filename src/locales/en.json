@@ -167,6 +167,7 @@
       "nbMessage": "Messages",
       "messages": "messages",
       "lastMessage": "Last message",
+      "lastestMessages": "Lastest messages",
       "markAllAsRead": "Mark all subjects as read",
       "libTopic": "Subject",
       "author": "Author",

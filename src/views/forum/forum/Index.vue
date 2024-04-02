@@ -52,7 +52,13 @@ export default {
       return useAppStore().getForum
     },
     getResourceUrl() {
-      return '/api/forum_topics?forum=' + this.$route.params.idForum + '&boolArchive=false&itemsPerPage=' + this.itemsPerPage + '&page=' + this.page;
+      let url = '/api/forum_topics?forum=' + this.$route.params.idForum + '&boolArchive=false&itemsPerPage='
+          + this.itemsPerPage + '&page=' + this.page
+          + '&groups[]=forum.topic.read&groups[]=forum.topic.lastMessage&groups[]=forum.message.last';
+      if (this.isAuthenticated) {
+        url += '&groups[]=forum.topicUser.read&groups[]=forum.topic.topicUser1';
+      }
+      return url;
     }
   },
   data() {

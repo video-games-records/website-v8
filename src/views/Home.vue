@@ -21,11 +21,14 @@
       <v-col cols="12" md="6" lg="3">
         <leaderboard-team-cup></leaderboard-team-cup>
       </v-col>
-      <v-col cols="12" md="6" lg="5">
+      <v-col cols="12" md="6" lg="6">
         <home-message />
       </v-col>
       <v-col cols="12" md="6" lg=3>
         <article-last-published />
+      </v-col>
+      <v-col cols="12" md="6" lg=3>
+        <topic-last />
       </v-col>
       <v-col cols="12" md="6" lg="2">
         <game-day />
@@ -48,10 +51,12 @@ import ArticleLastPublished from "@/components/article/LastPublished.vue";
 import HomeMessage from "@/components/page/HomeMessage.vue";
 import Stats from "@/components/Stats.vue";
 import PartnerList from "@/components/partner/List.vue";
+import TopicLast from "@/components/forum/topic/Last.vue";
 
 export default {
   name: 'vgrHome',
   components: {
+    TopicLast,
     PartnerList,
     HomeMessage,
     ArticleLastPublished,
