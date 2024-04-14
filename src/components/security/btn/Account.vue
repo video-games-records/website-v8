@@ -9,6 +9,7 @@
         <v-list-item append-icon="mdi-cog" :to="{ name: 'AccountIndex'}">Account</v-list-item>
         <v-list-item :append-icon="getNbMessage > 0 ? 'mdi-message-alert' : 'mdi-message-text'" :to="{ name: 'MessageIndex'}">Messages</v-list-item>
         <v-list-item append-icon="mdi-camera" :to="{ name: 'ProofIndex'}">{{ $t('topbar.proofs') }}</v-list-item>
+        <v-list-item append-icon="mdi-history" :to="{ name: 'History'}">{{ $t('history.title') }}</v-list-item>
         <v-list-item @click="logout" append-icon="mdi-logout">Logout</v-list-item>
       </v-list>
     </v-menu>

@@ -24,6 +24,8 @@ const routes = [
           /********* SEARCH ***********/
           { path: 'search', name: 'Search', component: () => import(/* webpackChunkName: "Search" */ '@/views/Search.vue')},
           { path: 'advanced-score-search', name: 'PlayerChartSearch', component: () => import(/* webpackChunkName: "game-list" */ '@/views/player-chart/Search.vue')},
+          /********* HISTORY ***********/
+          { path: 'history', name: 'History', component: () => import(/* webpackChunkName: "Search" */ '@/views/History.vue')},
           /********* ACCOUNT ***********/
           { path: 'account', name: 'account', meta: {requiresAuth: true}, component: () => import(/* webpackChunkName: "account" */ '@/views/account/Main.vue'),
             children: [
