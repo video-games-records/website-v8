@@ -31,7 +31,7 @@ export default {
   created() {
     this.axios.get('/api/games?pagination=1&order[publishedAt]=DESC&groups[]=game.read.mini' +
         '&groups[]=game.platforms&groups[]=platform.read&itemsPerPage=4&status=' +
-        this.$GAME_STATUS_ACTIVE, {useCache: true})
+        this.$GAME_STATUS_ACTIVE, {enableCache: true})
         .then(response => {
           this.games = response.data['hydra:member']
         })

@@ -43,7 +43,7 @@ export default {
   },
   methods: {
     load() {
-      this.axios.get('/api/forum_topics?forum.status=public&order[lastMessage.id]=DESC&itemsPerPage=6', {useCache: true})
+      this.axios.get('/api/forum_topics?forum.status=public&order[lastMessage.id]=DESC&itemsPerPage=6', {enableCache: true})
           .then(response => {
             this.topics = response.data['hydra:member']
           })

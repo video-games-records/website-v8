@@ -37,7 +37,7 @@ export default {
     };
   },
   created() {
-    this.axios.get('/api/players/ranking-point-game?maxTank=5', {useCache: true})
+    this.axios.get('/api/players/ranking-point-game?maxTank=5', {enableCache: true})
       .then(response => {
         this.leaderboard = response.data['hydra:member']
       })

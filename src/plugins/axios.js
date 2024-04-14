@@ -1,11 +1,18 @@
-import axios from 'axios'
+import xior from 'xior';
 import { createAxiosRequestInterceptor, createAxiosResponseInterceptor } from './axios.interceptors'
-//import {cacheAdapterEnhancer, throttleAdapterEnhancer} from "axios-extensions";
+import cachePlugin from 'xior/plugins/cache';
 
-const instance = axios.create({
+export const instance = xior.create({
     baseURL: import.meta.env.VITE_ROOT_API,
-    //adapter: hrottleAdapterEnhancer(cacheAdapterEnhancer(axios.defaults.adapter, { enabledByDefault: false, cacheFlag: 'useCache'}), { threshold: 2 * 1000 })
 });
+
+instance.plugins.use(
+    cachePlugin({
+        enableCache: false,
+        cacheItems: 100,
+        cacheTime: 1e3 * 60 * 5,
+    })
+);
 
 createAxiosRequestInterceptor(instance);
 createAxiosResponseInterceptor(instance);

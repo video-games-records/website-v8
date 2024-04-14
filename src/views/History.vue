@@ -51,7 +51,7 @@ export default {
     document.title = this.$t('history.title') + ' - ' + import.meta.env.VITE_APP_TITLE;
     this.axios.get('/api/player_games?pagination=1&order[lastUpdate]=DESC&groups[]=playerGame.game' +
         '&groups[]=game.read.mini&groups[]=playerGame.lastUpdate' +
-        '&player=' + this.getAuthenticatedPlayer.id, {useCache: true})
+        '&player=' + this.getAuthenticatedPlayer.id, {enableCache: true})
         .then(response => {
           this.playerGames = response.data['hydra:member']
         })

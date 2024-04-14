@@ -23,7 +23,7 @@ export default {
   },
   created() {
     document.title = this.$t('leaderboard.proofs.title') + ' - ' + import.meta.env.VITE_APP_TITLE;
-    this.axios.get('/api/players/ranking-proof?maxRank=100', {useCache: true})
+    this.axios.get('/api/players/ranking-proof?maxRank=100', {enableCache: true})
         .then(response => {
           this.leaderboardPlayer = response.data['hydra:member']
         })

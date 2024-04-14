@@ -36,7 +36,7 @@ export default {
     }
   },
   created() {
-    this.axios.get('/api/game_days?day[after]=' + this.now, {useCache: true})
+    this.axios.get('/api/game_days?day[after]=' + this.now, {enableCache: true})
         .then(response => {
           if (response.data['hydra:totalItems'] >= 1) {
             this.game = response.data['hydra:member'][0].game;

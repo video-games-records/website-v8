@@ -74,7 +74,7 @@ export default {
     };
   },
   created() {
-    this.axios.get('/api/teams/ranking-cup?maxTank=5', {useCache: true})
+    this.axios.get('/api/teams/ranking-cup?maxTank=5', {enableCache: true})
         .then(response => {
           this.leaderboard = response.data['hydra:member']
         })

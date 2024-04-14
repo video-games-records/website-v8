@@ -134,7 +134,7 @@ export default {
     },
   },
   created() {
-    this.axios.get('/api/platforms?pagination=false&games.playerGame.player=' + this.$route.params.idPlayer, {useCache: true})
+    this.axios.get('/api/platforms?pagination=false&games.playerGame.player=' + this.$route.params.idPlayer, {enableCache: true})
         .then(response => {
           this.platforms = response.data['hydra:member'];
         })

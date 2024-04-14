@@ -102,7 +102,7 @@ export default {
   created() {
     this.load();
 
-    this.axios.get('/api/platforms?pagination=false', {useCache: true})
+    this.axios.get('/api/platforms?pagination=false', {enableCache: true})
         .then(response => {
           this.platforms = response.data['hydra:member']
         })

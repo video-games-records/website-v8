@@ -46,7 +46,7 @@ export default {
   },
   methods: {
     load() {
-      this.axios.get('/api/articles?status=PUBLISHED&order[publishedAt]=DESC&itemsPerPage=6', {useCache: true})
+      this.axios.get('/api/articles?status=PUBLISHED&order[publishedAt]=DESC&itemsPerPage=6', {enableCache: true})
           .then(response => {
             this.articles = response.data['hydra:member']
           })

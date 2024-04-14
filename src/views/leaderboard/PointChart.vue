@@ -35,11 +35,11 @@ export default {
   },
   created() {
     document.title = this.$t('leaderboard.gamePoints.title', [100]) + ' - ' + import.meta.env.VITE_APP_TITLE;
-    this.axios.get('/api/players/ranking-point-chart?maxRank=100', {useCache: true})
+    this.axios.get('/api/players/ranking-point-chart?maxRank=100', {enableCache: true})
         .then(response => {
           this.leaderboardPlayer = response.data['hydra:member']
         })
-    this.axios.get('/api/teams/ranking-point-chart?maxRank=100', {useCache: true})
+    this.axios.get('/api/teams/ranking-point-chart?maxRank=100', {enableCache: true})
         .then(response => {
           this.leaderboardTeam = response.data['hydra:member']
         })
