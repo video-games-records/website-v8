@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>{{ $t('history.title') }}</h1>
-    <v-progress-linear v-if="games.length === 0" indeterminate color="yellow-darken-2"></v-progress-linear>
+    <v-progress-linear v-if="playerGames.length === 0" indeterminate color="yellow-darken-2"></v-progress-linear>
     <v-table density="compact">
       <caption class="screen-reader-text">{{ $t('score.lastSubmit.default') }}</caption>
       <thead>
@@ -12,15 +12,15 @@
       </tr>
       </thead>
       <tbody>
-      <tr v-for="game in games" :data-position="game.position" :key="game.id">
+      <tr v-for="playerGame in playerGames" :data-position="playerGame.position" :key="playerGame.id">
         <td class="hidden-md-and-down">
-          <game-picture :game="game"/>
+          <game-picture :game="playerGame.game"/>
         </td>
         <td class="pr-3">
-          <game :game="game">{{ game.name }}</game>
+          <game :game="playerGame.game">{{ game.name }}</game>
         </td>
         <td class="pr-3">
-          <tools-date v-bind:date="game.lastUpdate"
+          <tools-date v-bind:date="playerGame.lastUpdate"
                       v-bind:options="{ year: 'numeric', month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric' }"></tools-date>
         </td>
       </tr>
@@ -44,16 +44,16 @@ export default {
   },
   data() {
     return {
-      games: []
+      playerGames: []
     };
   },
   created() {
     document.title = this.$t('history.title') + ' - ' + import.meta.env.VITE_APP_TITLE;
-    this.axios.get('/api/games?pagination=1&order[lastUpdate]=DESC&groups[]=game.read' +
-        '&groups[]=lastScore.read&groups[]=playerChart.read' +
-        '&playerGame.player=' + this.getAuthenticatedPlayer.id, {useCache: true})
+    this.axios.get('/api/player_games?pagination=1&order[lastUpdate]=DESC&groups[]=playerGame.game' +
+        '&groups[]=game.read.mini&groups[]=playerGame.lastUpdate' +
+        '&player=' + this.getAuthenticatedPlayer.id, {useCache: true})
         .then(response => {
-          this.games = response.data['hydra:member']
+          this.playerGames = response.data['hydra:member']
         })
   },
 }
