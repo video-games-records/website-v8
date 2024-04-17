@@ -2,7 +2,7 @@
   <div>
     <h1 class="h2">{{ getGroup.name }}</h1>
 
-    <div v-if="hasRolePlayer && getGame.id && !this.$vuetify.display.mobile" class="d-flex justify-center ma-3">
+    <div v-if="hasRolePlayer && getGame.id" class="d-flex justify-center ma-3">
       <v-btn >
         <router-link :to="{ name: 'GroupSubmit', params: { idGroup: getGroup.id, slugGroup: getGroup.slug }}">
           {{ $t('group.updateScores') }}
@@ -43,7 +43,7 @@
       </v-window>
     </v-card-text>
 
-    <div v-if="hasRolePlayer && getGame.id && !this.$vuetify.display.mobile" class="d-flex justify-center ma-3">
+    <div v-if="hasRolePlayer && getGame.id" class="d-flex justify-center ma-3">
       <v-btn >
         <router-link :to="{ name: 'GroupSubmit', params: { idGroup: getGroup.id, slugGroup: getGroup.slug }}">
           {{ $t('group.updateScores') }}
