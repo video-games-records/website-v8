@@ -16,7 +16,6 @@
     <tbody>
     <tr v-for="topic in topics" :data-position="topic.position" :key="topic.id">
       <td>
-        <notify v-if="isAuthenticated" v-bind:topicUser="topic.topicUser1"></notify>
 
         <span v-if="topic.type.libType === 'ANNONCE'" class="topic-type" :title="$t('forum.tag.announcement')">
                           <svg width="16" height="16" viewBox="0 0 50 50" class="svg-sprite" aria-hidden="true"
@@ -34,7 +33,6 @@
                           <span class="screen-reader-text">{{ $t('forum.tag.postit') }}</span>
                       </span>
 
-        <read v-if="isAuthenticated" v-bind:boolRead="topic.topicUser1.boolRead"></read>
 
         <topic v-bind:topic="topic" route="TopicIndex"></topic>
         <shortcut v-bind:topic="topic" route="TopicIndex"></shortcut>
