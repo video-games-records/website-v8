@@ -17,7 +17,7 @@
       <caption class="d-sr-only">{{ $t('lostPosition.index.caption') }}</caption>
       <thead>
       <tr>
-        <td v-if="!this.$vuetify.display.mobile"></td>
+        <td></td>
         <th scope="col">{{ $t('global.date') }}</th>
         <th scope="col">{{ $t('global.chart') }}</th>
         <th scope="col">{{ $t('lostPosition.change') }}</th>
@@ -25,7 +25,7 @@
       </thead>
       <tbody>
       <tr v-for="row in data" :data-position="row.position" :key="row.id">
-        <td v-if="!this.$vuetify.display.mobile">
+        <td>
           <input v-model="toDelete" type="checkbox" :value="row.id">
         </td>
         <td>
