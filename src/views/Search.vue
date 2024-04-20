@@ -19,32 +19,32 @@
     <v-card-text class="pa-0">
       <v-window v-model="tab">
         <v-window-item value="games">
-          <v-container class="fill-height" fluid>
-            <v-responsive class="fill-height">
+          <v-container class="fill-height h-100" fluid>
+            <v-responsive class="fill-height h-100">
               <game-search-result v-bind:callback=getCallBackGame />
             </v-responsive>
           </v-container>
         </v-window-item>
 
         <v-window-item value="players">
-          <v-container class="fill-height" fluid>
-            <v-responsive class="fill-height">
+          <v-container class="fill-height h-100" fluid>
+            <v-responsive class="fill-height h-100">
               <player-search-result v-bind:callback=getCallBackPlayer />
             </v-responsive>
           </v-container>
         </v-window-item>
 
         <v-window-item value="teams">
-          <v-container class="fill-height" fluid>
-            <v-responsive class="fill-height">
+          <v-container class="fill-height h-100" fluid>
+            <v-responsive class="fill-height h-100">
               <team-search-result v-bind:callback=getCallBackTeam />
             </v-responsive>
           </v-container>
         </v-window-item>
 
         <v-window-item value="topics">
-          <v-container class="fill-height" fluid>
-            <v-responsive class="fill-height">
+          <v-container class="fill-height h-100" fluid>
+            <v-responsive class="fill-height h-100">
               <topic-search-result v-bind:callback=getCallBackTopic />
             </v-responsive>
           </v-container>
