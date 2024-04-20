@@ -7,22 +7,47 @@
       <v-tab value="topics">{{ $t('global.topics') }}</v-tab>
     </v-tabs>
 
+
+    <v-container class="fill-height" fluid>
+      <v-responsive class="fill-height">
+        <v-main>
+          <router-view/>
+        </v-main>
+      </v-responsive>
+    </v-container>
+
     <v-card-text class="pa-0">
       <v-window v-model="tab">
         <v-window-item value="games">
-          <game-search-result v-bind:callback=getCallBackGame />
+          <v-container class="fill-height" fluid>
+            <v-responsive class="fill-height">
+              <game-search-result v-bind:callback=getCallBackGame />
+            </v-responsive>
+          </v-container>
         </v-window-item>
 
         <v-window-item value="players">
-          <player-search-result v-bind:callback=getCallBackPlayer />
+          <v-container class="fill-height" fluid>
+            <v-responsive class="fill-height">
+              <player-search-result v-bind:callback=getCallBackPlayer />
+            </v-responsive>
+          </v-container>
         </v-window-item>
 
         <v-window-item value="teams">
-          <team-search-result v-bind:callback=getCallBackTeam />
+          <v-container class="fill-height" fluid>
+            <v-responsive class="fill-height">
+              <team-search-result v-bind:callback=getCallBackTeam />
+            </v-responsive>
+          </v-container>
         </v-window-item>
 
         <v-window-item value="topics">
-          <topic-search-result v-bind:callback=getCallBackTopic />
+          <v-container class="fill-height" fluid>
+            <v-responsive class="fill-height">
+              <topic-search-result v-bind:callback=getCallBackTopic />
+            </v-responsive>
+          </v-container>
         </v-window-item>
       </v-window>
     </v-card-text>
