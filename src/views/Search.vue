@@ -8,14 +8,6 @@
     </v-tabs>
 
 
-    <v-container class="fill-height" fluid>
-      <v-responsive class="fill-height">
-        <v-main>
-          <router-view/>
-        </v-main>
-      </v-responsive>
-    </v-container>
-
     <v-card-text class="pa-0">
       <v-window v-model="tab">
         <v-window-item value="games">
