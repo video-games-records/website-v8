@@ -9,19 +9,27 @@
 
     <v-window v-model="tab">
       <v-window-item value="games" class="fill-height h-100" fluid>
-        <game-search-result v-bind:callback=getCallBackGame />
+        <v-responsive class="fill-height">
+          <game-search-result v-bind:callback=getCallBackGame />
+        </v-responsive>
       </v-window-item>
 
       <v-window-item value="players" class="fill-height h-100" fluid>
-        <player-search-result v-bind:callback=getCallBackPlayer />
+        <v-responsive class="fill-height">
+          <player-search-result v-bind:callback=getCallBackPlayer />
+        </v-responsive>
       </v-window-item>
 
       <v-window-item value="teams" class="fill-height h-100" fluid>
-        <team-search-result v-bind:callback=getCallBackTeam />
+        <v-responsive class="fill-height">
+          <team-search-result v-bind:callback=getCallBackTeam />
+        </v-responsive>
       </v-window-item>
 
       <v-window-item value="topics" class="fill-height h-100" fluid>
-        <topic-search-result v-bind:callback=getCallBackTopic />
+        <v-responsive class="fill-height">
+          <topic-search-result v-bind:callback=getCallBackTopic />
+        </v-responsive>
       </v-window-item>
     </v-window>
   </div>
