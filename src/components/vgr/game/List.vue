@@ -1,6 +1,7 @@
 <template>
   <v-sheet>
     <h2 v-if="displayNb" class="pa-3">{{ nb }} {{ $t('global.games_', nb) }}</h2>
+    <v-progress-linear v-if="isLoading" indeterminate color="yellow-darken-2"></v-progress-linear>
     <table>
       <caption class="screen-reader-text">{{ $t('game.list.caption') }}</caption>
       <thead>
@@ -96,6 +97,7 @@ export default {
   data() {
     return {
       games: [],
+      isLoading: false,
       order: {
         column: 'id',
         direction: 'ASC',
@@ -129,10 +131,13 @@ export default {
   },
   methods: {
     load() {
+      this.games = []
+      this.isLoading = true
       this.axios.get(this.getCallBack)
         .then(response => {
           this.games = response.data['hydra:member'];
           this.nb = response.data['hydra:totalItems'];
+          this.isLoading = false
         })
     },
     orderBy(column) {
