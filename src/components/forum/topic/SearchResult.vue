@@ -9,7 +9,7 @@
     <tr>
       <th scope="col">{{ $t('forum.tag.libTopic') }}</th>
       <th scope="col">{{ $t('forum.tag.author') }}</th>
-      <th scope="col">{{ $t('forum.tag.nbMessage') }}</th>
+      <th scope="col" v-if="!this.$vuetify.display.mobile">{{ $t('forum.tag.nbMessage') }}</th>
       <th scope="col">{{ $t('forum.tag.lastMessage') }}</th>
     </tr>
     </thead>
@@ -37,10 +37,10 @@
         <topic v-bind:topic="topic" route="TopicIndex"></topic>
         <shortcut v-bind:topic="topic" route="TopicIndex"></shortcut>
       </td>
-      <td>
+      <td>&nbsp;
         <user v-bind:user=topic.user></user>
       </td>
-      <td>{{ number(topic.nbMessage) }}</td>
+      <td v-if="!this.$vuetify.display.mobile">{{ number(topic.nbMessage) }}</td>
       <td>
         <last-message v-bind:message=topic.lastMessage></last-message>
       </td>

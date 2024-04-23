@@ -53,6 +53,8 @@ export default {
     },
     getResourceUrl() {
       return '/api/forum_topics?topicUser.user=' + this.getAuthenticatedUser.id +
+          '&groups[]=forum.topic.read&groups[]=forum.topic.lastMessage&groups[]=forum.message.last' +
+          '&groups[]=forum.forum.read&groups[]=forum.topicUser.read&groups[]=forum.topic.topicUser1' +
           '&topicUser.boolNotif=1&itemsPerPage=' + this.itemsPerPage + '&page=' + this.page;
     }
   },
