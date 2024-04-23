@@ -6,24 +6,22 @@
 
 <script>
 
+import WatchLanguage from "@/mixins/WatchLanguage.vue";
+
 export default {
+  mixins: [WatchLanguage],
   name: 'Credits',
   data() {
     return {
       page: {},
     };
   },
-  watch: {
-    /*getLanguage() {
-      this.loadData();
-    },*/
-  },
   created() {
     document.title = this.$t('page.credits.title') + ' - ' + import.meta.env.VITE_APP_TITLE;
-    this.loadData();
+    this.load();
   },
   methods: {
-    loadData() {
+    load() {
       this.axios.get('api/pages' + '?slug=credits').then(response => {
         this.page = response.data['hydra:member'][0];
       })

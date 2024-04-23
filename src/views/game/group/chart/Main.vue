@@ -5,11 +5,12 @@
 </template>
 
 <script>
-
 import {useAppStore} from "@/store/app";
 import {useBreadcrumbsStore} from "@/store/base/breadcrumbs";
+import WatchLanguage from "@/mixins/WatchLanguage.vue";
 
 export default {
+  mixins: [WatchLanguage],
   name: 'ChartMain',
   components: {},
   data() {

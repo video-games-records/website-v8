@@ -17,10 +17,11 @@
 </template>
 
 <script>
-
 import User from '@/components/user/User.vue';
+import WatchLanguage from "@/mixins/WatchLanguage.vue";
 
 export default {
+  mixins: [WatchLanguage],
   name: 'Donations',
   components: {User},
   data() {
@@ -35,10 +36,10 @@ export default {
       .then(response => {
         this.donors = response.data['hydra:member']
       })
-    this.loadData();
+    this.load();
   },
   methods: {
-    loadData() {
+    load() {
       this.axios.get('api/pages' + '?slug=donations').then(response => {
         this.page = response.data['hydra:member'][0];
       })

@@ -24,8 +24,10 @@ import GameAside from '@/components/vgr/game/Aside.vue';
 import {useAppStore} from "@/store/app";
 import {useBreadcrumbsStore} from "@/store/base/breadcrumbs";
 import Breadcrumb from "@/components/base/Breadcrumb.vue";
+import WatchLanguage from "@/mixins/WatchLanguage.vue";
 
 export default {
+  mixins: [WatchLanguage],
   name: 'GameMain',
   components: {Breadcrumb, GameCard, GameAside},
   data() {

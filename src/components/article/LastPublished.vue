@@ -28,8 +28,10 @@
 
 <script>
 import Date from '@/components/tools/Date.vue';
+import WatchLanguage from "@/mixins/WatchLanguage.vue";
 
 export default {
+  mixins: [WatchLanguage],
   name: 'ArticleLastPublished',
   components: {
     'date': Date,

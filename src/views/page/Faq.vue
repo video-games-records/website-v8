@@ -6,24 +6,22 @@
 
 <script>
 
+import WatchLanguage from "@/mixins/WatchLanguage.vue";
+
 export default {
+  mixins: [WatchLanguage],
   name: 'Faq',
   data() {
     return {
       page: {},
     };
   },
-  watch: {
-    /*getLanguage() {
-      this.loadData();
-    },*/
-  },
   created() {
     document.title = this.$t('page.faq.title') + ' - ' + import.meta.env.VITE_APP_TITLE;
-    this.loadData();
+    this.load();
   },
   methods: {
-    loadData() {
+    load() {
       this.axios.get('api/pages' + '?slug=faq').then(response => {
         this.page = response.data['hydra:member'][0];
       })

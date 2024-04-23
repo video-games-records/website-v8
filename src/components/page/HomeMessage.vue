@@ -10,19 +10,21 @@
 
 <script>
 
+import WatchLanguage from "@/mixins/WatchLanguage.vue";
+
 export default {
+  mixins: [WatchLanguage],
   name: 'HomeMessage',
   data() {
     return {
       message: {},
     };
   },
-
   created() {
-    this.loadData();
+    this.load();
   },
   methods: {
-    loadData() {
+    load() {
       this.axios.get('api/pages' + '?slug=home-message').then(response => {
         this.message = response.data['hydra:member'][0];
       })
