@@ -1,32 +1,33 @@
 <template>
   <h3 class="ma-2">{{ $t('proof.byGame') }}</h3>
   <v-table>
-
     <thead>
     <tr>
       <th>{{ $t('global.game') }}</th>
     </tr>
     </thead>
+    <v-progress-linear v-if="playerGames.length === 0" indeterminate color="yellow-darken-2"></v-progress-linear>
     <tbody>
     <tr v-for="playerGame in playerGames" :key="playerGame.id">
       <td class="hidden-md-and-down">
         <game-picture v-bind:game="playerGame.game"/>
       </td>
       <td>
-        <game v-bind:game="playerGame.game"/>
+        <router-link
+            :to="{ name: getGameRoute, params: { idGame: playerGame.game.id, slugGame: playerGame.game.slug }}">
+        {{
+          playerGame.game.name
+        }}
+        </router-link>
         <platform-list v-bind:platforms="playerGame.game.platforms"></platform-list>
       </td>
       <td>
         <ul>
           <li v-if="isAccountRoute === false">
-            <router-link
-                :to="{ name: 'PlayerGameProofs', params: { idGame: playerGame.game.id, slugGame: playerGame.game.slug }}">
               <strong>{{ number(playerGame.game.nbChart) }}</strong>
               <span v-if="this.$vuetify.display.mobile">&nbsp; scores</span>
               <span v-else>{{ $t('game.score.total', playerGame.game.nbChart) }}</span>
-            </router-link>
           </li>
-
           <li v-for="item in playerGame.statuses" :key="item.id">
             <span :title="item.status.name" :class="item.status.class ">
                 <span class="screen-reader-text">{{ item.status.name }}</span>
@@ -34,14 +35,6 @@
             <span>
               <strong>{{ number(item['nb']) }}</strong> <span class="hidden-sm-and-down">{{ $t('score.status.' + item.status.class, item['nb']) }}</span>
             </span>
-          </li>
-
-          <li v-if="isAccountRoute === true">
-            <router-link
-                :to="{ name: 'ProofGameProofs', params: { idGame: playerGame.game.id, slugGame: playerGame.game.slug }}">
-              {{ $t('proof.myProofs.description') }} <span class="screen-reader-text">{{ $t('global.on') }} <game
-                v-bind:game="playerGame.game"/></span>
-            </router-link>
           </li>
         </ul>
       </td>
@@ -74,6 +67,13 @@ export default {
   computed: {
     isAccountRoute() {
       return this.$route.name === 'ProofIndex';
+    },
+    getGameRoute() {
+      if (this.isAccountRoute){
+        return 'ProofGameProofs'
+      } else {
+        return 'PlayerGameProofs'
+      }
     }
   },
   created() {
