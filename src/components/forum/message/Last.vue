@@ -1,7 +1,8 @@
 <template>
   <div>
     {{ $t('forum.tag.on') }}
-    <date v-bind:date="message.createdAt"
+    <date v-if="this.$vuetify.display.mobile" v-bind:date="message.createdAt"></date>
+    <date v-else v-bind:date="message.createdAt"
           v-bind:options="{ year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric' }"></date>
     {{ $t('forum.tag.by') }}
     {{ message.user.username }}

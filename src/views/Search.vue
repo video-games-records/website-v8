@@ -7,25 +7,31 @@
       <v-tab value="topics">{{ $t('global.topics') }}</v-tab>
     </v-tabs>
 
-    <v-card-text class="pa-0">
-      <v-window v-model="tab">
-        <v-window-item value="games">
+    <v-window v-model="tab">
+      <v-window-item value="games" class="fill-height h-100" fluid>
+        <v-responsive class="fill-height">
           <game-search-result v-bind:callback=getCallBackGame />
-        </v-window-item>
+        </v-responsive>
+      </v-window-item>
 
-        <v-window-item value="players">
+      <v-window-item value="players" class="fill-height h-100" fluid>
+        <v-responsive class="fill-height">
           <player-search-result v-bind:callback=getCallBackPlayer />
-        </v-window-item>
+        </v-responsive>
+      </v-window-item>
 
-        <v-window-item value="teams">
+      <v-window-item value="teams" class="fill-height h-100" fluid>
+        <v-responsive class="fill-height">
           <team-search-result v-bind:callback=getCallBackTeam />
-        </v-window-item>
+        </v-responsive>
+      </v-window-item>
 
-        <v-window-item value="topics">
+      <v-window-item value="topics" class="fill-height h-100" fluid>
+        <v-responsive class="fill-height">
           <topic-search-result v-bind:callback=getCallBackTopic />
-        </v-window-item>
-      </v-window>
-    </v-card-text>
+        </v-responsive>
+      </v-window-item>
+    </v-window>
   </div>
 </template>
 
