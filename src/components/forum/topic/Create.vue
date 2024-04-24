@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-form id="app" class="vgr-form" @submit="submit" @submit.prevent>
+    <v-form id="app" @submit="submit" @submit.prevent>
       <v-row>
         <v-col cols="12">
           <v-text-field :label="$t('forum.tag.libTopic')" v-model="topic.libTopic" />

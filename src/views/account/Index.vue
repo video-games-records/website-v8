@@ -40,17 +40,17 @@
 
         <v-col cols="12" lg="6">
           <label for="presentation" class="font-weight-bold">{{ $t('player.presentation') }}</label>
-          <ckeditor id="presentation" :editor="editor" v-model="player.presentation" :config="editorConfig"></ckeditor>
+          <ckeditor :editor="editor" v-model="player.presentation" :config="getCkeditorToolBar"></ckeditor>
         </v-col>
 
         <v-col cols="12" lg="6">
           <label for="collection" class="font-weight-bold">{{ $t('player.collection') }}</label>
-          <ckeditor id="collection" :editor="editor" v-model="player.collection" :config="editorConfig"></ckeditor>
+          <ckeditor :editor="editor" v-model="player.collection" :config="getCkeditorToolBar"></ckeditor>
         </v-col>
 
-        <v-col cols="12" >
-          <v-btn type="submit" class="mt-2">{{ $t('tag.submit') }}</v-btn>
-          <v-btn v-on:click="cancel" class="mt-2">{{ $t('tag.cancel') }}</v-btn>
+        <v-col cols="12">
+          <v-btn type="submit" class="ma-2">{{ $t('tag.submit') }}</v-btn>
+          <v-btn v-on:click="cancel" class="ma-2">{{ $t('tag.cancel') }}</v-btn>
         </v-col>
       </v-row>
     </v-form>

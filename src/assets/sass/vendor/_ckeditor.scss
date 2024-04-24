@@ -6,69 +6,70 @@
  *                  https://ckeditor.com/docs/ckeditor5/latest/builds/guides/integration/frameworks/vuejs.html
  */
 
-.vgr-form {
-    > div.ck {
-        margin-bottom: 1em;
-    }
+div.ck {
+    margin-bottom: 1em;
+}
 
-    .ck.ck-toolbar {
-        border: none;
-        background-color: $white;
-    }
+.ck.ck-toolbar {
+    border: none;
+    background-color: $white;
+}
 
-    .ck.ck-sticky-panel .ck-sticky-panel__content_sticky {
-        box-shadow: unset;
-        border-right: 1px solid $primary-color;
-        border-bottom: 1px solid $primary-color;
-        border-left: 1px solid $primary-color;
-    }
+.ck.ck-sticky-panel .ck-sticky-panel__content_sticky {
+    box-shadow: unset;
+    border-right: 1px solid $primary-color;
+    border-bottom: 1px solid $primary-color;
+    border-left: 1px solid $primary-color;
+}
 
-    .ck-content {
-        min-height: em(200);
+.ck-content {
+    min-height: em(200);
 
-        .image {
-            display: inline-block;
-            margin: 1em .5em 1em 0;
-            text-align: left;
+    .image {
+        display: inline-block;
+        margin: 1em .5em 1em 0;
+        text-align: left;
 
-            img {
-                margin: 0;
-            }
+        img {
+            margin: 0;
         }
-    }
-
-    .ck.ck-editor__main > .ck-editor__editable {
-        max-height: 500px;
-        
-        &:not(.ck-focused) {
-            border-color: $form-border;
-            @include box-form-shadow( $form-border );
-        }
-
-        &.ck-focused {
-            border: 1px solid $primary-color;
-            @include box-form-shadow( $primary-color );
-        }
-    }
-
-    .image.ck-widget > .ck-widget__type-around > .ck-widget__type-around__fake-caret {
-        left: unset;
-        right: unset;
-        bottom: 0;
-    }
-
-    .image.ck-widget.ck-widget_type-around_show-fake-caret_after > .ck-widget__type-around > .ck-widget__type-around__fake-caret {
-        bottom: 0;
-        left: unset;
-        right: -1em;
-        height: 2em;
-        width: em(1);
     }
 }
 
-.vgr-form,
+.ck.ck-editor__main > .ck-editor__editable {
+    max-height: 500px;
+
+    &:not(.ck-focused) {
+        border-color: $form-border;
+        @include box-form-shadow( $form-border );
+    }
+
+    &.ck-focused {
+        border: 1px solid $primary-color;
+        @include box-form-shadow( $primary-color );
+    }
+}
+
+.image.ck-widget > .ck-widget__type-around > .ck-widget__type-around__fake-caret {
+    left: unset;
+    right: unset;
+    bottom: 0;
+}
+
+.image.ck-widget.ck-widget_type-around_show-fake-caret_after > .ck-widget__type-around > .ck-widget__type-around__fake-caret {
+    bottom: 0;
+    left: unset;
+    right: -1em;
+    height: 2em;
+    width: em(1);
+}
+
 .ck-body-wrapper {
     button.ck-button {
         box-shadow: unset !important;
     }
+}
+
+.ck.ck-editor__main>.ck-editor__editable {
+    background: rgb(var(--v-theme-ck-color-base-background)) !important;
 }
