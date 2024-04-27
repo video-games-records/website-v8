@@ -488,7 +488,8 @@
       "medals": "Top 100 Medals",
       "cups": "Top 100 Cups",
       "proof": "Top 100 Proofs",
-      "badge": "Top 100 Badges"
+      "badge": "Top 100 Badges",
+      "country": "Top 100 Countries"
     },
     "site": "The site",
     "rules": "Rules",

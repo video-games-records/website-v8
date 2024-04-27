@@ -37,7 +37,7 @@ export default {
       page: 1,
       length: 1,
       term: '',
-      itemsPerPage: 10,
+      itemsPerPage: 100,
     };
   },
   created() {

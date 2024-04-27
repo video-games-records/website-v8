@@ -33,6 +33,7 @@
     <v-list-item :to="{ name: 'LeaderboardMedal'}" :title="$t('menu.ranking.medals')"></v-list-item>
     <v-list-item :to="{ name: 'LeaderboardBadge'}" :title="$t('menu.ranking.badge')"></v-list-item>
     <v-list-item :to="{ name: 'LeaderboardProof'}" :title="$t('menu.ranking.proof')"></v-list-item>
+    <v-list-item :to="{ name: 'CountryIndex', params: { id: getCountry.id, slugCountry: getCountry.slug}}" :title="$t('menu.ranking.country')"></v-list-item>
     </v-list-group>
 
     <v-list-group value="TheSite">
@@ -73,6 +74,9 @@ export default {
     },
     getSerie() {
       return useAppStore().getSerie;
+    },
+    getCountry() {
+      return useAppStore().getCountry;
     },
     getYoutubeUrl() {
       return import.meta.env.VITE_VGR_YOUTUBE_URL;

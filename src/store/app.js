@@ -17,6 +17,11 @@ export const useAppStore = defineStore('app', {
       slug: 'mario-kart',
       libPlatform: 'Mario Kart'
     },
+    country: {
+      id: 1,
+      slug: 'france',
+      name: 'France'
+    },
     game: {
       platforms: [],
       forum: null,
@@ -38,6 +43,7 @@ export const useAppStore = defineStore('app', {
     getLetter: (state) => state.letter,
     getPlatform: (state) => state.platform,
     getSerie: (state) => state.serie,
+    getCountry: (state) => state.country,
     getGame: (state) => state.game,
     getGroup: (state) => state.group,
     getChart: (state) => state.chart,
@@ -57,6 +63,9 @@ export const useAppStore = defineStore('app', {
     },
     setSerie(serie) {
       this.serie = serie;
+    },
+    setCountry(country) {
+      this.country = country;
     },
     setGame(game) {
       this.game = game;
