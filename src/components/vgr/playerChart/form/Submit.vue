@@ -6,7 +6,7 @@
     </legend>
 
     <v-row>
-      <v-col cols="12" md="6">
+      <v-col cols="12" :md="displayPlatform ? 6 : 12">
         <div v-for="(lib, z) in chart.libs" :data-position="lib.position" :key="lib.id" class="d-flex">
             <v-text-field v-for="(part, index) in lib.type.parseMask" :data-position="part.position" :key="part.id"
                           v-if="isInitialized" :label="lib.name" :readonly="isReadOnly"
@@ -16,7 +16,7 @@
         </div>
 
       </v-col>
-      <v-col cols="12" md="6">
+      <v-col v-if="displayPlatform" cols="12" md="6">
         <v-select
             label="Platform"
             :items="game.platforms"
@@ -60,6 +60,10 @@ export default {
       type: Boolean,
     },
     'displayChartName': {
+      default: true,
+      type: Boolean,
+    },
+    'displayPlatform': {
       default: true,
       type: Boolean,
     },

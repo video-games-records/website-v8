@@ -4,7 +4,7 @@
       <v-text-field class="d-inline" v-model="term" :minlength="3" :label="$t('search.chart')"></v-text-field>
       <v-btn class="d-inline" @click="updateResource()">{{ $t('tag.submit') }}</v-btn>
     </div>
-    <player-chart-list :game="getGame" :displayGroupName="true"></player-chart-list>
+    <player-chart-list :game="getGame" :displayGroupName="true" :displayPlatform="false"></player-chart-list>
     <v-pagination :density="this.$vuetify.display.mobile ? 'compact' : 'default'" v-model="page" :length="length" total-visible=6 @update:modelValue="updateResource()"></v-pagination>
   </div>
 </template>

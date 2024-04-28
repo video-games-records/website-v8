@@ -2,8 +2,11 @@
   <div>
     <div v-for="(chart, index) in getCharts" :data-position="chart.position" :key="index"
          class="container">
+
       <player-chart-submit :key="chart.id" ref="playerChart" :chart="chart" :game="game"
-                           :displayGroupName="displayGroupName"></player-chart-submit>
+                           :displayGroupName="displayGroupName" :displayPlatform="displayPlatform">
+
+      </player-chart-submit>
     </div>
 
     <div>
@@ -41,6 +44,10 @@ export default {
     },
     'displayGroupName': {
       default: false,
+      type: Boolean,
+    },
+    'displayPlatform': {
+      default: true,
       type: Boolean,
     },
   },

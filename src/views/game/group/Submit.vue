@@ -1,6 +1,6 @@
 <template>
   <div>
-    <player-chart-list :game="getGame"></player-chart-list>
+    <player-chart-list :game="getGame" :displayPlatform="false"></player-chart-list>
     <v-pagination :density="this.$vuetify.display.mobile ? 'compact' : 'default'" v-model="page" :length="length"
                   total-visible=6 @update:modelValue="updateResource()"></v-pagination>
   </div>
