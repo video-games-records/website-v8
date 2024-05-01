@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="showForm" class="container">
+    <div v-if="showForm">
       <vue-base64-file-upload
           class="v1"
           accept="image/png,image/jpeg"

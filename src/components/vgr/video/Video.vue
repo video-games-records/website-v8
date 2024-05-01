@@ -1,8 +1,6 @@
 <template>
-  <div class="video-wrapper">
-    <!--<youtube ref="player-youtube" v-if="video.id && video.type.value === 'Youtube'" @play="play"
-             :video-id="video.videoId" :player-width="width" :player-height="height"
-             :player-vars="{autoplay: 0}"></youtube>-->
+  <div class="container">
+    <iframe class="responsive-iframe" :src="getUrl" title="YouTube video" allowFullScreen></iframe>
   </div>
 </template>
 
@@ -33,9 +31,10 @@ export default {
   data() {
     return {};
   },
-  methods: {
-    play() {
-    }
+  computed: {
+    getUrl() {
+      return 'https://www.youtube.com/embed/' + this.video.videoId + '?rel=0'
+    },
   },
 };
 </script>

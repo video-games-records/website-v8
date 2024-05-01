@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="showForm" class="container">
+    <div v-if="showForm">
       <v-form v-model="isValid" validate-on="blur" @submit.prevent @submit="submit()">
         <v-sheet class="d-flex">
           <v-text-field
