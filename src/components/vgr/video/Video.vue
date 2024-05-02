@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <iframe class="responsive-iframe" :src="getUrl" title="YouTube video" allowFullScreen></iframe>
+    <iframe class="responsive-iframe" :src="getUrl" title="Video" allowFullScreen></iframe>
   </div>
 </template>
 
@@ -33,7 +33,11 @@ export default {
   },
   computed: {
     getUrl() {
-      return 'https://www.youtube.com/embed/' + this.video.videoId + '?rel=0'
+      if (this.video.type.value === 'Youtube' ) {
+        return 'https://www.youtube.com/embed/' + this.video.videoId + '?rel=0'
+      } else if (this.video.type.value === 'Twitch') {
+        return 'https://player.twitch.tv/?video=' + this.video.videoId + '&parent=' + import.meta.env.VITE_DOMAIN
+      }
     },
   },
 };

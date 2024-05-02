@@ -99,7 +99,7 @@ export default {
         }
       }
 
-      this.axios(requestData).then(response => {
+      this.axios.request(requestData).then(() => {
         this.reload();
         usePlayerProofStore().resetPicture();
       });
@@ -116,7 +116,7 @@ export default {
         let proof = this.playerChart.proof;
         proof.status = 'CLOSED';
         this.axios.put('/api/proofs/' + proof.id, proof)
-            .then(response => {
+            .then(() => {
               this.reload();
             });
       }

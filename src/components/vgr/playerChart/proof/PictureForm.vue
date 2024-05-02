@@ -72,14 +72,14 @@ export default {
         }
       }
 
-      this.axios(requestData)
-          .then(response => {
+      this.axios.request(requestData)
+          .then(() => {
             this.loading = false;
             this.showForm = false;
             this.hasSuccess = true;
             this.updatePlayerChart();
           })
-          .catch(error => {
+          .catch(() => {
             this.loading = false;
             this.hasError = true;
             //this.$store.dispatch('flashMessage/confirm', this.error);

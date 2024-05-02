@@ -50,14 +50,14 @@ export default {
         }
       }
 
-      this.axios(requestData)
-          .then(response => {
+      this.axios.request(requestData)
+          .then(() => {
             this.showForm = false;
             this.hasSuccess = true;
             this.updatePlayerChart();
             useFlashMessageStore().confirm(this.$t('proof.form.success'));
           })
-          .catch(error => {
+          .catch(() => {
             useFlashMessageStore().error('ERROR');
           });
     },

@@ -1,8 +1,8 @@
 import { TokenService } from './token.service'
-import axios from "axios";
+import xior from 'xior';
 import { createAxiosResponseInterceptor } from '@/plugins/axios.interceptors'
 
-const axiosInstance = axios.create({
+const axiosInstance = xior.create({
     baseURL: import.meta.env.VITE_ROOT_API,
 });
 
@@ -37,7 +37,7 @@ const AuthenticationService = {
                 rules_accepted: rules_accepted
             }
         }
-        return axiosInstance(requestData).then(response => {
+        return axiosInstance.request(requestData).then(response => {
             return response;
         })
     },
@@ -54,7 +54,7 @@ const AuthenticationService = {
                 token : token
             }
         }
-        return axiosInstance(requestData).then(response => {
+        return axiosInstance.request(requestData).then(response => {
             return response;
         })
     },
@@ -76,7 +76,7 @@ const AuthenticationService = {
         }
 
         try {
-            const response = await axiosInstance(requestData)
+            const response = await axiosInstance.request(requestData)
 
             TokenService.saveToken(response.data.token)
             TokenService.saveRefreshToken(response.data.refresh_token)
@@ -101,7 +101,7 @@ const AuthenticationService = {
                 username : email
             }
         }
-        return axiosInstance(requestData).then(response => {
+        return axiosInstance.request(requestData).then(response => {
             return response;
         })
     },
@@ -121,7 +121,7 @@ const AuthenticationService = {
                 password: password
             }
         }
-        return axiosInstance(requestData).then(response => {
+        return axiosInstance.request(requestData).then(response => {
             return response;
         })
     },
@@ -141,7 +141,7 @@ const AuthenticationService = {
             data: data
         }
         try {
-            const response = await axiosInstance(requestData)
+            const response = await axiosInstance.request(requestData)
             TokenService.saveToken(response.data.token);
             TokenService.saveRefreshToken(response.data.refresh_token);
             return true;

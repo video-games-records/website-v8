@@ -71,7 +71,7 @@ export default {
           file : this.base64String
         }
       }
-      this.axios(requestData)
+      this.axios.request(requestData)
           .then(response => {
             useFlashMessageStore().confirm(response.data.message)
           })
