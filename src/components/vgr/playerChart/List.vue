@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-table>
+    <v-table class="responsive">
       <caption class="screen-reader-text">{{ $t('search.playerChart.caption') }}</caption>
       <thead>
       <tr>
@@ -24,7 +24,7 @@
       </thead>
       <tbody>
       <tr v-for="playerChart in playerCharts" :data-position="playerChart.position" :key="playerChart.id">
-        <td class="player-chart__chart">
+        <td :data-label="$t('global.chart')" class="overflow-hidden">
           <router-link :to="{
                             name: 'PlayerChartIndex',
                             params: {
@@ -40,13 +40,22 @@
                             </span>
           </router-link>
           {{ $t('search.playerChart.on') }}
-          <chart v-bind:chart="playerChart.chart"></chart>
+          <router-link :to="{ name: 'ChartIndex',
+            params: {
+                idChart: playerChart.chart.id,
+                slugChart: playerChart.chart.slug,
+                idGroup: playerChart.chart.group.id,
+                slugGroup: playerChart.chart.group.slug,
+                idGame: playerChart.chart.group.game.id,
+                slugGame: playerChart.chart.group.game.slug
+            }
+            }">{{ playerChart.chart.group.game.name }} / {{ playerChart.chart.group.name }} / {{ playerChart.chart.name }}</router-link>
         </td>
-        <td :data-header="$t('global.rank')">
+        <td :data-label="$t('global.rank')">
           <span v-if="playerChart.rank">{{ playerChart.rank }}</span>
           <span v-else>{{ $t('search.playerChart.new') }}</span>
         </td>
-        <td>
+        <td :data-label="$t('global.date')">
                         <span v-if="idPlayer == null">
                             {{ $t('global.by') }}
                             <player v-bind:player="playerChart.player"></player>
@@ -55,7 +64,7 @@
           <tools-date v-bind:date="playerChart.lastUpdate"
                       v-bind:options="{ year: 'numeric', month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric' }"></tools-date>
         </td>
-        <td v-if="displayStatus">
+        <td :data-label="$t('global.status')" v-if="displayStatus">
           <div>
             <button @click="showProof(playerChart)" :aria-labelledby="playerChart.id">
               <status v-bind:status=playerChart.status></status>
@@ -90,7 +99,6 @@
 <script>
 import ToolsDate from '@/components/tools/Date.vue';
 import Player from '@/components/vgr/player/Player';
-import Chart from '@/components/vgr/chart/Chart';
 import Status from '@/components/vgr/playerChart/Status.vue';
 import Proof from "@/components/vgr/playerChart/proof/Proof.vue";
 
@@ -100,7 +108,6 @@ export default {
   components: {
     'tools-date': ToolsDate,
     'player': Player,
-    'chart': Chart,
     'status': Status,
     'proof': Proof,
   },
