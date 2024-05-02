@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container-iframe">
     <iframe class="responsive-iframe" :src="getUrl" title="Video" allowFullScreen></iframe>
   </div>
 </template>
