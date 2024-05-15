@@ -2,7 +2,7 @@
   <v-card variant="outlined">
     <v-card-title class="bg-primary">{{ $t('leaderboard.cup.caption') }}</v-card-title>
     <v-progress-linear v-if="leaderboard.length === 0" indeterminate color="yellow-darken-2"></v-progress-linear>
-    <v-table density="compact">
+    <v-table density="compact" class="leaderboard">
       <thead>
         <tr>
           <th scope="col">{{ $t('global.member') }}</th>

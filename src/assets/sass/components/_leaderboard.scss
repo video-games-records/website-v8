@@ -1,3 +1,24 @@
+/* == @section Leaderboards ==================== */
+div.leaderboard {
+  tbody {
+    tr[data-rank="1"] { background: $gold-gradient; }
+    tr[data-rank="2"] { background: $silver-gradient; }
+    tr[data-rank="3"] { background: $bronze-gradient; }
+  }
+
+  [data-rank="1"],
+  [data-rank="2"],
+  [data-rank="3"] {
+    .avatar {
+      display: inline-flex;
+      margin-right: .5em;
+      width: em(30);
+      vertical-align: middle;
+    }
+  }
+}
+
+
 .platinum {
   color: $platinum;
 }
