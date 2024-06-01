@@ -167,7 +167,7 @@
       "nbMessage": "Messages",
       "messages": "messages",
       "lastMessage": "Last message",
-      "lastestMessages": "Lastest messages",
+      "lastestMessages": "Latest messages",
       "markAllAsRead": "Mark all subjects as read",
       "libTopic": "Subject",
       "author": "Author",
@@ -259,7 +259,7 @@
       "total": "record on the game | record on the game | records on the game"
     },
     "all": "All games",
-    "filter": "Select game",
+    "filter": "Select a game",
     "unranked": "Points acquired in this game do not count for the main rankings",
     "index": {
       "description": "Submit your highscores on "
@@ -278,7 +278,7 @@
         "description": "Submit a video on "
       }
     },
-    "day": "Game of day",
+    "day": "Game of the day",
     "download": {
       "URL": "Download",
       "message": "This game is currently available on official sites"
@@ -336,7 +336,7 @@
     "yes": "Yes",
     "no": "No",
     "filterBy": "Filter by",
-    "stats": "Our {0} members post {1} records including {2} proved on {3} games. Beat them!",
+    "stats": "Our {0} members posted {1} records, including {2} proved, on {3} games. Beat them!",
     "member": "Member",
     "team": "Team",
     "teams": "Teams",
@@ -387,7 +387,7 @@
     "bronze": "Bronze",
     "leaderboard": "Leaderboard",
     "teamRanking": "Members leaderboard",
-    "chart": "Chart",
+    "chart": "Record",
     "charts": "Charts",
     "createdAt": "Created at",
     "updatedAt": "Updated at",
@@ -619,7 +619,7 @@
     },
     "age": "Age",
     "pseudo": "Pseudo",
-    "createdAt": "Register on",
+    "createdAt": "Registered on",
     "team": "Team",
     "birthDay": "Birthday",
     "displayPersonalInfos": "Display my age and my gender on my public profile",
@@ -632,7 +632,7 @@
     "country": "Country",
     "countryChoice": "Choose a country",
     "lastLogin": "Last login",
-    "nbConnexion": "Nb connexion",
+    "nbConnexion": "Total connections",
     "discord": "Discord nickname"
   },
   "platform": {
@@ -695,17 +695,17 @@
       "description": "{0}'s score on {1}"
     },
     "last": {
-      "title": "Lastest submissions",
-      "description": "Lastest submissions"
+      "title": "Latest submissions",
+      "description": "Latest submissions"
     },
     "dateInvestigation": "Under investigation from",
     "lastUpdate": "Last update",
     "lastSubmit": {
-      "default": "Lastest submitted scores",
+      "default": "Latest submitted scores",
       "seeMore": "See more submitted scores",
       "proof": {
-        "picture": "Lastest submitted scores with picture proof",
-        "video": "Lastest submitted scores with video proof"
+        "picture": "Latest submitted scores with picture proof",
+        "video": "Latest submitted scores with video proof"
       }
     }
   },
@@ -822,7 +822,7 @@
     "register": "Registration",
     "signin": "Login",
     "messages": "new message | new message | new messages",
-    "lostPositions": "new lost position | new lost position | new lost positions",
+    "lostPositions": "new lost medal | new lost medal | new lost medals",
     "proofs": "Proofs",
     "account": "Account",
     "profile": "Profile",

@@ -259,7 +259,7 @@
       "total": "record sur le jeu | record sur le jeu | records sur le jeu"
     },
     "all": "Tous les jeux",
-    "filter": "Selectionner un jeu",
+    "filter": "Sélectionner un jeu",
     "unranked": "Les points acquis sur ce jeu ne compte pas pour les classement principal",
     "index": {
       "description": "Postez vos meilleurs scores sur "
@@ -336,7 +336,7 @@
     "yes": "Oui",
     "no": "Non",
     "filterBy": "Filtré par",
-    "stats": "Nos {0} membres ont posté {1} records dont {2} prouvés sur {3} jeux. Battez-les !",
+    "stats": "Nos {0} membres ont posté {1} records, dont {2} prouvés, sur {3} jeux. Battez-les !",
     "member": "Membre",
     "team": "Équipe",
     "teams": "Équipes",
@@ -619,7 +619,7 @@
     },
     "age": "Age",
     "pseudo": "Pseudo",
-    "createdAt": "Register on",
+    "createdAt": "Créé le",
     "team": "Equipe",
     "birthDay": "Date de naissance",
     "displayPersonalInfos": "Afficher mon âge et mon genre sur mon profil public",
@@ -629,8 +629,8 @@
     "presentation": "Présentation",
     "collection": "Collection",
     "gender": "Genre",
-    "country": "Country",
-    "countryChoice": "Choose a country",
+    "country": "Pays",
+    "countryChoice": "Choisir un pays",
     "lastLogin": "Dernière connection",
     "nbConnexion": "Nb connection",
     "discord": "Pseudo discord"
