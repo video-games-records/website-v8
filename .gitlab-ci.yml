@@ -43,7 +43,7 @@ build-production:
   script:
     - npm run build-production
   only:
-    - master
+    - main
   artifacts:
     paths:
       - dist/
@@ -75,17 +75,17 @@ deploy-recette:
     url: https://website.vgr.projet-normandie.fr
   dependencies:
     - build-recette
-  #only:
-  #  - dev
+  only:
+    - dev
   #when: manual
 
 deploy-production:
   extends: .base-deploy
   environment:
     name: production
-    url: https://www.video-games-records.com
+    url: https://www.videogamesrecords.net
   dependencies:
     - build-production
   only:
-    - master
+    - main
   when: manual
