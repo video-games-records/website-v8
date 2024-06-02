@@ -87,7 +87,7 @@ export default {
     };
   },
   created() {
-    this.axios.get('/api/countries', {enableCache: true})
+    this.axios.get('/api/countries?pagination=false', {enableCache: true})
         .then(response => {
           this.countries = response.data['hydra:member']
         });
