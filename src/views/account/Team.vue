@@ -5,8 +5,8 @@
         <v-card-title class="bg-primary">{{ $t('team.update.title') }}</v-card-title>
         <v-card-item>
           <v-form v-model="isValid" validate-on="blur" @submit.prevent @submit="update()">
-            <v-text-field v-model="team.libTeam" :label="$t('team.name')" :rules="[rules.required, rules.minlength(5, team.libTeam)]"></v-text-field>
-            <v-text-field v-model="team.tag" :label="$t('team.tag')" :rules="[rules.required, rules.minlength(2, team.tag)]"></v-text-field>
+            <v-text-field v-model="team.libTeam" :label="$t('team.name')" :rules="[rules.required, rules.minlength(2, team.libTeam), rules.maxlength(50, team.libTeam)]"></v-text-field>
+            <v-text-field v-model="team.tag" :label="$t('team.tag')" :rules="[rules.required, rules.minlength(2, team.tag), rules.maxlength(4, team.tag)]"></v-text-field>
             <label for="presentation" class="font-weight-bold">{{ $t('team.presentation') }}</label>
             <ckeditor :editor="editor" v-model="team.presentation" :config="editorConfig"></ckeditor>
             <v-btn type="submit" class="mt-2">{{ $t('tag.submit') }}</v-btn>
