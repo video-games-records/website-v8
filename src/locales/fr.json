@@ -826,7 +826,8 @@
     "proofs": "Preuves",
     "account": "Compte",
     "profile": "Profil",
-    "logout": "Déconnexion"
+    "logout": "Déconnexion",
+    "settings": "Paramètres"
   },
   "user": {
     "username": "Pseudo",

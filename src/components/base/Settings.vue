@@ -8,6 +8,10 @@
     >
       <template v-slot:activator="{ props }">
         <v-btn icon="mdi-cog" v-bind="props"></v-btn>
+        <v-tooltip
+            activator="parent"
+            location="bottom"
+        >{{ $t('topbar.settings') }}</v-tooltip>
       </template>
       <template v-slot:default="{ isActive }">
         <v-card height="100%">

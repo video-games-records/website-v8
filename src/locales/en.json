@@ -826,7 +826,8 @@
     "proofs": "Proofs",
     "account": "Account",
     "profile": "Profile",
-    "logout": "Logout"
+    "logout": "Logout",
+    "settings": "settings"
   },
   "user": {
     "username": "Username",

@@ -3,10 +3,15 @@
     <v-menu>
       <template v-slot:activator="{ props }">
         <v-btn :icon="getNbMessage > 0 ? 'mdi-account-alert' : 'mdi-account-circle'" v-bind="props"></v-btn>
+        <v-tooltip
+          activator="parent"
+          location="bottom"
+      >{{ $t('topbar.profile') }}</v-tooltip>
+
       </template>
       <v-list>
-        <v-list-item append-icon="mdi-account" :to="{ name: 'PlayerIndex', params: { idPlayer: this.getAuthenticatedPlayer.id, slugPlayer: this.getAuthenticatedPlayer.slug }}">Profile</v-list-item>
-        <v-list-item append-icon="mdi-cog" :to="{ name: 'AccountIndex'}">Account</v-list-item>
+        <v-list-item append-icon="mdi-account" :to="{ name: 'PlayerIndex', params: { idPlayer: this.getAuthenticatedPlayer.id, slugPlayer: this.getAuthenticatedPlayer.slug }}">{{ $t('topbar.profile') }}</v-list-item>
+        <v-list-item append-icon="mdi-cog" :to="{ name: 'AccountIndex'}">{{ $t('topbar.account') }}</v-list-item>
         <v-list-item :append-icon="getNbMessage > 0 ? 'mdi-message-alert' : 'mdi-message-text'" :to="{ name: 'MessageIndex'}">Messages</v-list-item>
         <v-list-item append-icon="mdi-camera" :to="{ name: 'ProofIndex'}">{{ $t('topbar.proofs') }}</v-list-item>
         <v-list-item append-icon="mdi-history" :to="{ name: 'History'}">{{ $t('history.title') }}</v-list-item>
