@@ -86,10 +86,18 @@
 
     <v-dialog v-model="dialog">
       <v-card>
-        <v-card-title class="d-flex justify-center">Proof</v-card-title>
+        <v-card-title class="d-flex justify-center">
+          Proof
+        </v-card-title>
         <v-card-item class="justify-center">
           <proof v-bind:player-chart="playerChart"></proof>
         </v-card-item>
+        <v-card-actions>
+          <v-btn
+              :text="$t('dialog.close')"
+              @click="dialog = false"
+          ></v-btn>
+        </v-card-actions>
       </v-card>
     </v-dialog>
 

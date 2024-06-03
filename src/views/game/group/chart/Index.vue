@@ -150,6 +150,12 @@
         <v-card-item>
           <proof v-bind:player-chart="playerChart"></proof>
         </v-card-item>
+        <v-card-actions>
+          <v-btn
+              :text="$t('dialog.close')"
+              @click="dialog = false"
+          ></v-btn>
+        </v-card-actions>
       </v-card>
     </v-dialog>
   </div>
