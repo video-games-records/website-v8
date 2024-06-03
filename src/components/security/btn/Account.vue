@@ -2,7 +2,7 @@
   <div>
     <v-menu>
       <template v-slot:activator="{ props }">
-        <v-btn icon="mdi-account-circle" v-bind="props"></v-btn>
+        <v-btn :icon="getNbMessage > 0 ? 'mdi-account-alert' : 'mdi-account-circle'" v-bind="props"></v-btn>
       </template>
       <v-list>
         <v-list-item append-icon="mdi-account" :to="{ name: 'PlayerIndex', params: { idPlayer: this.getAuthenticatedPlayer.id, slugPlayer: this.getAuthenticatedPlayer.slug }}">Profile</v-list-item>
