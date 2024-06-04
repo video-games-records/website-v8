@@ -38,6 +38,7 @@ import SubForums from '@/components/forum/forum/SubForums.vue';
 import ReadForm from "@/components/forum/forum/ReadForm";
 import Security from "@/mixins/Security.vue";
 import {useAppStore} from "@/store/app";
+import {useBreadcrumbsStore} from "@/store/base/breadcrumbs";
 
 export default {
   mixins: [Security],
@@ -71,6 +72,11 @@ export default {
   },
   created() {
     this.updateResource();
+  },
+  updated() {
+    if (this.getForum.id !== this.$route.params.idForum) {
+      this.updateResource();
+    }
   },
   methods: {
     updateResource() {
