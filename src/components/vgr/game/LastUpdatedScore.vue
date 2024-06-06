@@ -17,7 +17,7 @@
       <tbody>
       <tr v-for="game in games" :data-position="game.position" :key="game.id">
         <td class="pr-3">
-          <game :game="game">{{ game.name }}</game>
+          <game :game="game" />
         </td>
         <td class="pr-3 hidden-sm-and-down">
           {{ game.lastScore.chart.name }}
