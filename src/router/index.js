@@ -78,6 +78,7 @@ const routes = [
               { path: 'badges', name: 'PlayerBadges', component: () => import(/* webpackChunkName: "Player" */ '@/views/player/Badges.vue')},
               { path: 'presentation', name: 'PlayerPresentation', component: () => import(/* webpackChunkName: "Player" */ '@/views/player/Presentation.vue')},
               { path: 'collection', name: 'PlayerCollection', component: () => import(/* webpackChunkName: "Player" */ '@/views/player/Collection.vue')},
+              { path: 'messages', name: 'PlayerMessages', component: () => import(/* webpackChunkName: "Player" */ '@/views/player/Messages.vue')},
               { path: ':slugGame-game-g:idGame(\\d+)', name: 'PlayerGameMain', component: () => import(/* webpackChunkName: "Player" */ '@/views/player/game/Main.vue'),
                 children: [
                   { path: 'proofs', name: 'PlayerGameProofs', component: () => import(/* webpackChunkName: "Player" */ '@/views/player/game/Proofs.vue')},

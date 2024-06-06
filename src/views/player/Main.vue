@@ -25,6 +25,9 @@
 
       <li v-if="isRoute('Collection')" class="tab__item tab__item--current"><span>{{ $t('player.profile.tabs.collection') }}</span></li>
       <li v-else class="tab__item"><router-link :to="{ name: 'PlayerCollection' }">{{ $t('player.profile.tabs.collection') }}</router-link></li>
+
+      <li v-if="isRoute('Messages')" class="tab__item tab__item--current"><span>{{ $t('player.profile.tabs.messages') }}</span></li>
+      <li v-else class="tab__item"><router-link :to="{ name: 'PlayerMessages' }">{{ $t('player.profile.tabs.messages') }}</router-link></li>
     </ul>
 
     <router-view></router-view>

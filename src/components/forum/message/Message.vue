@@ -10,8 +10,14 @@
     </v-card-title>
     <v-card-item>
       <v-row>
+        <v-col v-if="message.topic" cols="12">
+          <div class="message-topic">
+            <topic v-bind:topic="message.topic"></topic>
+            <shortcut v-bind:topic="message.topic"></shortcut>
+          </div>
+        </v-col>
         <v-col cols="2" lg="2">
-          <div v-if="displayAuthor" class="message-author">
+          <div v-if="displayAuthor">
             <user v-bind:user="message.user" v-bind:show-avatar="true"></user>
             <span class="hidden-sm-and-down">{{ number(message.user.nbForumMessage) }} {{
                 $t('forum.tag.messages')
@@ -19,7 +25,7 @@
           </div>
         </v-col>
         <v-col cols="10" lg="10">
-          <div v-html="message.message" class="message-content__text"></div>
+          <div v-html="message.message"></div>
         </v-col>
       </v-row>
     </v-card-item>
