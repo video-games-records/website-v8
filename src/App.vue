@@ -18,7 +18,7 @@ export default {
     Sprite,
   },
   mounted() {
-    //setTimeout(() => this.scrollFix(this.$route.hash), 1);
+    setTimeout(() => this.scrollFix(this.$route.hash), 1);
   },
   created() {
     useTheme().global.name.value = useThemeStore().getName;
