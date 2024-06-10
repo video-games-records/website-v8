@@ -38,14 +38,14 @@ export default {
   methods: {
     submit: function () {
       if (!this.isValid) return;
-      this.axios({
+      this.axios.request({
         method: 'post',
         url: "api/player-charts/maj-platform",
         data: {
           idGame : this.game.id,
           idPlatform : this.platform.id
         }
-      }).then(response => {
+      }).then(() => {
         useFlashMessageStore().confirm('OK');
       });
     }
