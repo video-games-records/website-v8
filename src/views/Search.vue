@@ -58,7 +58,7 @@ export default {
   },
   computed: {
     getCallBackGame() {
-      return '/api/games?itemsPerPage=100&status' + this.$GAME_STATUS_ACTIVE + '&groups[]=game.list&groups[]=game.platforms' +
+      return '/api/games?itemsPerPage=100&status=' + this.$GAME_STATUS_ACTIVE + '&groups[]=game.list&groups[]=game.platforms' +
           '&groups[]=platform.read&' + this.getLibGame + '=' + this.term + '&order[' + this.getLibGame + ']=ASC';
     },
     getCallBackPlayer() {

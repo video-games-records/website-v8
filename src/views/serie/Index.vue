@@ -62,7 +62,7 @@
               </tr>
               </thead>
               <tbody>
-              <tr v-for="item in this.serie.games" :data-position="item.position" :key="item.id">
+              <tr v-for="item in this.games" :data-position="item.position" :key="item.id">
                 <td>
                   <game v-bind:game="item"></game>
                 </td>
@@ -105,10 +105,10 @@ export default {
         id: null,
         slug: '',
         name: '',
-        games: []
       },
       leaderboard: [],
       series: [],
+      games: []
     };
   },
   created() {
@@ -138,6 +138,11 @@ export default {
       this.axios.get('/api/series/' + this.$route.params.id + '/player-ranking-points?maxRank=100')
           .then(response => {
             this.leaderboard = response.data['hydra:member']
+          })
+      // games
+      this.axios.get('/api/games?serie=' + this.$route.params.id + '&status=ACTIVE&groups[]=game.read&groups[]=game.platforms&groups[]=platform.read')
+          .then(response => {
+            this.games = response.data['hydra:member']
           })
     },
     getPlayerId(item) {
