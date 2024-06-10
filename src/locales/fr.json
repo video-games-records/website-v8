@@ -676,8 +676,8 @@
     }
   },
   "score": {
-    "updated": "{0} score mis à jour | {0} score mis à jour | {0} scores mis à jour",
-    "toUpdate": "Aucun score à mettre à jour | {0} score à mettre à jour | {0} scores à mettre à jour",
+    "updated": "Aucun score mis à jour | 1 score mis à jour | {count} scores mis à jour",
+    "toUpdate": "Aucun score à mettre à jour | 1 score à mettre à jour | {count} scores à mettre à jour",
     "status": {
       "proof--proved": "score prouvé | score prouvé | scores prouvés",
       "proof--none": "score non prouvé | score non prouvé | scores non prouvés",
