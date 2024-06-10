@@ -54,6 +54,9 @@ export default {
     load() {
       this.axios.get('/api/games/' + this.$route.params.idGame)
           .then(response => {
+            if (response.data.status.value !== this.$GAME_STATUS_ACTIVE) {
+              this.$router.push({name: 'not-found'});
+            }
             useAppStore().setGame(response.data);
             useBreadcrumbsStore().setItem1(
                 { text: this.getGame.name, to: {name: 'GameIndex',params: { idGame: this.getGame.id, slugGame: this.getGame.slug }}}
