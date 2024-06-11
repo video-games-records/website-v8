@@ -1,5 +1,5 @@
 <template>
-  <v-sheet class="score pa-2 ma-2">
+  <v-card class="pa-2 ma-2">
     <h3 class="h4">
       <router-link
           :to="{ name: 'ChartIndex', params: { idGroup:playerChart.chart.group.id, slugGroup:playerChart.chart.group.slug, idChart: playerChart.chart.id, slugChart: playerChart.chart.slug }}">
@@ -33,7 +33,7 @@
       </div>
       <span v-else>{{ $t('score.notProoved') }}</span>
     </div>
-  </v-sheet>
+  </v-card>
 </template>
 
 <script>
@@ -124,10 +124,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.score {
-  background-color: #ededed;
-}
-
-</style>
