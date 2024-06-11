@@ -28,7 +28,8 @@ export default createVuetify({
           breadcrumb: colors.grey.lighten4,
           'tr-odd': "#EDEDEDFF",
           'player-me': colors.orange.accent3,
-          'ck-color-base-background': colors.grey.lighten4
+          'ck-color-base-background': colors.grey.lighten4,
+          gold: colors.yellow.lighten1
         },
       },
       dark: {
@@ -41,7 +42,8 @@ export default createVuetify({
           breadcrumb: colors.grey.darken3,
           'tr-odd': colors.grey.darken2,
           'player-me': colors.deepOrange.darken3,
-          'ck-color-base-background': colors.grey.darken3
+          'ck-color-base-background': colors.grey.darken3,
+          gold: colors.yellow.darken2
         },
       },
     },

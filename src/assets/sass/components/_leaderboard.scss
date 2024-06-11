@@ -1,7 +1,7 @@
 /* == @section Leaderboards ==================== */
 div.leaderboard {
   tbody {
-    tr[data-rank="1"] { background: $gold-gradient; }
+    tr[data-rank="1"] { background: rgb(var(--v-theme-gold));}
     tr[data-rank="2"] { background: $silver-gradient; }
     tr[data-rank="3"] { background: $bronze-gradient; }
   }
