@@ -21,7 +21,7 @@ export default {
   setup(props) {
     const accept = 'image/png,image/jpeg'
     const maxFiles = 1
-    const maxSize = 2000000 //ko
+    const maxSize = 10000000 //ko
     const saveFile = (files) => {
       let _this = this;
       const reader = new FileReader();
