@@ -7,15 +7,28 @@
 
     <v-row>
       <v-col cols="12" :md="displayPlatform ? 6 : 12">
-        <div v-for="(lib, z) in chart.libs" :data-position="lib.position" :key="lib.id" class="d-flex">
-            <v-text-field v-for="(part, index) in lib.type.parseMask" :data-position="part.position" :key="part.id"
-                          v-if="isInitialized" :label="lib.name" :readonly="isReadOnly"
-                          v-model="chart.playerCharts[0].libs[z].parseValue[index].value"
-                          :suffix="part['suffixe']" @update:modelValue="change"
-                          class="d-inline" />
-        </div>
+        <v-row>
+          <v-col cols="11">
+            <div v-for="(lib, z) in chart.libs" :data-position="lib.position" :key="lib.id" class="d-flex">
+              <v-text-field v-for="(part, index) in lib.type.parseMask" :data-position="part.position" :key="part.id"
+                            v-if="isInitialized" :label="lib.name" :readonly="isReadOnly"
+                            v-model="chart.playerCharts[0].libs[z].parseValue[index].value"
+                            :suffix="part['suffixe']" @update:modelValue="change"
+                            class="d-inline" />
+            </div>
+          </v-col>
+          <v-col cols="1" class="pa-5">
+            <status v-bind:status=chart.playerCharts[0].status class="d-flex"></status>
+            <v-tooltip
+                activator="parent"
+                location="start"
+            >{{ chart.playerCharts[0].status.name }}</v-tooltip>
+          </v-col>
+        </v-row>
+
 
       </v-col>
+
       <v-col v-if="displayPlatform" cols="12" md="6">
         <v-select
             label="Platform"
@@ -42,9 +55,11 @@
 //import ProofForm from "@/components/vgr/playerChart/form/Proof";
 import {useAppStore} from "@/store/app";
 import {useScoreSubmitStore} from "@/store/score/submit";
+import Status from "@/components/vgr/playerChart/Status.vue";
 
 export default {
   name: 'PlayerChartSubmit',
+  components: {Status},
   //components: {ProofForm},
   props: {
     'game': {
