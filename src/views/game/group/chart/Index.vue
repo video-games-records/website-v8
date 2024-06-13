@@ -79,51 +79,58 @@
                   </ul>
                  </td>
               </tr>
+              <tr>
+                <td colspan="6" class="text-center pa-1">{{ $t('score.off') }}
+                </td>
+              </tr>
+              <tr v-for="row in leaderboardPlayerDisabled" :data-rank="row[0].rank" :key="row.id"
+                  :class="[isAuthenticated && row[0].player.id === getAuthenticatedPlayer.id ? 'player--me' : 'player' ]">
+                <td></td>
+                <td>
+                  <country v-bind:country="row[0].player.country"></country>
+                  <player v-bind:player="row[0].player"></player>
+                </td>
+                <td class="hidden-md-and-down">
+                  <platform v-bind:platform="row[0].platform"></platform>
+                </td>
+                <td class="hidden-md-and-down"></td>
+                <td v-for="value in row.values" :data-position="value.position" :key="value.id"
+                    class="chart-list__score">
+                  <router-link :to="{ name: 'PlayerChartIndex', params: { idPc: row[0].id }}">
+                    {{ value }}
+                  </router-link>
+                </td>
+                <td>
+                  <ul>
+                    <li class="d-inline pa-1">
+                      <button v-if="row[0].proof" type="button" @click="showProof(row[0])"
+                              :aria-labelledby="row[0].id">
+                        <v-icon v-if="row[0].proof.video">mdi-video-box</v-icon>
+                        <status v-else v-bind:status=row[0].status></status>
+                        <v-tooltip
+                            activator="parent"
+                            location="start"
+                        >{{ row[0].status.name }}</v-tooltip>
+                      </button>
+                      <router-link v-else router-link :to="{ name: 'PlayerChartIndex', params: { idPc: row[0].id }}">
+                        <button type="button" class="button-as-link" :aria-labelledby="row[0].id">
+                          <status v-bind:status=row[0].status></status>
+                          <v-tooltip
+                              activator="parent"
+                              location="start"
+                          >{{ row[0].status.name }}</v-tooltip>
+                        </button>
+                      </router-link>
+                    </li>
+                    <li class="d-inline" v-if="!this.$vuetify.display.mobile">
+                      <last-update class="d-inline"  v-bind:player-chart=row[0]></last-update>
+                    </li>
+                  </ul>
+                </td>
+              </tr>
             </tbody>
           </v-table>
 
-          <v-table density="compact" class="leaderboard" v-if="leaderboardPlayerDisabled.length > 0">
-            <caption>{{ $t('score.off') }}</caption>
-            <thead>
-            <tr>
-              <th scope="col"></th>
-              <th scope="col">{{ $t('global.nickname') }}</th>
-              <th scope="col"></th>
-              <th scope="col"></th>
-              <th scope="col" v-for="lib in getChart.libs" :data-position="lib.position" :key="lib.id">{{ lib.name }}</th>
-              <th scope="col">{{ $t('global.status') }}</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr v-for="row in leaderboardPlayerDisabled" :data-rank="row[0].rank" :key="row.id"
-                :class="[isAuthenticated && row[0].player.id === getAuthenticatedPlayer.id ? 'player--me' : 'player' ]">
-              <td></td>
-              <td>
-                <country v-bind:country="row[0].player.country"></country>
-                <player v-bind:player="row[0].player"></player>
-              </td>
-              <td>
-                <platform v-bind:platform="row[0].platform"></platform>
-              </td>
-              <td></td>
-              <td v-for="value in row.values" :data-position="value.position" :key="value.id"
-                  class="chart-list__score">
-                <router-link :to="{ name: 'PlayerChartIndex', params: { idPc: row[0].id }}">
-                  {{ value }}
-                </router-link>
-              </td>
-              <td>
-                <button type="button" class="button-as-link" :aria-labelledby="row.id">
-                  <status v-bind:status=row[0].status></status>
-                </button>
-                <div>
-                  <div role="tooltip" :id="row[0].id">{{ row[0].status.name }}</div>
-                </div>
-                <last-update v-bind:player-chart=row[0]></last-update>
-              </td>
-            </tr>
-            </tbody>
-          </v-table>
 
           <div v-if="hasRolePlayer && getGame.id" class="d-flex justify-center ma-3">
             <v-btn >
