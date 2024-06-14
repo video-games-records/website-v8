@@ -60,7 +60,7 @@ div.leaderboard .avatar {
 }
 
 .player--me {
-  background-color: rgb(var(--v-theme-player-me));
+  background-color: rgb(var(--v-theme-player-me)) !important;
 }
 
 
