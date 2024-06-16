@@ -20,7 +20,7 @@
       <caption class="screen-reader-text">{{ $t('privateMessage.outbox.caption') }}</caption>
       <thead>
       <tr>
-        <td v-if="!this.$vuetify.display.mobile"></td>
+        <td></td>
         <th scope="col" >{{ $t('privateMessage.message.object') }}</th>
         <th scope="col">{{ $t('privateMessage.message.to') }}</th>
         <th scope="col">{{ $t('privateMessage.message.createdAt') }}</th>
@@ -28,7 +28,7 @@
       </thead>
       <tbody>
       <tr v-for="message in messages" :data-position="message.position" :key="message.id">
-        <td v-if="!this.$vuetify.display.mobile"><input v-model="message.isDeletedSender" type="checkbox" value="1"></td>
+        <td class="pl-2 center"><input v-model="message.isDeletedSender" type="checkbox" value="1"></td>
         <td :data-header="$t('privateMessage.message.object')">
           <button v-on:click="setMessage(message)">{{ message.object }}</button>
         </td>

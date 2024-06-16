@@ -27,7 +27,7 @@
       <caption class="screen-reader-text">{{ $t('privateMessage.inbox.caption') }}</caption>
       <thead>
       <tr>
-        <td v-if="!this.$vuetify.display.mobile"></td>
+        <td></td>
         <th scope="col">{{ $t('privateMessage.message.object') }}</th>
         <th scope="col">{{ $t('privateMessage.message.from') }}</th>
         <th scope="col">{{ $t('privateMessage.message.createdAt') }}</th>
@@ -36,7 +36,7 @@
 
       <tbody>
       <tr v-for="message in messages" :data-position="message.position" :key="message.id">
-        <td v-if="!this.$vuetify.display.mobile"><input v-model="message.isDeletedRecipient" type="checkbox" value="1">
+        <td class="pl-2 center"><input v-model="message.isDeletedRecipient" type="checkbox" value="1">
         </td>
         <td :data-header="$t('privateMessage.message.object')">
           <v-icon v-if="message.isOpened === false" icon="mdi-new-box" />
