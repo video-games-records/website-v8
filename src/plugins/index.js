@@ -14,6 +14,8 @@ import constante from './constante';
 import HighchartsVue from 'highcharts-vue';
 import CKEditor from '@ckeditor/ckeditor5-vue';
 import VueGtag from "vue-gtag";
+import ScriptX from 'vue-scriptx';
+import Ads from 'vue-google-adsense'
 
 export function registerPlugins (app) {
   app
@@ -33,4 +35,6 @@ export function registerPlugins (app) {
           }
       },
     }, router)
+    .use(ScriptX)
+    .use(Ads.Adsense)
 }

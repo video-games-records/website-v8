@@ -33,7 +33,10 @@
 
 
     <!-- blocRight -->
-    <div style="background: #1d1f29; padding-top:60px; text-align: center;" v-html="adsense"></div>
+    <Adsense
+        data-ad-client="ca-pub-1465216138455560"
+        data-ad-slot="1120943067">
+    </Adsense>
 
 
     <v-card v-if="!this.$vuetify.display.mobile" class="ma-2">
@@ -86,8 +89,5 @@ export default {
       return routes.indexOf(this.$route.name) !== -1;
     }
   },
-  mounted() {
-    this.adsense = document.getElementById('adsense-data').innerHTML;
-  }
 };
 </script>
