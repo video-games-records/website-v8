@@ -31,18 +31,10 @@
       </v-card-item>
     </v-card>
 
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1465216138455560"
-            crossorigin="anonymous"></script>
+
     <!-- blocRight -->
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-1465216138455560"
-         data-ad-slot="1120943067"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>
-      (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
+    <div style="background: #1d1f29; padding-top:60px; text-align: center;" v-html="adsense"></div>
+
 
     <v-card v-if="!this.$vuetify.display.mobile" class="ma-2">
       <v-card-title></v-card-title>
@@ -76,6 +68,11 @@ export default {
   name: 'GameAside',
   props: ['game'],
   components: {SerieCard, GroupSwitch, ChartSwitch, MajPlatform},
+  data() {
+    return {
+      adsense: '',
+    };
+  },
   computed: {
     getGame() {
       return useAppStore().getGame;
@@ -89,5 +86,8 @@ export default {
       return routes.indexOf(this.$route.name) !== -1;
     }
   },
+  mounted() {
+    this.adsense = document.getElementById('adsense-data').innerHTML;
+  }
 };
 </script>
