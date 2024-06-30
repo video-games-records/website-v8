@@ -31,6 +31,19 @@
       </v-card-item>
     </v-card>
 
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1465216138455560"
+            crossorigin="anonymous"></script>
+    <!-- blocRight -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-1465216138455560"
+         data-ad-slot="1120943067"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+
     <v-card v-if="!this.$vuetify.display.mobile" class="ma-2">
       <v-card-title></v-card-title>
       <v-card-item>
