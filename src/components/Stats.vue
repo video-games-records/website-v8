@@ -14,7 +14,7 @@ export default {
   name: 'Stats',
   data() {
     return {
-      data: [0,0,0,0]
+      data: [5000,1600000,500000,6000]
     };
   },
   created() {
