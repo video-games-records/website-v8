@@ -535,9 +535,11 @@
     "type": {
       "all": "All messages",
       "DEFAULT": "Private message",
-      "VGR_PROOF": "Proof management",
-      "VGR_PROOF_REQUEST": "Ask for proof",
-      "FORUM_NOTIF": "Forum notification"
+      "FORUM_NOTIF": "Forum notification",
+      "VGR_PROOF_ACCEPTED": "Proof accepted",
+      "VGR_PROOF_REFUSED": "Proof refused",
+      "VGR_PROOF_REQUEST_ACCEPTED": "Ask for proof accepted",
+      "VGR_PROOF_REQUEST_REFUSED": "Ask for proof refused"
     }
   },
   "messages": {
