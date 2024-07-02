@@ -2,7 +2,7 @@
   <v-snackbar v-model="isEnabled" :timeout="timeout" :color="getType">
     {{ getMessage }}
     <template v-slot:actions>
-      <v-btn @click="close">Fermer</v-btn>
+      <v-btn @click="close">{{ $t('dialog.close') }}</v-btn>
     </template>
   </v-snackbar>
 </template>
