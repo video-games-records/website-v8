@@ -53,9 +53,13 @@ export default {
     },
     getResourceUrl() {
       return '/api/forum_topics?topicUser.user=' + this.getAuthenticatedUser.id +
-          '&groups[]=forum.topic.read&groups[]=forum.topic.lastMessage&groups[]=forum.message.last' +
-          '&groups[]=forum.forum.read&groups[]=forum.topicUser.read&groups[]=forum.topic.topicUser1' +
-          '&topicUser.boolNotif=1&itemsPerPage=' + this.itemsPerPage + '&page=' + this.page;
+          '&groups[]=topic:read&groups[]=topic:type&groups[]=topic-type:read' +
+          '&groups[]=topic:forum&groups[]=forum:read' +
+          '&groups[]=topic:last-message&groups[]=message:read' +
+          '&groups[]=topic:user&groups[]=message:user&groups[]=user:read' +
+          '&groups[]=topic:topic-user-1&groups[]=topic-user:read' +
+          '&topicUser.boolNotif=1' +
+          '&itemsPerPage=' + this.itemsPerPage + '&page=' + this.page;
     }
   },
   created() {

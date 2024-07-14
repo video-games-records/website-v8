@@ -54,7 +54,7 @@ export default {
     load() {
       this.axios.get('/api/games/' + this.$route.params.idGame)
           .then(response => {
-            if (response.data.status.value !== this.$GAME_STATUS_ACTIVE) {
+            if (response.data.status !== this.$GAME_STATUS_ACTIVE) {
               this.$router.push({name: 'not-found'});
             }
             useAppStore().setGame(response.data);

@@ -68,8 +68,7 @@ export default {
     },
     load() {
       this.axios.get(
-          '/api/teams/' + this.$route.params.idTeam + '?groups[]=team.rank.pointChart&groups[]=team.rank.pointGame'
-          + '&groups[]=team.rank.medal&groups[]=team.rank.cup&groups[]=team.rank.badge&groups[]=team.players')
+          '/api/teams/' + this.$route.params.idTeam)
           .then(response => {
             this.team = response.data;
             document.title = this.team.libTeam + ' - ' + import.meta.env.VITE_APP_TITLE;

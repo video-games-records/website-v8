@@ -8,7 +8,7 @@
     </div>
 
     <v-progress-linear v-if="categories.length === 0" indeterminate color="yellow-darken-2"></v-progress-linear>
-    <div v-for="category in categories" :data-position="category.position" :key="category.id" class="forum-list">
+    <div v-for="category in categories" :key="category.id">
       <h2 class="ma-2">{{ category.libCategory }}</h2>
       <forum-list v-bind:forums=category.forums />
     </div>
@@ -44,7 +44,6 @@ export default {
       function pad(s) {
         return (s < 10) ? '0' + s : s;
       }
-
       let d = new Date();
       return [d.getFullYear(), pad(d.getMonth() + 1), pad(d.getDate())].join('-');
     }
@@ -59,7 +58,7 @@ export default {
   },
   methods: {
     load() {
-      this.axios.get('/api/categorie/home')
+      this.axios.get('/api/forum_forums/get-home')
           .then(response => {
             this.categories = response.data['hydra:member'];
           })

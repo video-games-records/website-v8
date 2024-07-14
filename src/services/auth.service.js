@@ -137,7 +137,7 @@ const AuthenticationService = {
 
         const requestData = {
             method: 'post',
-            url: import.meta.env.VITE_ROOT_API + "/token/refresh",
+            url: import.meta.env.VITE_ROOT_API + "/api/token/refresh",
             data: data
         }
         try {

@@ -102,7 +102,7 @@ export default {
     getResourceUrl() {
       let url = '/api/teams?itemsPerPage=' + this.itemsPerPage;
       // Add group player + team
-      url += '&groups[]=team.read&groups[]=team.rank.pointGame&groups[]=team.rank.medal'
+      url += '&groups[]=team:read'
       // Add order by
       url += '&order[' + this.order.column + ']=' + this.order.direction;
       // Add page
