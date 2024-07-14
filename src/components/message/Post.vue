@@ -28,7 +28,7 @@
               <v-text-field :label="$t('privateMessage.message.object')" v-model="post.object" :rules="[rules.required]" />
 
               <ckeditor @ready="onEditorReady" :editor="editor" v-model="post.message"
-                        :config="editorConfig" :rules="[rules.required]"></ckeditor>
+                        :config="getCkeditorToolBar" :rules="[rules.required]"></ckeditor>
 
               <v-btn type="submit" block class="mt-2">{{ $t('privateMessage.post.submit') }}</v-btn>
             </v-form>

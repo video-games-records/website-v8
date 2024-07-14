@@ -93,8 +93,8 @@ export default {
       this.axios.get(
           '/api/team_badges?pagination=false&badge.type=Serie&order[mbOrder]=ASC'
           + '&team=' + this.idTeam + '&ended_at[after]=' + this.getNow
-          + '&groups[]=teamBadge.read&groups[]=teamBadge.badge&groups[]=badge.read'
-          + '&groups[]=badge.serie&groups[]=serie.read')
+          + '&groups[]=team-badge:read&groups[]=team-badge:badge&groups[]=badge:read'
+          + '&groups[]=badge:serie&groups[]=serie:read')
           .then(response => {
             this.badges = response.data['hydra:member'];
           })
@@ -103,7 +103,7 @@ export default {
       this.dialog = true;
       this.badge = badge;
       this.axios.get(
-          '/api/team_badges?groups[]=teamBadge.read&groups[]=teamBadge.player&groups[]=team.read.mini'
+          '/api/team_badges?groups[]=team-badge:read&groups[]=team-badge:player&groups[]=team:read'
           + '&pagination=false&badge=' + badge.id + '&order[createdAt]=ASC')
           .then(response => {
             this.histo = response.data['hydra:member'];

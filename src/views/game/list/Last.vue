@@ -19,8 +19,8 @@ export default {
   components: {GameList},
   computed: {
     getCallback() {
-      return '/api/games?pagination=true&order[publishedAt]=DESC&groups[]=game.list&groups[]=game.platforms' +
-        '&groups[]=platform.read&status=' + this.$GAME_STATUS_ACTIVE;
+      return '/api/games?pagination=true&order[publishedAt]=DESC&groups[]=game:read&groups[]=game:platforms' +
+        '&groups[]=platform:read&status=' + this.$GAME_STATUS_ACTIVE;
     },
   },
   data() {

@@ -75,7 +75,7 @@ export default {
   },
   methods: {
     load() {
-      let query = 'groups[]=game.read.mini&groups[]=game.stats&groups[]=teamGame.game&groups[]=teamGame.pointChart&groups[]=teamGame.medal'
+      let query = 'groups[]=team-game:read&groups[]=team-game:game&groups[]=game:read'
           + '&pagination=false&team=' + this.$route.params.idTeam + '&order[' + this.order.column + ']=' + this.order.direction;
 
 

@@ -38,7 +38,6 @@ import SubForums from '@/components/forum/forum/SubForums.vue';
 import ReadForm from "@/components/forum/forum/ReadForm";
 import Security from "@/mixins/Security.vue";
 import {useAppStore} from "@/store/app";
-import {useBreadcrumbsStore} from "@/store/base/breadcrumbs";
 
 export default {
   mixins: [Security],
@@ -53,11 +52,14 @@ export default {
       return useAppStore().getForum
     },
     getResourceUrl() {
-      let url = '/api/forum_topics?forum=' + this.$route.params.idForum + '&boolArchive=false&itemsPerPage='
-          + this.itemsPerPage + '&page=' + this.page
-          + '&groups[]=forum.topic.read&groups[]=forum.topic.lastMessage&groups[]=forum.message.last';
+      let url = '/api/forum_topics?forum=' + this.$route.params.idForum + '&boolArchive=false&itemsPerPage=' +
+          '&groups[]=topic:read&groups[]=topic:type&groups[]=topic-type:read' +
+          '&groups[]=topic:forum&groups[]=forum:read' +
+          '&groups[]=topic:last-message&groups[]=message:read' +
+          '&groups[]=topic:user&groups[]=message:user&groups[]=user:read' +
+          '&itemsPerPage=' + this.itemsPerPage + '&page=' + this.page
       if (this.isAuthenticated) {
-        url += '&groups[]=forum.topicUser.read&groups[]=forum.topic.topicUser1';
+        url += '&groups[]=topic:topic-user-1&groups[]=topic-user:read';
       }
       return url;
     }
@@ -75,7 +77,7 @@ export default {
   },
   updated() {
     if (this.getForum.id !== this.$route.params.idForum) {
-      this.updateResource();
+      //this.updateResource();
     }
   },
   methods: {
