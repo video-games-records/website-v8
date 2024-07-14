@@ -41,7 +41,6 @@ export default {
             useBreadcrumbsStore().setItem4(
                 { text: this.getPlayerChart.player.pseudo}
             );
-            //document.title = this.getPlayerChart.player.pseudo + ' - ' + this.getChart.name + ' - ' + this.getGroup.name + ' - ' + this.getGame.name + ' - ' + import.meta.env.VITE_APP_TITLE;
           })
     },
   },

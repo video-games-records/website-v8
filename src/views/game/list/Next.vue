@@ -55,7 +55,7 @@ export default {
   },
   methods: {
     getCallBack(status) {
-      return '/api/games?pagination=false&order[id]=ASC&groups[]=game.list&groups[]=game.platforms&groups[]=platform.read&status=' + status;
+      return '/api/games?pagination=false&order[id]=ASC&groups[]=game:read&groups[]=game:platforms&groups[]=platform:read&status=' + status;
     }
   },
 }

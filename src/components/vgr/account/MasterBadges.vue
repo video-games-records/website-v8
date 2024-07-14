@@ -10,7 +10,6 @@
                 <badge v-bind:badge="element.badge" v-bind:createdAt="element.createdAt" class="ma-1"></badge>
               </template>
             </draggable>
-            <v-btn @click="order">{{ $t('badge.order.button') }}</v-btn>
           </v-col>
         </v-row>
       </v-card-item>

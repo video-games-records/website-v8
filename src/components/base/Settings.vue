@@ -16,7 +16,7 @@
       <template v-slot:default="{ isActive }">
         <v-card height="100%">
           <v-card-title class="bg-primary">
-            Settings
+            {{ $t('settings.title') }}
           </v-card-title>
           <v-card-item>
             <switch-theme />

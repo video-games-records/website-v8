@@ -24,9 +24,12 @@
       <td>
         <ul>
           <li v-if="isAccountRoute === false">
-              <strong>{{ number(playerGame.game.nbChart) }}</strong>
-              <span v-if="this.$vuetify.display.mobile">&nbsp; scores</span>
-              <span v-else>{{ $t('game.score.total', playerGame.game.nbChart) }}</span>
+            <template v-if="this.$vuetify.display.mobile">
+              <strong>{{ number(playerGame.game.nbChart) }}</strong> scores
+            </template>
+            <template v-else>
+              {{ $t('game.score.total', [playerGame.game.nbChart]) }}
+            </template>
           </li>
           <li v-for="item in playerGame.statuses" :key="item.id">
             <span :title="item.status.name" :class="item.status.class ">

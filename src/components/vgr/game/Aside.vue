@@ -7,9 +7,11 @@
     <maj-platform v-bind:game=getGame v-if="!this.$vuetify.display.mobile && hasRolePlayer && (getGame.platforms.length > 1)"></maj-platform>
 
     <v-card v-if="!this.$vuetify.display.mobile && getGame && getGame.forum" class="ma-2" variant="outlined">
-      <v-card-title class="bg-primary">Forum</v-card-title>
+      <v-card-title class="bg-primary">{{ $t('game.forum') }}</v-card-title>
       <v-card-item>
-        <router-link :to="{ name: 'GameForumIndex' , params: { idForum: getGame.forum.id, slugForum: getGame.forum.slug }}">Forum</router-link>
+        <router-link :to="{ name: 'GameForumIndex' , params: { idForum: getGame.forum.id, slugForum: getGame.forum.slug }}">
+          {{ getGame.forum.libForum }}
+        </router-link>
       </v-card-item>
     </v-card>
 

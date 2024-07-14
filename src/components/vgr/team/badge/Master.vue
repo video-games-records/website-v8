@@ -121,15 +121,15 @@ export default {
       this.dialog = true;
       this.badge = badge;
       this.axios.get(
-          '/api/team_badges?groups[]=teamBadge.read&groups[]=teamBadge.team&groups[]=team.read.mini'
+          '/api/team_badges?groups[]=team-badge:read&groups[]=team-badge:team&groups[]=team:read'
           + '&pagination=false&badge=' + badge.id + '&order[createdAt]=ASC')
           .then(response => {
             this.histo = response.data['hydra:member'];
           });
 
       this.axios.get(
-          '/api/team_games?groups[]=teamGame.pointChart&groups[]=teamGame.game&groups[]=game.read.mini'
-          + '&groups[]=game.platforms&groups[]=platform.read'
+          '/api/team_games?groups[]=team-game:read&groups[]=team-game:game&groups[]=game:read'
+          + '&groups[]=game:platforms&groups[]=platform:read'
           + '&pagination=false&game.badge=' + badge.id + '&team=' + this.idTeam)
           .then(response => {
             this.teamGame = response.data['hydra:member'][0];

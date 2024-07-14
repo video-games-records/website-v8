@@ -255,12 +255,13 @@
     }
   },
   "game": {
+    "forum": "Forum de jeu",
     "score": {
-      "total": "record sur le jeu | record sur le jeu | records sur le jeu"
+      "total": "Aucun record | Il existe {0} record possible dans ce jeu | Il existe {0} records possibles dans ce jeu"
     },
     "all": "Tous les jeux",
     "filter": "Sélectionner un jeu",
-    "unranked": "Les points acquis sur ce jeu ne compte pas pour les classement principal",
+    "unranked": "Les points acquis sur ce jeu ne comptent pas pour les classements principaux.",
     "index": {
       "description": "Postez vos meilleurs scores sur "
     },
@@ -360,10 +361,10 @@
     "groups_": "groupe | groupe | groupes",
     "platforms": "Plateformes",
     "platform": "Plateforme",
-    "player": "Joueur",
-    "players": "Joueurs",
-    "players_": "joueur | joueur | joueurs",
-    "playersLowercase": "joueurs",
+    "player": "Membre",
+    "players": "membres",
+    "players_": "membre | membre | membres",
+    "playersLowercase": "membres",
     "title": "Titre",
     "topic": "Topic",
     "topics": "Topics",
@@ -466,7 +467,7 @@
   },
   "menu": {
     "search": "Recherche",
-    "searchScore": "Recherche score",
+    "searchScore": "Recherche de score",
     "menu": "Menu",
     "home": "Accueil",
     "forum": "Forum",
@@ -620,13 +621,13 @@
       "close": "Fermer tous les groupes"
     },
     "age": "Age",
-    "pseudo": "Pseudo",
+    "pseudo": "Pseudonyme",
     "createdAt": "Créé le",
     "team": "Equipe",
     "birthDay": "Date de naissance",
     "displayPersonalInfos": "Afficher mon âge et mon genre sur mon profil public",
-    "website": "Website",
-    "youtube": "Youtube",
+    "website": "Site internet",
+    "youtube": "YouTube",
     "twitch": "Twitch",
     "presentation": "Présentation",
     "collection": "Collection",
@@ -635,7 +636,7 @@
     "countryChoice": "Choisir un pays",
     "lastLogin": "Dernière connection",
     "nbConnexion": "Nb connection",
-    "discord": "Pseudo discord"
+    "discord": "Pseudonyme Discord"
   },
   "platform": {
     "maj": "Indiquer votre console pour ce jeu",
@@ -750,6 +751,15 @@
   },
   "serie": {
     "choose": "Choisir une série"
+  },
+  "settings": {
+    "title": "Paramètres",
+    "theme": "Thème",
+    "language": "Langue"
+  },
+  "theme": {
+    "dark": "Sombre",
+    "light": "Lumineux"
   },
   "skiplinks": {
     "content": "Accéder au contenu",

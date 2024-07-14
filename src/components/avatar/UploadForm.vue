@@ -72,8 +72,8 @@ export default {
         }
       }
       this.axios.request(requestData)
-          .then(response => {
-            useFlashMessageStore().confirm(response.data.message)
+          .then(() => {
+            useFlashMessageStore().confirm('OK')
           })
           .catch(() => {
             useFlashMessageStore().error('ERR0R')

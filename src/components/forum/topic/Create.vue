@@ -40,7 +40,6 @@ export default {
         libTopic: '',
         forum: null,
         type: '/api/forum_topic_types/3',
-        user: null,
         messages: [
           {
             message: ''

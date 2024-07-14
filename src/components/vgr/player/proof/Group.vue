@@ -83,10 +83,13 @@ export default {
     },
     load() {
       this.axios.get(
-          '/api/player_charts?groups[]=playerChart.read&groups[]=playerChart.status&groups[]=playerChartStatus.read' +
-          '&groups[]=playerChart.chart&groups[]=chart.read.mini&groups[]=chart.group&groups[]=group.read.mini' +
-          '&groups[]=playerChartLib.format&groups[]=playerChart.proof&groups[]=proof.read&groups[]=picture.read' +
-          '&groups[]=video.read&order[' + this.getLibChart + ']=ASC&pagination=false&chart.group=' + this.group.id + '&player=' + this.idPlayer
+          '/api/player_charts?groups[]=player-chart:read' +
+          '&groups[]=player-chart:status&groups[]=player-chart-status:read' +
+          '&groups[]=player-chart:chart&groups[]=chart:read' +
+          '&groups[]=chart:group&groups[]=group:read' +
+          '&groups[]=player-chart:libs&groups[]=player-chart-lib:read' +
+          '&groups[]=player-chart:proof&groups[]=proof:read&groups[]=picture:read&groups[]=video.read' +
+          '&order[' + this.getLibChart + ']=ASC&pagination=false&chart.group=' + this.group.id + '&player=' + this.idPlayer
       )
          .then(response => {
           this.playerCharts = response.data['hydra:member'];

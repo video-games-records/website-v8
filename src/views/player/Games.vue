@@ -143,8 +143,10 @@ export default {
   },
   methods: {
     load() {
-      let query = 'groups[]=game.read.mini&groups[]=game.stats&groups[]=playerGame.game&groups[]=playerGame.pointChart&groups[]=playerGame.medal'
-        + '&pagination=false&player=' + this.$route.params.idPlayer + '&order[' + this.order.column + ']=' + this.order.direction;
+      let query = 'pagination=false&groups[]=player-game:read'
+        + '&groups[]=player-game:game&groups[]=game:read'
+        + '&groups[]=player-game:player'
+        + '&player=' + this.$route.params.idPlayer + '&order[' + this.order.column + ']=' + this.order.direction;
 
 
       if (this.order.column === 'chartRank0') {

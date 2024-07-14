@@ -225,13 +225,14 @@ export default {
   updated() {
     if (this.$route.name === 'ChartIndex') {
       useBreadcrumbsStore().setLevel(3);
-      if (this.getChart.id !== this.$route.params.idChart) {
+      if (this.getChart.id !== undefined && this.getChart.id !== parseInt(this.$route.params.idChart)) {
         this.load();
       }
     }
   },
   methods: {
     load() {
+
       let id = this.$route.params.idChart;
       this.isLoading = true;
       this.axios.get('/api/charts/' + id + '/player-ranking')
@@ -243,7 +244,7 @@ export default {
           .then(response => {
             this.leaderboardPlayerDisabled = response.data['hydra:member']
           })
-      this.axios.get('/api/charts/' + id + '/team-ranking')
+      this.axios.get('/api/charts/' + id + '/team-ranking-points')
           .then(response => {
             this.leaderboardTeam = response.data['hydra:member']
           })
