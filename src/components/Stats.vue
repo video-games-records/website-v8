@@ -22,7 +22,7 @@ export default {
   },
   methods: {
     load() {
-      this.axios.get('api/players/stats', { enableCache: true })
+      this.axios.get('api/stats/website', { enableCache: true })
         .then(response => {
           this.data = response.data['hydra:member'];
         })

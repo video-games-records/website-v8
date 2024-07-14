@@ -112,13 +112,13 @@ export default {
       // Add filter
       url += '&user.enabled=1';
       // Add group player + team
-      url += '&groups[]=player.read&groups[]=player.pointChart&groups[]=player.medal'
+      url += '&groups[]=player:read'
       // Add group team
-      url += '&groups[]=player.team&groups[]=team.read.mini';
+      url += '&groups[]=player:team&groups[]=team:read';
       // Add group country
-      url += '&groups[]=player.country&groups[]=country.read';
+      url += '&groups[]=player:country&groups[]=country:read';
       // Add group user
-      url += '&groups[]=player.status&groups[]=player.status.read';
+      url += '&groups[]=player:status&groups[]=player-status:read';
       // Add order by
       url += '&order[' + this.order.column + ']=' + this.order.direction;
       // Add page
