@@ -39,6 +39,7 @@ const routes = [
           },
           /********* ARTICLE ***********/
           { path: ':slugArticle-article-a:id(\\d+)', name: 'ArticleIndex', component: () => import(/* webpackChunkName: "article" */ '@/views/article/Index.vue')},
+          { path: 'articles', name: 'ArticleList', component: () => import(/* webpackChunkName: "article" */ '@/views/article/List.vue')},
           /********* COUNTRY ***********/
           { path: ':slugCountry-country-c:id(\\d+)', name: 'CountryIndex', component: () => import(/* webpackChunkName: "country" */ '@/views/country/Index.vue')},
           /********* FORUM ***********/

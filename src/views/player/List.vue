@@ -102,11 +102,9 @@ export default {
   },
   created() {
     this.updateResource();
+    document.title = this.$t('player.list.title') + ' - ' + import.meta.env.VITE_APP_TITLE;
   },
   computed: {
-    title() {
-      return this.$t('player.list.title') + ' - ' + import.meta.env.VITE_APP_TITLE;
-    },
     getResourceUrl() {
       let url = '/api/players?itemsPerPage=' + this.itemsPerPage;
       // Add filter
