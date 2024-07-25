@@ -25,7 +25,7 @@
           ({{ number(article.nbComment) }})
         </td>
         <td class="hidden-sm-and-down">
-          <user v-bind:user="article.author"></user>
+          <user v-if="article.author.id > 0" v-bind:user="article.author"></user>
         </td>
       </tr>
       </tbody>
@@ -65,7 +65,7 @@ export default {
   },
   computed: {
     getResourceUrl() {
-      let url = '/api/articles?itemsPerPage=' + this.itemsPerPage + '&order[publishedAt]=DESC';
+      let url = '/api/articles?itemsPerPage=' + this.itemsPerPage + '&status=PUBLISHED&order[publishedAt]=DESC';
       // Add page
       url = url + '&page=' + this.page;
       return url;
