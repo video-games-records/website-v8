@@ -7,9 +7,9 @@
       <caption class="screen-reader-text">{{ $t('article.list.caption') }}</caption>
       <thead>
       <tr>
-        <th scope="col" class="article__date">{{ $t('article.publishedAt') }}</th>
-        <th scope="col" class="article__title">{{ $t('article.title') }}</th>
-        <th scope="col" class="article__author">{{ $t('article.publishedBy') }}</th>
+        <th scope="col">{{ $t('article.publishedAt') }}</th>
+        <th scope="col">{{ $t('article.title') }}</th>
+        <th class="hidden-sm-and-down" scope="col">{{ $t('article.publishedBy') }}</th>
       </tr>
       </thead>
       <tbody>
@@ -24,7 +24,7 @@
           </router-link>
           ({{ number(article.nbComment) }})
         </td>
-        <td class="article__author" :data-header="$t('article.publishedBy')">
+        <td class="hidden-sm-and-down">
           <user v-bind:user="article.author"></user>
         </td>
       </tr>
