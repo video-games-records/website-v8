@@ -55,9 +55,11 @@ export default {
     getResourceUrl() {
       let url = '/api/forum_topics?forum=' + this.$route.params.idForum + '&boolArchive=false&itemsPerPage='
           + this.itemsPerPage + '&page=' + this.page
-          + '&groups[]=forum.topic.read&groups[]=forum.topic.lastMessage&groups[]=forum.message.last';
+          + '&groups[]=topic:read&groups[]=topic:last-message&groups[]=message:read&groups[]=message:user'
+          + '&groups[]=user:read&groups[]=topic:type&groups[]=topic-type:read'
+          + '&groups[]=topic:forum&groups[]=forum:read&groups[]=topic:user'
       if (this.isAuthenticated) {
-        url += '&groups[]=forum.topicUser.read&groups[]=forum.topic.topicUser1';
+        url += '&groups[]=topic:topic-user-1';
       }
       return url;
     }
@@ -75,7 +77,7 @@ export default {
   },
   updated() {
     if (this.getForum.id !== this.$route.params.idForum) {
-      this.updateResource();
+      //this.updateResource();
     }
   },
   methods: {
