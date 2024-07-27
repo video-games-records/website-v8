@@ -53,13 +53,14 @@ export default {
       return useAppStore().getForum
     },
     getResourceUrl() {
-      let url = '/api/forum_topics?forum=' + this.$route.params.idForum + '&boolArchive=false&itemsPerPage='
-          + this.itemsPerPage + '&page=' + this.page
-          + '&groups[]=topic:read&groups[]=topic:last-message&groups[]=message:read&groups[]=message:user'
-          + '&groups[]=user:read&groups[]=topic:type&groups[]=topic-type:read'
-          + '&groups[]=topic:forum&groups[]=forum:read&groups[]=topic:user'
+      let url = '/api/forum_topics?forum=' + this.$route.params.idForum + '&boolArchive=false&itemsPerPage=' +
+          '&groups[]=topic:read&groups[]=topic:type&groups[]=topic-type:read' +
+          '&groups[]=topic:forum&groups[]=forum:read' +
+          '&groups[]=topic:last-message&groups[]=message:read' +
+          '&groups[]=topic:user&groups[]=message:user&groups[]=user:read' +
+          '&itemsPerPage=' + this.itemsPerPage + '&page=' + this.page
       if (this.isAuthenticated) {
-        url += '&groups[]=topic:topic-user-1';
+        url += '&groups[]=topic:topic-user-1&groups[]=topic-user:read';
       }
       return url;
     }
