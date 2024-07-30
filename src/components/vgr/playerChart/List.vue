@@ -161,10 +161,16 @@ export default {
       page: 1,
       length: 1,
       playerCharts: [],
-      resource_url: 'api/player_charts?groups[]=playerChart.read&groups[]=playerChart.chart' +
-          '&groups[]=playerChart.player&groups[]=chart.read.mini&groups[]=player.read.mini&groups[]=group.read.mini' +
-          '&groups[]=game.read.mini&groups[]=chart.group&groups[]=group.game&groups[]=playerChartLib.format' +
-          '&groups[]=playerChart.proof&groups[]=proof.read&groups[]=picture.read&groups[]=video.read',
+      resource_url: 'api/player_charts?groups[]=player-chart:read' +
+          '&groups[]=player-chart:chart&groups[]=chart:read' +
+          '&groups[]=chart:group&groups[]=group:read' +
+          '&groups[]=group:game&groups[]=game:read' +
+          '&groups[]=player-chart:player&groups[]=player:read' +
+          '&groups[]=player-chart:proof&groups[]=proof:read' +
+          '&groups[]=proof:picture&groups[]=picture:read' +
+          '&groups[]=proof:video&groups[]=video:read' +
+          '&groups[]=player-chart:status&groups[]=player-chart-status:read' +
+          '&groups[]=player-chart:libs&groups[]=player-chart-lib:read',
       order: {
         column: 'lastUpdate',
         direction: 'DESC',
@@ -185,7 +191,7 @@ export default {
         url = url + '&lastUpdate[after]=' + date.toISOString();
       }
       if (this.idPlayer != null) {
-        url = url + '&groups[]=playerChart.status&groups[]=playerChartStatus.read&player=' + this.idPlayer;
+        url = url + '&player=' + this.idPlayer;
       }
       if (this.withProofPicture === true) {
         url = url + '&exists[proof.picture]=true';
@@ -207,7 +213,7 @@ export default {
   created() {
     if (this.idPlayer) {
       this.axios.get(
-          '/api/games?groups[]=game.read.mini&pagination=false&status=' + this.$GAME_STATUS_ACTIVE +
+          '/api/games?groups[]=game:read&pagination=false&status=' + this.$GAME_STATUS_ACTIVE +
           '&playerGame.player=' + this.idPlayer + '&order[' + this.getLibGame + ']=ASC')
           .then(response => {
             this.games = response.data['hydra:member']
