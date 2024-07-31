@@ -105,7 +105,7 @@ export default {
           .then(response => {
             this.user = response.data
           })
-      this.axios.get('/api/players/' + this.getAuthenticatedPlayer.id + '?groups[]=player.read&groups[]=player.country')
+      this.axios.get('/api/players/' + this.getAuthenticatedPlayer.id + '?groups[]=player:read&groups[]=player:country')
           .then(response => {
             let player = response.data;
             if (player.birthDate !== null) {
