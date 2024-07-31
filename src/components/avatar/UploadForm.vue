@@ -72,7 +72,7 @@ export default {
         }
       }
       this.axios.request(requestData)
-          .then(response => {
+          .then(() => {
             useFlashMessageStore().confirm('OK')
           })
           .catch(() => {
