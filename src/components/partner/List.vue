@@ -3,7 +3,7 @@
     <v-card-title class="bg-primary">{{ $t('footer.partners') }}</v-card-title>
     <v-card-item class="ma-0 pa-0">
       <v-list>
-        <v-list-item v-for="partner in partners" :href="partner.url" :title="partner.libPartner" />
+        <v-list-item v-for="partner in partners" :href="partner.url" :title="partner.name" />
       </v-list>
     </v-card-item>
   </v-card>

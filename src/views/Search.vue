@@ -58,19 +58,23 @@ export default {
   },
   computed: {
     getCallBackGame() {
-      return '/api/games?itemsPerPage=100&status=' + this.$GAME_STATUS_ACTIVE + '&groups[]=game.list&groups[]=game.platforms' +
-          '&groups[]=platform.read&' + this.getLibGame + '=' + this.term + '&order[' + this.getLibGame + ']=ASC';
+      return '/api/games?itemsPerPage=100&status=' + this.$GAME_STATUS_ACTIVE + '&groups[]=game:read&groups[]=game:platforms' +
+          '&groups[]=platform:read&' + this.getLibGame + '=' + this.term + '&order[' + this.getLibGame + ']=ASC';
     },
     getCallBackPlayer() {
-      return '/api/players?itemsPerPage=100&user.enabled=1&groups[]=player.read&groups[]=player.pointChart' +
-          '&groups[]=player.medal&groups[]=player.country&groups[]=country.read&pseudo=' + this.term + '&order[pseudo]=ASC';
+      return '/api/players?itemsPerPage=100&user.enabled=1&groups[]=player:read' +
+          '&groups[]=player:country&groups[]=country:read&pseudo=' + this.term + '&order[pseudo]=ASC';
     },
     getCallBackTeam() {
-      return '/api/teams?itemsPerPage=100&groups[]=team.read&groups[]=team.rank.pointChart' +
-          '&groups[]=team.rank.medal&libTeam=' + this.term + '&order[libTeam]=ASC';
+      return '/api/teams?itemsPerPage=100&groups[]=team:read' +
+          '&libTeam=' + this.term + '&order[libTeam]=ASC';
     },
     getCallBackTopic() {
-      return '/api/forum_topics?itemsPerPage=100&libTopic=' + this.term;
+      return '/api/forum_topics?itemsPerPage=100&libTopic=' + this.term +
+          '&groups[]=topic:read&groups[]=topic:type&groups[]=topic-type:read' +
+          '&groups[]=topic:forum&groups[]=forum:read' +
+          '&groups[]=topic:user&groups[]=user:read' +
+          '&groups[]=topic:last-message&groups[]=message:read&groups[]=message:user';
     },
     getLibGame() {
       if (localStorage.lang === 'fr') {
