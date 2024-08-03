@@ -243,7 +243,7 @@ export default {
           .then(response => {
             this.leaderboardPlayerDisabled = response.data['hydra:member']
           })
-      this.axios.get('/api/charts/' + id + '/team-ranking')
+      this.axios.get('/api/charts/' + id + '/team-ranking-points')
           .then(response => {
             this.leaderboardTeam = response.data['hydra:member']
           })

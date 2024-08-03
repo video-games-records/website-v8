@@ -140,7 +140,7 @@ export default {
             this.leaderboard = response.data['hydra:member']
           })
       // games
-      this.axios.get('/api/games?serie=' + this.$route.params.id + '&status=ACTIVE&groups[]=game.read&groups[]=game.platforms&groups[]=platform.read')
+      this.axios.get('/api/games?serie=' + this.$route.params.id + '&status=ACTIVE&groups[]=game:read&groups[]=game:platforms&groups[]=platform:read')
           .then(response => {
             this.games = response.data['hydra:member']
           })
