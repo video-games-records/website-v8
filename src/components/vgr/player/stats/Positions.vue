@@ -53,7 +53,7 @@ export default {
   },
   methods: {
     load() {
-      this.axios.get('/api/dwh_players/get-positions?idPlayer=' + this.$route.params.idPlayer, {enableCache: true})
+      this.axios.get('/api/players/' + this.$route.params.idPlayer +'/get-positions', {enableCache: true})
           .then(response => {
             this.chartOptions.series[0].data = response.data['hydra:member'];
           })

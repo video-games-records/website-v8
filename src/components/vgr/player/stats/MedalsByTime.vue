@@ -60,7 +60,7 @@ export default {
   },
   methods: {
     load() {
-      this.axios.get('/api/dwh_players/get-medals-by-time?idPlayer=' + this.$route.params.idPlayer, {enableCache: true})
+      this.axios.get('/api/players/' + this.$route.params.idPlayer + '/get-medals-by-time', {enableCache: true})
           .then(response => {
             this.chartOptions.series[0].data = response.data['hydra:member'][0];
             this.chartOptions.series[1].data = response.data['hydra:member'][1];

@@ -1,7 +1,7 @@
 <template>
-  <v-radio-group v-model="name" label="Theme">
-    <v-radio label="Light" value="light"></v-radio>
-    <v-radio label="Dark" value="dark"></v-radio>
+  <v-radio-group v-model="name" :label="$t('settings.theme')">
+    <v-radio :label="$t('theme.light')" value="light"></v-radio>
+    <v-radio :label="$t('theme.dark')" value="dark"></v-radio>
   </v-radio-group>
 </template>
 

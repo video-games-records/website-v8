@@ -103,7 +103,12 @@ export default {
     quit: function () {
       let player = this.getAuthenticatedPlayer;
       player.team = null;
-      this.axios.put('/api/players/' + player.id, player);
+      this.axios.put('/api/players/' + player.id, player).then((response) => {
+        this.team = null;
+        let player = this.getAuthenticatedPlayer;
+        player.team = null
+        useFlashMessageStore().confirm('OK');
+      });
     },
     add: function () {
       if (!this.isValid) return;

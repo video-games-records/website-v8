@@ -15,8 +15,8 @@
     </v-col>
     <v-col>
       <v-tabs v-model="tab" class="bg-primary">
-        <v-tab value="leaderboard">Leaderboard</v-tab>
-        <v-tab value="games">Games</v-tab>
+        <v-tab value="leaderboard">{{ $t('global.leaderboard') }}</v-tab>
+        <v-tab value="games">{{ $t('global.games') }}</v-tab>
         <v-tab value="description">Description</v-tab>
       </v-tabs>
 

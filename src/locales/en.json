@@ -255,8 +255,9 @@
     }
   },
   "game": {
+    "forum": "Game forum",
     "score": {
-      "total": "record on the game | record on the game | records on the game"
+      "total": "No record | There is {0} possible record in this game | There is {0} possible record(s) in this game"
     },
     "all": "All games",
     "filter": "Select a game",
@@ -360,10 +361,10 @@
     "groups_": "group | group | groups",
     "platforms": "Platforms",
     "platform": "Platform",
-    "player": "Player",
-    "players": "Players",
-    "players_": "player | player | players",
-    "playersLowercase": "players",
+    "player": "Member",
+    "players": "Members",
+    "players_": "member | member | members",
+    "playersLowercase": "members",
     "title": "Title",
     "topic": "Topic",
     "topics": "Topics",
@@ -388,7 +389,7 @@
     "leaderboard": "Leaderboard",
     "teamRanking": "Members leaderboard",
     "chart": "Record",
-    "charts": "Charts",
+    "charts": "Records",
     "createdAt": "Created at",
     "updatedAt": "Updated at",
     "comments": "Comments",
@@ -477,9 +478,9 @@
     "game": {
       "alpha": "Alphabetical list",
       "platform": "Platform list",
-      "serie": "Serie list",
+      "serie": "Series list",
       "next": "Upcoming games",
-      "last": "Latest games"
+      "last": "Lastest games"
     },
     "rankings": "Rankings",
     "ranking": {
@@ -626,7 +627,7 @@
     "birthDay": "Birthday",
     "displayPersonalInfos": "Display my age and my gender on my public profile",
     "website": "Website",
-    "youtube": "Youtube",
+    "youtube": "YouTube",
     "twitch": "Twitch",
     "presentation": "Presentation",
     "collection": "Collection",
@@ -750,6 +751,15 @@
   },
   "serie": {
     "choose": "Choose a serie"
+  },
+  "settings": {
+    "title": "Settings",
+    "theme": "Theme",
+    "language": "Language"
+  },
+  "theme": {
+    "dark": "Dark",
+    "light": "Light"
   },
   "skiplinks": {
     "content": "Go to content",
