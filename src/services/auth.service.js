@@ -96,7 +96,7 @@ const AuthenticationService = {
     resettingSendEmail: function(email) {
         const requestData = {
             method: 'post',
-            url: "/api/users/resetting/send-email",
+            url: "/api/security/send-password-reset-link",
             data: {
                 username : email
             }
@@ -115,7 +115,7 @@ const AuthenticationService = {
     resettingReset: function(token, password) {
         const requestData = {
             method: 'post',
-            url: "/api/users/resetting/reset",
+            url: "/api/security/confirm-password",
             data: {
                 token : token,
                 password: password
