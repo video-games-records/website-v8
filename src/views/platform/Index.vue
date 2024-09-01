@@ -21,8 +21,8 @@
     </v-col>
     <v-col cols="12" order="3" md="12" lg="9" order-lg="1">
       <v-tabs v-model="tab" class="bg-primary">
-        <v-tab value="leaderboard">Leaderboard</v-tab>
-        <v-tab value="games">Games</v-tab>
+        <v-tab value="leaderboard">{{ $t('global.leaderboard') }}</v-tab>
+        <v-tab value="games">{{ $t('global.games') }}</v-tab>
       </v-tabs>
 
       <v-card-text class="pa-0">
