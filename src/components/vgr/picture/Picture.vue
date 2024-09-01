@@ -18,7 +18,7 @@ export default {
   },
   computed: {
     getPicture() {
-      return import.meta.env.VITE_ROOT_API + '/proof/picture/' + this.picture.id;
+      return import.meta.env.VITE_ROOT_API + '/picture/' + this.picture.id + '/show';
     },
   },
 };
