@@ -33,9 +33,11 @@ export default {
   },
   computed: {
     getResourceUrl() {
-      return '/api/forum_messages?topic=' + this.$route.params.idTopic + '&itemsPerPage=' + this.itemsPerPage
-        + '&groups[]=forum.user.read&groups[]=forum.user.status&groups[]=user.status.read&topic.forum.status=public'
-        + '&groups[]=forum.message.read&groups[]=forum.message.topic&groups[]=forum.topic.read&groups[]=forum.topic.forum&groups[]=forum.forum.read'
+      return '/api/forum_messages?itemsPerPage=' + this.itemsPerPage
+        + '&groups[]=message:read&groups[]=message:user&groups[]=message:message'
+        + '&groups[]=message:topic&groups[]=topic:read'
+        + '&groups[]=topic:forum&groups[]=forum:read'
+        + '&groups[]=forum:user&groups[]=user:read'
         + '&page=' + this.page + '&order[createdAt]=DESC' + '&user=' + this.$route.params.idPlayer;
     }
   },
