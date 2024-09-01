@@ -88,7 +88,9 @@ export default {
           '&groups[]=player-chart:chart&groups[]=chart:read' +
           '&groups[]=chart:group&groups[]=group:read' +
           '&groups[]=player-chart:libs&groups[]=player-chart-lib:read' +
-          '&groups[]=player-chart:proof&groups[]=proof:read&groups[]=picture:read&groups[]=video.read' +
+          '&groups[]=player-chart:proof&groups[]=proof:read' +
+          '&groups[]=proof:picture&groups[]=picture:read' +
+          '&groups[]=proof:video&groups[]=video.read' +
           '&order[' + this.getLibChart + ']=ASC&pagination=false&chart.group=' + this.group.id + '&player=' + this.idPlayer
       )
          .then(response => {
