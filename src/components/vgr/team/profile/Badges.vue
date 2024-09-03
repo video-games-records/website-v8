@@ -40,7 +40,7 @@
                     query: {
                         pagination: false,
                         team: this.idTeam,
-                        'ended_at[after]' : this.getNow
+                        'endedAt[after]' : this.getNow
                     }
                 })
                     .then(badges => {

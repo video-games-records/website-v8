@@ -92,7 +92,7 @@ export default {
     load() {
       this.axios.get(
           '/api/team_badges?pagination=false&badge.type=Serie&order[mbOrder]=ASC'
-          + '&team=' + this.idTeam + '&ended_at[after]=' + this.getNow
+          + '&team=' + this.idTeam + '&endedAt[after]=' + this.getNow
           + '&groups[]=team-badge:read&groups[]=team-badge:badge&groups[]=badge:read'
           + '&groups[]=badge:serie&groups[]=serie:read')
           .then(response => {

@@ -112,7 +112,7 @@ export default {
     load() {
       this.axios.get(
           '/api/team_badges?pagination=false&badge.type=Master&order[mbOrder]=ASC'
-          + '&team=' + this.idTeam + '&ended_at[after]=' + this.getNow)
+          + '&team=' + this.idTeam + '&endedAt[after]=' + this.getNow)
           .then(response => {
             this.badges = response.data['hydra:member'];
           })

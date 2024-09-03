@@ -89,7 +89,7 @@ export default {
     load() {
       this.axios.get(
           '/api/player_badges?pagination=false'
-          + '&player=' + this.$route.params.idPlayer + '&ended_at[after]=' + this.getNow)
+          + '&player=' + this.$route.params.idPlayer + '&endedAt[after]=' + this.getNow)
           .then(response => {
             this.badges = response.data['hydra:member'];
           })

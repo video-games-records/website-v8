@@ -107,7 +107,7 @@ export default {
     load() {
       this.axios.get(
         '/api/player_badges?pagination=false&badge.type=Master&order[mbOrder]=ASC'
-        + '&player=' + this.idPlayer + '&ended_at[after]=' + this.getNow)
+        + '&player=' + this.idPlayer + '&endedAt[after]=' + this.getNow)
         .then(response => {
           this.badges = response.data['hydra:member'];
         })
