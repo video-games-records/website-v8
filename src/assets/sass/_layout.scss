@@ -79,12 +79,13 @@ svg[aria-hidden="true"]:not(.svg-sprite) {
 }
 
 
-
-
 @mixin site-header-bg-medium {
-    .site-header {
+    .v-main {
+        z-index: 0;
+        margin-top: 60px;
+    }
+    .v-main  {
         position: relative;
-
         &::after {
             position: absolute;
             top: -40px;
