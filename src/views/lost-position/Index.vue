@@ -118,7 +118,7 @@ export default {
       this.axios.put('/api/players/' + this.getAuthenticatedPlayer.id, {id: this.getAuthenticatedPlayer.id, 'lastDisplayLostPosition': moment().toISOString()})
     },
     loadGames: function () {
-      this.axios.get('/api/games?groups[]=game.read.mini&pagination=false' +
+      this.axios.get('/api/games?groups[]=game:read&pagination=false' +
           '&groups.charts.lostPositions.player=' + this.getAuthenticatedPlayer.id +
           '&order[' + this.getLibGame + ']ASC')
           .then(response => {
