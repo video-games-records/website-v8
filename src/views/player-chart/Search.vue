@@ -265,12 +265,13 @@ export default {
       return filter;
     },
     getResourceUrl() {
-      let url = '/api/player_charts?groups[]=playerChart.player&groups[]=chart.read.mini&groups[]=group.read.mini' +
-          '&groups[]=game.read.mini&groups[]=chart.group&groups[]=player.read.mini' +
-          '&groups[]=group.game&groups[]=playerChartLib.format&groups[]=playerChart.proof' +
-          '&groups[]=proof.read&groups[]=picture.read&groups[]=video.read' +
-          '&groups[]=playerChart.read&groups[]=playerChart.status&groups[]=playerChartStatus.read' +
-          '&groups[]=playerChart.chart' +
+      let url = '/api/player_charts?groups[]=player-chart:player&groups[]=chart:read&groups[]=group:read' +
+          '&groups[]=game:read&groups[]=chart:group&groups[]=player:read' +
+          '&groups[]=group:game&groups[]=player-chart-lib:read&groups[]=player-chart:proof' +
+          '&groups[]=proof:read&groups[]=proof:picture&groups[]=picture:read' +
+          '&groups[]=proof:video&groups[]=video:read' +
+          '&groups[]=player-chart:read&groups[]=player-chart:status&groups[]=player-chart-status:read' +
+          '&groups[]=player-chart:chart' +
           this.getFilterGames + this.getFilterPlayers + this.getFilterPlatforms + this.getFilterStatuses;
 
 
