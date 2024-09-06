@@ -30,8 +30,9 @@ export default {
       itemsPerPage: 25,
       nbDay: 90,
       forums: [],
-      resource_url: 'api/forum_forums?groups[]=forum.forum.read&groups[]=forum.lastMessage' +
-          '&groups[]=forum.message.last&groups[]=forum.forum.forumUser1&groups[]=forum.forumUser.read',
+      resource_url: 'api/forum_forums?groups[]=forum:last-message' +
+          '&groups[]=forum:forum-user-1&groups[]=forum-user:read&user:read&groups[]=message:read' +
+          '&groups[]=message:user&groups[]=user:read',
       order: {
         column: 'lastMessage.id',
         direction: 'DESC',
@@ -43,16 +44,20 @@ export default {
       return useAppStore().getForum.id === 10953;
     },
     getResourceUrl() {
-      let url = this.resource_url;
-      url = url + '&itemsPerPage=' + this.itemsPerPage;
+      let url = '/api/forum_forums?parent=' + this.idForum +
+          '&groups[]=forum:read' +
+          '&groups[]=forum:last-message&groups[]=message:read' +
+          '&groups[]=forum:user&groups[]=message:user&groups[]=user:read' +
+          '&itemsPerPage=' + this.itemsPerPage + '&page=' + this.page
+      if (this.isAuthenticated) {
+        url += '&groups[]=forum:forum-user-1&groups[]=forum-user:read';
+      }
       let date = new Date();
       date.setDate(date.getDate() - this.nbDay);
       if (this.isGameForum) {
         url = url + '&lastMessage.createdAt[after]=' + date.toISOString();
       }
       url = url + '&order[' + this.order.column + ']=' + this.order.direction;
-      // Filter
-      url = url + '&parent=' + this.idForum;
       return url;
     }
   },
