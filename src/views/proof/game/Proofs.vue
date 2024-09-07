@@ -15,10 +15,10 @@
         </div>
       </v-col>
       <v-col cols="12">
-        <button type="button" @click="toggle()">
+        <v-btn @click="toggle()">
           <span v-if="isOpened">{{ $t('player.proof.close') }}</span>
           <span v-else>{{ $t('player.proof.open') }}</span>
-        </button>
+        </v-btn>
       </v-col>
       <v-col cols="12">
         <player-proof-group v-for="group in groups" :key="group.id" v-bind:group="group" v-bind:idPlayer="getAuthenticatedPlayer.id"

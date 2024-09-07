@@ -1,18 +1,18 @@
 <template>
   <v-sheet>
-    <button v-if="isOpened === false" type="button"  @click="open" aria-expanded="false" :aria-controls="group.id">
+    <v-btn v-if="isOpened === false" @click="open" aria-expanded="false" :aria-controls="group.id">
       <svg width="16" height="16" viewBox="0 0 50 50" class="svg-sprite" aria-hidden="true" focusable="false">
         <use xlink:href="#arrow"/>
       </svg>
       {{ group.name }}
-    </button>
+    </v-btn>
 
-    <button v-else type="button"  @click="close" aria-expanded="true" :aria-controls="group.id">
+    <v-btn v-else type="button" @click="close" aria-expanded="true" :aria-controls="group.id">
       <svg width="16" height="16" viewBox="0 0 50 50" class="svg-sprite" aria-hidden="true" focusable="false">
         <use xlink:href="#arrow"/>
       </svg>
       {{ group.name }}
-    </button>
+    </v-btn>
 
     <v-sheet v-if="isOpened">
     <v-sheet v-if="playerCharts.length > 0" class="d-flex flex-wrap">
