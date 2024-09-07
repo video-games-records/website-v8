@@ -8,8 +8,14 @@
     </div>
 
     <div v-if="showProofForm">
-      <h3>{{ $t('proof.withPicture') }}</h3>
-      <picture-form v-bind:player-chart="getPlayerChart"></picture-form>
+      <template v-if="!isProofVideoOnly">
+        <h3>{{ $t('proof.withPicture') }}</h3>
+        <picture-form v-bind:player-chart="getPlayerChart"></picture-form>
+      </template>
+      <template v-else>
+        {{ $t('proof.onlyVideo') }}
+      </template>
+
 
       <h3>{{ $t('proof.withVideo') }}</h3>
       <video-form v-bind:player-chart="getPlayerChart"></video-form>
@@ -43,12 +49,21 @@ export default {
     getPlayerChart() {
       return useAppStore().getPlayerChart;
     },
+    getChart() {
+      return useAppStore().getChart;
+    },
     showProofForm() {
       return (
          this.getPlayerChart && (this.getPlayerChart.status.id === 1 || this.getPlayerChart.status.id === 3 || this.getPlayerChart.status.id === 7)
         && (this.getAuthenticatedPlayer['id'] === this.getPlayerChart.player.id)
       );
     },
+    isProofVideoOnly() {
+      return (
+          this.getChart && this.getChart.isProofVideoOnly === true
+      );
+    },
+
   },
 };
 </script>

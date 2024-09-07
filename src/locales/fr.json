@@ -659,6 +659,7 @@
     "success": "Preuve envoyée",
     "withPicture": "Prouver mon score par photo",
     "withVideo": "Prouver mon score par vidéo",
+    "onlyVideo": "The score peut seulement être prouvé par vidéo",
     "ask": "You can ask for a proof.",
     "stats": "Statistiques des preuves",
     "show": "Agrandir la preuve",

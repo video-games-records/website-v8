@@ -659,6 +659,7 @@
     "success": "Proof sent",
     "withPicture": "Proove my score with a picture",
     "withVideo": "Proove my score with a video",
+    "onlyVideo": "This score can only be prooved by video",
     "ask": "You can ask for a proof.",
     "stats": "Proofs statistics",
     "show": "Enlarge the proof",
