@@ -75,9 +75,9 @@ export default {
   created() {
     this.updateResource();
   },
-  updated() {
-    if (this.getForum.id !== this.$route.params.idForum) {
-      //this.updateResource();
+  watch: {
+    getForum () {
+      this.updateResource()
     }
   },
   methods: {
