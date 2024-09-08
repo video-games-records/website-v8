@@ -45,6 +45,7 @@ export default {
   data() {
     return {
       messages: [],
+      itemsPerPage: 20,
       message: {
         topic: null,
         message: "",
@@ -70,7 +71,7 @@ export default {
               this.$router.push({
                 name: this.getRouteTopicIndex,
                 params: {idTopic: this.topic.id, slugTopic: this.topic.slug},
-                query: {page: response.data.page},
+                query: {page: Math.trunc((this.topic.nbMessage) / this.itemsPerPage ) + 1},
                 hash: '#' + response.data.id
               });
           });
