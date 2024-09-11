@@ -32,7 +32,7 @@ export default {
   },
   created() {
     document.title = this.$t('page.donations.title') + ' - ' + import.meta.env.VITE_APP_TITLE;
-    this.axios.get('/api/donations-donors')
+    this.axios.get('/api/players?hasDonate=true')
       .then(response => {
         this.donors = response.data['hydra:member']
       })
