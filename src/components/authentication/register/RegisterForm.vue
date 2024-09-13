@@ -52,12 +52,8 @@ export default {
     submit() {
       if (!this.isValid) return;
       AuthService.register(this.email, this.username, this.password, this.rules_accepted)
-        .then((response) => {
-          if (response.data.success) {
-            useFlashMessageStore().confirm(response.data.message);
-          } else {
-            useFlashMessageStore().error(response.data.message);
-          }
+        .then(() => {
+          useFlashMessageStore().confirm('OK');
         })
     },
   },
