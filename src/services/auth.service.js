@@ -29,7 +29,7 @@ const AuthenticationService = {
     register: async function(email, username, password, rules_accepted) {
         const requestData = {
             method: 'post',
-            url: "/api/users/registration/register",
+            url: "/api/users",
             data: {
                 email : email,
                 username: username,
@@ -71,7 +71,7 @@ const AuthenticationService = {
             url: "/api/login_check",
             data: {
                 username : email,
-                password : password
+                plainPassword : password
             }
         }
 
