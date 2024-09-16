@@ -3,7 +3,7 @@
     <h1 class="h2">{{ getGroup.name }}</h1>
 
     <div v-if="hasRolePlayer && getGame.id" class="d-flex justify-center ma-3">
-      <v-btn >
+      <v-btn>
         <router-link :to="{ name: 'GroupSubmit', params: { idGroup: getGroup.id, slugGroup: getGroup.slug }}">
           {{ $t('group.updateScores') }}
         </router-link>
@@ -18,27 +18,27 @@
     <v-card-text class="pa-0 pt-2">
       <v-window v-model="tab[0]">
         <v-window-item value="charts">
-          <v-progress-linear v-if="isLoading" indeterminate color="yellow-darken-2"></v-progress-linear>
+          <v-progress-linear v-if="isLoading" indeterminate color="yellow-darken-2" />
           <v-table>
             <caption class="screen-reader-text">{{ $t('global.charts') }}</caption>
             <thead>
-            <tr>
-              <th scope="col">{{ $t('global.charts') }}</th>
-              <th scope="col">{{ $t('global.scores') }}</th>
-            </tr>
+              <tr>
+                <th scope="col">{{ $t('global.charts') }}</th>
+                <th scope="col">{{ $t('global.scores') }}</th>
+              </tr>
             </thead>
             <tbody>
-            <tr v-for="chart in charts" :data-position="chart.position" :key="chart.id">
-              <td>
-                <chart v-bind:chart="chart"></chart>
-              </td>
-              <td :data-header="$t('global.scores')">{{ number(chart.nbPost) }}</td>
-            </tr>
+              <tr v-for="chart in charts" :key="chart.id" :data-position="chart.position">
+                <td>
+                  <chart :chart="chart" />
+                </td>
+                <td :data-header="$t('global.scores')">{{ number(chart.nbPost) }}</td>
+              </tr>
             </tbody>
           </v-table>
         </v-window-item>
         <v-window-item value="top-score">
-          <top-score v-bind:charts=topScore></top-score>
+          <top-score :charts="topScore"></top-score>
         </v-window-item>
       </v-window>
     </v-card-text>
@@ -56,41 +56,41 @@
     <v-tabs v-model="tab[1]" bg-color="primary">
       <v-tab value="leaderboard-player-point-chart">
         <span v-if="this.$vuetify.display.mobile"><v-icon>mdi-alpha-p-box</v-icon> / Pts</span>
-        <span v-else>[{{ $t('global.player')}}] {{ $t('leaderboard.recordPoints.title') }}</span>
+        <span v-else>[{{ $t('global.player') }}] {{ $t('leaderboard.recordPoints.title') }}</span>
       </v-tab>
       <v-tab value="leaderboard-player-medal">
         <span v-if="this.$vuetify.display.mobile"><v-icon>mdi-alpha-p-box</v-icon> / <v-icon>mdi-medal</v-icon></span>
-        <span v-else>[{{ $t('global.player')}}] {{ $t('leaderboard.medal.title') }}</span>
+        <span v-else>[{{ $t('global.player') }}] {{ $t('leaderboard.medal.title') }}</span>
       </v-tab>
       <v-tab value="leaderboard-team-point-chart">
         <span v-if="this.$vuetify.display.mobile"><v-icon>mdi-alpha-t-box</v-icon> / Pts</span>
-        <span v-else>[{{ $t('global.team')}}] {{ $t('leaderboard.recordPoints.title') }}</span>
+        <span v-else>[{{ $t('global.team') }}] {{ $t('leaderboard.recordPoints.title') }}</span>
       </v-tab>
       <v-tab value="leaderboard-team-medal">
         <span v-if="this.$vuetify.display.mobile"><v-icon>mdi-alpha-t-box</v-icon> / <v-icon>mdi-medal</v-icon></span>
-        <span v-else>[{{ $t('global.team')}}] {{ $t('leaderboard.medal.title') }}</span>
+        <span v-else>[{{ $t('global.team') }}] {{ $t('leaderboard.medal.title') }}</span>
       </v-tab>
     </v-tabs>
 
     <v-card-text class="pa-0 pt-2">
       <v-window v-model="tab[1]">
         <v-window-item value="leaderboard-player-point-chart">
-          <leaderboard-player-point-chart v-bind:leaderboard=leaderboardPlayerPointChart></leaderboard-player-point-chart>
+          <leaderboard-player-point-chart :leaderboard="leaderboardPlayerPointChart" />
         </v-window-item>
         <v-window-item value="leaderboard-player-medal">
-          <leaderboard-player-medal v-bind:leaderboard=leaderboardPlayerMedal></leaderboard-player-medal>
+          <leaderboard-player-medal :leaderboard="leaderboardPlayerMedal" />
         </v-window-item>
         <v-window-item value="leaderboard-team-point-chart">
           <leaderboard-team-point-chart
-              v-bind:leaderboard=leaderboardTeamPointChart
-              :callback="'/api/groups/' + this.$route.params.idGroup + '/player-ranking-points?idTeam='">
-          </leaderboard-team-point-chart>
+            :leaderboard="leaderboardTeamPointChart"
+            :callback="'/api/groups/' + this.$route.params.idGroup + '/player-ranking-points?idTeam='"
+          />
         </v-window-item>
         <v-window-item value="leaderboard-team-medal">
           <leaderboard-team-medal
-              v-bind:leaderboard=leaderboardTeamMedal
-              :callback="'/api/groups/' + this.$route.params.idGroup + '/player-ranking-medals?idTeam='">
-          </leaderboard-team-medal>
+            :leaderboard="leaderboardTeamMedal"
+            :callback="'/api/groups/' + this.$route.params.idGroup + '/player-ranking-medals?idTeam='"
+          />
         </v-window-item>
       </v-window>
     </v-card-text>
@@ -107,14 +107,15 @@ import Chart from '@/components/vgr/chart/Chart.vue';
 import Security from "@/mixins/Security.vue";
 import {useAppStore} from "@/store/app";
 import Filters from "@/mixins/Filters.vue";
+import WatchLanguage from "@/mixins/WatchLanguage.vue";
 
 export default {
-  mixins: [Security, Filters],
   name: 'GroupIndex',
   components: {
     TopScore, LeaderboardPlayerPointChart, LeaderboardPlayerMedal,
     LeaderboardTeamPointChart, LeaderboardTeamMedal,Chart,
   },
+  mixins: [Security, Filters, WatchLanguage],
   data() {
     return {
       isLoading: false,

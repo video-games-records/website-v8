@@ -1,31 +1,31 @@
 <template>
   <div>
     <div v-if="isLoading" class="d-flex justify-center">
-      <v-progress-circular indeterminate color="yellow-darken-2"></v-progress-circular>
+      <v-progress-circular indeterminate color="yellow-darken-2" />
     </div>
     <div v-else class="d-flex">
-      <v-btn v-if="!isFirst" rounded="lg" icon="mdi-chevron-left" v-on:click="goToPrev()" />
+      <v-btn v-if="!isFirst" rounded="lg" icon="mdi-chevron-left" @click="goToPrev()" />
       <v-select
-          density="comfortable"
-          :label="$t('aside.switch.group')"
-          v-model="group"
-          :items="this.groups"
-          item-title="name"
-          @update:modelValue="onChange()"
-          return-object
-      >
-      </v-select>
-      <v-btn v-if="!isLast" rounded="lg" icon="mdi-chevron-right" v-on:click="goToNext()" />
+        v-model="group"
+        density="comfortable"
+        :label="$t('aside.switch.group')"
+        :items="this.groups"
+        item-title="name"
+        return-object
+        @update:mode-value="onChange()"
+      />
+      <v-btn v-if="!isLast" rounded="lg" icon="mdi-chevron-right" @click="goToNext()" />
     </div>
   </div>
 </template>
 
 <script>
 import {useAppStore} from "@/store/app";
+import WatchLanguage from "@/mixins/WatchLanguage.vue";
 
 export default {
   name: 'GroupSwitch',
-  components: {},
+  mixins: [WatchLanguage],
   data() {
     return {
       isLoading: true,
@@ -60,6 +60,9 @@ export default {
       return 'libGroupEn';
     },
   },
+  created() {
+    this.load();
+  },
   methods: {
     onChange () {
       this.$router.push({ name: 'GroupIndex', params: {idGroup : this.group.id, slugGroup: this.group.slug}});
@@ -81,9 +84,6 @@ export default {
             this.groups = response.data['hydra:member']
           })
     },
-  },
-  created() {
-    this.load();
   },
 };
 </script>
