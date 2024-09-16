@@ -9,8 +9,8 @@
 import WatchLanguage from "@/mixins/WatchLanguage.vue";
 
 export default {
+  name: 'PageHowItWorks',
   mixins: [WatchLanguage],
-  name: 'HowItWorks',
   data() {
     return {
       page: {},

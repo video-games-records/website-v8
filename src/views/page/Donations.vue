@@ -21,9 +21,9 @@ import User from '@/components/user/User.vue';
 import WatchLanguage from "@/mixins/WatchLanguage.vue";
 
 export default {
+  components: {User},
   mixins: [WatchLanguage],
   name: 'Donations',
-  components: {User},
   data() {
     return {
       page: {},

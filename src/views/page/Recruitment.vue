@@ -9,8 +9,8 @@
 import WatchLanguage from "@/mixins/WatchLanguage.vue";
 
 export default {
+  name: 'PageRecruitment',
   mixins: [WatchLanguage],
-  name: 'Recruitment',
   data() {
     return {
       page: {},

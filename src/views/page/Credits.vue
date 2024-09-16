@@ -10,7 +10,7 @@ import WatchLanguage from "@/mixins/WatchLanguage.vue";
 
 export default {
   mixins: [WatchLanguage],
-  name: 'Credits',
+  name: 'PageCredits',
   data() {
     return {
       page: {},
