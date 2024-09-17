@@ -2,67 +2,69 @@
   <div>
     <h1>{{ $t('search.advanced') }}</h1>
 
-    <v-form @submit.prevent @submit="search()">
-      <v-row>
-        <v-col cols="12" md="6" lg="4">
-          <game-select-multiple />
-        </v-col>
-        <v-col cols="12" md="6" lg="4">
-          <player-select-multiple />
-        </v-col>
-        <v-col cols="12" md="6" lg="4">
-          <platform-select-multiple />
-        </v-col>
-        <v-col cols="12" md="6" lg="4">
-          <v-text-field :label="$t('global.chart')" v-model="filter.libChart" />
-        </v-col>
-        <v-col cols="12" md="6" lg="4" class="d-flex">
-          <v-select
-              :label="$t('search.filter.rank')"
-              v-model="filter.rank.operator"
-              :items="this.items"
-              item-value="value"
-              item-title="title"
-          ></v-select>
-          <v-text-field :label="$t('search.filter.value')" v-model="filter.rank.value" />
-        </v-col>
-        <v-col cols="12" md="6" lg="4" class="d-flex">
-          <v-select
-              :label="$t('global.recordPoints')"
-              v-model="filter.pointChart.operator"
-              :items="this.items"
-              item-value="value"
-              item-title="title"
-          ></v-select>
-          <v-text-field :label="$t('search.filter.value')" v-model="filter.pointChart.value" />
-        </v-col>
-        <v-col cols="12" md="6" lg="4">
-          <v-select
-              :label="$t('search.filter.status')"
-              v-model="filter.statuses"
-              :items="this.statuses"
-              :multiple=true
-              item-value="id"
-              item-title="name"
-          >
-            <template #item="{ item, props }">
-              <v-list-item v-bind="props">
-                <template #title>
-                  <span>{{item.title}}</span>&nbsp;<span :class="item.raw.class" />
-                </template>
-              </v-list-item>
-            </template>
-          </v-select>
+    <v-card class="ma-3 pa-3">
+      <v-form @submit.prevent @submit="search()">
+        <v-row>
+          <v-col cols="12" md="6" lg="4">
+            <game-select-multiple />
+          </v-col>
+          <v-col cols="12" md="6" lg="4">
+            <player-select-multiple />
+          </v-col>
+          <v-col cols="12" md="6" lg="4">
+            <platform-select-multiple />
+          </v-col>
+          <v-col cols="12" md="6" lg="4">
+            <v-text-field :label="$t('global.chart')" v-model="filter.libChart" />
+          </v-col>
+          <v-col cols="12" md="6" lg="4" class="d-flex">
+            <v-select
+                :label="$t('search.filter.rank')"
+                v-model="filter.rank.operator"
+                :items="this.items"
+                item-value="value"
+                item-title="title"
+            ></v-select>
+            <v-text-field :label="$t('search.filter.value')" v-model="filter.rank.value" />
+          </v-col>
+          <v-col cols="12" md="6" lg="4" class="d-flex">
+            <v-select
+                :label="$t('global.recordPoints')"
+                v-model="filter.pointChart.operator"
+                :items="this.items"
+                item-value="value"
+                item-title="title"
+            ></v-select>
+            <v-text-field :label="$t('search.filter.value')" v-model="filter.pointChart.value" />
+          </v-col>
+          <v-col cols="12" md="6" lg="4">
+            <v-select
+                :label="$t('search.filter.status')"
+                v-model="filter.statuses"
+                :items="this.statuses"
+                :multiple=true
+                item-value="id"
+                item-title="name"
+            >
+              <template #item="{ item, props }">
+                <v-list-item v-bind="props">
+                  <template #title>
+                    <span>{{item.title}}</span>&nbsp;<span :class="item.raw.class" />
+                  </template>
+                </v-list-item>
+              </template>
+            </v-select>
 
-        </v-col>
-        <v-col cols="12" md="6" lg="4" >
-          <v-checkbox :label="$t('search.filter.platinum')" v-model="filter.platinum" />
-        </v-col>
-        <v-col cols="12" class="ma-2">
-          <v-btn :disabled="!this.isSearchable" type="submit" class="mt-2">{{ $t('search.submit') }}</v-btn>
-        </v-col>
-      </v-row>
-    </v-form>
+          </v-col>
+          <v-col cols="12" md="6" lg="4" >
+            <v-checkbox :label="$t('search.filter.platinum')" v-model="filter.platinum" />
+          </v-col>
+          <v-col cols="12" class="ma-2">
+            <v-btn :disabled="!this.isSearchable" type="submit" class="mt-2">{{ $t('search.submit') }}</v-btn>
+          </v-col>
+        </v-row>
+      </v-form>
+    </v-card>
 
     <v-sheet v-if="isLoading" class="d-flex justify-center">
       <v-progress-linear indeterminate color="yellow-darken-2"></v-progress-linear>
