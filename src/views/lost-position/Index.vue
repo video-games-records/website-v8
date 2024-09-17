@@ -4,74 +4,74 @@
 
 
     <v-select
-        density="comfortable"
-        :label="$t('game.filter')"
-        v-model="selected"
-        :items="this.games"
-        item-title="name"
-        item-value="id"
+      v-model="selected"
+      density="comfortable"
+      :label="$t('game.filter')"
+      :items="this.games"
+      item-title="name"
+      item-value="id"
     />
 
 
     <v-table>
       <caption class="d-sr-only">{{ $t('lostPosition.index.caption') }}</caption>
       <thead>
-      <tr>
-        <td></td>
-        <th scope="col">{{ $t('global.date') }}</th>
-        <th scope="col">{{ $t('global.chart') }}</th>
-        <th scope="col">{{ $t('lostPosition.change') }}</th>
-      </tr>
+        <tr>
+          <th />
+          <th scope="col">{{ $t('global.date') }}</th>
+          <th scope="col">{{ $t('global.chart') }}</th>
+          <th scope="col">{{ $t('lostPosition.change') }}</th>
+        </tr>
       </thead>
       <tbody>
-      <tr v-for="row in data" :data-position="row.position" :key="row.id">
-        <td>
-          <input v-model="toDelete" type="checkbox" :value="row.id">
-        </td>
-        <td>
-          <date v-bind:date="row.createdAt" v-bind:options="{ year: 'numeric', month: 'long', day: 'numeric' }"></date>
-        </td>
-        <td>
-          <chart v-bind:chart="row.chart"></chart>
-        </td>
-        <td>
-          <del>{{ row.oldRank }}</del> → {{ row.newRank }}
-        </td>
-      </tr>
+        <tr v-for="row in data" :data-position="row.position" :key="row.id">
+          <td>
+            <input v-model="toDelete" type="checkbox" :value="row.id">
+          </td>
+          <td>
+            <date :date="row.createdAt" :options="{ year: 'numeric', month: 'long', day: 'numeric' }" />
+          </td>
+          <td>
+            <chart :chart="row.chart"></chart>
+          </td>
+          <td>
+            <del>{{ row.oldRank }}</del> → {{ row.newRank }}
+          </td>
+        </tr>
       </tbody>
     </v-table>
 
     <div class="d-flex flex-wrap">
-      <v-btn class="ma-2" v-if="isSelectAll === false" @click="selectAll()">{{ $t('tag.selectAll') }}</v-btn>
-      <v-btn class="ma-2" v-else @click="unselectAll()">{{ $t('tag.unselectAll') }}</v-btn>
+      <v-btn v-if="isSelectAll === false" class="ma-2" @click="selectAll()">{{ $t('tag.selectAll') }}</v-btn>
+      <v-btn v-else class="ma-2" @click="unselectAll()">{{ $t('tag.unselectAll') }}</v-btn>
       <v-btn class="ma-2" @click="deleteRow()">{{ $t('tag.delete') }}</v-btn>
     </div>
 
-      <v-pagination
-          :density="this.$vuetify.display.mobile ? 'compact' : 'default'"
-          v-model="page"
-          :length="length"
-          total-visible=6
-          @update:modelValue="updateResource()" />
+    <v-pagination
+      v-model="page"
+      :density="this.$vuetify.display.mobile ? 'compact' : 'default'"
+      :length="length"
+      total-visible="6"
+      @update:model-value="updateResource()"
+    />
   </div>
 </template>
 
 <script>
-
-
 import Chart from '@/components/vgr/chart/Chart.vue';
 import Date from '@/components/tools/Date.vue';
 import Security from "@/mixins/Security.vue";
 import moment from "moment";
 import axios from "axios";
+import WatchLanguage from "@/mixins/WatchLanguage.vue";
 
 export default {
-  mixins: [Security],
   name: 'LostPositionIndex',
   components: {
     'chart': Chart,
     'date': Date,
   },
+  mixins: [Security, WatchLanguage],
   data() {
     return {
       page: 1,
@@ -102,18 +102,21 @@ export default {
       return 'libGameEn';
     },
   },
-  created() {
-    document.title = this.$t('lostPosition.index.title') + ' - ' + import.meta.env.VITE_APP_TITLE;
-    this.updateLastDisplay();
-    this.loadGames();
-    this.updateResource();
-  },
   watch : {
     getResourceUrl () {
       this.updateResource()
     }
   },
+  created() {
+    document.title = this.$t('lostPosition.index.title') + ' - ' + import.meta.env.VITE_APP_TITLE;
+    this.updateLastDisplay();
+    this.load();
+  },
   methods: {
+    load() {
+      this.loadGames();
+      this.updateResource();
+    },
     updateLastDisplay() {
       this.axios.put('/api/players/' + this.getAuthenticatedPlayer.id, {id: this.getAuthenticatedPlayer.id, 'lastDisplayLostPosition': moment().toISOString()})
     },
