@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <v-sheet>
     <div v-if="isLoading" class="d-flex justify-center">
       <v-progress-circular indeterminate color="yellow-darken-2" />
     </div>
@@ -16,7 +16,7 @@
       />
       <v-btn v-if="!isLast" rounded="lg" icon="mdi-chevron-right" @click="goToNext()" />
     </div>
-  </div>
+  </v-sheet>
 </template>
 
 <script>
