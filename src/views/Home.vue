@@ -1,7 +1,16 @@
 <template>
+  <!-- home -->
+
+
     <v-row>
       <v-col cols="12" class="d-flex justify-center">
         <stats />
+      </v-col>
+      <v-col cols="12" class="d-flex justify-center">
+        <Adsense
+            data-ad-client="1465216138455560"
+            data-ad-slot="9314775557">
+        </Adsense>
       </v-col>
       <v-col cols="12" md="6" lg="5">
         <game-last-updated-score />
