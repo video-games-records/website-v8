@@ -1,11 +1,11 @@
 <template>
   <div>
     <div v-if="hasError" class="alert--error" role="alert">
-      <p>{{ message }}</p>
+      <p>{{ $t('register.confirm.error') }}</p>
     </div>
 
-    <div v-else-if="hasSuccess" class="alert--sucess" role="alert">
-      <p>{{ message }}</p>
+    <div v-else-if="hasSuccess" class="alert--success" role="alert">
+      <p>{{ $t('register.confirm.success') }}</p>
     </div>
   </div>
 </template>
@@ -15,12 +15,9 @@ import AuthService from '@/services/auth.service'
 
 export default {
   name: 'RegisterConfirm',
-  props: [],
-  components: {},
   data() {
     return {
       success: null,
-      message: '',
     };
   },
   created() {

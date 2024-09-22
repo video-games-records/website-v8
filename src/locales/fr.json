@@ -13,6 +13,10 @@
     "register": {
       "title": "Inscription",
       "description": "Formulaire d'inscription",
+      "confirm": {
+        "success": "You can login now",
+        "error": "Invalid Token"
+      },
       "form": {
         "email": "E-mail",
         "username": "Pseudo",

@@ -13,6 +13,10 @@
     "register": {
       "title": "Registration",
       "description": "Register form",
+      "confirm": {
+        "success": "You can login now",
+        "error": "Invalid Token"
+      },
       "form": {
         "email": "E-mail",
         "username": "Username",
