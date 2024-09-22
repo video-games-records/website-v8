@@ -49,7 +49,7 @@ const AuthenticationService = {
     confirm: function(token) {
         const requestData = {
             method: 'post',
-            url: "/api/users/registration/confirm",
+            url: "/api/security/confirm-registration",
             data: {
                 token : token
             }
