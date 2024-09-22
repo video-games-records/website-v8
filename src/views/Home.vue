@@ -3,7 +3,7 @@
     <Adsense
         class="adsbygoogle"
         style="display:block"
-        data-ad-client="1465216138455560"
+        data-ad-client="ca-pub-1465216138455560"
         data-ad-slot="9314775557"
         data-ad-format="auto"
         data-full-width-responsive="true" />
