@@ -1,6 +1,8 @@
 <template>
   <v-card variant="outlined">
-    <v-card-title class="bg-primary">{{ $t('leaderboard.gamePoints.caption') }}</v-card-title>
+    <v-card-title class="bg-primary">
+      <router-link :to="{ name: 'LeaderboardPointGame' }">{{ $t('leaderboard.gamePoints.caption') }}</router-link>
+    </v-card-title>
     <v-progress-linear v-if="leaderboard.length === 0" indeterminate color="yellow-darken-2"></v-progress-linear>
     <v-table density="compact" class="leaderboard">
       <thead>

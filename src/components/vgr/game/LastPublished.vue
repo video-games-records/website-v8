@@ -1,6 +1,8 @@
 <template>
   <v-card variant="outlined">
-    <v-card-title class="bg-primary">{{ $t('game.last.title') }}</v-card-title>
+    <v-card-title class="bg-primary">
+      <router-link :to="{ name: 'GameLast' }">{{ $t('game.last.title') }}</router-link>
+    </v-card-title>
     <v-card-item>
       <v-progress-linear v-if="games.length === 0" indeterminate color="yellow-darken-2"></v-progress-linear>
       <v-row>
