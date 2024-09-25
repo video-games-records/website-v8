@@ -30,7 +30,7 @@
             <tbody>
               <tr v-for="chart in charts" :key="chart.id" :data-position="chart.position">
                 <td>
-                  <chart :chart="chart" />
+                  <chart :chart="chart" /> <v-icon v-if="chart.isProofVideoOnly">mdi-video-check</v-icon>
                 </td>
                 <td :data-header="$t('global.scores')">{{ number(chart.nbPost) }}</td>
               </tr>
