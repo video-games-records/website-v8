@@ -12,7 +12,7 @@
         :items="this.groups"
         item-title="name"
         return-object
-        @update:mode-value="onChange()"
+        @update:model-value="onChange()"
       />
       <v-btn v-if="!isLast" rounded="lg" icon="mdi-chevron-right" @click="goToNext()" />
     </div>
@@ -29,14 +29,10 @@ export default {
   data() {
     return {
       isLoading: true,
-      selectedIndex: 0,
       groups: [],
     };
   },
   computed: {
-    getGame() {
-      return useAppStore().getGame;
-    },
     group: {
       get: function () {
         return useAppStore().getGroup;
@@ -74,7 +70,7 @@ export default {
       this.goTo(this.groups[this.groups.map(g => g.id).indexOf(this.group.id) + 1]);
     },
     goTo(group) {
-      this.$router.push({name: "GroupIndex", params: {idGroup: group.id, slugGroup: group.slug}});
+      this.$router.push({name: 'GroupIndex', params: {idGroup: group.id, slugGroup: group.slug}});
     },
     load() {
       this.isLoading = true;
