@@ -34,9 +34,9 @@ export default {
   computed: {
     getUrl() {
       if (this.video.type.value === 'Youtube' ) {
-        return 'https://www.youtube.com/embed/' + this.video.videoId + '?rel=0'
+        return 'https://www.youtube.com/embed/' + this.video.externalId + '?rel=0'
       } else if (this.video.type.value === 'Twitch') {
-        return 'https://player.twitch.tv/?video=' + this.video.videoId + '&parent=' + import.meta.env.VITE_DOMAIN
+        return 'https://player.twitch.tv/?video=' + this.video.externalId + '&parent=' + import.meta.env.VITE_DOMAIN
       }
     },
   },
