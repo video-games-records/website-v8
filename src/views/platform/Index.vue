@@ -93,7 +93,7 @@ export default {
   },
   computed: {
     getCallBack() {
-      return '/api/games?pagination=false&status' + this.$GAME_STATUS_ACTIVE + '&platforms=' + this.$route.params.id;
+      return '/api/games?pagination=false&status=' + this.$GAME_STATUS_ACTIVE + '&platforms=' + this.$route.params.id;
     },
     getPlatform() {
       return useAppStore().getPlatform;
