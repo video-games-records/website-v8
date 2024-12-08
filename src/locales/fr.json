@@ -259,7 +259,7 @@
     }
   },
   "game": {
-    "forum": "Forum de jeu",
+    "forum": "Forum du jeu",
     "score": {
       "total": "Aucun record | Il existe {0} record possible dans ce jeu | Il existe {0} records possibles dans ce jeu"
     },
