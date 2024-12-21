@@ -1,6 +1,5 @@
 <template>
   <v-sheet>
-    <v-progress-linear v-if="topics.length === 0" indeterminate color="yellow-darken-2"></v-progress-linear>
     <v-table>
       <caption class="screen-reader-text">{{ $t('forum.topic.list.caption') }}</caption>
       <thead>

@@ -12,6 +12,7 @@
         <read-form class="ma-2" v-if="isAuthenticated" v-bind:id-forum="this.$route.params.idForum"></read-form>
       </div>
 
+      <v-progress-linear v-if="isLoading" indeterminate color="yellow-darken-2"></v-progress-linear>
       <topic-list v-bind:topics="topics"></topic-list>
 
       <v-pagination
@@ -66,6 +67,7 @@ export default {
   },
   data() {
     return {
+      isLoading: false,
       page: 1,
       length: 1,
       itemsPerPage: 20,
@@ -82,10 +84,12 @@ export default {
   },
   methods: {
     updateResource() {
+      this.isLoading = true
       this.axios.get(this.getResourceUrl)
           .then(response => {
             this.topics = response.data['hydra:member'];
             this.length = Math.trunc((response.data['hydra:totalItems'] - 1) / this.itemsPerPage ) + 1;
+            this.isLoading = false
           })
     },
   },
