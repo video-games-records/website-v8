@@ -17,21 +17,18 @@ export default {
     };
   },
   computed: {
-    getChart() {
-      return useAppStore().getChart;
-    },
     getPlayerChart() {
       return useAppStore().getPlayerChart;
+    },
+  },
+  watch: {
+    '$route.params.idPc' () {
+      this.load();
     },
   },
   created() {
     useBreadcrumbsStore().setLevel(4);
     this.load();
-  },
-  updated() {
-    if (this.$route.name === 'PlayerChartIndex') {
-      useBreadcrumbsStore().setLevel(4);
-    }
   },
   methods: {
     load() {

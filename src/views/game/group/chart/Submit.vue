@@ -14,6 +14,10 @@ import {useScoreSubmitStore} from "@/store/score/submit";
 export default {
   name: 'ChartSubmit',
   components: {playerChartList},
+  data() {
+    return {
+    };
+  },
   computed: {
     getGame() {
       return useAppStore().getGame;
@@ -24,17 +28,6 @@ export default {
     getResourceUrl() {
       return '/api/charts/' + this.$route.params.idChart + '/form-data';
     },
-  },
-  data() {
-    return {
-    };
-  },
-  updated() {
-    if (this.$route.name === 'ChartSubmit') {
-      if (this.getChart.id != this.$route.params.idChart) {
-        this.updateResource();
-      }
-    }
   },
   created() {
     useBreadcrumbsStore().setLevel(4);

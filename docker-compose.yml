@@ -1,7 +1,7 @@
 version: '3'
 services:
   web:
-    container_name: vgr-v8-vue-ui
+    container_name: vgr-vue-ui
     image: node:18-slim
     ports:
       - 8080:8080

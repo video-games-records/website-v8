@@ -219,20 +219,17 @@ export default {
       return useAppStore().getChart;
     },
   },
+  watch: {
+    '$route.params.idChart' () {
+      this.load();
+      useBreadcrumbsStore().setLevel(3);
+    },
+  },
   created() {
     this.load();
   },
-  updated() {
-    if (this.$route.name === 'ChartIndex') {
-      useBreadcrumbsStore().setLevel(3);
-      if (this.getChart.id !== undefined && this.getChart.id !== parseInt(this.$route.params.idChart)) {
-        this.load();
-      }
-    }
-  },
   methods: {
     load() {
-
       let id = this.$route.params.idChart;
       this.isLoading = true;
       this.axios.get('/api/charts/' + id + '/player-ranking')

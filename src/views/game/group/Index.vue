@@ -108,6 +108,7 @@ import Security from "@/mixins/Security.vue";
 import {useAppStore} from "@/store/app";
 import Filters from "@/mixins/Filters.vue";
 import WatchLanguage from "@/mixins/WatchLanguage.vue";
+import {useBreadcrumbsStore} from "@/store/base/breadcrumbs";
 
 export default {
   name: 'GroupIndex',
@@ -142,15 +143,14 @@ export default {
       return 'libChartEn';
     },
   },
+  watch: {
+    '$route.params.idGroup' () {
+      this.load();
+      useBreadcrumbsStore().setLevel(3);
+    },
+  },
   created() {
     this.load();
-  },
-  updated() {
-    if (this.$route.name  === 'GroupIndex') {
-      if (this.getGroup.id !== undefined && this.getGroup.id !== parseInt(this.$route.params.idGroup)) {
-        this.load();
-      }
-    }
   },
   methods: {
     load() {

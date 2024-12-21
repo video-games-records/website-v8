@@ -28,19 +28,11 @@ export default {
     },
   },
   created() {
-    useBreadcrumbsStore().setLevel(3);
     this.load();
-  },
-  updated() {
-    if (this.$route.name  === 'GameForumTopicIndex') {
-      useBreadcrumbsStore().setLevel(3);
-      if (this.getTopic.id !== this.$route.params.idForum) {
-        this.load();
-      }
-    }
   },
   methods: {
     load() {
+      useBreadcrumbsStore().setLevel(3);
       this.axios.get('/api/forum_topics/' + this.$route.params.idTopic)
           .then(response => {
             useAppStore().setTopic(response.data);

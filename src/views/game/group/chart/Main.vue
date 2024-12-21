@@ -29,7 +29,6 @@ export default {
     },
   },
   created() {
-    useBreadcrumbsStore().setLevel(3);
     this.load();
   },
   watch: {
@@ -39,6 +38,7 @@ export default {
   },
   methods: {
     load() {
+      useBreadcrumbsStore().setLevel(3);
       this.axios.get('/api/charts/' + this.$route.params.idChart)
           .then(response => {
             useAppStore().setChart(response.data);

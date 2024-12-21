@@ -52,17 +52,15 @@ export default {
       return useAppStore().getGame;
     },
   },
+  watch: {
+    '$route.params.idGame' () {
+      this.load();
+      useBreadcrumbsStore().setLevel(1);
+    },
+  },
   created() {
     useBreadcrumbsStore().setLevel(1);
     this.load();
-  },
-  updated() {
-    if (this.$route.name === 'GameIndex') {
-      useBreadcrumbsStore().setLevel(1);
-      if (this.getGame.id !== this.$route.params.idGame) {
-        this.load();
-      }
-    }
   },
   methods: {
     load() {

@@ -25,20 +25,17 @@ export default {
       return useAppStore().getGroup;
     },
   },
-  created() {
-    useBreadcrumbsStore().setLevel(2);
-    this.load();
+  watch: {
+    '$route.params.idGroup' () {
+      this.load();
+    },
   },
-  updated() {
-    if (this.$route.name  === 'GroupIndex') {
-      useBreadcrumbsStore().setLevel(2);
-      if (this.getGroup.id !== this.$route.params.idGroup) {
-        this.load();
-      }
-    }
+  created() {
+    this.load();
   },
   methods: {
     load() {
+      useBreadcrumbsStore().setLevel(2);
       this.axios.get('/api/groups/' + this.$route.params.idGroup)
           .then(response => {
             useAppStore().setGroup(response.data);
