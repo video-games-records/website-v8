@@ -506,7 +506,7 @@
   },
   "privateMessage": {
     "title": "Private messages",
-    "description": "Manage yout messages, inbox, outbox, write and send a message",
+    "description": "Manage your messages, inbox, outbox, write and send a message",
     "filter": "Filter messages by:",
     "allUsers": "All users",
     "delete": "Delete selection",

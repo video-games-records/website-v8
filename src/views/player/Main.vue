@@ -2,7 +2,9 @@
   <div>
     <h1>{{ player.pseudo }}</h1>
 
-    <player-profile-card class="ma-2" v-if="player.id" v-bind:player="player"/>
+    <player-profile-card v-if="player.id" class="ma-2" :player="player" />
+
+    <message-post v-if="isAuthenticated" :player="player" />
 
     <ul class="tabs">
       <li v-if="isRoute('Index')" class="tab__item tab__item--current"><span>{{ $t('player.profile.tabs.stats') }}</span></li>
@@ -30,19 +32,23 @@
       <li v-else class="tab__item"><router-link :to="{ name: 'PlayerMessages' }">{{ $t('player.profile.tabs.messages') }}</router-link></li>
     </ul>
 
-    <router-view></router-view>
+    <router-view/>
   </div>
 </template>
 
 <script>
 import PlayerProfileCard from "@/components/vgr/player/profile/Card";
+import MessagePost from "@/components/message/Post.vue";
+import Security from "@/mixins/Security.vue";
 
 
 export default {
   name: 'PlayerMain',
   components: {
+    MessagePost,
     PlayerProfileCard
   },
+  mixins: [Security],
   data() {
     return {
       player: {
@@ -51,14 +57,14 @@ export default {
       },
     };
   },
-  created() {
-    this.load();
-  },
   watch: {
     '$route.params.idPlayer'() {
       this.load();
       this.$forceUpdate();
     }
+  },
+  created() {
+    this.load();
   },
   methods: {
     isRoute(name) {
