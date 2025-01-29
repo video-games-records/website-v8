@@ -123,7 +123,7 @@ export default {
           });
 
       this.axios.get(
-          '/api/player_games?groups[]=player-game-read&groups[]=player-game:game&groups[]=game:read'
+          '/api/player_games?groups[]=player-game:read&groups[]=player-game:game&groups[]=game:read'
           + '&groups[]=game:platforms&groups[]=platform:read'
           + '&pagination=false&game.badge=' + badge.id + '&player=' + this.idPlayer)
           .then(response => {
