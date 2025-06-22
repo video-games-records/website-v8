@@ -115,7 +115,7 @@ export default {
       if (confirm(this.$t('proof.delete.confirm'))) {
         let proof = this.playerChart.proof;
         proof.status = 'CLOSED';
-        this.axios.put('/api/prooves/' + proof.id, proof)
+        this.axios.put('/api/proofs/' + proof.id, proof)
             .then(() => {
               this.reload();
             });
